@@ -1,171 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caro – Investigación Bíblica</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caro – Investigación Bíblica</title>
 
-  <style>
-    :root {
-      --bg-main: #eef1e6;
-      --card-bg: #ffffff;
+<style>
+:root{
+  --bg:#eef1e6;
+  --card:#ffffff;
+  --green:#6b7d4b;
+  --green-soft:#dfe6cf;
+  --text:#2f3a2b;
+  --text-soft:#5f6b55;
+}
 
-      --green-main: #6b7d4b;
-      --green-soft: #dfe6cf;
+*{box-sizing:border-box;margin:0;padding:0}
 
-      --text-main: #2f3a2b;
-      --text-soft: #5f6b55;
-    }
+body{
+  min-height:100vh;
+  font-family:"Segoe UI",system-ui,sans-serif;
+  background:linear-gradient(180deg,#f1f4ea,#e3ead6);
+  padding:24px;
+  color:var(--text);
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+.container{max-width:900px;margin:0 auto}
 
-    body {
-      min-height: 100vh;
-      font-family: "Segoe UI", system-ui, sans-serif;
-      background: linear-gradient(180deg, #f1f4ea, #e3ead6);
-      padding: 24px;
-      color: var(--text-main);
-    }
+.back{
+  display:inline-block;
+  margin-bottom:24px;
+  color:var(--green);
+  font-weight:700;
+  text-decoration:none;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+.card{
+  background:var(--card);
+  border-radius:26px;
+  padding:32px;
+  box-shadow:0 18px 36px rgba(0,0,0,.1);
+  margin-bottom:28px;
+}
 
-    .back-btn {
-      display: inline-block;
-      margin-bottom: 24px;
-      color: var(--green-main);
-      font-weight: 700;
-      text-decoration: none;
-    }
+h1{font-size:2.2rem;margin-bottom:8px}
+h2{color:var(--green);margin-bottom:14px}
+.subtitle{color:var(--text-soft);margin-bottom:18px}
 
-    .card {
-      background: var(--card-bg);
-      border-radius: 26px;
-      padding: 32px;
-      box-shadow: 0 18px 36px rgba(0,0,0,0.10);
-      margin-bottom: 28px;
-    }
+ul{padding-left:20px;line-height:1.6;color:var(--text-soft)}
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 8px;
-    }
+.highlight{
+  background:var(--green-soft);
+  padding:18px;
+  border-radius:18px;
+}
 
-    .subtitle {
-      color: var(--text-soft);
-      margin-bottom: 20px;
-      font-size: 1.05rem;
-    }
-
-    h2 {
-      color: var(--green-main);
-      margin-bottom: 14px;
-      font-size: 1.5rem;
-    }
-
-    ul {
-      padding-left: 20px;
-      color: var(--text-soft);
-      line-height: 1.6;
-    }
-
-    .highlight {
-      background: var(--green-soft);
-      padding: 18px;
-      border-radius: 18px;
-      font-size: 0.95rem;
-      color: #3b442f;
-      margin-top: 16px;
-    }
-
-    .rule {
-      background: #f3f6ec;
-      padding: 18px;
-      border-radius: 18px;
-      font-size: 0.95rem;
-      color: #4a553f;
-      margin-top: 20px;
-      border-left: 5px solid var(--green-main);
-    }
-
-    .inspiration {
-      background: linear-gradient(135deg, #ffffff, #f6f8f1);
-      border-left: 6px solid var(--green-main);
-      padding: 24px;
-      border-radius: 20px;
-      font-style: italic;
-      color: #3b442f;
-      font-size: 1.05rem;
-    }
-  </style>
+.inspiration{
+  border-left:6px solid var(--green);
+  padding:24px;
+  font-style:italic;
+  background:#f6f8f1;
+  border-radius:20px;
+}
+</style>
 </head>
+
 <body>
+<div class="container">
 
-  <div class="container">
+<a href="metodo-estudio.html" class="back">← Volver al método</a>
 
-    <!-- ENLACE CORREGIDO -->
-    <a href="metodo-estudio-v2.html" class="back-btn">← Volver al método</a>
+<div class="card">
+  <h1>Caro</h1>
+  <p class="subtitle">
+    Investigación bíblica · Línea de tiempo · Génesis – Éxodo
+  </p>
+</div>
 
-    <div class="card">
-      <h1>Caro</h1>
-      <p class="subtitle">
-        Investigación bíblica · Línea de tiempo · Génesis – Éxodo
-      </p>
-    </div>
+<div class="card">
+  <h2>Consigna</h2>
+  <p class="subtitle">
+    Armar una <strong>línea de tiempo</strong> desde Génesis hasta Éxodo.
+  </p>
+</div>
 
-    <div class="card">
-      <h2>Consigna</h2>
-      <p class="subtitle">
-        Armar una <strong>línea de tiempo</strong> desde el libro de Génesis hasta el libro de Éxodo.
-      </p>
-    </div>
+<div class="card">
+  <h2>Debe incluir</h2>
+  <ul>
+    <li>Personajes clave</li>
+    <li>Eventos importantes</li>
+    <li>Qué aprende el pueblo en cada etapa</li>
+  </ul>
+</div>
 
-    <div class="card">
-      <h2>La línea de tiempo debe incluir</h2>
-      <ul>
-        <li>Personajes clave en cada etapa</li>
-        <li>Eventos importantes del relato bíblico</li>
-        <li>Qué aprende el pueblo de Dios en cada momento</li>
-      </ul>
-    </div>
+<div class="card">
+  <h2>Cómo trabajar</h2>
+  <ul>
+    <li>Leé Génesis y Éxodo como una sola historia.</li>
+    <li>Dividí por etapas, no por capítulos.</li>
+    <li>Observá qué va formando Dios en su pueblo.</li>
+  </ul>
 
-    <div class="card">
-      <h2>¿Cómo trabajar esta investigación?</h2>
-      <ul>
-        <li>Leé Génesis y Éxodo como una sola historia continua.</li>
-        <li>Identificá <strong>etapas</strong>, no solo capítulos.</li>
-        <li>Ordená los eventos de forma cronológica.</li>
-        <li>En cada etapa preguntate: ¿qué está formando Dios en su pueblo?</li>
-      </ul>
-
-      <div class="highlight">
-        👉 No es una lista de datos.<br>
-        👉 Es una historia que avanza con propósito.
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Clave del estudio</h2>
-      <div class="rule">
-        🚫 No copiar esquemas de libros o Internet<br>
-        🚫 No repetir resúmenes aprendidos<br><br>
-        ✅ Leer el texto<br>
-        ✅ Pensar el proceso<br>
-        ✅ Ver la obra de Dios en el tiempo
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Para reflexionar</h2>
-      <div class="inspiration">
-        “Dios no improvisa con su pueblo:  
-        cada etapa prepara la siguiente.”
-      </div>
-    </div>
-
+  <div class="highlight">
+    👉 No es una lista de datos.  
+    👉 Es una historia con propósito.
   </div>
+</div>
 
+<div class="card">
+  <div class="inspiration">
+    “Dios no improvisa: cada etapa prepara la siguiente.”
+  </div>
+</div>
+
+</div>
 </body>
 </html>
