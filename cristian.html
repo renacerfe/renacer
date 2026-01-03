@@ -1,178 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cristian – Investigación Bíblica</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cristian – Investigación Bíblica</title>
 
-  <style>
-    :root {
-      --bg-main: #eef1e6;
-      --card-bg: #ffffff;
+<style>
+:root{
+  --bg:#eef1e6;
+  --card:#ffffff;
+  --green:#6b7d4b;
+  --green-soft:#dfe6cf;
+  --text:#2f3a2b;
+  --text-soft:#5f6b55;
+}
 
-      --green-main: #6b7d4b;
-      --green-soft: #dfe6cf;
+*{box-sizing:border-box;margin:0;padding:0}
 
-      --text-main: #2f3a2b;
-      --text-soft: #5f6b55;
-    }
+body{
+  min-height:100vh;
+  font-family:"Segoe UI",system-ui,sans-serif;
+  background:linear-gradient(180deg,#f1f4ea,#e3ead6);
+  padding:24px;
+  color:var(--text);
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+.container{max-width:900px;margin:0 auto}
 
-    body {
-      min-height: 100vh;
-      font-family: "Segoe UI", system-ui, sans-serif;
-      background: linear-gradient(180deg, #f1f4ea, #e3ead6);
-      padding: 24px;
-      color: var(--text-main);
-    }
+.back{
+  display:inline-block;
+  margin-bottom:24px;
+  color:var(--green);
+  font-weight:700;
+  text-decoration:none;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+.card{
+  background:var(--card);
+  border-radius:26px;
+  padding:32px;
+  box-shadow:0 18px 36px rgba(0,0,0,.1);
+  margin-bottom:28px;
+}
 
-    .back-btn {
-      display: inline-block;
-      margin-bottom: 24px;
-      color: var(--green-main);
-      font-weight: 700;
-      text-decoration: none;
-    }
+h1{font-size:2.2rem;margin-bottom:8px}
+h2{color:var(--green);margin-bottom:14px}
+.subtitle{color:var(--text-soft);margin-bottom:18px}
 
-    .card {
-      background: var(--card-bg);
-      border-radius: 26px;
-      padding: 32px;
-      box-shadow: 0 18px 36px rgba(0,0,0,0.10);
-      margin-bottom: 28px;
-    }
+ul{padding-left:20px;line-height:1.6;color:var(--text-soft)}
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 8px;
-    }
+.highlight{
+  background:var(--green-soft);
+  padding:18px;
+  border-radius:18px;
+  margin-top:16px;
+}
 
-    .subtitle {
-      color: var(--text-soft);
-      margin-bottom: 20px;
-      font-size: 1.05rem;
-    }
+.rule{
+  border-left:5px solid var(--green);
+  background:#f3f6ec;
+  padding:18px;
+  border-radius:18px;
+}
 
-    h2 {
-      color: var(--green-main);
-      margin-bottom: 14px;
-      font-size: 1.5rem;
-    }
-
-    ul {
-      padding-left: 20px;
-      color: var(--text-soft);
-      line-height: 1.6;
-    }
-
-    .highlight {
-      background: var(--green-soft);
-      padding: 18px;
-      border-radius: 18px;
-      font-size: 0.95rem;
-      color: #3b442f;
-      margin-top: 16px;
-    }
-
-    .rule {
-      background: #f3f6ec;
-      padding: 18px;
-      border-radius: 18px;
-      font-size: 0.95rem;
-      color: #4a553f;
-      margin-top: 20px;
-      border-left: 5px solid var(--green-main);
-    }
-
-    .inspiration {
-      background: linear-gradient(135deg, #ffffff, #f6f8f1);
-      border-left: 6px solid var(--green-main);
-      padding: 24px;
-      border-radius: 20px;
-      font-style: italic;
-      color: #3b442f;
-      font-size: 1.05rem;
-    }
-  </style>
+.inspiration{
+  border-left:6px solid var(--green);
+  padding:24px;
+  font-style:italic;
+  background:#f6f8f1;
+  border-radius:20px;
+}
+</style>
 </head>
+
 <body>
+<div class="container">
 
-  <div class="container">
+<a href="metodo-estudio.html" class="back">← Volver al método</a>
 
-    <a href="metodo-estudio.html" class="back-btn">← Volver al método</a>
+<div class="card">
+  <h1>Cristian</h1>
+  <p class="subtitle">Investigación bíblica · Un evento del Éxodo</p>
+</div>
 
-    <div class="card">
-      <h1>Cristian</h1>
-      <p class="subtitle">
-        Investigación bíblica · Un evento del libro de Éxodo
-      </p>
-    </div>
+<div class="card">
+  <h2>Consigna</h2>
+  <p class="subtitle">
+    Elegir <strong>un evento del libro de Éxodo</strong>  
+    (ej.: Mar Rojo, maná, plagas, agua de la roca).
+  </p>
+</div>
 
-    <div class="card">
-      <h2>Consigna</h2>
-      <p class="subtitle">
-        Elegir <strong>un evento del libro de Éxodo</strong>  
-        (por ejemplo: el Mar Rojo, el maná, las plagas, el agua de la roca).
-      </p>
-    </div>
+<div class="card">
+  <h2>¿Cómo trabajar esta investigación?</h2>
+  <ul>
+    <li>Elegí un solo evento.</li>
+    <li>Leé el pasaje completo varias veces.</li>
+    <li>Anotá solo lo que el texto dice.</li>
+  </ul>
 
-    <div class="card">
-      <h2>Primer paso: ¿Qué pasó?</h2>
-      <ul>
-        <li>¿Qué sucede exactamente en el relato?</li>
-        <li>¿Quiénes participan del evento?</li>
-        <li>¿Dónde y cuándo ocurre?</li>
-      </ul>
-
-      <div class="highlight">
-        👉 Contá el hecho tal como aparece en la Biblia,  
-        sin explicarlo todavía.
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Segundo paso: ¿Por qué pasó?</h2>
-      <ul>
-        <li>¿Qué situación llevó a que este evento ocurra?</li>
-        <li>¿El pueblo confía o duda antes del evento?</li>
-        <li>¿Dios responde a una necesidad, a una queja o a un plan?</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Tercer paso: ¿Qué enseña Dios?</h2>
-      <ul>
-        <li>¿Qué revela este evento sobre Dios?</li>
-        <li>¿Qué aprende el pueblo a través de lo que sucede?</li>
-        <li>¿Qué verdad se repite en otros pasajes bíblicos?</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Reglas importantes</h2>
-      <div class="rule">
-        🚫 No explicar con opiniones personales primero<br>
-        🚫 No usar frases conocidas sin texto bíblico<br><br>
-        ✅ Todo debe salir del relato elegido<br>
-        ✅ Dejar que el texto enseñe
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Para cerrar la investigación</h2>
-      <div class="inspiration">
-        “Cada evento en el Éxodo no es solo un milagro,
-        es una lección sobre quién es Dios y cómo guía a su pueblo.”
-      </div>
-    </div>
-
+  <div class="highlight">
+    👉 No expliques todavía.  
+    👉 Primero observá el relato.
   </div>
+</div>
 
+<div class="card">
+  <h2>Preguntas guía</h2>
+  <ul>
+    <li>¿Qué pasó exactamente?</li>
+    <li>¿Por qué ocurrió ese evento?</li>
+    <li>¿Qué enseña Dios a su pueblo?</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Regla clave</h2>
+  <div class="rule">
+    🚫 No usar frases aprendidas<br>
+    🚫 No opinar sin texto<br><br>
+    ✅ Todo debe salir del relato bíblico
+  </div>
+</div>
+
+<div class="card">
+  <div class="inspiration">
+    “Cada evento del Éxodo revela quién es Dios  
+    y cómo forma a su pueblo.”
+  </div>
+</div>
+
+</div>
 </body>
 </html>
