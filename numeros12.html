@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Números 12 – La Murmuración</title>
+
+  <style>
+    :root {
+      --bg-main: #eef6fb;
+      --card-bg: #ffffff;
+      --gold-main: #d4af37;
+      --gold-soft: #f6e6a8;
+      --text-main: #1f2933;
+      --text-soft: #4b5563;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(180deg, #eaf4fb, #cfe6f6);
+      padding: 24px;
+      color: var(--text-main);
+    }
+
+    .container { max-width: 900px; margin: 0 auto; }
+
+    /* HEADER */
+    .header { margin-bottom: 32px; }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 16px;
+      background: none;
+      border: none;
+      color: var(--gold-main);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .title-box {
+      background: linear-gradient(135deg, #ffffff, #f9fcff);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+    }
+
+    .title-box h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .title-box p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+
+    /* CONTENT */
+    .points {
+      display: grid;
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .point-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+      position: relative;
+    }
+
+    .point-number {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--gold-main);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .point-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .point-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+    .verse {
+      margin-top: 14px;
+      padding: 14px 18px;
+      background: var(--gold-soft);
+      border-radius: 16px;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #4a3b00;
+    }
+
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <!-- BOTÓN QUE SIEMPRE FUNCIONA -->
+      <button class="back" onclick="history.back()">← Volver</button>
+
+      <div class="title-box">
+        <h1>Números 12</h1>
+        <p>La murmuración, la autoridad y la gracia de Dios</p>
+      </div>
+    </header>
+
+    <section class="points">
+
+      <div class="point-card">
+        <div class="point-number">Punto 1</div>
+        <div class="point-title">El problema</div>
+        <div class="point-text">
+          María y Aarón hablaron contra Moisés. La excusa fue su esposa,
+          pero la raíz del conflicto fue la envidia y el cuestionamiento
+          de la autoridad que Dios había establecido.
+        </div>
+        <div class="verse">
+          “¿Solamente por Moisés ha hablado Jehová?”  
+          <strong>Números 12:2</strong>
+        </div>
+      </div>
+
+      <div class="point-card">
+        <div class="point-number">Punto 2</div>
+        <div class="point-title">La actitud de Dios</div>
+        <div class="point-text">
+          Dios llamó a los tres al tabernáculo y defendió a Moisés,
+          declarando que con él hablaba cara a cara, no por sueños
+          ni visiones.
+        </div>
+        <div class="verse">
+          “No así a mi siervo Moisés… cara a cara hablaré con él.”  
+          <strong>Números 12:7–8</strong>
+        </div>
+      </div>
+
+      <div class="point-card">
+        <div class="point-number">Punto 3</div>
+        <div class="point-title">La consecuencia</div>
+        <div class="point-text">
+          María fue herida con lepra. El pecado oculto se manifestó
+          externamente. La murmuración siempre trae consecuencias
+          espirituales.
+        </div>
+        <div class="verse">
+          “He aquí que María estaba leprosa como la nieve.”  
+          <strong>Números 12:10</strong>
+        </div>
+      </div>
+
+      <div class="point-card">
+        <div class="point-number">Punto 4</div>
+        <div class="point-title">La restauración</div>
+        <div class="point-text">
+          Moisés intercedió por María. Dios la sanó, pero permitió
+          un tiempo de disciplina. La gracia restaura, pero también
+          enseña.
+        </div>
+        <div class="verse">
+          “Sea echada fuera del campamento siete días.”  
+          <strong>Números 12:14–15</strong>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      Estudios Bíblicos – Jesús, el Árbol de la Vida
+    </footer>
+
+  </div>
+
+</body>
+</html>
