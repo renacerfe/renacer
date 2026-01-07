@@ -1,8 +1,9 @@
 {
   "name": "Estudios Bíblicos – Jesús el Árbol de la Vida",
-  "short_name": "Estudios Bíblicos",
+  "short_name": "Árbol de la Vida",
   "description": "Aplicación de estudios bíblicos cristianos",
-  "start_url": "index.html",
+  "start_url": "/renacer/index.html",
+  "scope": "/renacer/",
   "display": "standalone",
   "background_color": "#dff1fb",
   "theme_color": "#d4af37",
