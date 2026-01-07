@@ -1,0 +1,22 @@
+{
+  "name": "Estudios Bíblicos – Jesús el Árbol de la Vida",
+  "short_name": "Estudios Bíblicos",
+  "description": "Aplicación de estudios bíblicos cristianos",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#dff1fb",
+  "theme_color": "#d4af37",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
