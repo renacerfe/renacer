@@ -1,0 +1,314 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-gradient: radial-gradient(circle at center, #4facfe 0%, #00f2fe 100%);
+    --panel-bg: rgba(255, 255, 255, 0.95);
+    --text-color: #2c3e50;
+    --accent-color: #ff6b6b;
+    --board-bg: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Fondo vibrante pero suave */
+    color: var(--text-color);
+    font-family: 'Segoe UI', 'Verdana', sans-serif; /* Fuente limpia */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    display: flex;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.15); /* Efecto cristal */
+    backdrop-filter: blur(10px);
+    padding: 15px; /* Menos padding en móvil */
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    align-items: center;
+    width: 95vw;
+    height: 95vh; /* Ocupar casi toda la pantalla en móvil */
+    flex-direction: column; /* MÓVIL: Todo en columna vertical */
+    justify-content: center;
+}
+
+.game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    flex: 1; /* Que ocupe el espacio restante */
+    justify-content: center;
+}
+
+#board {
+    width: 90vw; /* MÓVIL: Ancho basado en la pantalla */
+    max-width: 50vh; /* Evitar que sea más alto que ancho en vertical */
+    aspect-ratio: 1; /* Mantener cuadrado perfecto */
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: block;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Estilos para la zona de piezas */
+.pieces-panel {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.piece-preview {
+    width: 22vw; /* MÓVIL: Tamaño relativo al ancho */
+    height: 22vw;
+    max-width: 80px; /* Tope para PC */
+    max-height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    cursor: grab;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.piece-preview:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+.piece-preview:active {
+    cursor: grabbing;
+}
+
+.info-panel {
+    display: flex;
+    flex-direction: row; /* MÓVIL: Horizontal arriba */
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.brand-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 0;
+    font-size: 1.4rem; /* Un poco más chico en móvil */
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.9;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 2px 8px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.stat-box {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin-bottom: 0;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-box h3 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-box div {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.controls-info {
+    display: none; /* Ocultar instrucciones en móvil para ahorrar espacio */
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.hidden { display: none; }
+
+.modal-content {
+    background: #fff;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    max-width: 300px;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.story-card {
+    background: #fff;
+    border: 4px solid #FF9F43; /* Borde naranja amigable */
+    max-width: 400px;
+}
+
+#story-text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #2c3e50;
+}
+
+/* --- SETUP & PERSONAJES --- */
+.setup-card {
+    max-width: 450px;
+    background: #fff;
+    border: 4px solid #4ECDC4;
+}
+
+#player-name-input {
+    width: 80%;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#player-name-input:focus {
+    border-color: #4ECDC4;
+}
+
+.char-grid {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.char-card {
+    background: #f8f9fa;
+    border: 2px solid #eee;
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+    width: 80px;
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.char-card:hover, .char-card.selected {
+    transform: scale(1.1);
+    border-color: #ff6b6b;
+    background: #fff0f0;
+}
+
+.char-icon { font-size: 2.5rem; display: block; margin-bottom: 5px; }
+.char-name { font-size: 0.8rem; font-weight: bold; color: #555; }
+
+/* --- COMPANION IN-GAME --- */
+.companion-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.2);
+    padding: 10px;
+    border-radius: 15px;
+    margin: 5px 0;
+    position: relative;
+}
+
+.companion-avatar {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    animation: float 3s ease-in-out infinite;
+}
+
+.companion-bubble {
+    background: #fff;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 15px;
+    border-bottom-left-radius: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 120px;
+    animation: popIn 0.3s;
+}
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+.modal-content h2 { color: #764ba2; margin-bottom: 10px; }
+.modal-content p { color: #555; margin-bottom: 20px; font-size: 1.1rem; }
+
+.btn-primary {
+    background: linear-gradient(to right, #ff6b6b, #ff8e53);
+    border: none; padding: 12px 24px; color: white;
+    font-size: 1.1rem; border-radius: 50px; cursor: pointer;
+    font-weight: bold; transition: transform 0.2s;
+}
+.btn-primary:hover { transform: scale(1.05); }
+
+@keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* --- DESKTOP / TABLET LANDSCAPE --- */
+@media (min-width: 850px) {
+    .game-container {
+        flex-direction: row; /* Volver a horizontal */
+        height: auto;
+        padding: 30px;
+        width: auto;
+        max-width: 95vw;
+    }
+
+    .info-panel {
+        flex-direction: column;
+        width: 160px;
+        height: 50vh;
+        justify-content: space-between;
+    }
+
+    .controls-info {
+        display: block; /* Mostrar instrucciones en PC */
+    }
+
+    #board {
+        width: auto;
+        height: 80vh; /* Altura completa en PC */
+        max-width: none;
+    }
+}
+}

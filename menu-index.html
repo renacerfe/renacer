@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú – Estudios Bíblicos</title>
+
+  <style>
+    :root {
+      --bg-main: #f2f8fc;
+      --bg-soft: #ffffff;
+      --gold-main: #d4af37;
+      --gold-soft: #f6e6a8;
+      --text-main: #1f2933;
+      --text-soft: #4b5563;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(180deg, #eaf4fb, #cfe6f6);
+      padding: 24px;
+    }
+
+    .menu-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 32px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold-main), var(--gold-soft));
+      color: #1f2933;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .menu-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .menu-header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .menu-header p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .menu-card {
+      background: linear-gradient(135deg, var(--bg-soft), #f9fcff);
+      border-radius: 28px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 48px rgba(0,0,0,0.18);
+    }
+
+    .menu-icon {
+      font-size: 3rem;
+      margin-bottom: 18px;
+    }
+
+    .menu-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .menu-sub {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold-main);
+      margin-bottom: 10px;
+    }
+
+    .menu-desc {
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .menu-footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu-wrapper">
+
+    <a href="index.html" class="back-btn">← Volver al inicio</a>
+
+    <header class="menu-header">
+      <h1>Menú Principal</h1>
+      <p>Selecciona el camino que deseas recorrer</p>
+    </header>
+
+    <section class="menu-grid">
+
+      <!-- CLASES -->
+      <div class="menu-card" onclick="location.href='numeros12.html'">
+        <div class="menu-icon">📘</div>
+        <div class="menu-title">Clases</div>
+        <div class="menu-sub">Números 12</div>
+        <div class="menu-desc">
+          Enseñanzas bíblicas claras, progresivas y
+          adaptadas a todos los niveles.
+        </div>
+      </div>
+
+      <!-- DOCTRINA -->
+      <div class="menu-card" onclick="location.href='doctrina.html'">
+        <div class="menu-icon">📖</div>
+        <div class="menu-title">Doctrina</div>
+        <div class="menu-sub">Las Cinco Solas</div>
+        <div class="menu-desc">
+          Fundamentos firmes basados en la
+          Reforma Protestante.
+        </div>
+      </div>
+
+      <!-- MÉTODO DE ESTUDIO -->
+      <div class="menu-card" onclick="location.href='metodo-estudio.html'">
+        <div class="menu-icon">📚</div>
+        <div class="menu-title">Método de Estudio</div>
+        <div class="menu-sub">Cómo estudiar la Biblia</div>
+        <div class="menu-desc">
+          Un método claro, bíblico y ordenado
+          para crecer en la Palabra de Dios.
+        </div>
+      </div>
+
+      <!-- JUEGOS -->
+      <div class="menu-card" onclick="location.href='menu-juegos.html'">
+        <div class="menu-icon">🎮</div>
+        <div class="menu-title">Juegos</div>
+        <div class="menu-sub">Zona Kids</div>
+        <div class="menu-desc">
+          Aprende y diviértete con juegos interactivos
+          diseñados para reforzar la enseñanza.
+        </div>
+      </div>
+
+      <!-- BIBLIA -->
+      <div class="menu-card" onclick="location.href='index_reina.html'">
+        <div class="menu-icon">✝️</div>
+        <div class="menu-title">Biblia</div>
+        <div class="menu-sub">Sagradas Escrituras</div>
+        <div class="menu-desc">
+          Accede al texto bíblico para leer
+          y meditar en la Palabra de Dios.
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="menu-footer">
+      Estudios Bíblicos – Jesús, el Árbol de la Vida
+    </footer>
+
+  </div>
+
+</body>
+</html>

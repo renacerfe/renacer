@@ -1,0 +1,25 @@
+# Sistema
+Thumbs.db
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+
+# Entornos
+.env
+
+# Nunca versionar sistema del usuario
+AppData/
+NTUSER.*
+Documents/
+Downloads/
+Music/
+Pictures/
+Videos/
+
+# Biblia original (repositorio externo, NO versionar)
+biblia/original/TextosBiblicos/

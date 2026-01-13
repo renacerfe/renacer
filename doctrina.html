@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctrina – Las Cinco Solas</title>
+
+  <style>
+    :root {
+      --bg-main: #eef6fb;
+      --card-bg: #ffffff;
+      --gold-main: #d4af37;
+      --gold-soft: #f6e6a8;
+      --text-main: #1f2933;
+      --text-soft: #4b5563;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(180deg, #eaf4fb, #cfe6f6);
+      padding: 24px;
+      color: var(--text-main);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .header {
+      margin-bottom: 32px;
+    }
+
+    .back {
+      background: none;
+      border: none;
+      color: var(--gold-main);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+
+    .title-box {
+      background: linear-gradient(135deg, #ffffff, #f9fcff);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+    }
+
+    .title-box h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .title-box p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+
+    /* SOLAS */
+    .solas {
+      display: grid;
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .sola-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+    }
+
+    .sola-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--gold-main);
+    }
+
+    .sola-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+    .verse {
+      margin-top: 14px;
+      padding: 14px 18px;
+      background: var(--gold-soft);
+      border-radius: 16px;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #4a3b00;
+    }
+
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <button class="back" onclick="history.back()">← Volver</button>
+
+      <div class="title-box">
+        <h1>Las Cinco Solas</h1>
+        <p>
+          Fundamentos centrales de la fe cristiana reformada,
+          basados únicamente en la Escritura.
+        </p>
+      </div>
+    </header>
+
+    <section class="solas">
+
+      <div class="sola-card">
+        <div class="sola-title">1. Sola Scriptura</div>
+        <div class="sola-text">
+          La Biblia es la única autoridad final e infalible para la fe
+          y la vida del creyente. Ninguna tradición, concilio o autoridad
+          humana está por encima de la Palabra de Dios.
+        </div>
+        <div class="verse">
+          “Toda la Escritura es inspirada por Dios.”  
+          <strong>2 Timoteo 3:16–17</strong>
+        </div>
+      </div>
+
+      <div class="sola-card">
+        <div class="sola-title">2. Sola Fide</div>
+        <div class="sola-text">
+          El hombre es justificado delante de Dios solamente por la fe,
+          no por obras, méritos o esfuerzos personales. La fe es el medio,
+          no la causa de la salvación.
+        </div>
+        <div class="verse">
+          “Justificados, pues, por la fe, tenemos paz para con Dios.”  
+          <strong>Romanos 5:1</strong>
+        </div>
+      </div>
+
+      <div class="sola-card">
+        <div class="sola-title">3. Sola Gratia</div>
+        <div class="sola-text">
+          La salvación es un regalo inmerecido de Dios. No es algo que el
+          hombre gana, sino algo que recibe por la gracia soberana del Señor.
+        </div>
+        <div class="verse">
+          “Porque por gracia sois salvos por medio de la fe.”  
+          <strong>Efesios 2:8–9</strong>
+        </div>
+      </div>
+
+      <div class="sola-card">
+        <div class="sola-title">4. Solus Christus</div>
+        <div class="sola-text">
+          Jesucristo es el único mediador entre Dios y los hombres.
+          No hay otros mediadores, intercesores ni caminos de salvación.
+        </div>
+        <div class="verse">
+          “Porque hay un solo Dios, y un solo mediador.”  
+          <strong>1 Timoteo 2:5</strong>
+        </div>
+      </div>
+
+      <div class="sola-card">
+        <div class="sola-title">5. Soli Deo Gloria</div>
+        <div class="sola-text">
+          Toda la vida del creyente, la salvación y la obra de Dios
+          existen para su gloria. Nada es para la exaltación del hombre.
+        </div>
+        <div class="verse">
+          “Porque de Él, y por Él, y para Él, son todas las cosas.”  
+          <strong>Romanos 11:36</strong>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      Estudios Bíblicos – Jesús, el Árbol de la Vida
+    </footer>
+
+  </div>
+
+</body>
+</html>

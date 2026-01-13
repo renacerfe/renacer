@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juegos – Zona Kids</title>
+
+  <style>
+    :root {
+      --bg-main: #f2f8fc;
+      --bg-soft: #ffffff;
+      --gold-main: #d4af37;
+      --gold-soft: #f6e6a8;
+      --text-main: #1f2933;
+      --text-soft: #4b5563;
+      --accent-game: #ff6b6b; /* Un color más vivo para juegos */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(180deg, #fff0f0, #ffe6e6); /* Fondo ligeramente diferente */
+      padding: 24px;
+    }
+
+    .menu-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 32px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold-main), var(--gold-soft));
+      color: #1f2933;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .menu-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .menu-header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .menu-header p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .menu-card {
+      background: linear-gradient(135deg, var(--bg-soft), #fff5f5);
+      border-radius: 28px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border-bottom: 4px solid var(--accent-game);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 48px rgba(0,0,0,0.18);
+    }
+
+    .menu-icon {
+      font-size: 3rem;
+      margin-bottom: 18px;
+    }
+
+    .menu-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .menu-sub {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent-game);
+      margin-bottom: 10px;
+    }
+
+    .menu-desc {
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .menu-footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu-wrapper">
+
+    <a href="menu-index.html" class="back-btn">← Volver al menú principal</a>
+
+    <header class="menu-header">
+      <h1>Zona de Juegos</h1>
+      <p>Selecciona un juego para comenzar la aventura</p>
+    </header>
+
+    <section class="menu-grid">
+
+      <!-- JUEGO 1: TETRIS -->
+      <div class="menu-card" onclick="location.href='index-juego1.html'">
+        <div class="menu-icon">🧩</div>
+        <div class="menu-title">Tetris Valentía</div>
+        <div class="menu-sub">Capítulo 1</div>
+        <div class="menu-desc">
+          Arma bloques, suma puntos y descubre mensajes
+          mientras juegas.
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="menu-footer">
+      Estudios Bíblicos – Jesús, el Árbol de la Vida
+    </footer>
+
+  </div>
+
+</body>
+</html>

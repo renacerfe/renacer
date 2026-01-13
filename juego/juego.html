@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juegos Bíblicos - Números 11</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #fff;
+    }
+    .container {
+      background: rgba(255,255,255,0.95);
+      color: #333;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 { color: #1e3c72; margin-bottom: 20px; }
+    .question { font-size: 18px; margin-bottom: 20px; }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .btn-true { background: #28a745; color: white; }
+    .btn-false { background: #dc3545; color: white; }
+    .btn-restart { background: #007BFF; color: white; }
+    .btn:hover { opacity: 0.85; }
+    .result { margin-top: 15px; font-weight: bold; }
+    .game-over { display: none; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="quizTitle">Juegos Bíblicos</h1>
+    <div id="quiz">
+      <div class="question" id="questionText"></div>
+      <button class="btn btn-true" onclick="checkAnswer(true)">Verdadero</button>
+      <button class="btn btn-false" onclick="checkAnswer(false)">Falso</button>
+      <div class="result" id="result"></div>
+    </div>
+    <div class="game-over" id="gameOver">
+      <h2>🌟 ¡Juego Terminado!</h2>
+      <p>✅ Correctas: <span id="correctCount"></span></p>
+      <p>❌ Incorrectas: <span id="incorrectCount"></span></p>
+      <p>Total: <span id="total"></span> preguntas</p>
+      <button class="btn btn-restart" onclick="restartQuiz()">🔄 Volver a jugar</button>
+    </div>
+  </div>
+
+  <script>
+    let questions = [];
+    let currentQuestion = 0;
+    let correctCount = 0;
+    let incorrectCount = 0;
+
+    async function loadQuestions() {
+      // Como el JSON está en la misma carpeta que juego.html
+      const response = await fetch("numeros11.json");
+      const data = await response.json();
+
+      // Mostrar título del cuestionario
+      document.getElementById("quizTitle").textContent = data.titulo;
+
+      // Guardar preguntas
+      questions = data.preguntas;
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      if (currentQuestion >= questions.length) {
+        endGame();
+        return;
+      }
+      document.getElementById("questionText").textContent =
+        questions[currentQuestion].numero + ". " + questions[currentQuestion].pregunta;
+      document.getElementById("result").textContent = "";
+    }
+
+    function checkAnswer(userAnswer) {
+      const correctAnswer = questions[currentQuestion].respuesta;
+      const resultDiv = document.getElementById("result");
+
+      if (userAnswer === correctAnswer) {
+        correctCount++;
+        resultDiv.textContent = "✅ Correcto";
+      } else {
+        incorrectCount++;
+        resultDiv.textContent = "❌ Incorrecto. La respuesta correcta es: " +
+          (correctAnswer ? "Verdadero" : "Falso");
+      }
+
+      setTimeout(() => {
+        currentQuestion++;
+        loadQuestion();
+      }, 1500);
+    }
+
+    function endGame() {
+      document.getElementById("quiz").style.display = "none";
+      document.getElementById("gameOver").style.display = "block";
+      document.getElementById("correctCount").textContent = correctCount;
+      document.getElementById("incorrectCount").textContent = incorrectCount;
+      document.getElementById("total").textContent = questions.length;
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      correctCount = 0;
+      incorrectCount = 0;
+      document.getElementById("quiz").style.display = "block";
+      document.getElementById("gameOver").style.display = "none";
+      loadQuestion();
+    }
+
+    window.onload = loadQuestions;
+  </script>
+</body>
+</html>

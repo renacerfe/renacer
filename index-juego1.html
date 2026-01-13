@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Educativo Base</title>
+    <link rel="stylesheet" href="juego-style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- Panel de Información -->
+        <div class="info-panel">
+            <div class="brand-title">
+                <span class="icon">✨</span> VALENTIA <span class="icon">✨</span>
+                <div class="subtitle">Zona KIDS</div>
+            </div>
+            
+            <div class="stat-box">
+                <h3>⭐ Puntos</h3>
+                <div id="score">0</div>
+            </div>
+
+            <div class="stat-box">
+                <h3>📜 Capítulo</h3>
+                <div id="level">1</div>
+            </div>
+
+            <!-- Área del Personaje Acompañante -->
+            <div id="companion-area" class="companion-box hidden">
+                <div class="companion-avatar" id="comp-avatar">🐑</div>
+                <div class="companion-bubble" id="comp-msg">¡Hola!</div>
+            </div>
+
+            <div class="controls-info">
+                <p>👆 <strong>Arrastra</strong> los bloques</p>
+                <p>🧩 <strong>Arma</strong> líneas completas</p>
+                <p>🎉 <strong>¡Diviértete!</strong></p>
+            </div>
+        </div>
+
+        <!-- El Lienzo del Juego -->
+        <div class="game-area">
+            <!-- 1. Tablero Limpio (Solo Grid) -->
+            <canvas id="board" width="320" height="320"></canvas>
+            
+            <!-- 2. Zona de Piezas (Separada) -->
+            <div class="pieces-panel">
+                <canvas id="piece-0" class="piece-preview" width="160" height="160"></canvas>
+                <canvas id="piece-1" class="piece-preview" width="160" height="160"></canvas>
+                <canvas id="piece-2" class="piece-preview" width="160" height="160"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Fin de Juego / Capítulo Completado -->
+    <div id="game-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">¡Buen trabajo! 🌟</h2>
+            <p id="modal-message">Has sumado muchos puntos.</p>
+            <button id="action-btn" class="btn-primary">Continuar 🔄</button>
+        </div>
+    </div>
+
+    <!-- Modal de Configuración Inicial (Nombre y Personaje) -->
+    <div id="setup-modal" class="modal">
+        <div class="modal-content setup-card">
+            <!-- Paso 1: Nombre -->
+            <div id="step-name">
+                <h2>¡Hola! 👋</h2>
+                <p>¿Cómo te llamas?</p>
+                <input type="text" id="player-name-input" placeholder="Escribe tu nombre aquí..." maxlength="12">
+                <button id="next-step-btn" class="btn-primary">Siguiente ➡️</button>
+            </div>
+
+            <!-- Paso 2: Personaje -->
+            <div id="step-char" class="hidden">
+                <h2>Elige tu compañero 🤝</h2>
+                <p>¿Quién te acompañará en esta aventura?</p>
+                <div class="char-grid" id="char-selection">
+                    <!-- Se llena con JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Historia (Inicio de Capítulo) -->
+    <div id="story-modal" class="modal hidden">
+        <div class="modal-content story-card">
+            <h2 id="story-title">Capítulo 1</h2>
+            <p id="story-text">Historia...</p>
+            <button id="start-chapter-btn" class="btn-primary">¡Vamos! 🚀</button>
+        </div>
+    </div>
+
+    <!-- Lógica del Juego -->
+    <script src="juego-game.js"></script>
+</body>
+</html>
