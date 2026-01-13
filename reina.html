@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Biblia Reina-Valera 1960</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* =====================
+   PALETA ESCRITORIO
+===================== */
+:root{
+  --bg: #e3d6c4;              /* madera intermedia */
+  --panel: #f6efe6;           /* pergamino */
+  --panel-dark: #e9dfd1;
+  --text: #2e1f14;            /* marrón tinta */
+  --header: #6b4b2a;          /* madera oscura */
+  --accent: #9c7a3c;          /* bronce */
+  --border: #c9b89e;
+  --shadow: rgba(0,0,0,.18);
+  --size: 16px;
+}
+
+/* MODO NOCHE */
+body.dark{
+  --bg:#1e1812;
+  --panel:#2a221a;
+  --panel-dark:#241d16;
+  --text:#f2e8dc;
+  --header:#000;
+  --border:#3b2f22;
+  --shadow: rgba(0,0,0,.6);
+}
+
+/* =====================
+   BASE
+===================== */
+body{
+  margin:0;
+  font-family: "Georgia", "Times New Roman", serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: var(--size);
+  transition: background .4s, color .4s;
+}
+
+header{
+  background: linear-gradient(180deg,#7a5632,#5c4024);
+  color:#fff;
+  padding:14px;
+  text-align:center;
+  font-size:20px;
+  letter-spacing:.5px;
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+/* =====================
+   TOOLBAR
+===================== */
+#toolbar{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  padding:10px;
+  background: var(--panel-dark);
+  border-bottom:1px solid var(--border);
+}
+
+#toolbar button{
+  font-family: Arial, sans-serif;
+  padding:8px 14px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background: linear-gradient(180deg,#fff,var(--panel));
+  color:var(--text);
+  box-shadow: 0 4px 0 #bda37a;
+  cursor:pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+
+#toolbar button:active{
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #bda37a;
+}
+
+/* =====================
+   LAYOUT
+===================== */
+#contenedor{
+  display:flex;
+  height: calc(100vh - 120px);
+}
+
+#libros{
+  width:35%;
+  background: var(--panel);
+  border-right:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  box-shadow: inset -4px 0 8px rgba(0,0,0,.08);
+}
+
+#buscador,
+#buscadorTexto{
+  margin:10px;
+  padding:8px;
+  border-radius:6px;
+  border:1px solid var(--border);
+  font-size:14px;
+  background:#fff;
+}
+
+/* =====================
+   LISTA LIBROS
+===================== */
+#lista-libros{
+  flex:1;
+  overflow-y:auto;
+}
+
+#lista-libros div{
+  padding:12px;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+  transition: background .25s, padding-left .25s;
+}
+
+#lista-libros div:hover{
+  background: var(--panel-dark);
+  padding-left:18px;
+}
+
+/* =====================
+   CONTENIDO
+===================== */
+#contenido{
+  width:65%;
+  padding:20px;
+  overflow-y:auto;
+  animation: fadeIn .4s ease;
+}
+
+h2{
+  border-bottom:2px solid var(--accent);
+  padding-bottom:6px;
+}
+
+.versiculo{
+  margin-bottom:10px;
+  line-height:1.7;
+  animation: slideUp .3s ease;
+}
+
+.num{
+  color:var(--accent);
+  font-size:13px;
+  margin-right:6px;
+}
+
+/* =====================
+   BOTONES CAPÍTULOS
+===================== */
+#capitulos button,
+#contenido button{
+  margin:5px;
+  padding:8px 14px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background: linear-gradient(180deg,#fff,var(--panel));
+  color:var(--text);
+  box-shadow: 0 4px 0 #bda37a;
+  cursor:pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+
+#capitulos button:active,
+#contenido button:active{
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #bda37a;
+}
+
+/* =====================
+   RESULTADOS BÚSQUEDA
+===================== */
+.resultado{
+  padding:10px;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+  transition: background .25s;
+}
+
+.resultado:hover{
+  background: var(--panel-dark);
+}
+
+/* =====================
+   ANIMACIONES
+===================== */
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes slideUp{
+  from{opacity:0; transform:translateY(8px)}
+  to{opacity:1; transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<header>Biblia Reina-Valera 1960</header>
+
+<div id="toolbar">
+  <button onclick="toggleTema()">🌙 / ☀️</button>
+  <button onclick="cambiarFuente(1)">A+</button>
+  <button onclick="cambiarFuente(-1)">A-</button>
+</div>
+
+<div id="contenedor">
+  <div id="libros">
+    <input id="buscador" placeholder="🔍 Buscar libro…">
+    <input id="buscadorTexto" placeholder="🔎 Buscar palabra o versículo…">
+    <div id="lista-libros"></div>
+  </div>
+
+  <div id="contenido">
+    <p>📖 Seleccioná un libro o buscá una palabra</p>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+const libros=[
+"Génesis","Éxodo","Levítico","Números","Deuteronomio","Josué","Jueces","Rut",
+"1 Samuel","2 Samuel","1 Reyes","2 Reyes","1 Crónicas","2 Crónicas","Esdras",
+"Nehemías","Ester","Job","Salmos","Proverbios","Eclesiastés","Cantares",
+"Isaías","Jeremías","Lamentaciones","Ezequiel","Daniel","Oseas","Joel","Amós",
+"Abdías","Jonás","Miqueas","Nahúm","Habacuc","Sofonías","Hageo","Zacarías",
+"Malaquías","Mateo","Marcos","Lucas","Juan","Hechos","Romanos",
+"1 Corintios","2 Corintios","Gálatas","Efesios","Filipenses","Colosenses",
+"1 Tesalonicenses","2 Tesalonicenses","1 Timoteo","2 Timoteo","Tito",
+"Filemón","Hebreos","Santiago","1 Pedro","2 Pedro","1 Juan","2 Juan",
+"3 Juan","Judas","Apocalipsis"
+];
+
+const lista=document.getElementById("lista-libros");
+const buscador=document.getElementById("buscador");
+const buscadorTexto=document.getElementById("buscadorTexto");
+const contenido=document.getElementById("contenido");
+
+let datosLibro=null;
+
+function renderLibros(f=""){
+ lista.innerHTML="";
+ libros.filter(l=>l.toLowerCase().includes(f.toLowerCase()))
+ .forEach(lib=>{
+   const d=document.createElement("div");
+   d.textContent=lib;
+   d.onclick=()=>cargarLibro(lib);
+   lista.appendChild(d);
+ });
+}
+
+function cargarLibro(lib){
+ contenido.innerHTML="Cargando…";
+ fetch(`${lib}.json`).then(r=>r.json()).then(d=>{
+   datosLibro=d;mostrarCapitulos();
+ });
+}
+
+function mostrarCapitulos(){
+ let h=`<h2>${datosLibro.book}</h2><div id="capitulos">`;
+ Object.keys(datosLibro.chapters).forEach(c=>{
+   h+=`<button onclick="mostrarCapitulo('${c}')">${c}</button>`;
+ });
+ contenido.innerHTML=h+"</div>";
+}
+
+window.mostrarCapitulo=function(cap){
+ let h=`<h2>${datosLibro.book} ${cap}</h2>`;
+ for(const v in datosLibro.chapters[cap]){
+   h+=`<div class="versiculo"><span class="num">${cap}:${v}</span>${datosLibro.chapters[cap][v]}</div>`;
+ }
+ h+=`<button onclick="mostrarCapitulos()">⬅ Volver</button>`;
+ contenido.innerHTML=h;
+};
+
+buscadorTexto.addEventListener("change",()=>{
+ const q=buscadorTexto.value.toLowerCase();
+ if(!q)return;
+ contenido.innerHTML="<h2>Resultados</h2>";
+ libros.forEach(lib=>{
+  fetch(`${lib}.json`).then(r=>r.json()).then(d=>{
+   Object.entries(d.chapters).forEach(([c,vs])=>{
+    Object.entries(vs).forEach(([v,t])=>{
+     if(t.toLowerCase().includes(q)){
+      contenido.innerHTML+=
+      `<div class="resultado" onclick="abrir('${lib}','${c}')">
+       <strong>${lib} ${c}:${v}</strong> – ${t}
+       </div>`;
+     }
+    });
+   });
+  });
+ });
+});
+
+window.abrir=function(lib,cap){
+ cargarLibro(lib);
+ setTimeout(()=>mostrarCapitulo(cap),600);
+};
+
+renderLibros();
+buscador.addEventListener("input",e=>renderLibros(e.target.value));
+
+if(localStorage.tema==="dark")document.body.classList.add("dark");
+if(localStorage.font)document.documentElement.style.setProperty("--size",localStorage.font+"px");
+
+});
+</script>
+
+<script>
+function toggleTema(){
+ document.body.classList.toggle("dark");
+ localStorage.tema=document.body.classList.contains("dark")?"dark":"light";
+}
+function cambiarFuente(n){
+ let s=parseInt(getComputedStyle(document.documentElement).getPropertyValue("--size"));
+ s+=n;
+ document.documentElement.style.setProperty("--size",s+"px");
+ localStorage.font=s;
+}
+</script>
+
+</body>
+</html>
