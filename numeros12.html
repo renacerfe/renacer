@@ -109,6 +109,30 @@
       font-size: 0.9rem;
       color: var(--text-soft);
     }
+
+    /* Estilos para el zoom */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      object-fit: contain;
+    }
   </style>
 </head>
 <body>
@@ -124,6 +148,11 @@
         <p>La murmuración, la autoridad y la gracia de Dios</p>
       </div>
     </header>
+
+    <!-- IMAGEN DEL TEMA -->
+    <div style="text-align: center; margin-bottom: 36px;">
+      <img src="numeros 12.svg" alt="Números 12" style="max-width: 100%; height: auto; border-radius: 24px; box-shadow: 0 14px 30px rgba(0,0,0,0.12); cursor: zoom-in;" onclick="toggleZoom(this.src)">
+    </div>
 
     <section class="points">
 
@@ -190,6 +219,25 @@
     </footer>
 
   </div>
+
+<!-- VISOR DE ZOOM (MODAL) -->
+<div id="zoomModal" class="modal-overlay" onclick="toggleZoom()">
+  <img id="modalImg" class="modal-img" src="">
+</div>
+
+<script>
+  function toggleZoom(src) {
+    const modal = document.getElementById('zoomModal');
+    const modalImg = document.getElementById('modalImg');
+    
+    if (!modal.classList.contains('active') && src) {
+      modalImg.src = src;
+      modal.classList.add('active');
+    } else {
+      modal.classList.remove('active');
+    }
+  }
+</script>
 
 </body>
 </html>

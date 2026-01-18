@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases Bíblicas</title>
+    <style>
+        :root {
+            --bg-color: #eef6fb;       /* Celeste muy claro */
+            --card-bg: #ffffff;        /* Blanco */
+            --text-primary: #1f2933;   /* Azul oscuro/Gris */
+            --text-secondary: #4b5563; /* Gris suave */
+            --accent-color: #d4af37;   /* Dorado suave */
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* ENCABEZADO */
+        header {
+            text-align: center;
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            letter-spacing: -0.025em;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* GRILLA DE TARJETAS */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 40px;
+        }
+
+        /* TARJETA / BOTÓN */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px;
+            text-decoration: none; /* Quitar subrayado del enlace */
+            color: inherit;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-color); /* Borde dorado al pasar el mouse */
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* BOTÓN VOLVER */
+        .back-link {
+            margin-top: auto;
+            padding: 12px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 99px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .back-link:hover {
+            background-color: rgba(0,0,0,0.05);
+            color: var(--text-primary);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .grid-container { grid-template-columns: 1fr; }
+            .card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Clases Bíblicas</h1>
+        <p class="subtitle">Selecciona una clase para comenzar tu estudio</p>
+    </header>
+
+    <main class="grid-container">
+        <!-- Tarjeta: Números 12 -->
+        <!-- Enlace directo sin JavaScript -->
+        <a href="numeros12.html" class="card">
+            <span class="card-title">Números 12</span>
+            <span class="card-subtitle">Clase bíblica</span>
+        </a>
+    </main>
+
+    <!-- Enlace para regresar al menú principal -->
+    <a href="menu-index.html" class="back-link">← Volver al menú principal</a>
+
+</body>
+</html>
