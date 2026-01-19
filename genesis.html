@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="es" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Libro del Génesis - Estudio Académico</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Source+Sans+3:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    .font-serif-elegant {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    
+    .font-body {
+      font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+    }
+    
+    .section-card {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #8B7355, #6B5344);
+    }
+    
+    .question-item {
+      position: relative;
+      padding-left: 1.75rem;
+    }
+    
+    .question-item::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: #8B7355;
+      font-size: 0.75rem;
+      top: 0.25rem;
+    }
+    
+    .decorative-line {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #8B7355, transparent);
+    }
+    
+    .toc-link {
+      transition: all 0.2s ease;
+    }
+    
+    .toc-link:hover {
+      color: #6B5344;
+      padding-left: 0.5rem;
+    }
+    
+    .scroll-margin {
+      scroll-margin-top: 2rem;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body bg-stone-50 text-stone-800">
+  <div id="app-wrapper" class="h-full w-full overflow-auto"><!-- Header -->
+   <header class="bg-gradient-to-b from-stone-900 via-stone-800 to-stone-900 text-stone-100 py-16 md:py-24 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+     <svg class="w-full h-full" viewbox="0 0 100 100" preserveaspectratio="none"><pattern id="pattern" x="0" y="0" width="20" height="20" patternunits="userSpaceOnUse">
+       <circle cx="1" cy="1" r="0.5" fill="currentColor" />
+      </pattern> <rect width="100" height="100" fill="url(#pattern)" />
+     </svg>
+    </div>
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+     <div class="mb-6">
+      <img src="../@Renacer/logo.svg" alt="Logo Renacer" class="w-16 h-16 mx-auto opacity-80">
+     </div>
+     <p class="text-amber-500 uppercase tracking-[0.3em] text-sm mb-4 font-medium">Estudios Bíblicos</p>
+     <h1 id="main-title" class="font-serif-elegant text-4xl md:text-6xl font-semibold mb-4 animate-fade-in">El Libro del Génesis</h1>
+     <div class="decorative-line w-24 mx-auto my-6"></div>
+     <p id="main-subtitle" class="text-stone-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed animate-fade-in animate-delay-1">Un estudio académico sobre los orígenes, autoría y significado del primer libro de las Sagradas Escrituras</p>
+    </div>
+   </header>
+   <main class="max-w-4xl mx-auto px-6 py-12"><!-- Table of Contents -->
+    <nav class="bg-white rounded-lg shadow-sm border border-stone-200 p-6 mb-12 animate-fade-in animate-delay-2">
+     <h2 class="font-serif-elegant text-xl font-semibold text-stone-700 mb-4 flex items-center gap-2">
+      <svg class="w-5 h-5 text-amber-700" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+      </svg> Índice de Contenidos</h2>
+     <ol class="grid md:grid-cols-2 gap-2 text-stone-600">
+      <li><a href="#introduccion" class="toc-link block py-1">1. Introducción General</a></li>
+      <li><a href="#autoria" class="toc-link block py-1">2. Autoría y Creación</a></li>
+      <li><a href="#destinatarios" class="toc-link block py-1">3. Destinatarios y Transmisión</a></li>
+      <li><a href="#idioma" class="toc-link block py-1">4. Idioma y Fecha de Composición</a></li>
+      <li><a href="#preguntas" class="toc-link block py-1">5. Preguntas Académicas</a></li>
+      <li><a href="#conclusion" class="toc-link block py-1">6. Conclusión</a></li>
+     </ol>
+    </nav><!-- Section 1: Introduction -->
+    <section id="introduccion" class="scroll-margin mb-12 animate-fade-in animate-delay-3">
+     <div class="section-card bg-white rounded-lg shadow-sm border border-stone-200 p-8">
+      <div class="flex items-center gap-3 mb-6"><span class="w-10 h-10 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center font-serif-elegant font-bold text-lg">1</span>
+       <h2 class="font-serif-elegant text-2xl md:text-3xl font-semibold text-stone-800">Introducción General</h2>
+      </div>
+      <div class="space-y-5 text-stone-700 leading-relaxed">
+       <div class="bg-stone-50 border-l-4 border-amber-600 p-4 italic text-stone-600">
+        <p class="font-serif-elegant text-lg">«En el principio creó Dios los cielos y la tierra.»</p>
+        <p class="text-sm mt-2 not-italic">— Génesis 1:1 (RVR1960)</p>
+       </div>
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mt-6">El Génesis en el Canon Bíblico</h3>
+       <p>El <strong>Génesis</strong> (del griego <em>Γένεσις</em>, «origen» o «nacimiento») constituye el primer libro del <strong>Pentateuco</strong> —también conocido como la <strong>Torá</strong> en la tradición judía— y ocupa el lugar inaugural tanto en el canon hebreo como en el cristiano. En hebreo, el libro recibe el nombre de <strong>בְּרֵאשִׁית</strong> (<em>Bereshit</em>), que significa «En el principio», tomado de su primera palabra.</p>
+       <p>Este libro abarca desde la creación del cosmos hasta la muerte de José en Egipto, cubriendo un período narrativo que la tradición sitúa en varios milenios. Se estructura tradicionalmente en dos grandes secciones: la <strong>historia primigenia</strong> (capítulos 1-11), que incluye la creación, el diluvio y la torre de Babel; y la <strong>historia patriarcal</strong> (capítulos 12-50), centrada en Abraham, Isaac, Jacob y José.</p>
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mt-6">Importancia en la Tradición Judeocristiana</h3>
+       <p>La relevancia del Génesis trasciende lo meramente histórico o literario. Para el <strong>judaísmo</strong>, establece los fundamentos de la alianza entre Dios y el pueblo de Israel, narrando las promesas divinas a los patriarcas que configuran la identidad nacional y religiosa judía. La <em>berit</em> (alianza) con Abraham (Génesis 15, 17) constituye el cimiento teológico de la elección de Israel.</p>
+       <p>Para el <strong>cristianismo</strong>, el Génesis proporciona el marco teológico para comprender conceptos fundamentales como la creación <em>ex nihilo</em>, la dignidad humana como <em>imago Dei</em>, el origen del pecado y la necesidad de redención. La tradición cristiana ha leído el Génesis en clave tipológica, viendo en figuras como Adán, Noé y Abraham prefiguraciones de Cristo y su obra salvífica.</p>
+       <div class="bg-amber-50 rounded-lg p-5 mt-6">
+        <h4 class="font-semibold text-amber-900 mb-2">Datos Esenciales</h4>
+        <ul class="grid md:grid-cols-2 gap-2 text-sm text-amber-800">
+         <li>• <strong>50 capítulos</strong>, 1.533 versículos</li>
+         <li>• Período narrativo: Creación hasta ~1800 a.C.</li>
+         <li>• Nombre hebreo: בְּרֵאשִׁית (Bereshit)</li>
+         <li>• Parte del Pentateuco/Torá</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </section><!-- Section 2: Authorship -->
+    <section id="autoria" class="scroll-margin mb-12">
+     <div class="section-card bg-white rounded-lg shadow-sm border border-stone-200 p-8">
+      <div class="flex items-center gap-3 mb-6"><span class="w-10 h-10 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center font-serif-elegant font-bold text-lg">2</span>
+       <h2 class="font-serif-elegant text-2xl md:text-3xl font-semibold text-stone-800">Autoría y Creación</h2>
+      </div>
+      <div class="space-y-5 text-stone-700 leading-relaxed">
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-800">La Tradición Mosaica</h3>
+       <p>Durante siglos, tanto la tradición judía como la cristiana atribuyeron la autoría del Pentateuco completo —incluido el Génesis— a <strong>Moisés</strong>. Esta posición, conocida como <strong>autoría mosaica</strong>, se fundamenta en varios pasajes bíblicos que mencionan a Moisés escribiendo (Éxodo 17:14; 24:4; Números 33:2; Deuteronomio 31:9, 24) y en la tradición rabínica recogida en el Talmud (Baba Batra 14b-15a).</p>
+       <p>Los defensores de la autoría mosaica argumentan que Moisés, educado en la corte egipcia y receptor de la revelación divina en el Sinaí, poseía tanto la formación como la autoridad necesarias para compilar las tradiciones patriarcales y redactar el relato de los orígenes. Esta posición sigue siendo mantenida por sectores del judaísmo ortodoxo y del cristianismo evangélico conservador.</p>
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mt-6">La Hipótesis Documental</h3>
+       <p>A partir del siglo XVIII, la crítica bíblica desarrolló teorías alternativas sobre la composición del Pentateuco. La más influyente ha sido la <strong>Hipótesis Documental</strong>, sistematizada por Julius Wellhausen (1844-1918), que postula la existencia de cuatro fuentes principales:</p>
+       <div class="grid md:grid-cols-2 gap-4 my-6">
+        <div class="bg-stone-50 rounded-lg p-4 border border-stone-200">
+         <h4 class="font-semibold text-stone-800 mb-2">Fuente J (Yahvista)</h4>
+         <p class="text-sm">~950-850 a.C., Reino del Sur. Utiliza el nombre YHWH para Dios. Narrativa vívida y antropomórfica.</p>
+        </div>
+        <div class="bg-stone-50 rounded-lg p-4 border border-stone-200">
+         <h4 class="font-semibold text-stone-800 mb-2">Fuente E (Elohísta)</h4>
+         <p class="text-sm">~850-750 a.C., Reino del Norte. Usa Elohim hasta la revelación del nombre divino a Moisés.</p>
+        </div>
+        <div class="bg-stone-50 rounded-lg p-4 border border-stone-200">
+         <h4 class="font-semibold text-stone-800 mb-2">Fuente D (Deuteronomista)</h4>
+         <p class="text-sm">~650-620 a.C., Jerusalén. Estilo homilético, énfasis en la ley y la alianza.</p>
+        </div>
+        <div class="bg-stone-50 rounded-lg p-4 border border-stone-200">
+         <h4 class="font-semibold text-stone-800 mb-2">Fuente P (Sacerdotal)</h4>
+         <p class="text-sm">~550-400 a.C., período exílico/postexílico. Genealogías, cronologías, ritual y pureza.</p>
+        </div>
+       </div>
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mt-6">Perspectivas Contemporáneas</h3>
+       <p>La erudición contemporánea ha matizado significativamente la hipótesis documental clásica. Autores como Rolf Rendtorff, Erhard Blum y David Carr han propuesto modelos más complejos que enfatizan los procesos de <strong>tradición y redacción</strong> sobre la identificación de fuentes discretas. Se reconoce ahora mayor antigüedad a las tradiciones subyacentes y un proceso de composición más orgánico y prolongado.</p>
+       <p>El consenso académico actual tiende a reconocer que el Génesis, en su forma final, es el resultado de un largo proceso de transmisión, compilación y edición que incorpora materiales de diferentes épocas y contextos, alcanzando su forma canónica probablemente durante el período persa (siglos V-IV a.C.).</p>
+      </div>
+     </div>
+    </section><!-- Section 3: Recipients and Transmission -->
+    <section id="destinatarios" class="scroll-margin mb-12">
+     <div class="section-card bg-white rounded-lg shadow-sm border border-stone-200 p-8">
+      <div class="flex items-center gap-3 mb-6"><span class="w-10 h-10 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center font-serif-elegant font-bold text-lg">3</span>
+       <h2 class="font-serif-elegant text-2xl md:text-3xl font-semibold text-stone-800">Destinatarios y Transmisión</h2>
+      </div>
+      <div class="space-y-5 text-stone-700 leading-relaxed">
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-800">Audiencia Original</h3>
+       <p>Los destinatarios primarios del Génesis fueron los <strong>israelitas</strong>, particularmente aquellos que buscaban comprender su identidad como pueblo elegido en relación con las naciones circundantes. El texto cumplía múltiples funciones: <em>teológica</em> (afirmar el monoteísmo frente al politeísmo), <em>identitaria</em> (establecer los vínculos genealógicos con los patriarcas) y <em>ética</em> (proporcionar modelos de conducta y advertencias).</p>
+       <p>Diversos contextos históricos influyeron en la recepción del texto: el período monárquico, cuando las tradiciones patriarcales legitimaban las pretensiones territoriales; el exilio babilónico, cuando los relatos de creación contrastaban con los mitos mesopotámicos; y el período postexílico, cuando la comunidad restaurada buscaba reconstruir su identidad.</p>
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mt-6">Transmisión Oral y Escrita</h3>
+       <p>Antes de alcanzar su forma escrita, las tradiciones del Génesis circularon oralmente durante generaciones. Los relatos patriarcales probablemente se transmitían en contextos familiares y tribales, mientras que las tradiciones sobre la creación y el diluvio pudieron tener un <em>Sitz im Leben</em> (contexto vital) cultual o sapiencial.</p>
+       <div class="bg-stone-800 text-stone-100 rounded-lg p-6 my-6">
+        <h4 class="font-serif-elegant text-lg font-medium mb-4 text-amber-400">Etapas de Transmisión</h4>
+        <div class="space-y-4">
+         <div class="flex gap-4">
+          <div class="w-24 flex-shrink-0 text-amber-400 font-medium">
+           Oral
+          </div>
+          <div class="text-stone-300">
+           Tradiciones patriarcales transmitidas en clanes y santuarios. Memorización de genealogías y relatos fundacionales.
+          </div>
+         </div>
+         <div class="border-t border-stone-700"></div>
+         <div class="flex gap-4">
+          <div class="w-24 flex-shrink-0 text-amber-400 font-medium">
+           Escrita
+          </div>
+          <div class="text-stone-300">
+           Primeras redacciones en período monárquico. Uso de escritura paleo-hebrea en materiales perecederos (papiro, cuero).
+          </div>
+         </div>
+         <div class="border-t border-stone-700"></div>
+         <div class="flex gap-4">
+          <div class="w-24 flex-shrink-0 text-amber-400 font-medium">
+           Compilación
+          </div>
+          <div class="text-stone-300">
+           Fusión de tradiciones durante y después del exilio. Trabajo redaccional que integra fuentes diversas.
+          </div>
+         </div>
+         <div class="border-t border-stone-700"></div>
+         <div class="flex gap-4">
+          <div class="w-24 flex-shrink-0 text-amber-400 font-medium">
+           Canonización
+          </div>
+          <div class="text-stone-300">
+           Fijación del texto consonántico. Tradición masorética (siglos VI-X d.C.) añade vocalización y acentos.
+          </div>
+         </div>
+        </div>
+       </div>
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mt-6">Testimonios Manuscritos</h3>
+       <p>Los testimonios más antiguos del texto del Génesis incluyen fragmentos de los <strong>Manuscritos del Mar Muerto</strong> (siglos III a.C. - I d.C.), que demuestran la estabilidad textual alcanzada en ese período. El <strong>Códice de Leningrado</strong> (1008 d.C.) constituye el manuscrito completo más antiguo del texto masorético y sirve de base para las ediciones críticas modernas como la <em>Biblia Hebraica Stuttgartensia</em>.</p>
+       <p>La traducción griega de la <strong>Septuaginta</strong> (LXX), realizada en Alejandría entre los siglos III-II a.C., proporciona un testimonio independiente que en ocasiones preserva lecturas más antiguas o refleja una <em>Vorlage</em> (texto base) diferente al masorético.</p>
+      </div>
+     </div>
+    </section><!-- Section 4: Language and Date -->
+    <section id="idioma" class="scroll-margin mb-12">
+     <div class="section-card bg-white rounded-lg shadow-sm border border-stone-200 p-8">
+      <div class="flex items-center gap-3 mb-6"><span class="w-10 h-10 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center font-serif-elegant font-bold text-lg">4</span>
+       <h2 class="font-serif-elegant text-2xl md:text-3xl font-semibold text-stone-800">Idioma Original y Fecha de Composición</h2>
+      </div>
+      <div class="space-y-5 text-stone-700 leading-relaxed">
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-800">El Hebreo Bíblico</h3>
+       <p>El Génesis fue compuesto en <strong>hebreo bíblico</strong> (עברית מקראית), una lengua semítica noroccidental que se escribía originalmente solo con consonantes. El sistema de vocalización (niqqud) fue añadido por los masoretas entre los siglos VI y X d.C. para preservar la pronunciación tradicional.</p>
+       <p>El hebreo del Génesis muestra características que los lingüistas asocian tanto con el <strong>Hebreo Bíblico Clásico</strong> (HBC) como con el <strong>Hebreo Bíblico Tardío</strong> (HBT), lo que sugiere diferentes estratos de composición. La poesía del capítulo 49 (Bendiciones de Jacob) presenta rasgos arcaicos que podrían remontar a tradiciones muy antiguas.</p>
+       <div class="bg-amber-50 border border-amber-200 rounded-lg p-5 my-6">
+        <h4 class="font-serif-elegant text-lg font-medium text-amber-900 mb-3">Características Lingüísticas</h4>
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+         <div>
+          <p class="font-medium text-amber-800">Sistema verbal</p>
+          <p class="text-amber-700">Uso del <em>wayyiqtol</em> narrativo y <em>qatal</em>/<em>yiqtol</em> para aspecto perfectivo/imperfectivo</p>
+         </div>
+         <div>
+          <p class="font-medium text-amber-800">Vocabulario</p>
+          <p class="text-amber-700">Términos técnicos religiosos y préstamos de lenguas semíticas vecinas</p>
+         </div>
+         <div>
+          <p class="font-medium text-amber-800">Sintaxis</p>
+          <p class="text-amber-700">Orden VSO (verbo-sujeto-objeto) típico del hebreo clásico</p>
+         </div>
+         <div>
+          <p class="font-medium text-amber-800">Estilo</p>
+          <p class="text-amber-700">Paralelismo poético, repeticiones estructurales, juegos de palabras</p>
+         </div>
+        </div>
+       </div>
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mt-6">Datación de la Composición</h3>
+       <p>Establecer fechas precisas para la composición del Génesis resulta metodológicamente complejo debido a la naturaleza estratificada del texto. Los especialistas distinguen entre:</p>
+       <ul class="list-disc list-inside space-y-2 ml-4">
+        <li><strong>Tradiciones orales subyacentes:</strong> Algunas podrían remontar al segundo milenio a.C., contemporáneas con los períodos patriarcales que describen.</li>
+        <li><strong>Primeras redacciones escritas:</strong> Probablemente en el período monárquico (siglos X-VIII a.C.), cuando la escritura se institucionalizó en Israel.</li>
+        <li><strong>Edición final:</strong> Durante o después del exilio babilónico (siglos VI-V a.C.), cuando el Pentateuco alcanzó una forma cercana a la actual.</li>
+       </ul>
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mt-6">Tradición Oral vs. Redacción Final</h3>
+       <p>La tensión entre tradición oral y texto escrito es crucial para comprender el Génesis. Las tradiciones orales poseen una <strong>fluidez</strong> que permite adaptación a diferentes contextos, mientras que la escritura tiende a <strong>fijar</strong> el texto. El proceso de canonización representó el triunfo de una forma textual particular sobre otras variantes que pudieron circular.</p>
+       <p>Los estudios de <strong>crítica de las formas</strong> (<em>Formgeschichte</em>), iniciados por Hermann Gunkel, identificaron géneros literarios orales preservados en el texto: etiologías, sagas heroicas, genealogías, bendiciones y maldiciones. Estos géneros sugieren los contextos vitales donde las tradiciones se originaron y transmitieron antes de su fijación escrita.</p>
+      </div>
+     </div>
+    </section><!-- Section 5: Academic Questions -->
+    <section id="preguntas" class="scroll-margin mb-12">
+     <div class="section-card bg-white rounded-lg shadow-sm border border-stone-200 p-8">
+      <div class="flex items-center gap-3 mb-6"><span class="w-10 h-10 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center font-serif-elegant font-bold text-lg">5</span>
+       <h2 class="font-serif-elegant text-2xl md:text-3xl font-semibold text-stone-800">Preguntas Académicas para Profundizar</h2>
+      </div>
+      <div class="space-y-8 text-stone-700 leading-relaxed"><!-- Question 1 -->
+       <div class="question-item">
+        <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mb-3">¿Qué evidencia histórica y arqueológica respalda la composición del Génesis?</h3>
+        <p>La arqueología del antiguo Cercano Oriente ha iluminado significativamente el trasfondo del Génesis sin proporcionar confirmación directa de sus narrativas. Los <strong>textos de Nuzi</strong> (siglo XV a.C.) revelan costumbres legales paralelas a las prácticas patriarcales (adopción, herencia, matrimonio). Los <strong>archivos de Mari</strong> (siglo XVIII a.C.) documentan nombres y patrones de migración similares a los descritos en el texto bíblico.</p>
+        <p class="mt-3">Sin embargo, la historicidad de los patriarcas permanece debatida. Mientras algunos arqueólogos como William F. Albright argumentaron por un trasfondo histórico del Bronce Medio, otros como Thomas L. Thompson y John Van Seters han cuestionado la posibilidad de correlacionar los relatos con períodos específicos, sugiriendo que reflejan más las circunstancias de sus redactores que eventos históricos verificables.</p>
+       </div><!-- Question 2 -->
+       <div class="question-item">
+        <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mb-3">¿Cómo influyen las culturas del antiguo Cercano Oriente en los relatos del Génesis?</h3>
+        <p>Los paralelos entre el Génesis y la literatura mesopotámica son notables y bien documentados. El <strong>Enuma Elish</strong> babilónico presenta cosmogonía mediante combate divino, mientras que el Génesis narra creación por palabra soberana. El <strong>Poema de Atrahasis</strong> y la <strong>Epopeya de Gilgamesh</strong> contienen relatos de diluvio con sorprendentes similitudes estructurales con Génesis 6-9.</p>
+        <p class="mt-3">No obstante, las diferencias teológicas son igualmente significativas. El Génesis polemiza implícitamente contra el politeísmo: el sol y la luna son «lumbreras» creadas, no divinidades; los monstruos marinos son criaturas, no fuerzas caóticas. Esta relación de <strong>dependencia transformadora</strong> revela cómo Israel reinterpretó tradiciones comunes desde su fe monoteísta.</p>
+       </div><!-- Question 3 -->
+       <div class="question-item">
+        <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mb-3">¿Qué debates existen entre la interpretación literal y simbólica del texto?</h3>
+        <p>La tensión entre lecturas <strong>literalistas</strong> y <strong>simbólicas</strong> del Génesis tiene raíces antiguas. Ya en el siglo III, Orígenes de Alejandría distinguía sentidos literal, moral y alegórico. Agustín de Hipona, en su <em>De Genesi ad litteram</em>, advertía contra interpretaciones que contradijeran el conocimiento natural establecido.</p>
+        <p class="mt-3">El debate contemporáneo se intensifica en torno a Génesis 1-11. Los <strong>creacionistas de tierra joven</strong> defienden una lectura histórico-literal de los siete días y una tierra de ~6.000 años. Los defensores de la <strong>evolución teísta</strong> ven en estos capítulos verdades teológicas expresadas en lenguaje mítico-poético. Posiciones intermedias como el <strong>creacionismo progresivo</strong> o la teoría del <strong>marco literario</strong> buscan reconciliar el texto con la ciencia moderna sin reducirlo a mera metáfora.</p>
+       </div><!-- Question 4 -->
+       <div class="question-item">
+        <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mb-3">¿Cómo se relaciona el Génesis con otros textos del Pentateuco?</h3>
+        <p>El Génesis funciona como <strong>prólogo narrativo</strong> al drama del éxodo y la alianza sinaítica. Las promesas a los patriarcas (tierra, descendencia, bendición) encuentran su cumplimiento parcial en los libros siguientes y crean una tensión que atraviesa todo el canon hebreo. La fórmula «Yo soy el Dios de Abraham, Isaac y Jacob» conecta explícitamente las tradiciones.</p>
+        <p class="mt-3">Literariamente, los temas del Génesis resuenan en el Pentateuco: la creación-nueva creación tras el diluvio anticipa el paso del Mar Rojo; José en Egipto prepara el escenario para la opresión y liberación; las bendiciones patriarcales prefiguran el destino de las tribus. La <strong>estructura quiástica</strong> identificada por algunos estudiosos sugiere una composición unitaria intencional del Pentateuco.</p>
+       </div><!-- Question 5 -->
+       <div class="question-item">
+        <h3 class="font-serif-elegant text-xl font-medium text-stone-800 mb-3">¿Qué impacto tiene el Génesis en la teología contemporánea y en el diálogo interreligioso?</h3>
+        <p>El Génesis proporciona terreno común para el <strong>diálogo abrahámico</strong> entre judaísmo, cristianismo e islam. Las tres tradiciones veneran a Abraham como padre de la fe, aunque interpretan su legado de modos distintos. Los relatos de creación ofrecen base para reflexión ecológica compartida sobre el cuidado de la creación.</p>
+        <p class="mt-3">En la teología cristiana contemporánea, el Génesis alimenta debates sobre <strong>antropología teológica</strong> (<em>imago Dei</em> y dignidad humana), <strong>hamartiología</strong> (naturaleza y origen del pecado), <strong>ecoteología</strong> (dominio vs. mayordomía de la creación) y <strong>hermenéutica</strong> (cómo leer textos antiguos en contextos modernos). La <strong>teología feminista</strong> ha reexaminado los relatos de creación y caída para cuestionar interpretaciones patriarcales tradicionales.</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Section 6: Conclusion -->
+    <section id="conclusion" class="scroll-margin mb-12">
+     <div class="section-card bg-gradient-to-br from-stone-800 to-stone-900 text-stone-100 rounded-lg shadow-lg p-8">
+      <div class="flex items-center gap-3 mb-6"><span class="w-10 h-10 rounded-full bg-amber-600 text-white flex items-center justify-center font-serif-elegant font-bold text-lg">6</span>
+       <h2 class="font-serif-elegant text-2xl md:text-3xl font-semibold">Conclusión</h2>
+      </div>
+      <div class="space-y-5 text-stone-300 leading-relaxed">
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-100">Relevancia del Génesis en la Actualidad</h3>
+       <p>A pesar de los milenios transcurridos desde su composición, el Génesis mantiene una relevancia extraordinaria en el mundo contemporáneo. Sus preguntas fundamentales —¿de dónde venimos?, ¿quiénes somos?, ¿cuál es nuestro propósito?— resuenan con la búsqueda humana perenne de sentido. En una era de avances científicos sin precedentes, el diálogo entre las narrativas bíblicas y el conocimiento científico sigue generando reflexión fecunda.</p>
+       <p>Las cuestiones éticas planteadas por el Génesis —responsabilidad hacia la creación, relaciones humanas, justicia y misericordia— informan debates contemporáneos sobre ecología, bioética, derechos humanos y convivencia intercultural. La afirmación de la <em>imago Dei</em> fundamenta la dignidad inalienable de todo ser humano.</p>
+       <h3 class="font-serif-elegant text-xl font-medium text-stone-100 mt-6">Valor Espiritual, Histórico y Literario</h3>
+       <p><strong>Espiritualmente</strong>, el Génesis continúa nutriendo la fe de millones de creyentes judíos, cristianos y musulmanes, proporcionando narrativas fundacionales para la comprensión de Dios, el mundo y la humanidad. Sus textos se leen en sinagogas, iglesias y mezquitas, se meditan en la oración y configuran cosmovisiones.</p>
+       <p><strong>Históricamente</strong>, el Génesis constituye un documento invaluable para comprender el antiguo Israel en su contexto del Cercano Oriente, las técnicas literarias y teológicas de sus autores, y el desarrollo de las tradiciones religiosas occidentales.</p>
+       <p><strong>Literariamente</strong>, el Génesis ha ejercido una influencia incalculable en la literatura, el arte y la cultura occidentales. Desde la <em>Divina Comedia</em> de Dante hasta <em>El paraíso perdido</em> de Milton, desde los frescos de Miguel Ángel hasta las novelas de Steinbeck, sus narrativas han proporcionado arquetipos, símbolos e inspiración para incontables obras creativas.</p>
+       <div class="bg-stone-700/50 rounded-lg p-6 mt-6 border border-stone-600">
+        <p class="font-serif-elegant text-lg text-stone-200 italic text-center">«El Génesis no es solo el comienzo de un libro; es el libro de todos los comienzos, donde cada generación descubre nuevamente las preguntas eternas y busca sus propias respuestas en diálogo con la sabiduría antigua.»</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Bibliography -->
+    <section class="mb-12">
+     <div class="bg-stone-100 rounded-lg p-8 border border-stone-200">
+      <h2 class="font-serif-elegant text-xl font-semibold text-stone-800 mb-4 flex items-center gap-2">
+       <svg class="w-5 h-5 text-amber-700" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+       </svg> Bibliografía Recomendada</h2>
+      <div class="grid md:grid-cols-2 gap-4 text-sm text-stone-600">
+       <div>
+        <p class="font-medium text-stone-700">Fuentes Primarias</p>
+        <ul class="mt-2 space-y-1">
+         <li>• <em>Biblia Hebraica Stuttgartensia</em></li>
+         <li>• Septuaginta (ed. Rahlfs-Hanhart)</li>
+         <li>• Manuscritos del Mar Muerto (4QGen)</li>
+        </ul>
+       </div>
+       <div>
+        <p class="font-medium text-stone-700">Comentarios Académicos</p>
+        <ul class="mt-2 space-y-1">
+         <li>• Westermann, C. <em>Genesis</em> (3 vols.)</li>
+         <li>• Wenham, G. <em>Genesis</em> (WBC)</li>
+         <li>• Von Rad, G. <em>El libro del Génesis</em></li>
+        </ul>
+       </div>
+       <div>
+        <p class="font-medium text-stone-700">Estudios Críticos</p>
+        <ul class="mt-2 space-y-1">
+         <li>• Gunkel, H. <em>Genesis</em></li>
+         <li>• Ska, J.L. <em>Introducción al Pentateuco</em></li>
+         <li>• Carr, D.M. <em>Reading the Fractures of Genesis</em></li>
+        </ul>
+       </div>
+       <div>
+        <p class="font-medium text-stone-700">Contexto del ACO</p>
+        <ul class="mt-2 space-y-1">
+         <li>• Pritchard, J.B. <em>ANET</em></li>
+         <li>• Walton, J.H. <em>Ancient Near Eastern Thought</em></li>
+         <li>• Hallo, W.W. <em>Context of Scripture</em></li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main><!-- Footer -->
+   <footer class="bg-stone-900 text-stone-400 py-8 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+     <div class="flex justify-center gap-2 mb-4">
+      <img src="../@Renacer/logo.svg" alt="Logo Renacer" class="w-6 h-6">
+     </div>
+     <p class="text-sm">Estudio Académico sobre el Libro del Génesis</p>
+     <p class="text-xs mt-2 text-stone-500">Contenido con fines educativos e informativos</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      page_title: 'El Libro del Génesis',
+      page_subtitle: 'Un estudio académico sobre los orígenes, autoría y significado del primer libro de las Sagradas Escrituras',
+      background_color: '#fafaf9',
+      surface_color: '#ffffff',
+      text_color: '#44403c',
+      primary_action_color: '#b45309',
+      secondary_surface_color: '#1c1917'
+    };
+
+    let config = { ...defaultConfig };
+
+    function applyConfig(cfg) {
+      // Apply title
+      const titleEl = document.getElementById('main-title');
+      if (titleEl) titleEl.textContent = cfg.page_title || defaultConfig.page_title;
+      
+      // Apply subtitle
+      const subtitleEl = document.getElementById('main-subtitle');
+      if (subtitleEl) subtitleEl.textContent = cfg.page_subtitle || defaultConfig.page_subtitle;
+      
+      // Apply colors
+      const wrapper = document.getElementById('app-wrapper');
+      if (wrapper) {
+        wrapper.style.backgroundColor = cfg.background_color || defaultConfig.background_color;
+      }
+      
+      document.querySelectorAll('.section-card').forEach(card => {
+        if (card.classList.contains('bg-gradient-to-br')) return;
+        card.style.backgroundColor = cfg.surface_color || defaultConfig.surface_color;
+      });
+    }
+
+    const elementApi = {
+      defaultConfig,
+      onConfigChange: async (newConfig) => {
+        config = { ...config, ...newConfig };
+        applyConfig(config);
+      },
+      mapToCapabilities: (cfg) => ({
+        recolorables: [
+          {
+            get: () => cfg.background_color || defaultConfig.background_color,
+            set: (value) => {
+              cfg.background_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => cfg.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              cfg.surface_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => cfg.text_color || defaultConfig.text_color,
+            set: (value) => {
+              cfg.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => cfg.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              cfg.primary_action_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => cfg.secondary_surface_color || defaultConfig.secondary_surface_color,
+            set: (value) => {
+              cfg.secondary_surface_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ secondary_surface_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      }),
+      mapToEditPanelValues: (cfg) => new Map([
+        ['page_title', cfg.page_title || defaultConfig.page_title],
+        ['page_subtitle', cfg.page_subtitle || defaultConfig.page_subtitle]
+      ])
+    };
+
+    if (window.elementSdk) {
+      window.elementSdk.init(elementApi);
+    }
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Initial config application
+    applyConfig(config);
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c06a88466da9b1d',t:'MTc2ODgyOTEyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

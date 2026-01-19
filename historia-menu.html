@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros de la Biblia</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Variables para el diseño realista y tecnológico */
+        :root {
+            --bg-color: #fcfbf8;
+            --btn-bg-gradient: linear-gradient(145deg, #ffffff, #f3f0e6);
+            --btn-shadow-light: rgba(255, 255, 255, 0.9);
+            --btn-shadow-dark: rgba(212, 175, 55, 0.2);
+            --text-main: #2c241b;
+            --accent-gold: #d4af37;
+            --primary-color: #b48a18;
+        }
+
+        /* Estilos específicos para la cuadrícula de libros */
+        .testament-section {
+            margin-bottom: 3rem;
+        }
+        
+        .testament-title {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .book-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 10px;
+            background: var(--btn-bg-gradient);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-main);
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 
+                6px 6px 12px var(--btn-shadow-dark), 
+                -6px -6px 12px var(--btn-shadow-light);
+            text-align: center;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        /* Efecto de brillo tecnológico */
+        .book-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-4px);
+            color: var(--accent-gold);
+            box-shadow: 
+                8px 8px 16px var(--btn-shadow-dark), 
+                -8px -8px 16px var(--btn-shadow-light);
+            border-color: var(--accent-gold);
+        }
+
+        .book-btn:hover::after {
+            left: 100%;
+        }
+
+        /* Estilo especial para libros activos/enlazados */
+        .book-btn.active-link {
+            border-color: var(--accent-gold);
+            background: linear-gradient(145deg, #fffbf0, #fdf6e3);
+            color: #b48a18;
+            box-shadow: 
+                inset 3px 3px 6px rgba(212, 175, 55, 0.1),
+                inset -3px -3px 6px rgba(255, 255, 255, 0.8);
+        }
+
+        .logo img {
+            height: 280px;
+            width: auto;
+            filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="logo.svg" alt="Logo Renacer">
+            </div>
+        </div>
+    </header>
+
+    <main class="container content-area">
+        <h1 class="page-title">Historia de la Biblia</h1>
+        
+        <div class="testament-section">
+            <h2 class="testament-title">Antiguo Testamento</h2>
+            <div class="books-grid">
+                <!-- Pentateuco -->
+                <a href="genesis.html" class="book-btn active-link">Génesis</a>
+                <a href="#" class="book-btn">Éxodo</a>
+                <a href="#" class="book-btn">Levítico</a>
+                <a href="#" class="book-btn">Números</a>
+                <a href="#" class="book-btn">Deuteronomio</a>
+                <!-- Históricos -->
+                <a href="#" class="book-btn">Josué</a>
+                <a href="#" class="book-btn">Jueces</a>
+                <a href="#" class="book-btn">Rut</a>
+                <a href="#" class="book-btn">1 Samuel</a>
+                <a href="#" class="book-btn">2 Samuel</a>
+                <a href="#" class="book-btn">1 Reyes</a>
+                <a href="#" class="book-btn">2 Reyes</a>
+                <a href="#" class="book-btn">1 Crónicas</a>
+                <a href="#" class="book-btn">2 Crónicas</a>
+                <a href="#" class="book-btn">Esdras</a>
+                <a href="#" class="book-btn">Nehemías</a>
+                <a href="#" class="book-btn">Ester</a>
+                <!-- Poéticos y Profetas -->
+                <a href="#" class="book-btn">Job</a>
+                <a href="#" class="book-btn">Salmos</a>
+                <a href="#" class="book-btn">Proverbios</a>
+                <a href="#" class="book-btn">Eclesiastés</a>
+                <a href="#" class="book-btn">Cantares</a>
+                <a href="#" class="book-btn">Isaías</a>
+                <a href="#" class="book-btn">Jeremías</a>
+                <a href="#" class="book-btn">Lamentaciones</a>
+                <a href="#" class="book-btn">Ezequiel</a>
+                <a href="#" class="book-btn">Daniel</a>
+                <a href="#" class="book-btn">Oseas</a>
+                <a href="#" class="book-btn">Joel</a>
+                <a href="#" class="book-btn">Amós</a>
+                <a href="#" class="book-btn">Abdías</a>
+                <a href="#" class="book-btn">Jonás</a>
+                <a href="#" class="book-btn">Miqueas</a>
+                <a href="#" class="book-btn">Nahúm</a>
+                <a href="#" class="book-btn">Habacuc</a>
+                <a href="#" class="book-btn">Sofonías</a>
+                <a href="#" class="book-btn">Hageo</a>
+                <a href="#" class="book-btn">Zacarías</a>
+                <a href="#" class="book-btn">Malaquías</a>
+            </div>
+        </div>
+
+        <div class="testament-section">
+            <h2 class="testament-title">Nuevo Testamento</h2>
+            <div class="books-grid">
+                <a href="#" class="book-btn">Mateo</a>
+                <a href="#" class="book-btn">Marcos</a>
+                <a href="#" class="book-btn">Lucas</a>
+                <a href="#" class="book-btn">Juan</a>
+                <a href="#" class="book-btn">Hechos</a>
+                <a href="#" class="book-btn">Romanos</a>
+                <a href="#" class="book-btn">1 Corintios</a>
+                <a href="#" class="book-btn">2 Corintios</a>
+                <a href="#" class="book-btn">Gálatas</a>
+                <a href="#" class="book-btn">Efesios</a>
+                <a href="#" class="book-btn">Filipenses</a>
+                <a href="#" class="book-btn">Colosenses</a>
+                <a href="#" class="book-btn">1 Tesalonicenses</a>
+                <a href="#" class="book-btn">2 Tesalonicenses</a>
+                <a href="#" class="book-btn">1 Timoteo</a>
+                <a href="#" class="book-btn">2 Timoteo</a>
+                <a href="#" class="book-btn">Tito</a>
+                <a href="#" class="book-btn">Filemón</a>
+                <a href="#" class="book-btn">Hebreos</a>
+                <a href="#" class="book-btn">Santiago</a>
+                <a href="#" class="book-btn">1 Pedro</a>
+                <a href="#" class="book-btn">2 Pedro</a>
+                <a href="#" class="book-btn">1 Juan</a>
+                <a href="#" class="book-btn">2 Juan</a>
+                <a href="#" class="book-btn">3 Juan</a>
+                <a href="#" class="book-btn">Judas</a>
+                <a href="#" class="book-btn">Apocalipsis</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Yo Renacere, en el Rio de tu Espiritu</p>
+    </footer>
+
+</body>
+</html>
