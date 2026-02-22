@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolillero Digital</title>
+    <style>
+        /* --- ESTILOS GENERALES Y VARIABLES --- */
+        :root {
+            --primary-color: #1a2b49;   /* Azul noche */
+            --accent-color: #d4af37;    /* Dorado */
+            --bg-color: #f4f6f8;        /* Gris muy claro */
+            --text-color: #2c3e50;      /* Gris oscuro */
+            --white: #ffffff;
+            --shadow-card: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color); /* Color de respaldo si la imagen no carga */
+            background-image: url('file:///C:/Users/luis/OneDrive/Desktop/miportafolio/logorenacer.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL DEL BOLILLERO --- */
+        .bolillero-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente para legibilidad */
+            backdrop-filter: blur(8px); /* Efecto de desenfoque para el fondo */
+            padding: 2rem 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            width: 100%;
+            max-width: 900px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .bolillero-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* --- TÍTULO --- */
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* --- ÁREA DE RESULTADOS --- */
+        .resultado-area {
+            background-color: #f9fafb;
+            border: 1px dashed #e0e0e0;
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .resultado-area.elegido {
+            background-color: #eef5ff;
+            border-color: var(--primary-color);
+        }
+
+        #nombre-alumno {
+            font-size: 5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        #significado-nombre {
+            font-size: 2rem;
+            color: #000;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+
+        /* --- BOTONES --- */
+        .botones-area {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-sacar {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-sacar:hover {
+            background-color: #2c3e50;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .btn-reiniciar {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-reiniciar:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn:disabled {
+            background-color: #ccc;
+            border-color: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        /* --- CONTADOR --- */
+        #contador {
+            color: #777;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bolillero-container">
+        <h1>🎓 Bolillero Digital 🎓</h1>
+        
+        <div class="resultado-area" id="resultado-area">
+            <p id="nombre-alumno">?</p>
+            <p id="significado-nombre">Presiona el botón para sacar un alumno</p>
+        </div>
+
+        <div class="botones-area">
+            <button class="btn btn-sacar" id="btn-sacar">🎲 Sacar Alumno</button>
+            <button class="btn btn-reiniciar" id="btn-reiniciar">🔄 Reiniciar</button>
+        </div>
+
+        <p id="contador"></p>
+    </div>
+
+    <script>
+        // --- BASE DE DATOS DE ALUMNOS (igual que en tu script de Python) ---
+        const ALUMNOS_DB = [
+            { nombre: "Valentina", significado: "Valiente, fuerte, saludable (Latín)." },
+            { nombre: "Gisella", significado: "Flecha poderosa, rayo de luz o prenda de felicidad (Germánico)." },
+            { nombre: "Josefa", significado: "Dios añadirá o Dios multiplica (Hebreo)." },
+            { nombre: "Carolina", significado: "Mujer fuerte, libre y audaz (Germánico)." },
+            { nombre: "Noelia", significado: "Celebración del nacimiento de Cristo, un canto de Navidad." },
+            { nombre: "Sofia", significado: "Sabiduría (Griego)." },
+            { nombre: "Claudia", significado: "Creyente fiel en Roma, mencionada con afecto por el apóstol Pablo." },
+            { nombre: "Ezequiel", significado: "Dios es mi fortaleza (Hebreo)." },
+            { nombre: "Gerardo", significado: "Guerrero valiente con la lanza (Germánico)." },
+            { nombre: "Cristian", significado: "Seguidor de Cristo o ungido (Griego/Latín)." },
+            { nombre: "Santino", significado: "Santo, sagrado (Latín/Italiano)." },
+            { nombre: "Dardo", significado: "Hombre hábil, audaz o amigo querido (Germánico)." },
+            { nombre: "Orlando", significado: "Fama de la tierra o gloria del país (Germánico)." }
+        ];
+
+        // --- VARIABLES DEL PROGRAMA ---
+        let bolillas = []; // Esta será la lista de alumnos por salir
+        
+        // Referencias a los elementos del HTML
+        const btnSacar = document.getElementById('btn-sacar');
+        const btnReiniciar = document.getElementById('btn-reiniciar');
+        const nombreAlumnoEl = document.getElementById('nombre-alumno');
+        const significadoNombreEl = document.getElementById('significado-nombre');
+        const contadorEl = document.getElementById('contador');
+        const resultadoAreaEl = document.getElementById('resultado-area');
+
+        // --- FUNCIONES ---
+
+        /**
+         * Mezcla los elementos de un array (algoritmo Fisher-Yates).
+         * @param {Array} array El array a mezclar.
+         */
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        /**
+         * Actualiza el texto del contador de alumnos restantes.
+         */
+        function actualizarContador() {
+            const total = ALUMNOS_DB.length;
+            const restantes = bolillas.length;
+            contadorEl.textContent = `Alumnos restantes: ${restantes} / ${total}`;
+        }
+
+        /**
+         * Reinicia el bolillero, cargando y mezclando todos los alumnos de nuevo.
+         */
+        function reiniciarBolillero() {
+            // Copiamos la base de datos original a nuestra lista de bolillas
+            bolillas = [...ALUMNOS_DB];
+            // Mezclamos las bolillas
+            shuffle(bolillas);
+            
+            // Restauramos la interfaz
+            nombreAlumnoEl.textContent = '?';
+            significadoNombreEl.textContent = 'Bolillero reiniciado. ¡Listo para empezar!';
+            resultadoAreaEl.classList.remove('elegido');
+            btnSacar.disabled = false; // Habilitamos el botón de sacar
+            
+            actualizarContador();
+            console.log("Bolillero reiniciado.");
+        }
+
+        /**
+         * Saca un alumno al azar, lo muestra y lo quita de la lista para no repetirlo.
+         */
+        function sacarAlumno() {
+            if (bolillas.length === 0) {
+                nombreAlumnoEl.textContent = '¡FIN!';
+                significadoNombreEl.textContent = 'Ya han salido todos los alumnos. Reinicia para volver a empezar.';
+                btnSacar.disabled = true; // Deshabilitamos el botón
+                console.log("Se acabaron los alumnos.");
+                return;
+            }
+
+            // Sacamos el último alumno de la lista mezclada (eficiente)
+            const elegido = bolillas.pop();
+
+            // Mostramos el resultado en pantalla
+            nombreAlumnoEl.textContent = elegido.nombre;
+            significadoNombreEl.textContent = elegido.significado;
+            resultadoAreaEl.classList.add('elegido');
+
+            // Actualizamos el contador
+            actualizarContador();
+            console.log(`Alumno elegido: ${elegido.nombre}`);
+        }
+
+        // --- INICIALIZACIÓN Y EVENTOS ---
+
+        // Añadimos los "listeners" a los botones
+        btnSacar.addEventListener('click', sacarAlumno);
+        btnReiniciar.addEventListener('click', reiniciarBolillero);
+
+        // Al cargar la página por primera vez, reiniciamos el bolillero para prepararlo.
+        document.addEventListener('DOMContentLoaded', reiniciarBolillero);
+
+    </script>
+</body>
+</html>

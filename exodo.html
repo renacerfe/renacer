@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="es" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudio Bíblico del Éxodo</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet">
+  <style>
+        /* Estilos personalizados para el estudio bíblico */
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .app-wrapper {
+            height: 100%;
+            width: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        
+        .font-crimson {
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+        
+        /* Decoración de sección */
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8B4513, transparent);
+            margin: 2rem 0;
+        }
+        
+        /* Estilo para citas bíblicas */
+        .bible-quote {
+            border-left: 4px solid #8B4513;
+            background: linear-gradient(135deg, #fef3e2 0%, #faf6f0 100%);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .bible-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: #8B4513;
+            opacity: 0.3;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: 'Cinzel', serif;
+        }
+        
+        /* Navegación suave */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Efecto hover en enlaces de navegación */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #8B4513;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Tabla estilizada */
+        .styled-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .styled-table th {
+            background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .styled-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5d5c5;
+        }
+        
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .styled-table tr:nth-child(even) {
+            background: #faf6f0;
+        }
+        
+        /* Animación de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        /* Icono decorativo */
+        .decorative-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+        
+        /* Formulario estilizado */
+        .form-input {
+            border: 2px solid #d4c4b0;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #8B4513;
+            box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+        }
+        
+        /* Botón principal */
+        .btn-primary {
+            background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+        
+        /* Menú móvil */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        
+        /* Tarjetas de contenido */
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-top: 4px solid #8B4513;
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .bible-quote {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+            
+            .bible-quote::before {
+                font-size: 2.5rem;
+            }
+            
+            .content-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full w-full">
+  <div class="app-wrapper font-crimson" style="background: linear-gradient(180deg, #faf6f0 0%, #f5efe6 100%);"><!-- Navegación Principal -->
+   <nav class="sticky top-0 z-50 shadow-md" style="background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);">
+    <div class="max-w-6xl mx-auto px-4">
+     <div class="flex justify-between items-center py-4"><!-- Logo/Título --> <a href="#inicio" class="font-cinzel text-lg md:text-xl font-bold" style="color: #d4a574;"> 📜 Estudio del Éxodo </a> <!-- Botón menú móvil --> <button id="menuToggle" class="md:hidden p-2 rounded" style="color: #d4a574;" aria-label="Menú">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button> <!-- Navegación desktop -->
+      <div class="hidden md:flex space-x-6 text-sm"><a href="#introduccion" class="nav-link" style="color: #e8d5c4;">Introducción</a> <a href="#origenes" class="nav-link" style="color: #e8d5c4;">Orígenes</a> <a href="#autoria" class="nav-link" style="color: #e8d5c4;">Autoría</a> <a href="#lengua" class="nav-link" style="color: #e8d5c4;">Lengua</a> <a href="#contenido" class="nav-link" style="color: #e8d5c4;">Contenido</a> <a href="#teologia" class="nav-link" style="color: #e8d5c4;">Teología</a> <a href="#conclusion" class="nav-link" style="color: #e8d5c4;">Conclusión</a>
+      </div>
+     </div><!-- Menú móvil -->
+     <div id="mobileMenu" class="mobile-menu md:hidden pb-4">
+      <div class="flex flex-col space-y-3 text-sm"><a href="#introduccion" class="py-2 px-3 rounded" style="color: #e8d5c4; background: rgba(212, 165, 116, 0.1);">Introducción</a> <a href="#origenes" class="py-2 px-3 rounded" style="color: #e8d5c4; background: rgba(212, 165, 116, 0.1);">Orígenes</a> <a href="#autoria" class="py-2 px-3 rounded" style="color: #e8d5c4; background: rgba(212, 165, 116, 0.1);">Autoría</a> <a href="#lengua" class="py-2 px-3 rounded" style="color: #e8d5c4; background: rgba(212, 165, 116, 0.1);">Lengua</a> <a href="#contenido" class="py-2 px-3 rounded" style="color: #e8d5c4; background: rgba(212, 165, 116, 0.1);">Contenido</a> <a href="#teologia" class="py-2 px-3 rounded" style="color: #e8d5c4; background: rgba(212, 165, 116, 0.1);">Teología</a> <a href="#conclusion" class="py-2 px-3 rounded" style="color: #e8d5c4; background: rgba(212, 165, 116, 0.1);">Conclusión</a>
+      </div>
+     </div>
+    </div>
+   </nav><!-- Cabecera Principal -->
+   <header id="inicio" class="relative py-16 md:py-24 text-center" style="background: linear-gradient(135deg, #3d2317 0%, #1a0f0a 100%);"><!-- Patrón decorativo -->
+    <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M30 0L60 30L30 60L0 30z\' fill=\'%23d4a574\' fill-opacity=\'0.4\'/%3E%3C/svg%3E');"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4"><!-- Icono decorativo -->
+     <div class="mb-6">
+      <svg class="w-20 h-20 mx-auto" viewbox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 10C50 10 20 25 20 50C20 75 50 90 50 90C50 90 80 75 80 50C80 25 50 10 50 10Z" stroke="#d4a574" stroke-width="2" fill="none" /> <path d="M35 35L50 50L65 35" stroke="#d4a574" stroke-width="2" fill="none" /> <path d="M50 50V70" stroke="#d4a574" stroke-width="2" /> <circle cx="50" cy="25" r="5" fill="#d4a574" />
+      </svg>
+     </div>
+     <h1 id="mainTitle" class="font-cinzel text-3xl md:text-5xl font-bold mb-4 animate-fade-in" style="color: #f5e6d3;">Estudio Bíblico del Éxodo</h1>
+     <p id="subtitle" class="font-cinzel text-lg md:text-2xl mb-8" style="color: #d4a574;">Orígenes, Autoría y Teología</p>
+     <p class="text-base md:text-lg max-w-2xl mx-auto leading-relaxed" style="color: #c4b5a5;">Un viaje profundo a través del segundo libro de la Torá, explorando la liberación de Israel y la revelación de Dios en el Monte Sinaí.</p><!-- Scroll indicator -->
+     <div class="mt-12 animate-bounce">
+      <svg class="w-8 h-8 mx-auto" fill="none" stroke="#d4a574" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+     </div>
+    </div>
+   </header><!-- Contenido Principal -->
+   <main class="max-w-4xl mx-auto px-4 py-12"><!-- SECCIÓN: Introducción -->
+    <section id="introduccion" class="content-card animate-fade-in">
+     <h2 class="font-cinzel text-2xl md:text-3xl font-bold mb-6 flex items-center" style="color: #8B4513;"><span class="mr-3">📖</span> Introducción</h2>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">El libro del <strong>Éxodo</strong> (del griego <em>Ἔξοδος</em>, "salida") constituye el segundo libro del Pentateuco o Torá, el conjunto de los cinco primeros libros de la Biblia. En la tradición hebrea se le conoce como <strong>Shemot</strong> (שְׁמוֹת, "Nombres"), por sus palabras iniciales: "Estos son los nombres de los hijos de Israel".</p>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">Este libro ocupa un lugar central en la fe judeocristiana, narrando el evento fundacional del pueblo de Israel: su liberación de la esclavitud en Egipto y el establecimiento del pacto con Dios en el Monte Sinaí. Para el judaísmo, es la base de la identidad nacional y religiosa; para el cristianismo, prefigura la obra redentora de Cristo.</p>
+     <div class="bible-quote">
+      <p class="text-lg" style="color: #5a4738;">"Yo soy Jehová tu Dios, que te saqué de la tierra de Egipto, de casa de servidumbre."</p><cite class="block mt-2 text-right font-semibold" style="color: #8B4513;">— Éxodo 20:2</cite>
+     </div>
+     <p class="text-lg leading-relaxed mt-4" style="color: #4a3728;"><strong>Perspectiva evangélica:</strong> El Éxodo revela la gracia soberana de Dios actuando para salvar a su pueblo, prefigurando el plan de salvación en Cristo. La fe en la promesa divina fue lo que permitió a Israel creer en la liberación, estableciendo un patrón de justificación por fe que se desarrolla plenamente en el Nuevo Testamento.</p>
+     <h3 class="font-cinzel text-xl font-semibold mb-4 mt-8" style="color: #654321;">¿Por Qué es Importante el Éxodo?</h3>
+     <div class="grid md:grid-cols-3 gap-4 my-6">
+      <div class="p-4 rounded-lg text-center" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <div class="text-4xl mb-2">
+        🔗
+       </div>
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Identidad Religiosa</h4>
+       <p class="text-sm" style="color: #4a3728;">Define la relación de Dios con su pueblo a través de un pacto histórico y eterno.</p>
+      </div>
+      <div class="p-4 rounded-lg text-center" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <div class="text-4xl mb-2">
+        ⚖️
+       </div>
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Marco Legal</h4>
+       <p class="text-sm" style="color: #4a3728;">Contiene los Diez Mandamientos y la Ley de Moisés, fundación de la ética judeocristiana.</p>
+      </div>
+      <div class="p-4 rounded-lg text-center" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <div class="text-4xl mb-2">
+        ✝️
+       </div>
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Tipología Cristiana</h4>
+       <p class="text-sm" style="color: #4a3728;">Anticipa la redención definitiva a través de Jesucristo como Cordero de Dios.</p>
+      </div>
+     </div>
+     <h3 class="font-cinzel text-xl font-semibold mb-4 mt-8" style="color: #654321;">Datos Clave</h3>
+     <div class="p-5 rounded-lg" style="background: #f5efe6; border-left: 4px solid #8B4513;">
+      <ul class="space-y-2" style="color: #4a3728;">
+       <li><strong>Versículos totales:</strong> 1,213 versículos divididos en 40 capítulos</li>
+       <li><strong>Período narrativo:</strong> Aproximadamente 80 años de la vida de Moisés</li>
+       <li><strong>Ubicación principal:</strong> Egipto y la península del Sinaí</li>
+       <li><strong>Palabras clave:</strong> Liberación, Pacto, Ley, Redención, Gracia</li>
+       <li><strong>Géneros literarios:</strong> Narrativa histórica, poesía, legislación, génealogía</li>
+      </ul>
+     </div>
+    </section>
+    <div class="section-divider"></div><!-- SECCIÓN: Orígenes y Contexto Histórico -->
+    <section id="origenes" class="content-card animate-fade-in">
+     <h2 class="font-cinzel text-2xl md:text-3xl font-bold mb-6 flex items-center" style="color: #8B4513;"><span class="mr-3">🏛️</span> Orígenes y Contexto Histórico</h2>
+     <h3 class="font-cinzel text-xl font-semibold mb-4" style="color: #654321;">Fecha de Composición: Las Diferentes Posturas</h3>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">La fecha de composición del Éxodo ha sido objeto de extenso debate académico. Existen varias perspectivas sobre cuándo fue escrito el libro:</p>
+     <div class="p-5 rounded-lg mb-4" style="background: #f5efe6; border-left: 4px solid #8B4513;">
+      <h4 class="font-cinzel font-semibold mb-3" style="color: #654321;">🕰️ Teoría de Fecha Temprana (Conservadora)</h4>
+      <p style="color: #4a3728;"><strong>Período:</strong> Siglo XV a.C. durante los Hicsos | <strong>Faraón:</strong> Posiblemente Amenhotep II</p>
+      <p style="color: #4a3728;">Propone que Moisés escribió la mayor parte del Éxodo durante su vida. Esta posición es sostenida por eruditos evangélicos y conservadores que enfatizan la credibilidad de los testigos oculares.</p>
+     </div>
+     <div class="p-5 rounded-lg mb-4" style="background: #f5efe6; border-left: 4px solid #8B4513;">
+      <h4 class="font-cinzel font-semibold mb-3" style="color: #654321;">⚔️ Teoría de Fecha Tardía (Conservadora)</h4>
+      <p style="color: #4a3728;"><strong>Período:</strong> Siglo XIII a.C. | <strong>Faraón:</strong> Ramsés II o Ramsés III</p>
+      <p style="color: #4a3728;">Ubica el Éxodo bajo Ramsés II, coincidiendo con evidencia arqueológica de construcción de ciudades. Muchos estudiosos evangélicos aceptan esta cronología como más plausible históricamente.</p>
+     </div>
+     <div class="p-5 rounded-lg mb-4" style="background: #f5efe6; border-left: 4px solid #8B4513;">
+      <h4 class="font-cinzel font-semibold mb-3" style="color: #654321;">📚 Teoría Crítica (Academia Secular)</h4>
+      <p style="color: #4a3728;"><strong>Período de Compilación:</strong> Siglo VI a.C. (exilio babilónico) | <strong>Período de Composición de Materiales:</strong> Siglo IX-VI a.C.</p>
+      <p style="color: #4a3728;">Propone que el texto actual fue compilado por redactores posteriores a partir de tradiciones orales y escritas más antiguas. Sin embargo, reconoce que estas tradiciones pueden remontarse a eventos históricos reales.</p>
+     </div>
+     <h3 class="font-cinzel text-xl font-semibold mb-4 mt-8" style="color: #654321;">El Contexto Arqueológico Egipcio</h3>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">Los eventos narrados en el Éxodo se sitúan en el antiguo Egipto durante el período del <strong>Imperio Nuevo</strong> (c. 1550-1070 a.C.). Aunque los registros egipcios no mencionan explícitamente el Éxodo, los arqueólogos han encontrado evidencia que respalda varios elementos del relato:</p>
+     <div class="overflow-x-auto my-6">
+      <table class="styled-table w-full text-sm">
+       <thead>
+        <tr>
+         <th class="font-cinzel">Elemento Bíblico</th>
+         <th class="font-cinzel">Evidencia Arqueológica</th>
+        </tr>
+       </thead>
+       <tbody style="color: #4a3728;">
+        <tr>
+         <td><strong>Pirámides y construcción</strong></td>
+         <td>Restos de ladrillos de adobe sin paja en Pi-Ramesés, como describe Éxodo 5:7-8</td>
+        </tr>
+        <tr>
+         <td><strong>Ciudades de almacén</strong></td>
+         <td>Excavaciones en Pi-Ramesés y Tenis confirman la construcción de ciudades de almacén</td>
+        </tr>
+        <tr>
+         <td><strong>Nombres egipcios</strong></td>
+         <td>Moisés (de "mose"=hijo), Aarón, Pinees son auténticamente egipcios</td>
+        </tr>
+        <tr>
+         <td><strong>Geografía precisa</strong></td>
+         <td>Descripciones exactas del delta del Nilo, rutas del desierto, formaciones geológicas</td>
+        </tr>
+        <tr>
+         <td><strong>Plagas naturales</strong></td>
+         <td>Las plagas reflejan fenómenos naturales de Egipto (algas rojas, granizo, langostas)</td>
+        </tr>
+        <tr>
+         <td><strong>Administración estatal</strong></td>
+         <td>Títulos y estructuras administrativas coinciden con registros históricos</td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <h3 class="font-cinzel text-xl font-semibold mb-4 mt-2" style="color: #654321;">El Silencio Arqueológico: Una Perspectiva Educativa</h3>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">Es importante notar que los registros oficiales egipcios no mencionan el Éxodo. Esto se debe a varias razones consideradas por historiadores:</p>
+     <ul class="list-disc list-inside space-y-2 ml-4" style="color: #4a3728;">
+      <li><strong>Política historiográfica:</strong> Los faraones rara vez registraban derrotas militares o desastres nacionales</li>
+      <li><strong>Escala demográfica:</strong> Israel podría haber sido considerada una población menor dentro del imperio</li>
+      <li><strong>Destrucción de registros:</strong> Muchos papiros y monumentos de la antigüedad fueron perdidos o destruidos</li>
+      <li><strong>Interpretación de fuentes:</strong> Algunos estudiosos sugieren que referencias indirectas en textos egipcios podrían aludir al evento</li>
+     </ul>
+     <h3 class="font-cinzel text-xl font-semibold mb-4 mt-8" style="color: #654321;">La Historicidad del Éxodo: Un Debate Respetuoso</h3>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">La historicidad del Éxodo continúa siendo debatida de manera académica y respetuosa. Las principales perspectivas son:</p>
+     <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">✅ Perspectiva de Núcleo Histórico</h4>
+       <p class="text-sm" style="color: #4a3728;">Sostiene que los eventos del Éxodo tienen una base histórica real, aunque el relato bíblico contiene teología interpretativa. Muchos eruditos evangélicos adoptan esta posición.</p>
+      </div>
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">📖 Perspectiva de Narrativa Teológica</h4>
+       <p class="text-sm" style="color: #4a3728;">Considera el Éxodo principalmente como expresión teológica de fe en Dios liberador, sin necesariamente negar eventos históricos subyacentes.</p>
+      </div>
+     </div>
+     <div class="p-5 rounded-lg" style="background: linear-gradient(135deg, #f5efe6 0%, #ebe3d5 100%); border: 1px solid #d4c4b0;">
+      <h4 class="font-cinzel font-semibold mb-3" style="color: #654321;">💡 Lo que los Estudiantes Deben Recordar</h4>
+      <p style="color: #4a3728;">Independientemente de la postura académica, el impacto del Éxodo en la historia religiosa, cultural y política es innegable. Ha modelado la fe de miles de millones de personas durante 3,000 años y continúa siendo relevante para la teología contemporánea.</p>
+     </div>
+    </section>
+    <div class="section-divider"></div><!-- SECCIÓN: Autoría -->
+    <section id="autoria" class="content-card animate-fade-in">
+     <h2 class="font-cinzel text-2xl md:text-3xl font-bold mb-6 flex items-center" style="color: #8B4513;"><span class="mr-3">✍️</span> Autoría del Libro</h2>
+     <h3 class="font-cinzel text-xl font-semibold mb-4" style="color: #654321;">Atribución Tradicional: Moisés</h3>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">Tanto la tradición judía como la cristiana han atribuido históricamente la autoría del Éxodo (y del Pentateuco en general) a <strong>Moisés</strong>. Esta perspectiva se fundamenta en referencias bíblicas internas donde se menciona que Moisés escribió ciertos elementos (Éxodo 17:14; 24:4; 34:27), así como en la tradición oral transmitida a través de los siglos.</p>
+     <div class="bible-quote">
+      <p class="text-lg" style="color: #5a4738;">"Y Moisés escribió todas las palabras de Jehová..."</p><cite class="block mt-2 text-right font-semibold" style="color: #8B4513;">— Éxodo 24:4</cite>
+     </div>
+     <h3 class="font-cinzel text-xl font-semibold mb-4 mt-8" style="color: #654321;">La Hipótesis Documentaria: Un Marco de Estudio</h3>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">A partir del siglo XVIII, la crítica bíblica desarrolló la <strong>Hipótesis Documentaria</strong>, que propone que el Pentateuco fue compilado a partir de varias fuentes escritas en diferentes períodos históricos. Esta es una herramienta académica importante para entender cómo se formaron los textos bíblicos:</p>
+     <div class="p-5 rounded-lg mb-4" style="background: #f5efe6; border-left: 4px solid #8B4513;">
+      <h4 class="font-cinzel font-semibold mb-3" style="color: #654321;">Las Cuatro Fuentes Principales:</h4>
+      <div class="space-y-3">
+       <div>
+        <p style="color: #4a3728;"><strong>J (Yahvista) - Siglo X a.C.:</strong> Fuente del reino del Sur (Judá), caracterizada por el uso de "Yahveh" y énfasis en la gracia divina</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>E (Elohista) - Siglo IX a.C.:</strong> Fuente del reino del Norte (Israel), usa "Elohim" y énfasis en la intermediación profética</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>D (Deuteronómico) - Siglo VII a.C.:</strong> Fuente del período de reforma, énfasis en la Ley y obediencia</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>P (Sacerdotal) - Siglo VI a.C.:</strong> Fuente del exilio, énfasis en genealogías, ritualismo y pureza</p>
+       </div>
+      </div>
+     </div>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;"><strong>Perspectiva evangélica sobre la Hipótesis Documentaria:</strong> Muchos eruditos evangélicos reconocen que el Pentateuco contiene tradiciones diversas provenientes de diferentes contextos históricos. Sin embargo, mantienen que la revelación divina a Moisés fue el núcleo central del cual emanaron estas tradiciones, transmitidas y compiladas bajo la inspiración del Espíritu Santo. Esto concilia el reconocimiento de la complejidad textual con la confianza en que Dios guió providencialmente la formación del texto bíblico.</p><!-- Tabla comparativa de posturas -->
+     <div class="overflow-x-auto my-8">
+      <table class="styled-table w-full text-sm md:text-base">
+       <thead>
+        <tr>
+         <th class="font-cinzel">Postura</th>
+         <th class="font-cinzel">Autoría</th>
+         <th class="font-cinzel">Proceso</th>
+         <th class="font-cinzel">Fecha Final</th>
+        </tr>
+       </thead>
+       <tbody style="color: #4a3728;">
+        <tr>
+         <td><strong>Conservadora Tradicional</strong></td>
+         <td>Moisés como autor principal</td>
+         <td>Redacción directa por testigo ocular</td>
+         <td>Siglo XV-XIII a.C.</td>
+        </tr>
+        <tr>
+         <td><strong>Conservadora Moderada</strong></td>
+         <td>Moisés con ediciones posteriores</td>
+         <td>Nucleus moisaico con desarrollo posterior</td>
+         <td>Siglo XV-V a.C.</td>
+        </tr>
+        <tr>
+         <td><strong>Evangélica Contemporánea</strong></td>
+         <td>Tradiciones moisaicas + fuentes posteriores</td>
+         <td>Inspiración divina en todo el proceso</td>
+         <td>Siglo VI a.C. (compilación final)</td>
+        </tr>
+        <tr>
+         <td><strong>Crítica Histórica</strong></td>
+         <td>Múltiples autores/redactores</td>
+         <td>Síntesis literaria de fuentes antiguas</td>
+         <td>Siglo VI-V a.C.</td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <div class="p-5 rounded-lg" style="background: linear-gradient(135deg, #f5efe6 0%, #ebe3d5 100%); border: 1px solid #d4c4b0;">
+      <h4 class="font-cinzel font-semibold mb-3" style="color: #654321;">🎯 Para Estudiantes: Entendiendo Diferentes Enfoques</h4>
+      <p style="color: #4a3728;">En la universidad y seminario, encontrarás estos diferentes enfoques. <strong>No son necesariamente contradictorios</strong> — pueden ser complementarios. Un texto antiguo puede tener orígenes complejos y aun así ser considerado divinamente inspirado. El estudio académico del cómo se formó el texto no necesariamente compromete la fe en que Dios está detrás de su formación.</p>
+     </div>
+    </section>
+    <div class="section-divider"></div><!-- SECCIÓN: Lengua Original -->
+    <section id="lengua" class="content-card animate-fade-in">
+     <h2 class="font-cinzel text-2xl md:text-3xl font-bold mb-6 flex items-center" style="color: #8B4513;"><span class="mr-3">🔤</span> Lengua Original</h2>
+     <h3 class="font-cinzel text-xl font-semibold mb-4" style="color: #654321;">Hebreo Bíblico</h3>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">El libro del Éxodo fue escrito originalmente en <strong>hebreo bíblico clásico</strong> (עברית מקראית), la forma del idioma hebreo utilizada en la composición de las Escrituras hebreas. Este hebreo presenta características distintivas en gramática, vocabulario y estilo que los estudiosos utilizan para analizar la antigüedad y procedencia de los textos.</p>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">A diferencia de otros libros bíblicos como Daniel o Esdras, el Éxodo no contiene secciones extensas en <strong>arameo</strong>. Sin embargo, algunos términos y expresiones reflejan influencias lingüísticas de los idiomas circundantes, incluyendo el egipcio antiguo.</p>
+     <h3 class="font-cinzel text-xl font-semibold mb-4 mt-8" style="color: #654321;">La Septuaginta (LXX): La Primera Traducción de la Biblia</h3>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">La <strong>Septuaginta</strong> (Ἑβδομήκοντα, "los Setenta"), traducción griega del Antiguo Testamento realizada en Alejandría durante los siglos III-II a.C., constituye una versión antigua de enorme importancia textual y teológica. Es de esta traducción que deriva el nombre "Éxodo" (Ἔξοδος, "salida"), ampliamente utilizado en las tradiciones cristianas.</p>
+     <h4 class="font-cinzel font-semibold mb-3" style="color: #654321;">¿Por Qué se Tradujo la Biblia al Griego?</h4>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">Por el siglo III a.C., muchos judíos de la diáspora (especialmente en Alejandría, Egipto) ya no entendían hebreo. La cultura griega era dominante, y la necesidad de comunicar la Torá en el idioma de la población era urgente. Así surge la Septuaginta, producida por traductores judíos helenizados.</p>
+     <div class="p-5 rounded-lg mb-4" style="background: #f5efe6; border-left: 4px solid #8B4513;">
+      <h4 class="font-cinzel font-semibold mb-3" style="color: #654321;">📊 Comparación: Texto Hebreo vs. Septuaginta en el Éxodo</h4>
+      <div class="space-y-3">
+       <div>
+        <p style="color: #4a3728;"><strong>Éxodo 12:37 - Número de Israelitas:</strong> El texto hebreo (MT) dice "600,000 hombres" pero la Septuaginta dice "sobre 600,000 hombres de a pie." Esto refleja diferentes interpretaciones del número.</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>Éxodo 35-40 - Descripción del Tabernáculo:</strong> La Septuaginta contiene variaciones significativas que afectan nuestra comprensión de las dimensiones y características del Tabernáculo.</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>Vocabulario teológico:</strong> Algunos términos fueron traducidos diferentemente, afectando la interpretación teológica (ej: el uso de "Logos" para la Palabra de Dios).</p>
+       </div>
+      </div>
+     </div>
+     <h4 class="font-cinzel font-semibold mb-3" style="color: #654321;">Importancia para Estudiantes de la Biblia</h4>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">La Septuaginta es crucial porque:</p>
+     <ul class="list-disc list-inside space-y-2 ml-4 mb-4" style="color: #4a3728;">
+      <li><strong>Testigo textual antiguo:</strong> Proporciona evidencia de cómo el texto hebreo era entendido en el período intertestamentario</li>
+      <li><strong>Base para el Nuevo Testamento:</strong> Los apóstoles con frecuencia citaban la Septuaginta, no el texto hebreo</li>
+      <li><strong>Crítica textual:</strong> Permite a los eruditos identificar variantes textuales y posibles errores de transmisión</li>
+      <li><strong>Historia de la interpretación:</strong> Revela cómo la comunidad judía antigua interpretaba los textos sagrados</li>
+     </ul>
+     <div class="p-5 rounded-lg mb-4" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+      <h4 class="font-cinzel font-semibold mb-3" style="color: #654321;">🔍 Otras Versiones Antiguas Importantes:</h4>
+      <div class="grid md:grid-cols-2 gap-3">
+       <div>
+        <p style="color: #4a3728;"><strong>Texto Masorético (TM)</strong> - Tradición hebrea estándar, finalizada por los masoretas (500-1000 d.C.)</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>Pentateuco Samaritano</strong> - Versión de la comunidad samaritana, contiene variantes interesantes</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>Targumim</strong> - Paráfrasis arameas interpretativas de la Toráh</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>Vulgata</strong> - Traducción latina de San Jerónimo (siglo IV d.C.)</p>
+       </div>
+      </div>
+     </div>
+    </section>
+    <div class="section-divider"></div><!-- SECCIÓN: Contenido y Mensaje -->
+    <section id="contenido" class="content-card animate-fade-in">
+     <h2 class="font-cinzel text-2xl md:text-3xl font-bold mb-6 flex items-center" style="color: #8B4513;"><span class="mr-3">📜</span> Contenido y Mensaje Principal</h2>
+     <p class="text-lg leading-relaxed mb-6" style="color: #4a3728;">El libro del Éxodo narra uno de los relatos más dramáticos y significativos de toda la Biblia: la transformación de un grupo de esclavos en el pueblo elegido de Dios, liberado milagrosamente y constituido en nación mediante un pacto sagrado. Su estructura literaria combina narrativa histórica, poesía lirica, y código legal, formando un documento profundamente complejo.</p>
+     <h3 class="font-cinzel text-xl font-semibold mb-4" style="color: #654321;">Estructura General del Libro</h3>
+     <div class="p-5 rounded-lg mb-6" style="background: #f5efe6; border-left: 4px solid #8B4513;">
+      <div class="space-y-3">
+       <div>
+        <p style="color: #4a3728;"><strong>Prólogo (1:1-1:14):</strong> Los hijos de Israel en Egipto; esclavitud y opresión</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>Parte I - Liberación (1:15-15:21):</strong> El llamado de Moisés, las plagas, la Pascua, el cruce del Mar Rojo</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>Parte II - Peregrinación (15:22-18:27):</strong> Viaje por el desierto, maná, agua, Amalec</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>Parte III - Pacto y Ley (19:1-24:18):</strong> Teofanía en el Sinaí, Diez Mandamientos, leyes civiles y ceremoniales</p>
+       </div>
+       <div>
+        <p style="color: #4a3728;"><strong>Parte IV - Tabernáculo (25:1-40:38):</strong> Construcción del Tabernáculo y sus furnishings</p>
+       </div>
+      </div>
+     </div>
+     <h3 class="font-cinzel text-xl font-semibold mb-4" style="color: #654321;">Géneros Literarios en el Éxodo</h3>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">Es importante entender que el Éxodo no es un solo género literario. Contiene múltiples formas de comunicación que deben interpretarse según sus características propias:</p>
+     <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">📖 Narrativa Histórica</h4>
+       <p class="text-sm" style="color: #4a3728;">Capítulos 1-15. Relato de eventos (esclavitud, plagas, Éxodo) presentados como hechos históricos en la perspectiva de fe.</p>
+      </div>
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">🎵 Poesía Litúrgica</h4>
+       <p class="text-sm" style="color: #4a3728;">El Cántico de Moisés (15:1-18) es poesía de alabanza, forma de celebración religiosa, no necesariamente descripción literal.</p>
+      </div>
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">⚖️ Código Legal</h4>
+       <p class="text-sm" style="color: #4a3728;">Capítulos 20-23. Las leyes civiles, penales y ceremoniales que gobiernan la vida del pueblo de Israel.</p>
+      </div>
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">📋 Legislación Cultual</h4>
+       <p class="text-sm" style="color: #4a3728;">Capítulos 25-40. Instrucciones detalladas para el culto y la construcción del Tabernáculo.</p>
+      </div>
+     </div>
+     <div class="space-y-6 my-8"><!-- Evento 1 -->
+      <div class="flex items-start space-x-4">
+       <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-cinzel font-bold text-white" style="background: linear-gradient(135deg, #8B4513 0%, #654321 100%);">
+        1
+       </div>
+       <div>
+        <h4 class="font-cinzel font-semibold text-lg" style="color: #8B4513;">La Esclavitud y el Llamado de Moisés (Cap. 1-4)</h4>
+        <p style="color: #4a3728;">Israel sufre bajo la opresión egipcia. Dios llama a Moisés desde la zarza ardiente, revelándose como YHWH, "Yo Soy el que Soy". Moisés y Aarón confrontan al Faraón con demandas de liberación.</p>
+       </div>
+      </div><!-- Evento 2 -->
+      <div class="flex items-start space-x-4">
+       <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-cinzel font-bold text-white" style="background: linear-gradient(135deg, #8B4513 0%, #654321 100%);">
+        2
+       </div>
+       <div>
+        <h4 class="font-cinzel font-semibold text-lg" style="color: #8B4513;">Las Diez Plagas (Cap. 5-11)</h4>
+        <p style="color: #4a3728;">Dios envía plagas sobre Egipto, demostrando su poder sobre los dioses egipcios y su determinación de liberar a su pueblo. Las plagas: agua en sangre, ranas, piojos, moscas, muerte de ganado, úlceras, granizo, langostas, tinieblas y muerte de los primogénitos.</p>
+       </div>
+      </div><!-- Evento 3 -->
+      <div class="flex items-start space-x-4">
+       <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-cinzel font-bold text-white" style="background: linear-gradient(135deg, #8B4513 0%, #654321 100%);">
+        3
+       </div>
+       <div>
+        <h4 class="font-cinzel font-semibold text-lg" style="color: #8B4513;">La Pascua y el Éxodo (Cap. 12-15)</h4>
+        <p style="color: #4a3728;">Institución de la Pascua (sacrificio del cordero sin defecto y marca de sangre en los postes). Muerte de los primogénitos egipcios y redención de los primogénitos israelitas. Salida de Egipto y cruce milagroso del Mar Rojo con Faraón y su ejército destruidos.</p>
+       </div>
+      </div><!-- Evento 4 -->
+      <div class="flex items-start space-x-4">
+       <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-cinzel font-bold text-white" style="background: linear-gradient(135deg, #8B4513 0%, #654321 100%);">
+        4
+       </div>
+       <div>
+        <h4 class="font-cinzel font-semibold text-lg" style="color: #8B4513;">El Pacto en el Sinaí (Cap. 19-24)</h4>
+        <p style="color: #4a3728;">Acampada en el Monte Sinaí. Teofanía: Dios se revela en fuego, humo, trueno y voz. Entrega de los Diez Mandamientos inscritos en tablas de piedra. Establecimiento del pacto entre Dios e Israel. Sellos: "Yo seré vuestro Dios y vosotros seréis mi pueblo."</p>
+       </div>
+      </div><!-- Evento 5 -->
+      <div class="flex items-start space-x-4">
+       <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-cinzel font-bold text-white" style="background: linear-gradient(135deg, #8B4513 0%, #654321 100%);">
+        5
+       </div>
+       <div>
+        <h4 class="font-cinzel font-semibold text-lg" style="color: #8B4513;">El Tabernáculo (Cap. 25-40)</h4>
+        <p style="color: #4a3728;">Instrucciones detalladas para construir el Tabernáculo, el lugar donde Dios habitará en medio de su pueblo. Incidente del Becerro de Oro (Cap. 32) muestra la infidelidad humana y la mediación de Moisés. Construcción y dedicación del Tabernáculo, llenándose de la gloria de Dios (Shekiná).</p>
+       </div>
+      </div>
+     </div>
+     <div class="bible-quote">
+      <p class="text-lg" style="color: #5a4738;">"Y harán un santuario para mí, y habitaré en medio de ellos."</p><cite class="block mt-2 text-right font-semibold" style="color: #8B4513;">— Éxodo 25:8</cite>
+     </div>
+     <h3 class="font-cinzel text-xl font-semibold mb-4 mt-8" style="color: #654321;">Temas Teológicos Transversales</h3>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">Más allá de la narrativa de eventos, el Éxodo comunica verdades teológicas centrales que resuenan a través de toda la Escritura:</p>
+     <div class="grid md:grid-cols-3 gap-4 mb-6">
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <div class="text-3xl mb-2">
+        🔗
+       </div>
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Redención</h4>
+       <p class="text-sm" style="color: #4a3728;">Dios actúa para liberar a los oprimidos. El concepto de <em>goel</em> (redentor) emerge como definidor de la identidad divina.</p>
+      </div>
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <div class="text-3xl mb-2">
+        📜
+       </div>
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Pacto</h4>
+       <p class="text-sm" style="color: #4a3728;">Establecimiento de relación bilateral entre Dios e Israel. Responsabilidades mutuas y promesas de Dios.</p>
+      </div>
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <div class="text-3xl mb-2">
+        ⚖️
+       </div>
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Ley</h4>
+       <p class="text-sm" style="color: #4a3728;">La Torá (enseñanza) es expresión del carácter de Dios y guía para vivir en relación justa con Él.</p>
+      </div>
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <div class="text-3xl mb-2">
+        🔥
+       </div>
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Presencia Divina</h4>
+       <p class="text-sm" style="color: #4a3728;">La Shekiná (gloria de Dios) habita en el Tabernáculo. Dios no es distante, sino presente en medio del pueblo.</p>
+      </div>
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <div class="text-3xl mb-2">
+        🛡️
+       </div>
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Elección Soberana</h4>
+       <p class="text-sm" style="color: #4a3728;">Dios elige a Israel no por su poder o mérito, sino por su misericordia y propósito redensor.</p>
+      </div>
+      <div class="p-4 rounded-lg" style="background: #faf6f0; border: 1px solid #d4c4b0;">
+       <div class="text-3xl mb-2">
+        🐑
+       </div>
+       <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Sacrificio</h4>
+       <p class="text-sm" style="color: #4a3728;">El sistema sacrificial establece el principio de que la vida es requerida para hacer expiación por el pecado.</p>
+      </div>
+     </div>
+     <h3 class="font-cinzel text-xl font-semibold mb-4 mt-8" style="color: #654321;">Mensaje Central: Redención y Revelación</h3>
+     <p class="text-lg leading-relaxed" style="color: #4a3728;">El Éxodo presenta dos temas teológicos fundamentales que resuenan a través de toda la Escritura: la <strong>redención</strong> (Dios como liberador de su pueblo oprimido) y la <strong>revelación</strong> (Dios que se da a conocer y establece una relación de pacto). Estos temas encuentran su culminación en la tradición cristiana evangélica en la persona y obra de Jesucristo.</p>
+    </section>
+    <div class="section-divider"></div><!-- SECCIÓN: Perspectivas Teológicas -->
+    <section id="teologia" class="content-card animate-fade-in">
+     <h2 class="font-cinzel text-2xl md:text-3xl font-bold mb-6 flex items-center" style="color: #8B4513;"><span class="mr-3">⛪</span> Perspectivas Teológicas</h2><!-- Subsección: Teología Histórica -->
+     <div class="mb-10">
+      <h3 class="font-cinzel text-xl font-semibold mb-4 pb-2 border-b-2" style="color: #654321; border-color: #d4c4b0;">Teología Histórica</h3>
+      <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">A lo largo de la historia de la Iglesia, el libro del Éxodo ha sido interpretado y aplicado de diversas maneras, siempre manteniendo su relevancia teológica:</p>
+      <div class="space-y-6">
+       <div class="p-5 rounded-lg" style="background: #faf6f0; border-left: 4px solid #8B4513;">
+        <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Los Reformadores Protestantes</h4>
+        <p style="color: #4a3728;"><strong>Martín Lutero</strong> y <strong>Juan Calvino</strong>, fundadores de la tradición protestante, enfatizaron que el Éxodo presenta la gracia divina soberana. Para ellos, el Éxodo es la declaración más clara en el Antiguo Testamento de que Dios salva por su misericordia, no por los méritos humanos. Esto fundamentó su teología de la justificación por fe sola.</p>
+       </div>
+       <div class="p-5 rounded-lg" style="background: #faf6f0; border-left: 4px solid #8B4513;">
+        <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Teología Evangélica Moderna</h4>
+        <p style="color: #4a3728;">Los eruditos evangélicos contemporáneos ven el Éxodo como un acta constitutiva de la fe bíblica. Destacan que el pueblo de Israel fue elegido no por su fortaleza o dignidad, sino por la soberana elección de Dios (Deuteronomio 7:7-8). Esta verdad se convierte en el fundamento de la doctrina evangélica de la predestinación y la gracia irresistible.</p>
+       </div>
+       <div class="p-5 rounded-lg" style="background: #faf6f0; border-left: 4px solid #8B4513;">
+        <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Cristo como Antitype del Éxodo</h4>
+        <p style="color: #4a3728;">La interpretación evangélica subraya que Jesús es el cumplimiento de todas las figuras del Éxodo: es el Cordero Pascual sin mancha (1 Corintios 5:7), el maná del cielo (Juan 6:48-51), y el agua viva que fluye de la roca espiritual (1 Corintios 10:4). Su resurrección es el nuevo Éxodo, la liberación definitiva del pecado y la muerte.</p>
+       </div>
+      </div>
+     </div><!-- Subsección: Teología Sistemática -->
+     <div>
+      <h3 class="font-cinzel text-xl font-semibold mb-4 pb-2 border-b-2" style="color: #654321; border-color: #d4c4b0;">Teología Sistemática</h3>
+      <p class="text-lg leading-relaxed mb-6" style="color: #4a3728;">El Éxodo aporta fundamentos esenciales para múltiples doctrinas cristianas:</p>
+      <div class="grid md:grid-cols-2 gap-6"><!-- Doctrina 1 -->
+       <div class="p-5 rounded-lg text-center" style="background: linear-gradient(135deg, #f5efe6 0%, #ebe3d5 100%); border: 1px solid #d4c4b0;">
+        <div class="text-3xl mb-3">
+         👑
+        </div>
+        <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Soberanía Electiva de Dios</h4>
+        <p class="text-sm" style="color: #4a3728;">Dios elige a Israel, no por sus méritos, sino por su soberana voluntad. Esto fundamenta la doctrina evangélica de la elección y la predestinación.</p>
+       </div><!-- Doctrina 2 -->
+       <div class="p-5 rounded-lg text-center" style="background: linear-gradient(135deg, #f5efe6 0%, #ebe3d5 100%); border: 1px solid #d4c4b0;">
+        <div class="text-3xl mb-3">
+         🔗
+        </div>
+        <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Redención por Sangre</h4>
+        <p class="text-sm" style="color: #4a3728;">El cordero pascual prefigura la redención mediante la sangre de Cristo. "Sin derramamiento de sangre no se hace remisión" (Hebreos 9:22).</p>
+       </div><!-- Doctrina 3 -->
+       <div class="p-5 rounded-lg text-center" style="background: linear-gradient(135deg, #f5efe6 0%, #ebe3d5 100%); border: 1px solid #d4c4b0;">
+        <div class="text-3xl mb-3">
+         📋
+        </div>
+        <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">La Ley Moral de Dios</h4>
+        <p class="text-sm" style="color: #4a3728;">Los Diez Mandamientos expresan el carácter santo de Dios. La ley fue "nuestro ayo para llevarnos a Cristo" (Gálatas 3:24).</p>
+       </div><!-- Doctrina 4 -->
+       <div class="p-5 rounded-lg text-center" style="background: linear-gradient(135deg, #f5efe6 0%, #ebe3d5 100%); border: 1px solid #d4c4b0;">
+        <div class="text-3xl mb-3">
+         📜
+        </div>
+        <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">El Pacto de Gracia</h4>
+        <p class="text-sm" style="color: #4a3728;">El pacto sinaítico anticipa el Nuevo Pacto en la sangre de Cristo, donde la salvación es por fe, no por obras.</p>
+       </div><!-- Doctrina 5 -->
+       <div class="p-5 rounded-lg text-center" style="background: linear-gradient(135deg, #f5efe6 0%, #ebe3d5 100%); border: 1px solid #d4c4b0;">
+        <div class="text-3xl mb-3">
+         🕯️
+        </div>
+        <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">La Presencia de Dios</h4>
+        <p class="text-sm" style="color: #4a3728;">El Tabernáculo, donde Dios habita entre su pueblo, prefigura la Encarnación: "El Verbo se hizo carne y habitó entre nosotros" (Juan 1:14).</p>
+       </div><!-- Doctrina 6 -->
+       <div class="p-5 rounded-lg text-center" style="background: linear-gradient(135deg, #f5efe6 0%, #ebe3d5 100%); border: 1px solid #d4c4b0;">
+        <div class="text-3xl mb-3">
+         🐑
+        </div>
+        <h4 class="font-cinzel font-semibold mb-2" style="color: #8B4513;">Tipología Cristológica</h4>
+        <p class="text-sm" style="color: #4a3728;">El cordero pascual, el maná, la roca y el sumo sacerdote son tipos que encuentran su antitipo perfecto en Jesucristo.</p>
+       </div>
+      </div>
+      <div class="bible-quote mt-8">
+       <p class="text-lg" style="color: #5a4738;">"Porque nuestra pascua, que es Cristo, ya fue sacrificada por nosotros."</p><cite class="block mt-2 text-right font-semibold" style="color: #8B4513;">— 1 Corintios 5:7</cite>
+      </div>
+     </div>
+    </section>
+    <div class="section-divider"></div><!-- SECCIÓN: Conclusión -->
+    <section id="conclusion" class="content-card animate-fade-in">
+     <h2 class="font-cinzel text-2xl md:text-3xl font-bold mb-6 flex items-center" style="color: #8B4513;"><span class="mr-3">✨</span> Conclusión</h2>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">El libro del Éxodo continúa siendo profundamente relevante para la fe evangélica contemporánea. Su mensaje central de redención soberana por gracia resuena con la teología protestante: Dios actúa salvíficamente no por mérito humano, sino por su misericordia electiva. El Éxodo es, en esencia, un evangelio del Antiguo Testamento.</p>
+     <p class="text-lg leading-relaxed mb-4" style="color: #4a3728;">Desde la perspectiva evangélica, el Éxodo no es meramente un relato histórico, sino una revelación teológica que apunta a Cristo. Cada elemento —el cordero sin defecto, la sangre en los postes, la salida de Esclavitud, el maná del cielo, la ley en el Sinaí— anticipa la obra consumada de Jesús en la cruz y resurrección. "Porque nuestra pascua, que es Cristo, ya fue sacrificada por nosotros" (1 Corintios 5:7).</p>
+     <p class="text-lg leading-relaxed mb-6" style="color: #4a3728;">En un mundo que sigue experimentando diversas formas de esclavitud —la esclavitud del pecado, la culpa y la muerte— el Éxodo proclama una verdad eterna: Dios es el Libertador supremo. Su gracia soberana actúa para redimir a los perdidos, establecer un nuevo pacto con los creyentes, y habitar en el corazón de quienes le reciben por fe en Cristo. Este es el mensaje evangélico fundamental: redención gratuita, completa y eterna en Jesús.</p>
+     <div class="bible-quote">
+      <p class="text-lg" style="color: #5a4738;">"Y conoceréis que yo soy Jehová vuestro Dios, que os saco de debajo de las tareas pesadas de Egipto."</p><cite class="block mt-2 text-right font-semibold" style="color: #8B4513;">— Éxodo 6:7</cite>
+     </div>
+    </section>
+    <div class="section-divider"></div><!-- SECCIÓN: Formulario de Suscripción -->
+    <section class="content-card animate-fade-in" style="background: linear-gradient(135deg, #3d2317 0%, #1a0f0a 100%); border-top-color: #d4a574;">
+     <div class="text-center">
+      <h3 class="font-cinzel text-xl md:text-2xl font-bold mb-4" style="color: #f5e6d3;">📬 Recibe Más Estudios Bíblicos</h3>
+      <p class="mb-6" style="color: #c4b5a5;">Suscríbete para recibir estudios profundos sobre otros libros de la Biblia directamente en tu correo.</p>
+      <form id="subscribeForm" class="max-w-md mx-auto">
+       <div class="flex flex-col sm:flex-row gap-3"><label for="emailInput" class="sr-only">Correo electrónico</label> <input type="email" id="emailInput" placeholder="Tu correo electrónico" class="form-input flex-1 text-center sm:text-left" required> <button type="submit" class="btn-primary whitespace-nowrap"> Suscribirme </button>
+       </div>
+       <p class="text-xs mt-4" style="color: #8a7a6a;">* Este formulario es ilustrativo. Respetamos tu privacidad.</p>
+      </form><!-- Mensaje de confirmación -->
+      <div id="confirmationMessage" class="hidden mt-4 p-4 rounded-lg" style="background: rgba(212, 165, 116, 0.2);">
+       <p class="font-semibold" style="color: #d4a574;">✓ ¡Gracias por tu interés! (Demostración)</p>
+      </div>
+     </div>
+    </section>
+   </main><!-- Notas al Pie con Citas Bíblicas -->
+   <aside class="max-w-4xl mx-auto px-4 py-8">
+    <div class="p-6 rounded-lg" style="background: #ebe3d5; border: 1px solid #d4c4b0;">
+     <h4 class="font-cinzel font-semibold mb-4" style="color: #8B4513;">📌 Pasajes Clave para el Estudio</h4>
+     <div class="grid md:grid-cols-2 gap-4 text-sm" style="color: #4a3728;">
+      <div>
+       <p><strong>Éxodo 3:1-15</strong> — La zarza ardiente y el nombre de Dios</p>
+       <p><strong>Éxodo 12:1-28</strong> — Institución de la Pascua</p>
+       <p><strong>Éxodo 14:1-31</strong> — Cruce del Mar Rojo</p>
+      </div>
+      <div>
+       <p><strong>Éxodo 19:1-25</strong> — Teofanía en el Sinaí</p>
+       <p><strong>Éxodo 20:1-17</strong> — Los Diez Mandamientos</p>
+       <p><strong>Éxodo 40:34-38</strong> — La gloria llena el Tabernáculo</p>
+      </div>
+     </div>
+    </div>
+   </aside><!-- Pie de Página -->
+   <footer class="py-8 text-center" style="background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);">
+    <div class="max-w-4xl mx-auto px-4">
+     <p class="font-cinzel text-sm mb-2" style="color: #d4a574;">Estudio Bíblico del Éxodo</p>
+     <p class="text-xs" style="color: #8a7a6a;">Contenido preparado con fines educativos y de edificación espiritual. <br>
+       Las citas bíblicas provienen de la versión Reina-Valera 1960.</p>
+     <div class="mt-4 flex justify-center space-x-4"><a href="#inicio" class="text-xs hover:underline" style="color: #c4b5a5;">Volver al inicio</a> <span style="color: #5a4738;">|</span> <a href="#introduccion" class="text-xs hover:underline" style="color: #c4b5a5;">Comenzar lectura</a>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+        // ========================================
+        // Configuración por defecto
+        // ========================================
+        const defaultConfig = {
+            main_title: 'Estudio Bíblico del Éxodo',
+            subtitle: 'Orígenes, Autoría y Teología',
+            background_color: '#faf6f0',
+            text_color: '#4a3728',
+            accent_color: '#8B4513',
+            header_bg_color: '#1a0f0a',
+            secondary_surface_color: '#ffffff'
+        };
+        
+        // ========================================
+        // Funciones de actualización de UI
+        // ========================================
+        function updateUI(config) {
+            // Actualizar títulos
+            const mainTitle = document.getElementById('mainTitle');
+            const subtitle = document.getElementById('subtitle');
+            
+            if (mainTitle) {
+                mainTitle.textContent = config.main_title || defaultConfig.main_title;
+            }
+            
+            if (subtitle) {
+                subtitle.textContent = config.subtitle || defaultConfig.subtitle;
+            }
+            
+            // Actualizar colores
+            document.documentElement.style.setProperty('--bg-color', config.background_color || defaultConfig.background_color);
+            document.documentElement.style.setProperty('--text-color', config.text_color || defaultConfig.text_color);
+            document.documentElement.style.setProperty('--accent-color', config.accent_color || defaultConfig.accent_color);
+        }
+        
+        // ========================================
+        // Inicialización del SDK
+        // ========================================
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig: defaultConfig,
+                
+                onConfigChange: async (config) => {
+                    updateUI(config);
+                },
+                
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.secondary_surface_color || defaultConfig.secondary_surface_color,
+                            set: (value) => {
+                                config.secondary_surface_color = value;
+                                window.elementSdk.setConfig({ secondary_surface_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.accent_color || defaultConfig.accent_color,
+                            set: (value) => {
+                                config.accent_color = value;
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.header_bg_color || defaultConfig.header_bg_color,
+                            set: (value) => {
+                                config.header_bg_color = value;
+                                window.elementSdk.setConfig({ header_bg_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || 'Crimson Pro',
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || 18,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                
+                mapToEditPanelValues: (config) => new Map([
+                    ['main_title', config.main_title || defaultConfig.main_title],
+                    ['subtitle', config.subtitle || defaultConfig.subtitle]
+                ])
+            });
+        }
+        
+        // ========================================
+        // Menú móvil
+        // ========================================
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                });
+            });
+        }
+        
+        // ========================================
+        // Formulario de suscripción (demostración)
+        // ========================================
+        const subscribeForm = document.getElementById('subscribeForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        
+        if (subscribeForm && confirmationMessage) {
+            subscribeForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Mostrar mensaje de confirmación
+                confirmationMessage.classList.remove('hidden');
+                
+                // Limpiar el campo
+                const emailInput = document.getElementById('emailInput');
+                if (emailInput) {
+                    emailInput.value = '';
+                }
+                
+                // Ocultar después de 3 segundos
+                setTimeout(() => {
+                    confirmationMessage.classList.add('hidden');
+                }, 3000);
+            });
+        }
+        
+        // ========================================
+        // Animación de scroll suave para secciones
+        // ========================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.content-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d1b1240175cb5f0',t:'MTc3MTcyNzUyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
