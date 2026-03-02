@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Teología Sistemática</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f7fa;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            padding: 2.5rem 2rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #0f2b4b, #1e4a6f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            border-left: 6px solid #b8860b;
+            padding-left: 1.5rem;
+        }
+        .subhead {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+            padding-left: 2rem;
+            border-left: 2px solid #cbd5e1;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #0f2b4b;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #e2e8f0;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: #b8860b;
+        }
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e4a6f;
+            margin: 1.5rem 0 0.75rem;
+        }
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+        .highlight {
+            background: #fef9e7;
+            padding: 0.2rem 0.4rem;
+            border-radius: 6px;
+            font-weight: 500;
+            color: #92400e;
+        }
+        .card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-left: 6px solid #b8860b;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .table-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 1rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .table-comparison th {
+            background: #0f2b4b;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 1rem;
+            text-align: left;
+        }
+        .table-comparison td {
+            background: white;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        .table-comparison tr:last-child td {
+            border-bottom: none;
+        }
+        .table-comparison td:first-child {
+            font-weight: 600;
+            color: #0f2b4b;
+            background: #f1f5f9;
+        }
+        .checklist {
+            background: #f1f5f9;
+            border-radius: 24px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border: 1px solid #cbd5e1;
+        }
+        .checklist h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        .checklist li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: #b8860b;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        .checklist li strong {
+            color: #0f2b4b;
+        }
+        .pill {
+            display: inline-block;
+            background: #e9eef3;
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1e4a6f;
+            letter-spacing: 0.3px;
+            margin-right: 0.5rem;
+        }
+        .greek {
+            font-family: 'Georgia', serif;
+            background: #e9eef3;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        /* Estilos para el Modal de Imagen */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
+        .modal-content {
+            max-width: 95%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+        .close-modal-btn {
+            margin-top: 20px;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            background: white;
+            border: none;
+            color: #0f2b4b;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        .close-modal-btn:hover { transform: scale(1.05); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Menú de Contenidos (Botones) */
+        .toc-container {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            border: 1px solid #e2e8f0;
+        }
+        .toc-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0f2b4b;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+        .toc-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: linear-gradient(to bottom, #ffffff, #f1f5f9);
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            color: #0f2b4b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .toc-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: #b8860b;
+            color: #b8860b;
+        }
+        .toc-btn:active {
+            transform: translateY(-1px);
+        }
+        /* Botón Volver */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1.5rem;
+            background: #0f2b4b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .back-btn:hover {
+            background: #1e4a6f;
+        }
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px dashed #cbd5e1;
+            padding-top: 2rem;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem; }
+            h1 { font-size: 1.8rem; }
+            .table-comparison { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="menu-index.html" class="back-btn">← Volver al Menú</a>
+        <h1>Fundamentos de la Teología Sistemática: <br>Un Mapa para el Estudiante Bíblico</h1>
+        <div class="subhead">Explorando la lógica divina con rigor y asombro</div>
+
+        <!-- Menú de Navegación -->
+        <div class="toc-container">
+            <div class="toc-title">Índice de Temas</div>
+            <div class="toc-grid">
+                <a href="#intro" class="toc-btn">1. Introducción</a>
+                <a href="#distincion" class="toc-btn">2. Teología vs Religión</a>
+                <a href="#metodo" class="toc-btn">3. Método Sistemático</a>
+                <a href="#pilares" class="toc-btn">4. Pilares de Revelación</a>
+                <a href="#tarea" class="toc-btn">5. Tarea Práctica</a>
+                <a href="#infografia" class="toc-btn">6. Infografía</a>
+            </div>
+        </div>
+
+        <!-- 1. Introducción -->
+        <h2 id="intro">1. Introducción a la Teología: El Estudio del "Logos" Divino</h2>
+        <p>En el panorama de la educación bíblica contemporánea, la precisión terminológica no es una cuestión de semántica árida, sino el cimiento indispensable sobre el cual se construye todo el edificio del conocimiento cristiano. Para el estudiante, definir la teología con rigor es el primer paso para rescatar esta disciplina de la percepción común que la cataloga como una "ciencia misteriosa" o un anacronismo. Una definición correcta actúa como un filtro intelectual que separa la especulación humana de la recepción de la verdad divina.</p>
+        <p>La etimología de la palabra <span class="highlight">"Teología"</span> nos ofrece la clave para entender su profundidad científica, basándose en dos raíces griegas fundamentales:</p>
+        <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+            <li><span class="greek">Theos</span>: Que significa <strong>Dios</strong>. Es el objeto central y el sujeto de estudio.</li>
+            <li><span class="greek">Logos</span>: Un término con una densidad filosófica y bíblica inigualable. Traducido comúnmente como "palabra" o "idea", el <em>Logos</em> remite directamente a la noción de <strong>lógica</strong> o estructura racional.</li>
+        </ul>
+        <p>Para comprender el peso de este sufijo <span class="highlight">"-logía"</span>, debemos observar su uso en otras disciplinas: la <strong>Biología</strong> es la palabra o lógica de la vida; la <strong>Zoología</strong>, la lógica del reino animal; y la <strong>Antropología</strong>, el <em>logos</em> sobre el <em>anthropos</em> (el hombre). Por tanto, la <strong>Teología</strong> es, en su sentido más estricto, el estudio de la <em>"lógica de Dios mismo"</em>. No es un mero discurso humano sobre la divinidad, sino la exploración del concepto y la razón que emanan del carácter del Creador. Esta disciplina se ramifica en diversas sub-áreas esenciales, como la <span class="pill">Cristología</span> <span class="pill">Pneumatología</span> <span class="pill">Hamartiología</span> <span class="pill">Escatología</span> y la <span class="pill">Teología Propia</span>.</p>
+
+        <!-- 2. Gran Distinción -->
+        <h2 id="distincion">2. La Gran Distinción: Teología versus Estudios de Religión</h2>
+        <p>Existe una diferencia categórica entre el estudio de la fe y el estudio de las prácticas humanas, una distinción que se ha desdibujado en la academia moderna. R.C. Sproul relataba su visita a una universidad cristiana que, tras jubilar a su presidente, realizaba un autoanálisis de su plan de estudios. Al recorrer el campus, notó que el antiguo "Departamento de Teología" se llamaba ahora "Departamento de Religión". Al preguntar a un profesor con 40 años de trayectoria sobre la razón de este cambio ocurrido décadas atrás, la respuesta fue reveladora: "No lo sé". Este desconocimiento ilustra un giro estratégico inconsciente pero devastador: el abandono de la búsqueda de la verdad de Dios por el análisis del comportamiento humano.</p>
+        <p>Para clarificar esta transición, evaluemos los diferenciadores clave:</p>
+
+        <table class="table-comparison">
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Teología</th>
+                    <th>Estudios de Religión</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Objeto de Estudio</td><td>La naturaleza y el carácter de Dios mismo.</td><td>Las prácticas, conductas y sociología humana.</td></tr>
+                <tr><td>Orientación</td><td><strong>Sobrenatural:</strong> Trata sobre lo que está por encima y más allá de este mundo.</td><td><strong>Natural:</strong> Estudia cómo los seres humanos se comportan en su entorno de culto.</td></tr>
+                <tr><td>Estatus Histórico</td><td>Considerada la <em>"Reina de las Ciencias"</em>.</td><td>Vinculada a la Antropología y la Sociología.</td></tr>
+                <tr><td>Premisa Fundamental</td><td>La verdad de Dios como fuente de toda otra verdad.</td><td>La religión como un fenómeno cultural discreto y horizontal.</td></tr>
+            </tbody>
+        </table>
+
+        <p>Clásicamente, la teología ostentaba el trono de las ciencias porque se entendía que toda disciplina (economía, física o matemáticas) debía interpretarse a la luz de la realidad de Dios. En este esquema, la <strong>filosofía actuaba como su "sirvienta"</strong> (<span class="greek">ancilla theologiae</span>), proporcionando las herramientas lógicas para articular la revelación. El estudiante debe comprender que este curso no trata sobre cómo el hombre busca a Dios, sino sobre cómo Dios se revela a Sí mismo "desde arriba".</p>
+
+        <!-- 3. Método Sistemático -->
+        <h2 id="metodo">3. El Método Sistemático: Superando la Alergia a los Sistemas</h2>
+        <p>En la actualidad, el término "sistemático" genera una resistencia cultural, una suerte de "alergia" intelectual. Este rechazo es hijo del <strong>existencialismo</strong>, una filosofía que postula que no existe una <em>esencia</em> universal, sino solo la <em>existencia</em> particular y fragmentada. Para el existencialista, el mundo es un <strong>caos</strong> carente de significado general, donde solo existen verdades relativas y fragmentos de experiencia diaria. Al negar un propósito general, el existencialismo aborrece cualquier sistema de pensamiento coherente.</p>
+        <p>Sin embargo, la Teología Sistemática no es un intento de imponer un orden humano a la Biblia, sino de descubrir el <strong>Cosmos</strong> (orden) que Dios ha establecido en Su revelación. Debemos precavernos de un error metodológico común:</p>
+        <div class="card">
+            <h3 style="margin-top: 0;">⚠️ Advertencia: El Lecho de Procusto</h3>
+            <p>En la mitología, el bandido Procusto mutilaba o estiraba a sus huéspedes para que encajaran exactamente en su cama de hierro. En el ámbito teológico, esto ocurre cuando un estudiante adopta un sistema filosófico externo —como el <strong>racionalismo de Descartes</strong> o el <strong>empirismo de Locke</strong>— y fuerza las Escrituras a encajar en esa red preconcebida. La verdadera teología sistemática no "aprieta" la Biblia dentro de un sistema filosófico natural, sino que <strong>extrae el sistema de la Biblia misma</strong>, escuchando la Palabra en sus propios términos.</p>
+        </div>
+
+        <!-- 4. Pilares de la Revelación -->
+        <h2 id="pilares">4. Los Pilares de la Revelación: Unidad, Coherencia y Consistencia</h2>
+        <p>La teología sistemática descansa sobre la premisa de que Dios no es el autor de la confusión. Si Dios es un ser de orden, Su revelación debe ser inteligible y racional. Esto no significa que la fe sea el fruto de la especulación humana, sino que la verdad divina, al provenir de una mente perfecta, manifiesta tres pilares críticos:</p>
+        <ul style="margin-left: 2rem;">
+            <li><strong>Unidad:</strong> A pesar de la vasta diversidad de autores, géneros y siglos que componen la Biblia, existe una mente única detrás del texto: el Espíritu Santo. Por ello, temas tan diversos como el juicio y la misericordia encuentran su punto de convergencia en Dios.</li>
+            <li><strong>Coherencia:</strong> El Espíritu Santo no es incoherente. Las doctrinas bíblicas no se contradicen, sino que forman una estructura congruente donde cada verdad encaja con las demás sin fricción lógica.</li>
+            <li><strong>Consistencia:</strong> Se dice a menudo que "la coherencia es el duende de las mentes pequeñas". Si eso fuera cierto, como bromeaba Sproul, <strong>Dios tendría la mente más pequeña de todas</strong>, pues Él es perfectamente consistente. Dios es el mismo ayer, hoy y siempre; Su carácter inmutable garantiza que Su verdad sea constante y no contradictoria.</li>
+        </ul>
+        <p>Estos pilares permiten al estudiante ver las Escrituras no como un conjunto de fragmentos aislados, sino como un todo orgánico y significativo.</p>
+
+        <!-- 5. Tarea Práctica -->
+        <h2 id="tarea">5. La Tarea Práctica del Estudiante: Del Fragmento al Todo Orgánico</h2>
+        <p>El teólogo sistemático no trabaja en el vacío; su labor es arquitectónica. Mientras que los departamentos de Antiguo y Nuevo Testamento actúan como "especialistas de datos" que investigan el texto minuciosamente, el sistemático <strong>depende de la información que estos estudiosos traen a la mesa</strong>. Su tarea es reunir esos datos y construir el mosaico completo, mostrando cómo encaja cada pieza.</p>
+        <p>Esta labor revela una <strong>simetría intrincada</strong>. Un punto doctrinal impacta necesariamente en todos los demás. Consideremos el <span class="highlight">Nacimiento Virginal</span>:</p>
+        <ul style="margin-left: 2rem; list-style-type: decimal; background: #f1f5f9; padding: 1.5rem; border-radius: 16px;">
+            <li>Si Cristo no nació de una virgen, no es el Dios-hombre.</li>
+            <li>Si no es el Dios-hombre, Su vida no posee la justicia perfecta necesaria.</li>
+            <li>Si Su justicia no es perfecta, Su sacrificio en la cruz (Expiación) carece de valor redentor.</li>
+            <li>Si la Expiación es inválida, nuestra salvación es imposible.</li>
+        </ul>
+        <p>Esta "reacción en cadena" demuestra que la teología no es una colección de opiniones, sino un sistema interconectado. Para el estudiante, el proceso es claro:</p>
+        <ol style="margin-left: 2rem; margin-bottom: 1.5rem;">
+            <li><strong>Dependencia:</strong> Utilizar el rigor del estudio bíblico exegético.</li>
+            <li><strong>Recopilación:</strong> Reunir toda la información revelada sobre un tema (v.g. la Pneumatología).</li>
+            <li><strong>Integración:</strong> Mostrar cómo esa información forma un todo significativo y coherente con el resto de la revelación.</li>
+        </ol>
+
+        <!-- 6. Infografía -->
+        <h2 id="infografia">6. Infografía</h2>
+        <div style="text-align: center; margin: 2rem 0;">
+            <img src="t1.png" alt="Infografía Teología" style="max-width: 100%; border-radius: 16px; cursor: zoom-in; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onclick="openImageModal(this.src)">
+            <p style="font-size: 0.9rem; color: #64748b; margin-top: 0.5rem;">(Toca la imagen para ampliar)</p>
+            <div style="margin-top: 2rem; display: grid; gap: 1.5rem;">
+                <img src="t01.png" alt="Infografía Teología 01" style="max-width: 100%; border-radius: 16px; cursor: zoom-in; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onclick="openImageModal(this.src)">
+                <img src="t2.png" alt="Infografía Teología 2" style="max-width: 100%; border-radius: 16px; cursor: zoom-in; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onclick="openImageModal(this.src)">
+                <img src="t3.png" alt="Infografía Teología 3" style="max-width: 100%; border-radius: 16px; cursor: zoom-in; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onclick="openImageModal(this.src)">
+                <img src="t4.png" alt="Infografía Teología 4" style="max-width: 100%; border-radius: 16px; cursor: zoom-in; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" onclick="openImageModal(this.src)">
+            </div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="checklist">
+            <h3>✅ Checklist del Estudiante Teológico</h3>
+            <p>Utilice estos puntos para evaluar si su estudio mantiene el rigor de la teología sistemática clásica:</p>
+            <ul>
+                <li><strong>¿Busco la coherencia?</strong> ¿Estoy esforzándome por ver cómo esta doctrina encaja armoniosamente con el resto de la revelación bíblica?</li>
+                <li><strong>¿Es mi orientación sobrenatural?</strong> ¿Mi estudio se centra en la naturaleza y carácter de Dios, o ha derivado en un análisis sociológico de la "religión" humana?</li>
+                <li><strong>¿Respeto la autoría divina?</strong> ¿Reconozco la unidad de la Escritura basada en que el Espíritu Santo no es incoherente consigo mismo?</li>
+                <li><strong>¿He evitado el "Lecho de Procusto"?</strong> ¿Estoy permitiendo que la Biblia dicte el sistema, o estoy forzando el texto para que encaje en mis presuposiciones filosóficas (racionalismo, empirismo, etc.)?</li>
+                <li><strong>¿Reconozco la interconexión?</strong> ¿Soy consciente de cómo el cambio en un punto doctrinal (como la Cristología) afecta inevitablemente a los demás (como la Hamartiología o la Escatología)?</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Basado en los principios de la teología reformada y la herencia evangélica. <br>Estudio sistemático para la edificación del cuerpo de Cristo.</p>
+            <p style="font-size:0.8rem;">© 2025 · Fundamentos Teológicos · Soli Deo Gloria</p>
+            <p style="margin-top: 1rem; font-weight: 600; color: #0f2b4b;">Estudiosos Bíblicos Termas de Río Hondo</p>
+        </footer>
+    </div>
+
+    <!-- Modal para ver imagen en pantalla completa -->
+    <div id="imageModal" class="modal-overlay" onclick="closeImageModal(event)">
+        <img id="fullImage" class="modal-content" src="" alt="Imagen ampliada">
+        <button class="close-modal-btn" onclick="closeImageModal(event)">Cerrar</button>
+    </div>
+
+    <script>
+        function openImageModal(src) {
+            document.getElementById('fullImage').src = src;
+            document.getElementById('imageModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeImageModal(e) {
+            if(e.target.id === 'imageModal' || e.target.classList.contains('close-modal-btn')) {
+                document.getElementById('imageModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body>
+</html>
