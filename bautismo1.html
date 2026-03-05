@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Teológico: El Bautismo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-main: #f2f8fc;
+            --bg-soft: #ffffff;
+            --gold-main: #d4af37;
+            --gold-soft: #f6e6a8;
+            --text-main: #1f2933;
+            --text-soft: #4b5563;
+            --accent: #2874a6;
+            --light: #eaf4fb;
+        }
+
+        body {
+            font-family: "Segoe UI", system-ui, sans-serif;
+            background: linear-gradient(180deg, #eaf4fb, #cfe6f6);
+            min-height: 100vh;
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--bg-soft), #f9fcff);
+            border-radius: 28px;
+            box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--gold-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .subtitle-secondary {
+            color: var(--text-soft);
+            font-size: 0.95rem;
+        }
+
+        .toc {
+            background: linear-gradient(135deg, var(--bg-soft), #f9fcff);
+            padding: 36px 28px;
+            border-radius: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+            border-left: 5px solid var(--gold-main);
+        }
+
+        .toc h2 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light);
+            transition: transform 0.2s;
+        }
+
+        .toc li:hover {
+            transform: translateX(8px);
+        }
+
+        .toc a {
+            color: var(--text-soft);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: block;
+        }
+
+        .toc a:hover {
+            color: var(--gold-main);
+        }
+
+        section {
+            background: linear-gradient(135deg, var(--bg-soft), #f9fcff);
+            padding: 36px 28px;
+            margin-bottom: 28px;
+            border-radius: 28px;
+            box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 28px 48px rgba(0,0,0,0.18);
+        }
+
+        h2 {
+            color: var(--text-main);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--gold-soft);
+            font-weight: 800;
+        }
+
+        h3 {
+            color: var(--gold-main);
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: var(--text-soft);
+            font-size: 1.05rem;
+        }
+
+        .verse-box {
+            background: linear-gradient(135deg, var(--light), #f9fcff);
+            border-left: 5px solid var(--gold-main);
+            padding: 24px;
+            margin: 20px 0;
+            border-radius: 0 16px 16px 0;
+            transition: all 0.3s;
+        }
+
+        .verse-box:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .verse-box .reference {
+            font-weight: 800;
+            color: var(--gold-main);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .verse-box .reference::before {
+            content: '📖';
+        }
+
+        .verse-box .text {
+            font-style: italic;
+            color: var(--text-main);
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, var(--gold-soft), #fff8dc);
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .important {
+            background: linear-gradient(135deg, #fff8dc, #f6e6a8);
+            border: 2px solid var(--gold-main);
+            padding: 28px;
+            margin: 24px 0;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .important::before {
+            content: '⚠️';
+            position: absolute;
+            top: -15px;
+            left: 24px;
+            background: var(--bg-soft);
+            padding: 0 12px;
+            font-size: 1.3em;
+            border-radius: 50%;
+        }
+
+        .important h4 {
+            color: var(--text-main);
+            margin-bottom: 12px;
+            margin-top: 10px;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .important ul {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+
+        .important li {
+            margin-bottom: 8px;
+            color: var(--text-soft);
+        }
+
+        .guide-box {
+            background: linear-gradient(135deg, var(--light), #f9fcff);
+            border: 2px solid var(--gold-main);
+            padding: 28px;
+            margin: 24px 0;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .guide-box::before {
+            content: '💡';
+            position: absolute;
+            top: -15px;
+            left: 24px;
+            background: var(--bg-soft);
+            padding: 0 12px;
+            font-size: 1.3em;
+            border-radius: 50%;
+        }
+
+        .guide-box h4 {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            margin-top: 10px;
+            font-weight: 800;
+        }
+
+        .guide-box ol {
+            margin-left: 24px;
+        }
+
+        .guide-box li {
+            margin-bottom: 12px;
+            color: var(--text-soft);
+            font-size: 1.05rem;
+        }
+
+        .guide-box li::marker {
+            color: var(--gold-main);
+            font-weight: bold;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 24px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #e5e7eb;
+            padding: 16px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--gold-main), var(--gold-soft));
+            color: var(--text-main);
+            font-weight: 800;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--light);
+        }
+
+        .comparison-table tr:hover {
+            background: #f6e6a8;
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--gold-main), var(--gold-soft));
+            color: var(--text-main);
+            border: none;
+            padding: 14px 24px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+        }
+
+        footer {
+            text-align: center;
+            padding: 36px;
+            background: linear-gradient(135deg, var(--bg-soft), #f9fcff);
+            border-radius: 28px;
+            margin-top: 28px;
+            box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+        }
+
+        footer p {
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--text-soft);
+        }
+
+        footer strong {
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 16px; }
+            h1 { font-size: 1.7rem; }
+            h2 { font-size: 1.3rem; }
+            section { padding: 24px 20px; }
+            .container { padding: 0; }
+            .nav-buttons { bottom: 16px; right: 16px; }
+            .nav-btn { padding: 12px 18px; font-size: 13px; }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-main), var(--gold-soft));
+            z-index: 1001;
+            transition: width 0.1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="container">
+        <header>
+            <h1>✝️ Estudio Teológico: El Bautismo</h1>
+            <p class="subtitle">Guía Sistemática desde el Antiguo Testamento hasta las Cartas de Pablo</p>
+            <p class="subtitle-secondary">Basado en la Santa Biblia Reina Valera 1960</p>
+        </header>
+
+        <nav class="toc">
+            <h2>📋 Contenido</h2>
+            <ul>
+                <li><a href="#introduccion">1. Introducción al Estudio del Bautismo</a></li>
+                <li><a href="#at">2. El Bautismo en el Antiguo Testamento</a></li>
+                <li><a href="#evangelios">3. El Bautismo en los Evangelios</a></li>
+                <li><a href="#hechos">4. El Bautismo en Hechos de los Apóstoles</a></li>
+                <li><a href="#paulinas">5. El Bautismo en las Cartas de Pablo</a></li>
+                <li><a href="#guia">6. Guía Práctica para el Bautismo</a></li>
+            </ul>
+        </nav>
+
+        <section id="introduccion">
+            <h2>✝️ 1. Introducción al Estudio del Bautismo</h2>
+            <p>El bautismo es uno de los actos ceremoniales más importantes y significativos en la tradición cristiana. Etimológicamente, la palabra "bautismo" proviene del griego <em>baptisma</em>, que significa "inmersión" o "sumersión". Sin embargo, su significado teológico va mucho más allá de un simple acto ritual.</p>
+            
+            <h3>¿Qué es el Bautismo?</h3>
+            <p>El bautismo es un símbolo exterior de una realidad interior. Representa la identificación con Cristo en su muerte, sepultura y resurrección. Es también el medio por el cual una persona entra a formar parte del cuerpo de Cristo, que es la Iglesia.</p>
+
+            <div class="important">
+                <h4>📌 Propósito de este Estudio</h4>
+                <p>Esta guía está diseñada para:</p>
+                <ul>
+                    <li>Explicar el significado bíblico del bautismo</li>
+                    <li>Identificar quién debe bautizarse</li>
+                    <li>Determinar cuándo debe realizarse el bautismo</li>
+                    <li>Comprender el propósito y la importancia del bautismo</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="at">
+            <h2>📜 2. El Bautismo en el Antiguo Testamento</h2>
+            <p>Aunque el término "bautismo" no se usa formalmente en el Antiguo Testamento, encontramos numerosas prefiguraciones y tipos que anticipan este sacramento.</p>
+
+            <h3>2.1 La Creación y el Agua</h3>
+            <p>El agua aparece desde el inicio de la Biblia como elemento de purificación y nuevo comienzo.</p>
+            <div class="verse-box">
+                <div class="reference">Génesis 1:2-7</div>
+                <div class="text">"Y el Espíritu de Dios se movía sobre la faz de las aguas. Entonces dijo Dios: Sea la luz; y fue la luz... Y reunió Dios las aguas debajo de los cielos en un lugar, y apareció lo seco; y fue llamado lo seco Tierra, y el reunidero de las aguas Mares."</div>
+            </div>
+
+            <h3>2.2 El Diluvio como Nuevo Comienzo</h3>
+            <p>El diluvio representa un bautismo de juicio y purificación, donde el mundo fue recreado a través del agua.</p>
+            <div class="verse-box">
+                <div class="reference">1 Pedro 3:20-21 (Comentario Apostólico)</div>
+                <div class="text">"Los que en otro tiempo fueron desobedientes, cuando una vez esperaba Dios en los días de Noé, mientras se preparaba el arca, en la cual pocas personas, es decir, ocho, fueron salvadas por agua. El bautismo que corresponde a esto ahora nos salva también a nosotros..."</div>
+            </div>
+
+            <h3>2.3 El Paso del Mar Rojo</h3>
+            <p>El pueblo de Israel fue librado de la esclavitud de Egipto pasando a través de las aguas del Mar Rojo.</p>
+            <div class="verse-box">
+                <div class="reference">1 Corintios 10:1-2</div>
+                <div class="text">"Porque no quiero, hermanos, que ignoréis que nuestros padres fueron todos bajo la nube, y todos pasaron el mar; y todos fueron bautizados en la nube y en el mar."</div>
+            </div>
+
+            <h3>2.4 Las Purificaciones Levíticas</h3>
+            <p>La ley mosaica establecía numerosos ritos de purificación con agua que tipificaban el bautismo cristiano.</p>
+            <div class="verse-box">
+                <div class="reference">Levítico 15:13</div>
+                <div class="text">"Y cuando el que tiene flujo se limpia de su flujo, entonces contará siete días para su limpieza, y lavará sus vestidos, y bañará su cuerpo en aguas limpias, y será limpio."</div>
+            </div>
+
+            <h3>2.5 El Profeta Ezequiel y la Promesa del Nuevo Corazón</h3>
+            <div class="verse-box">
+                <div class="reference">Ezequiel 36:25-27</div>
+                <div class="text">"Roceré sobre vosotros agua limpia, y seréis limpiados de todas vuestras inmundicias y de todos vuestros ídolos. Os daré corazón nuevo, y pondré espíritu nuevo dentro de vosotros; y quitaré de vuestra carne el corazón de piedra, y os daré corazón de carne. Y pondré mi espíritu dentro de vosotros, y os haré andar en mis estatutos, y guardaréis mis preceptos, y los cumpliréis."</div>
+            </div>
+        </section>
+
+        <section id="evangelios">
+            <h2>📖 3. El Bautismo en los Evangelios</h2>
+            <p>Los Evangelios presentan el bautismo como un elemento central del ministerio de Juan el Bautista y del propio Jesús.</p>
+
+            <h3>3.1 El Bautista: Preparando el Camino</h3>
+            <p>Juan el Bautista apareció como el precursor del Mesías, predicando un bautismo de arrepentimiento.</p>
+            <div class="verse-box">
+                <div class="reference">Marcos 1:4-8</div>
+                <div class="text">"Juan bautizaba en el desierto, y predicaba el bautismo de arrepentimiento para perdón de pecados. Y salía a él toda la provincia de Judea, y todos los de Jerusalén; y eran bautizados por él en el río Jordán, confesando sus pecados. Y Juan estaba vestido de pelo de camello, y tenía un cinto de cuero alrededor de sus lomos; y comía langostas y miel silvestre. Y predicaba, diciendo: Viene tras mí el que es más poderoso que yo, del cual no soy digno de agacharme para desatar la correa de sus sandalias. Yo os he bautizado con agua; pero él os bautizará con el Espíritu Santo."</div>
+            </div>
+
+            <h3>3.2 El Bautismo de Jesús</h3>
+            <p>Jesús, aunque no necesitaba arrepentimiento, se bautizó para cumplir toda justicia y ser ejemplo para nosotros.</p>
+            <div class="verse-box">
+                <div class="reference">Mateo 3:13-17</div>
+                <div class="text">"Entonces vino Jesús de Galilea a Jordán, para ser bautizado por Juan. Mas Juan se le oponía, diciendo: Yo necesito ser bautizado por ti, ¿y tú vienes a mí? Pero Jesús le respondió: Sufre ahora, porque así nos conviene cumplir toda justicia. Entonces le dejó. Y Jesús, cuando fue bautizado, subió luego del agua; y he aquí los cielos le fueron abiertos, y vio al Espíritu de Dios que descendía como paloma, y venía sobre él. Y he aquí una voz de los cielos que decía: Este es mi Hijo amado, en quien me he complacido."</div>
+            </div>
+
+            <h3>3.3 La Gran Comisión</h3>
+            <p>Jesús ordenó a sus discípulos que bautizaran a todas las naciones.</p>
+            <div class="verse-box">
+                <div class="reference">Mateo 28:18-20</div>
+                <div class="text">"Y Jesús se acercó y les habló diciendo: Toda potestad me es dada en el cielo y en la tierra. Por tanto, id, y haced discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo; enseñándoles que guarden todas las cosas que os he mandado; y he aquí yo estaré con vosotros todos los días, hasta el fin del mundo. Amén."</div>
+            </div>
+
+            <h3>3.4 El Bautismo según Juan</h3>
+            <div class="verse-box">
+                <div class="reference">Juan 3:22-23</div>
+                <div class="text">"Después de esto, Jesús y sus discípulos fueron a la tierra de Judea; y allí moraba con ellos, y bautizaba. También Juan bautizaba en Enón, junto a Salín, porque había allí muchas aguas; y venía la gente, y era bautizada."</div>
+            </div>
+
+            <div class="important">
+                <h4>💡 Enseñanza Importante</h4>
+                <p>Jesús estableció el bautismo como un mandamiento para todos los que desean seguirle. No es opcional, sino una obediencia directa a su palabra.</p>
+            </div>
+        </section>
+
+        <section id="hechos">
+            <h2>📕 4. El Bautismo en Hechos de los Apóstoles</h2>
+            <p>El libro de Hechos nos muestra cómo la iglesia primitiva practicaba el bautismo después de escuchar el evangelio y creer en Jesús.</p>
+
+            <h3>4.1 El Día de Pentecostés</h3>
+            <div class="verse-box">
+                <div class="reference">Hechos 2:37-41</div>
+                <div class="text">"Al oír esto, se compungieron de corazón, y dijéronle a Pedro y a los demás apóstoles: Hermanos, ¿qué haremos? Entonces Pedro les dijo: Arrepentíos, y bautícese cada uno de vosotros en el nombre de Jesucristo para perdón de los pecados; y recibiréis el don del Espíritu Santo. Porque para vosotros es la promesa, y para vuestros hijos, y para todos los que están lejos; a todos los que el Señor nuestro Dios llamare. Y con otras muchas palabras testificaba y les exhortaba, diciendo: Salvaos de esta generación perversa. Y los que recibieron su palabra fueron bautizados; y se añadieron en aquel día como tres mil almas."</div>
+            </div>
+
+            <h3>4.2 El Eunuco Etíope</h3>
+            <div class="verse-box">
+                <div class="reference">Hechos 8:26-39</div>
+                <div class="text">"Un ángel del Señor habló a Felipe, diciendo: Levántate y ve hacia el sur, por el camino que desciende de Jerusalén a Gaza, que está desértica. Y él se levantó y fue; y he aquí un hombre etiope, eunuco, funcionario de Candaces, reina de los etiopes, el cual estaba sobre todos sus tesoros, y había venido a Jerusalén para adorar. Volvía en su carro, y leía al profeta Isaías... Y cuando Felipe llegó hasta donde estaba el carro, oyó que leía al profeta Isaías, y dijo: ¿Pero entiendes lo que lees? Y él dijo: ¿Cómo podré, si alguno no me guiare? Y rogó a Felipe que subiese y se sentase con él... Entonces Felipe, abriendo su boca, y comenzando desde esta escritura, le anunció el evangelio de Jesús. Y yendo por el camino, llegaron a un lugar donde había agua; y el eunuco dijo: He aquí agua; ¿qué impide que yo sea bautizado? Felipe dijo: Si crees de todo corazón, bien puedes. Y respondiendo, dijo: Creo que Jesucristo es el Hijo de Dios. Y mandó parar el carro; y descendieron ambos al agua, Felipe y el eunuco, y le bautizó."</div>
+            </div>
+
+            <h3>4.3 La Conversión de Saulo (Pablo)</h3>
+            <div class="verse-box">
+                <div class="reference">Hechos 9:17-18</div>
+                <div class="text">"Y Ananías fue, y entró en la casa, y poniéndole las manos encima, dijo: Hermano Saulo, el Señor Jesús, que te apareció en el camino por donde venías, me ha enviado para que recobres la vista y seas lleno del Espíritu Santo. Y luego le cayeron de los ojos como escamas, y recobró la vista; y levantándose, fue bautizado."</div>
+            </div>
+
+            <h3>4.4 El Centurión Cornelio y su Familia</h3>
+            <div class="verse-box">
+                <div class="reference">Hechos 10:44-48</div>
+                <div class="text">"Aún estaba hablando Pedro estas palabras, cuando el Espíritu Santo cayó sobre todos los que oían la palabra. Y los fieles de la circuncisión que habían venido con Pedro se asombraron de que el don del Espíritu Santo se derramase también sobre los gentiles, porque los oían hablar en lenguas y magnificar a Dios. Entonces respondió Pedro: ¿Puede alguno impedir el agua, para que no sean bautizados estos que han recibido el Espíritu Santo también como nosotros? Y mandó a bautizar en el nombre del Señor Jesús."</div>
+            </div>
+
+            <h3>4.5 El Carcelero de Filipos</h3>
+            <div class="verse-box">
+                <div class="reference">Hechos 16:25-34</div>
+                <div class="text">"Y a medianoche, Pablo y Silas oraban y cantaban himnos a Dios, y los presos les escuchaban. Y de pronto hubo un gran terremoto, de manera que los cimientos de la cárcel se conmovieron; y al instante se abrieron todas las puertas, y las cadenas de todos se soltaron. Y el alcaide, despertando y viendo las puertas de la cárcel abiertas, sacando la espada se quiso matar, pensando que los presos habían huido. Entonces Pablo clamó a gran voz, diciendo: No te hagas ningún mal, porque todos estamos aquí. El entonces pidió luz, y saltó dentro, y temblando de miedo, se arrojó a los pies de Pablo y Silas, y los sacó fuera, diciendo: Señores, ¿qué debo hacer para salvarme? Y ellos dijeron: Cree en el Señor Jesús, y serás salvo, tú y tu casa. Y le hablaron la palabra del Señor a él, y a todos los que estaban en su casa. Y tomándolos en aquella hora de la noche, los lavó de los azotes; y fue bautizado inmediatamente, él y todos los suyos."</div>
+            </div>
+
+            <h3>4.6 Los Discípulos de Éfeso</h3>
+            <div class="verse-box">
+                <div class="reference">Hechos 19:1-7</div>
+                <div class="text">"Aconteció que mientras Apolos estaba en Corinto, Pablo, después de pasar por las regiones superiores, vino a Éfeso, y halló a ciertos discípulos, y les dijo: ¿Recibisteis el Espíritu Santo cuando creísteis? Y ellos le dijeron: Ni siquiera hemos oído si hay Espíritu Santo. Y dijo: ¿En qué fuisteis entonces bautizados? Y ellos dijeron: En el bautismo de Juan. Entonces Pablo dijo: Juan bautizó con bautismo de arrepentimiento, diciendo al pueblo que creyesen en aquel que vendría después de él, esto es, en Jesús. Cuando oyeron esto, fueron bautizados en el nombre del Señor Jesús. Y poniéndoles las manos encima, el Espíritu Santo vino sobre ellos; y hablaban en lenguas, y profetizaban. Y eran todos los hombres como doce."</div>
+            </div>
+        </section>
+
+        <section id="paulinas">
+            <h2>✉️ 5. El Bautismo en las Cartas de Pablo</h2>
+            <p>Las cartas paulinas proporcionan la enseñanza más profunda sobre el significado espiritual del bautismo.</p>
+
+            <h3>5.1 El Bautismo como Muerte y Resurrección</h3>
+            <div class="verse-box">
+                <div class="reference">Romanos 6:1-11</div>
+                <div class="text">"¿Qué diremos pues? ¿Perseveraremos en el pecado para que la gracia abunde? De ninguna manera. Los que hemos muerto al pecado, ¿cómo viviremos aún en él? ¿O no sabéis que todos los que hemos sido bautizados en Cristo Jesús, hemos sido bautizados en su muerte? Porque somos sepultados con él por el bautismo para muerte, a fin de que como Cristo resucitó de los muertos por la gloria del Padre, así también nosotros andemos en nueva vida. Porque si hemos sido plantados juntamente con él en la semejanza de su muerte, así también lo seremos en la de su resurrección; sabiendo esto, que nuestro viejo hombre fue crucificado juntamente con él, para que el cuerpo del pecado sea destruido, a fin de que no sirvamos más al pecado. Porque el que ha muerto, ha sido justificado del pecado. Y si hemos muerto con Cristo, creemos que también viviremos con él; sabiendo que Cristo, habiendo resucitado de los muertos, ya no muere; la muerte no señorea más sobre él."</div>
+            </div>
+
+            <h3>5.2 El Bautismo como Unión con Cristo</h3>
+            <div class="verse-box">
+                <div class="reference">Gálatas 3:26-29</div>
+                <div class="text">"Porque todos sois hijos de Dios por la fe en Cristo Jesús; pues todos los que habéis sido bautizados en Cristo, de Cristo os habéis revestido. No hay judío ni griego; no hay esclavo ni libre; no hay varón ni mujer; porque todos vosotros sois uno en Cristo Jesús. Y si vosotros sois de Cristo, entonces sois descendientes de Abraham, y herederos según la promesa."</div>
+            </div>
+
+            <h3>5.3 El Bautismo como Incorporación al Cuerpo de Cristo</h3>
+            <div class="verse-box">
+                <div class="reference">1 Corintios 12:12-13</div>
+                <div class="text">"Porque así como el cuerpo es uno, y tiene muchos miembros, pero todos los miembros del cuerpo, siendo muchos, son un solo cuerpo, así también Cristo. Porque por un solo Espíritu somos todos bautizados en un solo cuerpo, sean judíos o griegos, sean esclavos o libres; y a todos se nos ha dado a beber de un mismo Espíritu."</div>
+            </div>
+
+            <h3>5.4 El Bautismo Salva (Pedro - pero citado por Pablo)</h3>
+            <div class="verse-box">
+                <div class="reference">1 Pedro 3:21</div>
+                <div class="text">"El bautismo que corresponde a esto ahora nos salva también a nosotros: no como quitadura de inmundicia de la carne, sino como compromiso de una buena conciencia hacia Dios, por la resurrección de Jesucristo."</div>
+            </div>
+
+            <h3>5.5 Efesios: Bautizados en un Solo Cuerpo</h3>
+            <div class="verse-box">
+                <div class="reference">Efesios 4:4-6</div>
+                <div class="text">"Un cuerpo, y un espíritu, como fuisteis llamados en una misma esperanza de vuestra vocación; un Señor, una fe, un bautismo, un Dios y Padre de todos, el cual es sobre todos, y por todos, y en todos."</div>
+            </div>
+
+            <h3>5.6 Colosenses: Vestirse de Cristo</h3>
+            <div class="verse-box">
+                <div class="reference">Colosenses 2:11-12</div>
+                <div class="text">"En él también fuisteis circuncidados con circuncisión no hecha por manos, echando de vosotros el cuerpo de los pecados de la carne, por la circuncisión de Cristo; sepultados juntamente con él en el bautismo, en el cual fuisteis también resucitados juntamente con él, por la fe en la eficacia de Dios, que le levantó de los muertos."</div>
+            </div>
+
+            <div class="important">
+                <h4>💡 Enseñanza Fundamental de Pablo</h4>
+                <p>Para Pablo, el bautismo no es simplemente un rito externo, sino una transacción espiritual donde el creyente:</p>
+                <ul>
+                    <li>Muere al pecado (Romanos 6)</li>
+                    <li>Resucita a nueva vida (Romanos 6)</li>
+                    <li>Se une al cuerpo de Cristo (1 Corintios 12)</li>
+                    <li>Se viste de Cristo (Gálatas 3)</li>
+                    <li>Recibe el mismo Espíritu (1 Corintios 12)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="guia">
+            <h2>🎯 6. Guía Práctica para el Bautismo</h2>
+            
+            <div class="guide-box">
+                <h4>📌 Pregunta 1: ¿POR QUÉ debo bautizarme?</h4>
+                <ol>
+                    <li><strong>Porque Jesús lo ordenó:</strong> "Id y bautizad" (Mateo 28:19)</li>
+                    <li><strong>Porque representa mi unión con Cristo:</strong> Muerte, sepultura y resurrección (Romanos 6:3-5)</li>
+                    <li><strong>Porque es testimonio público:</strong> Declaro al mundo que pertenezco a Cristo</li>
+                    <li><strong>Porque es el medio de entrada a la Iglesia:</strong> Somos bautizados en un solo cuerpo (1 Corintios 12:13)</li>
+                    <li><strong>Porque trae perdón de pecados:</strong> "Arrepentíos y bautizaos" (Hechos 2:38)</li>
+                </ol>
+            </div>
+
+            <div class="guide-box">
+                <h4>👤 Pregunta 2: ¿QUIÉN debe bautizarse?</h4>
+                <ol>
+                    <li><strong>Todo aquel que ha creído en Jesús como Salvador y Señor</strong></li>
+                    <li><strong>Todo aquel que se ha arrepentido de sus pecados</strong></li>
+                    <li><strong>Todo aquel que desea seguir a Cristo</strong></li>
+                    <li><strong>Debe ser una decisión personal, no impuesta por otros</strong></li>
+                </ol>
+                <div class="verse-box">
+                    <div class="reference">Hechos 8:36-38</div>
+                    <div class="text">"Y yendo por el camino, llegaron a un lugar donde había agua; y el eunuco dijo: He aquí agua; ¿qué impide que yo sea bautizado? Felipe dijo: Si crees de todo corazón, bien puedes. Y respondiendo, dijo: Creo que Jesucristo es el Hijo de Dios. Y mandó parar el carro; y descendieron ambos al agua, Felipe y el eunuco, y le bautizó."</div>
+                </div>
+            </div>
+
+            <div class="guide-box">
+                <h4>⏰ Pregunta 3: ¿CUÁNDO debe bautizarse?</h4>
+                <ol>
+                    <li><strong>Inmediatamente después de creer:</strong> Los que recibían la palabra eran bautizados inmediatamente (Hechos 2:41)</li>
+                    <li><strong>No debe haber demora innecesaria</strong></li>
+                    <li><strong>Cuando hay seguridad de fe</strong></li>
+                    <li><strong>Cuando hay deseo de obedecer a Cristo</strong></li>
+                </ol>
+            </div>
+
+            <div class="guide-box">
+                <h4>❓ Pregunta 4: ¿Para qué SIRVE el bautismo?</h4>
+                <ol>
+                    <li><strong>Para el perdón de los pecados:</strong> "Bautizaos para perdón de pecados" (Hechos 2:38)</li>
+                    <li><strong>Para recibir el Espíritu Santo:</strong> "Seréis bautizados con el Espíritu Santo" (Hechos 1:5)</li>
+                    <li><strong>Para la salvación:</strong> "El bautismo... nos salva" (1 Pedro 3:21)</li>
+                    <li><strong>Para entrar a la Iglesia:</strong> "Un cuerpo, un Espíritu, una fe, un bautismo" (Efesios 4:4-5)</li>
+                    <li><strong>Para andar en novedad de vida:</strong> "Así también nosotros anduvimos en nueva vida" (Romanos 6:4)</li>
+                </ol>
+            </div>
+
+            <div class="guide-box">
+                <h4>💧 Pregunta 5: ¿CÓMO debe realizarse el bautismo?</h4>
+                <ol>
+                    <li><strong>En el nombre del Padre, del Hijo y del Espíritu Santo</strong> (Mateo 28:19)</li>
+                    <li><strong>Por inmersión:</strong> "Bautizados en el agua" (Hechos 8:38)</li>
+                    <li><strong>Como símbolo de muerte y resurrección</strong></li>
+                    <li><strong>Por un testigo autorizado</strong> (generalmente un líder de la iglesia)</li>
+                    <li><strong>Como testimonio público</strong></li>
+                </ol>
+            </div>
+
+            <h3>📋 Resumen: El Camino al Bautismo</h3>
+            <table class="comparison-table">
+                <tr>
+                    <th>PASO</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>REFERENCIA</th>
+                </tr>
+                <tr>
+                    <td>1. Escuchar</td>
+                    <td>Escuchar el evangelio de Jesús</td>
+                    <td>Romanos 10:17</td>
+                </tr>
+                <tr>
+                    <td>2. Creer</td>
+                    <td>Creer que Jesús es el Hijo de Dios</td>
+                    <td>Juan 3:16</td>
+                </tr>
+                <tr>
+                    <td>3. Arrepentirse</td>
+                    <td>Convertirse de los pecados</td>
+                    <td>Hechos 2:38</td>
+                </tr>
+                <tr>
+                    <td>4. Confesar</td>
+                    <td>Confesar a Jesús como Señor</td>
+                    <td>Romanos 10:9-10</td>
+                </tr>
+                <tr>
+                    <td>5. Bautizarse</td>
+                    <td>Ser bautizado en agua</td>
+                    <td>Hechos 2:41</td>
+                </tr>
+            </table>
+
+            <div class="important">
+                <h4>✝️ Oración de Preparación al Bautismo</h4>
+                <p><em>"Señor Jesús, creo que eres el Hijo de Dios, que moriste por mis pecados y resucitaste para darme vida eterna. Me arrepiento de todos mis pecados y te pido que perdones mis transgresiones. Hoy deseo ser bautizado(a) como testimonio de mi fe en ti y de mi deseo de seguirte toda mi vida. Gracias por amarme y aceptarme. Amén."</em></p>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>📖 Estudio Bíblico sobre el Bautismo</strong></p>
+            <p>Basado en la Santa Biblia Reina Valera 1960</p>
+            <p>Este material es una guía educativa para quienes desean comprender el significado bíblico del bautismo</p>
+            <p><em>"El que creyere y fuere bautizado, será salvo" - Marcos 16:16</em></p>
+        </footer>
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Subir</button>
+    </div>
+
+    <script>
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
