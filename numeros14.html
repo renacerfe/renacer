@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números 14: La Tragedia de la Incredulidad - Estudio Bíblico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1f2933;   /* Azul oscuro/Gris */
+            --color-secondary: #d4af37; /* Dorado principal */
+            --color-accent: #1e3a5f;    /* Azul fuerte para acentos */
+            --color-bg: #eef6fb;        /* Celeste muy claro */
+            --color-bg-alt: #ffffff;    /* Blanco */
+            --color-bg-soft: #f1f5f9;   /* Gris azulado muy claro */
+            --color-text: #323f4b;      /* Gris oscuro para texto */
+            --color-text-light: #4b5563; /* Gris suave */
+            --color-gold: #d4af37;
+            --color-gold-light: #f6e6a8;
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: linear-gradient(180deg, #eaf4fb, #cfe6f6);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navegación */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow-soft);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-gold);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Header Hero */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a5f' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.8;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-gold);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .title-highlight {
+            color: var(--color-gold);
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: var(--color-text-light);
+            margin-top: 1.5rem;
+            font-style: italic;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--color-text-light);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--color-gold);
+            border-radius: 50%;
+            animation: scrollDown 2s infinite;
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-gold), transparent);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--color-accent);
+            margin: 2.5rem 0 1rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            color: var(--color-text);
+            margin: 1.5rem 0 0.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            font-size: 1.1rem;
+        }
+
+        /* Tarjetas de Contexto */
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .context-card {
+            background: var(--color-bg-alt);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            border-left: 4px solid var(--color-gold);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .context-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .context-card h4 {
+            color: var(--color-primary);
+            margin-top: 0;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Citas Bíblicas Destacadas */
+        .scripture-quote {
+            background: linear-gradient(135deg, var(--color-gold-light) 0%, #fff 100%);
+            border-left: 5px solid var(--color-gold);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--color-text);
+            position: relative;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .scripture-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--color-gold);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        .scripture-reference {
+            display: block;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            font-style: normal;
+            font-size: 1rem;
+        }
+
+        /* Lista de Propósitos */
+        .purpose-list {
+            list-style: none;
+            counter-reset: purpose-counter;
+        }
+
+        .purpose-list li {
+            counter-increment: purpose-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3.5rem;
+            position: relative;
+        }
+
+        .purpose-list li::before {
+            content: counter(purpose-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--color-gold);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Tabla de Palabras Hebreas */
+        .hebrew-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--color-bg-alt);
+            box-shadow: var(--shadow-soft);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .hebrew-table th {
+            background: var(--color-primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .hebrew-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--color-bg-soft);
+        }
+
+        .hebrew-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .hebrew-word {
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        /* Sección de Tipología */
+        .typology-box {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #2c3e50 100%);
+            color: #ffffff;
+            padding: 3rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .typology-box::before {
+            content: '✝';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            opacity: 0.1;
+            color: #ffffff;
+        }
+
+        .typology-box h3 {
+            color: var(--color-gold);
+            margin-top: 0;
+        }
+
+        .typology-box ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .typology-box li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .typology-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-gold);
+        }
+
+        /* Consecuencias Grid */
+        .consequences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .consequence-item {
+            background: var(--color-bg-alt);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border-top: 4px solid var(--color-gold);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .consequence-item h4 {
+            color: var(--color-primary);
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Preguntas de Reflexión */
+        .reflection-questions {
+            background: var(--color-bg-soft);
+            padding: 3rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+
+        .reflection-questions h3 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+
+        .question-list {
+            list-style: none;
+            counter-reset: question-counter;
+        }
+
+        .question-list li {
+            counter-increment: question-counter;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--color-bg-alt);
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            padding-left: 4rem;
+            transition: transform 0.2s;
+        }
+
+        .question-list li:hover {
+            transform: translateX(5px);
+            border-left: 3px solid var(--color-gold);
+        }
+
+        .question-list li::before {
+            content: counter(question-counter);
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2rem;
+            height: 2rem;
+            background: var(--color-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        /* Versículo para Memorizar */
+        .memory-verse {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+            color: white;
+            padding: 4rem 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-verse::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+
+        .memory-verse h3 {
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .memory-verse p {
+            font-size: 1.5rem;
+            font-style: italic;
+            text-align: center;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .memory-verse .reference {
+            display: block;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            color: var(--color-gold);
+            font-style: normal;
+            font-size: 1.1rem;
+        }
+
+        /* Conclusión */
+        .conclusion-truths {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .truth-card {
+            background: var(--color-bg-alt);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            border-bottom: 4px solid var(--color-gold);
+            transition: transform 0.3s;
+        }
+
+        .truth-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .truth-card h4 {
+            color: var(--color-primary);
+            margin-top: 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-bg-alt);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes scrollDown {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .context-grid,
+            .consequences-grid,
+            .conclusion-truths {
+                grid-template-columns: 1fr;
+            }
+
+            .typology-box {
+                padding: 2rem;
+            }
+
+            .reflection-questions {
+                padding: 2rem 1.5rem;
+            }
+
+            .memory-verse {
+                padding: 3rem 1.5rem;
+            }
+
+            .memory-verse p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Utilidades */
+        .highlight {
+            background: linear-gradient(120deg, var(--color-gold-light) 0%, var(--color-gold-light) 100%);
+            padding: 0 4px;
+            border-radius: 3px;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+            margin: 3rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#contexto">Contexto</a></li>
+            <li><a href="#rebelion">La Rebelión</a></li>
+            <li><a href="#intercesion">Intercesión</a></li>
+            <li><a href="#juicio">Juicio</a></li>
+            <li><a href="#teologia">Teología</a></li>
+            <li><a href="#aplicacion">Aplicación</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="hero-content">
+            <p class="subtitle">Estudio Bíblico Sistemático • Pentateuco</p>
+            <h1>Números 14</h1>
+            <h1 class="title-highlight">La Tragedia de la Incredulidad</h1>
+            <p class="hero-description">
+                Un Estudio Sistemático y Devocional sobre las Consecuencias de la Rebelión y la Fidelidad de Dios
+            </p>
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--color-text-light); font-family: 'Inter', sans-serif;">
+                Perspectiva Reformada
+            </p>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </header>
+
+    <section id="contexto">
+        <h2>Contexto Histórico-Literario</h2>
+        
+        <div class="context-grid">
+            <div class="context-card">
+                <h4>Ubicación Geográfica</h4>
+                <p>El <strong>desierto de Parán</strong> (Nm. 13:26) es el escenario donde se desarrolla esta tragedia. Israel ha llegado a <span class="highlight">Cades-barnea</span>, en el límite sur de Canaán, después de dos años de éxodo desde Egipto. Este lugar se convierte en el punto de inflexión de la historia del éxodo.</p>
+            </div>
+            
+            <div class="context-card">
+                <h4>Situación del Pueblo</h4>
+                <p>Los doce espías han regresado después de 40 días de reconocimiento. Diez de ellos traen un informe negativo que desata el pánico y la rebelión. El pueblo, a pesar de haber presenciado los milagros del Éxodo, duda ahora de la capacidad de Dios.</p>
+            </div>
+        </div>
+
+        <h3>Propósito del Estudio</h3>
+        <ol class="purpose-list">
+            <li>Explicar las consecuencias de la incredulidad y cómo el pecado de dudar de Dios trae juicio, pero también revela Su misericordia.</li>
+            <li>Mostrar la fidelidad de Dios a pesar de la infidelidad humana, y cómo Su gloria es el motivo central de Su acción.</li>
+            <li>Presentar la tipología cristológica de Moisés como intercesor, prefigurando el ministerio sacerdotal de Cristo.</li>
+        </ol>
+
+        <div class="scripture-quote">
+            Números 14 narra la rebelión del pueblo tras el informe de los espías, la intercesión de Moisés, la respuesta divina de juicio y misericordia, y las consecuencias: 40 años de vagar en el desierto y muerte de la generación incrédula.
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="rebelion">
+        <h2>La Rebelión del Pueblo (vv. 1-10)</h2>
+
+        <h3>La Reacción del Pueblo</h3>
+        <p><strong>"Alzó su voz y clamó" (v. 1):</strong> El pueblo reacciona con llanto colectivo, murmuración y deseos de regresar a Egipto. Esta respuesta revela una memoria selectiva que idealiza la esclavitud y olvida la salvación.</p>
+
+        <div class="scripture-quote">
+            ¿Por qué nos trajo Jehová a esta tierra para caer a filo de espada?... Mejor nos fuera volver a Egipto
+            <span class="scripture-reference">— Números 14:3</span>
+        </div>
+
+        <h3>Rebelión Organizada</h3>
+        <p>El pueblo propone elegir un nuevo líder (v. 4) y regresar a Egipto. Esta es una <span class="highlight">rebelión abierta contra la autoridad divina</span>, un rechazo del pacto y de la soberanía de Dios. La propuesta de nombrar un capitán demuestra que la incredulidad lleva a rebelión institucional contra el liderazgo que Dios ha establecido.</p>
+
+        <h3>Palabras Clave en Hebreo</h3>
+        <table class="hebrew-table">
+            <thead>
+                <tr>
+                    <th>Hebreo</th>
+                    <th>Transliteración</th>
+                    <th>Significado</th>
+                    <th>Contexto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="hebrew-word">מַסָּה</td>
+                    <td><em>masá</em></td>
+                    <td>Tentación, prueba</td>
+                    <td>El pueblo tentó a Dios diez veces (v. 22), poniendo en duda Su fidelidad y poder.</td>
+                </tr>
+                <tr>
+                    <td class="hebrew-word">מְרִי</td>
+                    <td><em>meri</em></td>
+                    <td>Rebelión, contumacia</td>
+                    <td>"Dura de cerviz y rebelde" (v. 9), describe una obstinación deliberada contra Dios.</td>
+                </tr>
+                <tr>
+                    <td class="hebrew-word">קָדֵשׁ</td>
+                    <td><em>kadesh</em></td>
+                    <td>Santidad, consagración</td>
+                    <td>El lugar del fracaso lleva el nombre de la santidad que Israel debía reflejar.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Josué y Caleb: Los Fieles</h3>
+        <p>Rasgaron sus vestidos (v. 6) y exhortaron al pueblo: <strong>"No rebeléis contra Jehová"</strong> (v. 9). Su fe se basaba en la promesa, no en las circunstancias.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="intercesion">
+        <h2>Intercesión de Moisés y Respuesta Divina (vv. 11-25)</h2>
+
+        <h3>La Provocación Divina</h3>
+        <p>Dios declara Su intención de destruir al pueblo y hacer de Moisés una nación más grande y fuerte (v. 12). Esta es una prueba de la intercesión de Moisés.</p>
+
+        <div class="scripture-quote">
+            ¿Hasta cuándo me ha de irritar este pueblo?... Los destruiré de en medio, y a ti te haré una nación grande
+            <span class="scripture-reference">— Números 14:11-12</span>
+        </div>
+
+        <h3>Argumentos de Moisés</h3>
+        <div class="consequences-grid">
+            <div class="consequence-item">
+                <h4>1. La Gloria de Dios</h4>
+                <p>Los egipcios dirán que Dios no pudo cumplir Su promesa (v. 13-16).</p>
+            </div>
+            <div class="consequence-item">
+                <h4>2. Los Atributos Divinos</h4>
+                <p>Jehová es lento para la ira, grande en misericordia (v. 18).</p>
+            </div>
+            <div class="consequence-item">
+                <h4>3. El Perdón del Pecado</h4>
+                <p>Pero no dejará impune (v. 18-19).</p>
+            </div>
+        </div>
+
+        <div class="typology-box">
+            <h3>Tipología Cristiana</h3>
+            <p style="color: #e2e8f0; font-size: 1.2rem; margin-bottom: 1rem;"><strong>Moisés como tipo de Cristo:</strong></p>
+            <ul>
+                <li>Intercesor entre Dios y el pueblo pecador</li>
+                <li>Apela a la gloria y los atributos de Dios</li>
+                <li>Pide perdón para el pueblo rebelde</li>
+            </ul>
+            <p style="margin-top: 1.5rem; color: var(--color-gold); font-style: italic;">
+                Como Moisés intercedió por Israel, Cristo intercede por Su pueblo (Heb. 7:25) ante el trono de gracia.
+            </p>
+        </div>
+
+        <h3>La Respuesta de Dios</h3>
+        <p>Dios perdona (v. 20), pero las consecuencias permanecen:</p>
+        <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+            <li style="margin-bottom: 0.5rem;">Ninguno de los que vieron mi gloria entrará en Canaán</li>
+            <li style="margin-bottom: 0.5rem;">40 años de vagar en el desierto (un año por cada día)</li>
+            <li style="margin-bottom: 0.5rem;">Josué y Caleb heredarán la tierra (v. 24, 30)</li>
+        </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="juicio">
+        <h2>Juicio y Castigo (vv. 26-45)</h2>
+
+        <h3>Muerte de los Espías</h3>
+        <div class="scripture-quote">
+            Y murieron aquellos hombres... por cuanto habían hecho el mal informe
+            <span class="scripture-reference">— Números 14:37</span>
+        </div>
+        <p>Los diez espías que difundieron el mal informe murieron de plaga delante de Jehová (v. 37). Esta es una consecuencia inmediata del pecado de influir negativamente al pueblo.</p>
+
+        <h3>40 Años de Vagabundeo</h3>
+        <p>La generación de la incredulidad no entrará en la tierra prometida. Sus cadáveres caerán en el desierto. Por 40 días de reconocimiento, cargarán 40 años con su pecado (v. 34). Es una <span class="highlight">medida por medida</span>.</p>
+
+        <h3>La Nueva Generación</h3>
+        <p>Dios preserva a sus hijos pequeños (v. 31), quienes heredarán la tierra que sus padres despreciaron. Josué y Caleb son la excepción (v. 30, 38): por su <strong>espíritu diferente</strong> y seguir a Jehová de corazón. La fidelidad de Dios se cumple a través de una nueva generación.</p>
+
+        <h3>Arrepentimiento Tardío y Derrota en Horma</h3>
+        <p>Al oír las palabras de Dios, el pueblo se entristeció mucho (v. 39) y decidió subir a la montaña. Pero Moisés advierte: <strong>"No subáis, porque Jehová no está en medio de vosotros"</strong> (v. 42).</p>
+
+        <div class="scripture-quote">
+            Y los amalecitas y los cananeos... los derrotaron, y los hirieron hasta Horma
+            <span class="scripture-reference">— Números 14:45</span>
+        </div>
+
+        <div class="context-card" style="margin-top: 2rem; border-left-color: var(--color-primary);">
+            <h4>Lección Central</h4>
+            <p>El arrepentimiento tardío y la acción sin consultar a Dios son tan graves como la rebelión original. <strong>La obediencia es mejor que el sacrificio.</strong></p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="teologia">
+        <h2>Síntesis Teológica Sistemática</h2>
+
+        <h3>Doctrina de Dios</h3>
+        
+        <h4>La Justicia de Dios</h4>
+        <p>Dios es justo y no dejará impune el pecado (v. 18, 34-35). La incredulidad tiene consecuencias reales y severas.</p>
+        
+        <div class="scripture-quote">
+            Visitará la iniquidad de los padres sobre los hijos hasta la tercera y cuarta generación
+            <span class="scripture-reference">— Números 14:18</span>
+        </div>
+
+        <h4>La Misericordia de Dios</h4>
+        <p>A pesar de la rebelión, Dios perdona al pueblo (v. 20) y preserva a los inocentes (los niños).</p>
+
+        <div class="scripture-quote">
+            Yo he perdonado conforme a tu palabra
+            <span class="scripture-reference">— Números 14:20</span>
+        </div>
+        <p>La misericordia divina <span class="highlight">no anula la justicia</span>, pero la complementa.</p>
+
+        <h4>La Gloria de Dios</h4>
+        <p>El motivo central de la intercesión de Moisés es la gloria de Dios entre las naciones (v. 13-16). Los egipcios y otros pueblos observan. La acción de Dios debe reflejar Su carácter santo y fiel. La gloria de Dios es el fin último de toda Su obra.</p>
+
+        <h4>La Paciencia de Dios</h4>
+        <p>Dios es lento para la ira (v. 18). Ha soportado la provocación del pueblo diez veces (v. 22).</p>
+        <p><strong>"Largo de narices" (<em>erej apayim</em>):</strong> tarda en enfurecerse, da tiempo para el arrepentimiento. Pero Su paciencia tiene un límite (v. 23): la generación que vio Sus obras no verá la tierra.</p>
+
+        <h3>Doctrina del Hombre y la Salvación</h3>
+
+        <h4>La Naturaleza del Pecado</h4>
+        <p>El pecado se manifiesta en incredulidad, murmuración, deseo de regresar a la esclavitud, y rebelión abierta.</p>
+        <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+            <li><strong>Memoria selectiva:</strong> El pueblo olvida la opresión de Egipto y recuerda solo los beneficios temporales (pescado, pepinos, melones).</li>
+            <li><strong>Dureza de corazón (v. 9):</strong> Es una obstinación deliberada contra la voluntad revelada de Dios.</li>
+        </ul>
+
+        <div class="typology-box">
+            <h3>Tipología de Moisés como Cristo</h3>
+            <p style="color: #e2e8f0; margin-bottom: 1rem;"><strong>Paralelos cristológicos:</strong></p>
+            <ul>
+                <li>Intercesor entre Dios y los pecadores</li>
+                <li>Apela a los atributos divinos (misericordia, gloria)</li>
+                <li>Pide perdón para el pueblo rebelde</li>
+                <li>Ofrece su propia vida (v. 19: "perdona ahora la iniquidad de este pueblo")</li>
+            </ul>
+            <p style="margin-top: 1.5rem; color: var(--color-gold);">
+                Como Moisés, Cristo intercede continuamente por Su pueblo (Heb. 7:25; Rom. 8:34).
+            </p>
+        </div>
+
+        <h4>La Fe como Respuesta</h4>
+        <p>Josué y Caleb representan la fe genuina: confiar en las promesas de Dios a pesar de las circunstancias adversas.</p>
+
+        <div class="scripture-quote">
+            No temáis al pueblo de esta tierra... Jehová está con nosotros
+            <span class="scripture-reference">— Números 14:9</span>
+        </div>
+        <p>La fe no niega los gigantes, pero afirma que <strong>Dios es mayor</strong>.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="aplicacion">
+        <h2>Aplicación Educativa y Devocional</h2>
+
+        <h3>Objetivos de Aprendizaje</h3>
+        <div class="consequences-grid">
+            <div class="consequence-item">
+                <h4>Saber</h4>
+                <p>Comprender las consecuencias de la incredulidad y la importancia de la intercesión.</p>
+            </div>
+            <div class="consequence-item">
+                <h4>Sentir</h4>
+                <p>Desarrollar reverencia por la santidad de Dios y gratitud por Su misericordia.</p>
+            </div>
+            <div class="consequence-item">
+                <h4>Hacer</h4>
+                <p>Practicar la fe activa y la intercesión por otros.</p>
+            </div>
+        </div>
+
+        <div class="reflection-questions">
+            <h3>Preguntas para Reflexión</h3>
+            <ol class="question-list">
+                <li>¿Cuáles son los "gigantes" en tu vida que te hacen dudar de las promesas de Dios?</li>
+                <li>¿Cómo responde tu fe ante circunstancias adversas: como Josué/Caleb o como los diez espías?</li>
+                <li>¿En qué áreas de tu vida has estado "murmurando" contra el liderazgo divino?</li>
+                <li>¿Cómo puede Moisés inspirarte a interceder por otros, incluso cuando son indignos?</li>
+                <li>¿Qué lecciones puedes aprender del arrepentimiento tardío del pueblo y su derrota en Horma?</li>
+            </ol>
+        </div>
+
+        <h3>¿Dónde Está Tu "Cades"?</h3>
+        <p>Cada creyente tiene su Cades-barnea: ese punto donde debemos decidir si confiamos en Dios o retrocedemos a la "seguridad" del pasado.</p>
+        
+        <p><strong>Preguntas para examinar tu corazón:</strong></p>
+        <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+            <li>¿Hay áreas donde dudo de la fidelidad divina?</li>
+            <li>¿Idealizo el pasado ("Egipto") en lugar de avanzar?</li>
+            <li>¿Permito que los "gigantes" oscurezcan la promesa?</li>
+        </ul>
+        
+        <div class="context-card" style="border-left-color: var(--color-gold);">
+            <p>La incredulidad no es solo dudar; es <strong>rebelarse contra lo que Dios ha prometido</strong>.</p>
+        </div>
+
+        <h3>Lecciones para Hoy</h3>
+        <ol class="purpose-list">
+            <li>La fe no niega la realidad, pero afirma que Dios es mayor que cualquier gigante.</li>
+            <li>El arrepentimiento tardío no sustituye la obediencia inmediata.</li>
+            <li>Cristo intercede por nosotros continuamente, como Moisés por Israel.</li>
+        </ol>
+
+        <div class="memory-verse">
+            <h3>Versículo para Memorizar</h3>
+            <p>"Jehová es tardo para la ira, y grande en misericordia, que perdona la iniquidad y la rebelión..."</p>
+            <span class="reference">— Números 14:18 (RVR1960)</span>
+        </div>
+
+        <h3>Oración Sugerida</h3>
+        <div class="scripture-quote" style="background: var(--color-bg-alt); font-style: normal;">
+            <p style="text-align: left; font-size: 1.1rem;">
+                <em>"Señor Jehová, Tú eres lento para la ira y grande en misericordia..." (v. 17-18)</em>
+            </p>
+            <p style="text-align: left; margin-top: 1rem;">
+                Padre Celestial, reconozco mi tendencia a la incredulidad. Perdóname por las veces que he dudado de Tu fidelidad, por murmurar contra Tu providencia, por desear regresar a la "seguridad" del pecado en lugar de avanzar en fe.
+            </p>
+            <p style="text-align: left;">
+                Gracias porque, como Moisés intercedió por Israel, Cristo intercede por mí. Gracias por Tu paciencia que me da tiempo para arrepentirme.
+            </p>
+            <p style="text-align: left;">
+                Ayúdame a ser como Josué y Caleb: a tener un espíritu diferente, a seguirte de corazón, a confiar en Tus promesas aunque los gigantes parezcan invencibles.
+            </p>
+            <p style="text-align: left; margin-bottom: 0;">
+                Que Tu gloria sea siempre el motivo de mi vida. En el nombre de Jesús, Amén.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Conclusión: Verdades Centrales</h2>
+        
+        <div class="conclusion-truths">
+            <div class="truth-card">
+                <h4>⚖️ La Gravedad de la Incredulidad</h4>
+                <p>La incredulidad es rebelión contra Dios. Trae consecuencias severas: pérdida de la herencia, juicio divino, y muerte espiritual.</p>
+            </div>
+            
+            <div class="truth-card">
+                <h4>🙏 El Poder de la Intercesión</h4>
+                <p>Moisés muestra que la intercesión puede detener el juicio. Cristo intercede por nosotros continuamente ante el trono de gracia.</p>
+            </div>
+            
+            <div class="truth-card">
+                <h4>❤️ Justicia y Misericordia</h4>
+                <p>Dios es justo (no deja impune el pecado) y misericordioso (perdona y preserva a los inocentes).</p>
+            </div>
+            
+            <div class="truth-card">
+                <h4>✨ La Fidelidad Divina</h4>
+                <p>A pesar de la infidelidad humana, Dios cumple Sus promesas. La tierra fluirá leche y miel para la nueva generación.</p>
+            </div>
+            
+            <div class="truth-card">
+                <h4>🌟 La Fe que Hereda</h4>
+                <p>Josué y Caleb heredaron la tierra por su fe activa. La fe no niega los gigantes, pero confía en que Dios es mayor.</p>
+            </div>
+            
+            <div class="truth-card">
+                <h4>⏰ Obediencia Inmediata</h4>
+                <p>El arrepentimiento tardío no sustituye la obediencia inmediata. Actuar sin Dios lleva a la derrota.</p>
+            </div>
+        </div>
+
+        <div class="typology-box" style="margin-top: 3rem;">
+            <h3>Llamado a la Fe y Obediencia</h3>
+            <p style="color: #e2e8f0; font-size: 1.1rem; line-height: 1.8;">
+                Números 14 nos llama a confiar en las promesas de Dios, aunque las circunstancias parezcan imposibles. No endurezcamos nuestros corazones como en el día de la provocación (Sal. 95:8). Sigamos a Jehová de todo corazón, como Josué y Caleb, y heredaremos las promesas que Él ha preparado para los que le aman.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--color-gold);">Que el Señor bendiga tu estudio de Su Palabra</p>
+        <p style="font-size: 0.9rem;">Estudio Bíblico Sistemático • Números 14 • Perspectiva Reformada</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.05)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.context-card, .consequence-item, .truth-card, .scripture-quote').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
