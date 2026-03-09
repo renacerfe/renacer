@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudios Bíblicos | Levítico - Jesús el Árbol de la Vida</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            /* Paleta inspirada en el Árbol de la Vida dorado */
+            --oro-divino: #FFD700;
+            --oro-celestial: #DAA520;
+            --oro-antiguo: #B8860B;
+            --ambar-sagrado: #FFBF00;
+            --azul-profundo: #0F2744;
+            --azul-oceano: #1E3A5F;
+            --azul-cielo: #2E5C8A;
+            --azul-celeste: #4A90B8;
+            --azul-claro: #87CEEB;
+            --blanco-puro: #FFFFFF;
+            --crema-sagrada: #FFFEF5;
+            --sombra-dorada: rgba(218, 165, 32, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, var(--azul-profundo) 0%, var(--azul-oceano) 30%, var(--azul-cielo) 100%);
+            min-height: 100vh;
+            color: var(--crema-sagrada);
+            line-height: 1.7;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Efecto de luz divina desde el centro */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center top, rgba(255, 215, 0, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Destellos dorados animados */
+        .sparkle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--oro-divino);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--oro-divino), 0 0 20px var(--oro-celestial);
+            animation: twinkle 3s infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Header con efecto de gloria */
+        header {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            position: relative;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, transparent, var(--oro-celestial), var(--oro-divino), var(--oro-celestial), transparent) 1;
+            margin-bottom: 4rem;
+        }
+        
+        .tree-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+            to { text-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 191, 0, 0.4); }
+        }
+        
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--oro-divino);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4), 0 0 40px rgba(255, 215, 0, 0.3);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--azul-claro);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .verse-central {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(218, 165, 32, 0.1));
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            margin-top: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--oro-celestial);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Secciones de contenido */
+        section {
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+        
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--oro-divino);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid rgba(218, 165, 32, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        h2::before {
+            content: '◆';
+            color: var(--oro-celestial);
+            font-size: 1.2rem;
+        }
+        
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--ambar-sagrado);
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            text-align: justify;
+            color: var(--crema-sagrada);
+        }
+        
+        /* Tarjetas de información */
+        .info-card {
+            background: rgba(255, 254, 245, 0.95);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255, 215, 0, 0.2);
+            border-left: 5px solid var(--oro-celestial);
+            color: var(--azul-oceano);
+        }
+        
+        .info-card h3 {
+            color: var(--oro-antiguo);
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        
+        .info-card p, .info-card li {
+            color: var(--azul-oceano);
+            font-size: 1.05rem;
+        }
+        
+        /* Listas estilizadas */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        ul li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--oro-celestial);
+            font-weight: bold;
+        }
+        
+        /* Tabla de ofrendas */
+        .offerings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(255, 254, 245, 0.95);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        
+        .offerings-table th {
+            background: linear-gradient(135deg, var(--oro-antiguo), var(--oro-celestial));
+            color: var(--blanco-puro);
+            padding: 1.2rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .offerings-table td {
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+            color: var(--azul-oceano);
+            font-size: 1rem;
+        }
+        
+        .offerings-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .offerings-table tr:nth-child(even) {
+            background: rgba(218, 165, 32, 0.05);
+        }
+        
+        /* Diagrama estructural */
+        .structure-diagram {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(30, 58, 95, 0.4));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .structure-center {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--oro-celestial), var(--oro-antiguo));
+            color: var(--blanco-puro);
+            padding: 1.5rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+            margin: 1rem 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .structure-branches {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .branch {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .branch h4 {
+            color: var(--oro-divino);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .branch p {
+            font-size: 0.95rem;
+            color: var(--azul-claro);
+            text-align: center;
+            margin: 0;
+        }
+        
+        /* Vestiduras sacerdotales */
+        .priestly-garments {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .garment-item {
+            background: rgba(255, 254, 245, 0.95);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-top: 4px solid var(--oro-celestial);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .garment-item h4 {
+            color: var(--oro-antiguo);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .garment-item p {
+            color: var(--azul-oceano);
+            font-size: 0.95rem;
+            margin: 0;
+            text-align: left;
+        }
+        
+        /* Definiciones */
+        .definition-box {
+            background: linear-gradient(135deg, rgba(78, 144, 184, 0.2), rgba(30, 58, 95, 0.4));
+            border-left: 4px solid var(--azul-celeste);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .definition-box strong {
+            color: var(--oro-celestial);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Yom Kippur especial */
+        .yom-kippur-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(30, 58, 95, 0.6));
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .yom-kippur-section::before {
+            content: '✦';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: rgba(255, 215, 0, 0.2);
+        }
+        
+        .goats-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .goat-card {
+            background: rgba(255, 254, 245, 0.95);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .goat-card h4 {
+            color: var(--oro-antiguo);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .goat-card p {
+            color: var(--azul-oceano);
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .goat-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--oro-celestial);
+            color: var(--blanco-puro);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Calendario de fiestas */
+        .feast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .feast-item {
+            background: rgba(255, 254, 245, 0.95);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 4px solid var(--oro-celestial);
+            transition: transform 0.3s ease;
+        }
+        
+        .feast-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .feast-number {
+            display: inline-block;
+            background: var(--azul-celeste);
+            color: var(--blanco-puro);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            line-height: 30px;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .feast-item h4 {
+            color: var(--oro-antiguo);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feast-item p {
+            color: var(--azul-oceano);
+            font-size: 0.9rem;
+            margin: 0;
+            text-align: center;
+        }
+        
+        /* Aplicación final */
+        .application-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(218, 165, 32, 0.1));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .application-section h2 {
+            border-bottom-color: rgba(255, 215, 0, 0.5);
+            text-align: center;
+            justify-content: center;
+        }
+        
+        .application-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .application-card {
+            background: rgba(255, 254, 245, 0.95);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .application-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--oro-celestial), var(--oro-divino));
+        }
+        
+        .application-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--oro-celestial);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .application-card h4 {
+            color: var(--oro-antiguo);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .application-card p {
+            color: var(--azul-oceano);
+            font-size: 1rem;
+            text-align: center;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            background: linear-gradient(0deg, rgba(15, 39, 68, 0.8), transparent);
+        }
+        
+        .footer-verse {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--oro-celestial);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        footer p {
+            color: var(--azul-claro);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1.4rem; }
+            .structure-branches, .goats-container { grid-template-columns: 1fr; }
+            .container { padding: 1rem; }
+            .yom-kippur-section, .application-section { padding: 2rem 1.5rem; }
+        }
+        
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--azul-profundo);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--oro-celestial), var(--oro-antiguo));
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--oro-divino);
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Destellos animados -->
+    <div class="sparkle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+    <div class="sparkle" style="top: 20%; left: 80%; animation-delay: 0.5s;"></div>
+    <div class="sparkle" style="top: 60%; left: 10%; animation-delay: 1s;"></div>
+    <div class="sparkle" style="top: 80%; left: 90%; animation-delay: 1.5s;"></div>
+    <div class="sparkle" style="top: 40%; left: 50%; animation-delay: 2s;"></div>
+    
+    <div class="container">
+        <header>
+            <span class="tree-icon">🌳</span>
+            <h1>El Libro de Levítico</h1>
+            <p class="subtitle">Jesús: El Árbol de la Vida</p>
+            <div class="verse-central">
+                "Sed santos, porque yo soy santo" — Levítico 11:44
+            </div>
+        </header>
+        
+        <section id="introduccion">
+            <h2>Introducción al Libro</h2>
+            <p>Levítico es el tercer libro de la Torá (el Pentateuco). Su nombre proviene de la tribu de Leví, de donde surgieron los sacerdotes de Israel. Mientras que Éxodo narra la redención de Egipto y la construcción del Tabernáculo, <strong>Levítico explica cómo un pueblo pecador puede vivir en la presencia de un Dios santo.</strong></p>
+            
+            <div class="info-card">
+                <h3>📜 Contexto Histórico</h3>
+                <ul>
+                    <li><strong>Autor:</strong> Tradicionalmente atribuido a Moisés</li>
+                    <li><strong>Marco Temporal:</strong> Al pie del Monte Sinaí, poco después de la construcción del Tabernáculo</li>
+                    <li><strong>Propósito:</strong> Establecer leyes rituales, morales y civiles para mantener la santidad de la nación</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="estructura">
+            <h2>Estructura del Libro</h2>
+            <p>Para entender Levítico, visualicémoslo como un <strong>camino que conduce al corazón del libro: el Día de la Expiación.</strong> Es como un árbol donde todas las ramas conducen al tronco central.</p>
+            
+            <div class="structure-diagram">
+                <div class="structure-center">CAPÍTULO 16<br><small>Yom Kippur - El Centro</small></div>
+                <div style="font-size: 2rem; color: var(--oro-celestial); margin: 1rem 0;">⇅</div>
+                <div class="structure-branches">
+                    <div class="branch">
+                        <h4>⇦ Camino de Acercamiento</h4>
+                        <p>Caps. 1-7: Las Ofrendas<br>Caps. 8-10: El Sacerdocio<br>Caps. 11-15: Pureza e Impureza</p>
+                    </div>
+                    <div class="branch">
+                        <h4>Vida en Santidad ⇨</h4>
+                        <p>Caps. 17-27: El Código de Santidad<br>Ley práctica • Ética social<br>Amor al prójimo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="sacrificios">
+            <h2>El Sistema de Sacrificios</h2>
+            <p>El sacrificio era el medio por el cual se restauraba la relación con Dios. Cada ofrenda tenía un significado específico, apuntando al sacrificio final de Cristo.</p>
+            
+            <table class="offerings-table">
+                <thead>
+                    <tr>
+                        <th>Ofrenda</th>
+                        <th>Propósito</th>
+                        <th>Material Utilizado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Holocausto</strong></td>
+                        <td>Entrega total y expiación general</td>
+                        <td>Animal sin defecto (quemado totalmente)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cereal</strong></td>
+                        <td>Gratitud y reconocimiento de la provisión</td>
+                        <td>Flor de harina, aceite e incienso</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Paz/Comunión</strong></td>
+                        <td>Comunión y acción de gracias</td>
+                        <td>Animal; se compartía en una comida</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Expiación</strong></td>
+                        <td>Perdón por pecados involuntarios</td>
+                        <td>Animal según el estatus del pecador</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Culpa</strong></td>
+                        <td>Restitución por ofensas</td>
+                        <td>Carnero + compensación económica (20%)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="sacerdocio">
+            <h2>El Sacerdocio y las Vestiduras</h2>
+            <p>Los sacerdotes eran los representantes del pueblo ante Dios. Aarón fue el primer Sumo Sacerdote, figura de Cristo nuestro Sumo Sacerdote eterno.</p>
+            
+            <div class="priestly-garments">
+                <div class="garment-item">
+                    <h4>👑 La Mitra</h4>
+                    <p>Con una lámina de oro que dice <em>"Santidad a Jehová"</em></p>
+                </div>
+                <div class="garment-item">
+                    <h4>💎 El Pectoral</h4>
+                    <p>12 piedras preciosas que representan las tribus de Israel</p>
+                </div>
+                <div class="garment-item">
+                    <h4>🦺 El Efod</h4>
+                    <p>Especie de delantal bordado con hilos de oro</p>
+                </div>
+                <div class="garment-item">
+                    <h4>🔔 El Manto del Efod</h4>
+                    <p>Azul, con campanillas de oro en el borde</p>
+                </div>
+                <div class="garment-item">
+                    <h4>⚖️ Urim y Tumim</h4>
+                    <p>Objetos dentro del pectoral para consultar la voluntad divina</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="pureza">
+            <h2>Pureza vs. Impureza</h2>
+            <p>Levítico distingue entre lo Santo y lo Profano, y lo Limpio de lo Inmundo. Estas categorías nos enseñan sobre la naturaleza de Dios y nuestra necesidad de purificación.</p>
+            
+            <div class="definition-box">
+                <strong>🕊️ Santo (Qadosh)</strong>
+                Apartado para Dios. Diferente, distinto, consagrado. Dios mismo es el Santo por excelencia.
+            </div>
+            
+            <div class="definition-box">
+                <strong>✨ Limpio (Tahor)</strong>
+                Estado normal de una persona para participar en el culto. Condición de aceptación y comunión.
+            </div>
+            
+            <div class="definition-box">
+                <strong>⚠️ Inmundo (Tamei)</strong>
+                Estado temporal (por enfermedad, contacto con la muerte o fluidos) que impide el acceso al Tabernáculo. No necesariamente implica pecado, sino una condición ritual que requiere purificación.
+            </div>
+        </section>
+        
+        <section id="yom-kippur">
+            <div class="yom-kippur-section">
+                <h2 style="text-align: center; border: none; justify-content: center;">✦ El Corazón de Levítico: Yom Kippur ✦</h2>
+                <p style="text-align: center; font-size: 1.2rem; color: var(--azul-claro);">El Día de la Expiación era el día más sagrado del año. Solo este día el Sumo Sacerdote entraba al Lugar Santísimo.</p>
+                
+                <div class="goats-container">
+                    <div class="goat-card">
+                        <div class="goat-number">1</div>
+                        <h4>El Macho Cabrío del Sacrificio</h4>
+                        <p>Su sangre se rocía sobre el Propiciatorio para pagar por el pecado. Representa la <strong>satisfacción</strong> de la justicia divina.</p>
+                    </div>
+                    <div class="goat-card">
+                        <div class="goat-number">2</div>
+                        <h4>El Macho Cabrío de Azazel</h4>
+                        <p>El sacerdote pone sus manos sobre su cabeza confesando los pecados del pueblo, y el animal es llevado lejos. Simboliza el <strong>alejamiento</strong> del pecado.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: rgba(255,215,0,0.1); border-radius: 12px;">
+                    <p style="margin: 0; font-style: italic; color: var(--oro-celestial); font-size: 1.2rem;">
+                        "Tan lejos como está el oriente del occidente, hizo alejar de nosotros nuestros pecados" — Salmo 103:12
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="santidad">
+            <h2>El Código de Santidad</h2>
+            <p>La santidad no es solo ritual, es ética y social. Dios exige santidad integral en todas las áreas de la vida.</p>
+            
+            <div class="info-card">
+                <h3>Áreas de Santidad Práctica</h3>
+                <ul>
+                    <li><strong>Relaciones Sexuales (Cap. 18):</strong> Prohibición del incesto y otras prácticas contrarias al diseño de Dios</li>
+                    <li><strong>Amor al Prójimo (Cap. 19:18):</strong> <em>"Amarás a tu prójimo como a ti mismo"</em> — La ley suprema</li>
+                    <li><strong>Justicia Social:</strong> Dejar las esquinas de los campos para los pobres (espigueo)</li>
+                </ul>
+            </div>
+            
+            <h3>Las Fiestas del Señor (Capítulo 23)</h3>
+            <p>Israel debía santificar el tiempo a través de un calendario sagrado que recordaba la historia de la redención:</p>
+            
+            <div class="feast-grid">
+                <div class="feast-item">
+                    <div class="feast-number">1</div>
+                    <h4>Pascua</h4>
+                    <p>La liberación de Egipto</p>
+                </div>
+                <div class="feast-item">
+                    <div class="feast-number">2</div>
+                    <h4>Pan sin Levadura</h4>
+                    <p>Salida apresurada</p>
+                </div>
+                <div class="feast-item">
+                    <div class="feast-number">3</div>
+                    <h4>Primicias</h4>
+                    <p>Gratitud por la cosecha</p>
+                </div>
+                <div class="feast-item">
+                    <div class="feast-number">4</div>
+                    <h4>Pentecostés</h4>
+                    <p>50 días después</p>
+                </div>
+                <div class="feast-item">
+                    <div class="feast-number">5</div>
+                    <h4>Trompetas</h4>
+                    <p>Año nuevo (Rosh Hashaná)</p>
+                </div>
+                <div class="feast-item">
+                    <div class="feast-number">6</div>
+                    <h4>Expiación</h4>
+                    <p>Arrepentimiento nacional</p>
+                </div>
+                <div class="feast-item" style="grid-column: span 1;">
+                    <div class="feast-number">7</div>
+                    <h4>Tabernáculos</h4>
+                    <p>El peregrinaje en el desierto</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="aplicacion">
+            <div class="application-section">
+                <h2>Aplicación para Hoy</h2>
+                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">Aunque los sacrificios animales terminaron con la obra de Jesucristo (Hebreos 10), los principios de Levítico siguen vigentes:</p>
+                
+                <div class="application-grid">
+                    <div class="application-card">
+                        <div class="application-number">01</div>
+                        <h4>La Gravedad del Pecado</h4>
+                        <p>El pecado requiere un sacrificio. La sangre de Cristo es el pago final y suficiente.</p>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-number">02</div>
+                        <h4>La Santidad de Dios</h4>
+                        <p>Dios no puede ser abordado de cualquier manera. Requiere reverencia y temor santo.</p>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-number">03</div>
+                        <h4>La Sustitución</h4>
+                        <p>La idea de que "otro" toma nuestro lugar. Cristo murió por nosotros.</p>
+                    </div>
+                    <div class="application-card">
+                        <div class="application-number">04</div>
+                        <h4>Integridad de Vida</h4>
+                        <p>La adoración debe reflejarse en justicia social y moralidad privada.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 16px; border: 1px solid rgba(255,215,0,0.3);">
+                    <p style="font-family: 'Cormorant Garmond', serif; font-size: 1.5rem; color: var(--oro-divino); margin-bottom: 1rem; font-style: italic;">
+                        "Porque tal sumo sacerdote nos convenía... santo, inocente, sin mancha, apartado de los pecadores"
+                    </p>
+                    <p style="color: var(--azul-claro); font-size: 1rem; margin: 0;">— Hebreos 7:26</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p class="footer-verse">"En el principio era el Verbo..."</p>
+            <p>Estudios Bíblicos | Jesús: El Árbol de la Vida</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">Diseñado con la paleta del Árbol de la Vida</p>
+        </footer>
+    </div>
+</body>
+</html>
