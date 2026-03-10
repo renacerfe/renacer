@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudios Teológicos | Alcance y Propósito de la Teología</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            /* Paleta del Árbol de la Vida */
+            --oro-divino: #FFD700;
+            --oro-celestial: #DAA520;
+            --oro-antiguo: #B8860B;
+            --ambar-sagrado: #FFBF00;
+            --azul-profundo: #0F2744;
+            --azul-oceano: #1E3A5F;
+            --azul-cielo: #2E5C8A;
+            --azul-celeste: #4A90B8;
+            --azul-claro: #87CEEB;
+            --blanco-puro: #FFFFFF;
+            --crema-sagrada: #FFFEF5;
+            --sombra-dorada: rgba(218, 165, 32, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, var(--azul-profundo) 0%, var(--azul-oceano) 30%, var(--azul-cielo) 100%);
+            min-height: 100vh;
+            color: var(--crema-sagrada);
+            line-height: 1.7;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Efecto de luz divina */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center top, rgba(255, 215, 0, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Destellos animados */
+        .sparkle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--oro-divino);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--oro-divino), 0 0 20px var(--oro-celestial);
+            animation: twinkle 4s infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            position: relative;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, transparent, var(--oro-celestial), var(--oro-divino), var(--oro-celestial), transparent) 1;
+            margin-bottom: 4rem;
+        }
+        
+        .theology-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+            to { text-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 191, 0, 0.4); }
+        }
+        
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--oro-divino);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4), 0 0 40px rgba(255, 215, 0, 0.3);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--azul-claro);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .author-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(218, 165, 32, 0.1));
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--oro-celestial);
+            font-weight: 600;
+        }
+        
+        /* Secciones */
+        section {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--oro-divino);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid rgba(218, 165, 32, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        h2::before {
+            content: '◆';
+            color: var(--oro-celestial);
+            font-size: 1.2rem;
+        }
+        
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            color: var(--ambar-sagrado);
+            margin: 2.5rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--oro-celestial);
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            text-align: justify;
+            color: var(--crema-sagrada);
+        }
+        
+        /* Resumen ejecutivo destacado */
+        .executive-summary {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(30, 58, 95, 0.6));
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .executive-summary::before {
+            content: '❝';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 5rem;
+            color: rgba(255, 215, 0, 0.15);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+        }
+        
+        .executive-summary h2 {
+            border: none;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .executive-summary h2::before {
+            content: '✦';
+        }
+        
+        .executive-summary p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Tarjetas de información */
+        .info-card {
+            background: rgba(255, 254, 245, 0.95);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255, 215, 0, 0.2);
+            border-left: 5px solid var(--oro-celestial);
+            color: var(--azul-oceano);
+        }
+        
+        .info-card h3 {
+            color: var(--oro-antiguo);
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        
+        .info-card p, .info-card li {
+            color: var(--azul-oceano);
+            font-size: 1.05rem;
+            text-align: left;
+        }
+        
+        /* Listas */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        ul li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--oro-celestial);
+            font-weight: bold;
+        }
+        
+        .info-card ul li::before {
+            color: var(--oro-antiguo);
+        }
+        
+        /* Tabla de disciplinas */
+        .disciplines-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(255, 254, 245, 0.95);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .disciplines-table th {
+            background: linear-gradient(135deg, var(--oro-antiguo), var(--oro-celestial));
+            color: var(--blanco-puro);
+            padding: 1.5rem 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .disciplines-table td {
+            padding: 1.5rem 1.2rem;
+            border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+            color: var(--azul-oceano);
+            font-size: 1.05rem;
+            vertical-align: top;
+        }
+        
+        .disciplines-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .disciplines-table tr:nth-child(even) {
+            background: rgba(218, 165, 32, 0.05);
+        }
+        
+        .disciplines-table strong {
+            color: var(--oro-antiguo);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Grid de teólogos */
+        .theologians-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .theologian-card {
+            background: rgba(255, 254, 245, 0.95);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 4px solid var(--oro-celestial);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .theologian-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .theologian-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .theologian-card h4 {
+            color: var(--oro-antiguo);
+            margin: 0 0 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .theologian-card p {
+            color: var(--azul-celeste);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin: 0;
+            text-align: center;
+        }
+        
+        /* Advertencias/Riesgos */
+        .warning-box {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(30, 58, 95, 0.6));
+            border-left: 5px solid #DC143C;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 16px 16px 0;
+            position: relative;
+        }
+        
+        .warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            font-size: 2rem;
+            background: var(--azul-oceano);
+            padding: 0.5rem;
+            border-radius: 50%;
+            border: 2px solid #DC143C;
+        }
+        
+        .warning-box h3 {
+            color: #FF6B6B;
+            margin-top: 0;
+        }
+        
+        .warning-box ul li::before {
+            content: '•';
+            color: #FF6B6B;
+        }
+        
+        /* Cita destacada */
+        .highlight-quote {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(218, 165, 32, 0.1));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .highlight-quote::before,
+        .highlight-quote::after {
+            content: '"';
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: rgba(255, 215, 0, 0.3);
+            position: absolute;
+            line-height: 1;
+        }
+        
+        .highlight-quote::before {
+            top: 10px;
+            left: 20px;
+        }
+        
+        .highlight-quote::after {
+            bottom: -10px;
+            right: 20px;
+        }
+        
+        .highlight-quote p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--oro-divino);
+            font-style: italic;
+            margin: 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Grid de utilidad */
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .utility-card {
+            background: rgba(255, 254, 245, 0.95);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--oro-celestial);
+        }
+        
+        .utility-number {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--oro-celestial);
+            color: var(--blanco-puro);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .utility-card h4 {
+            color: var(--oro-antiguo);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .utility-card p {
+            color: var(--azul-oceano);
+            font-size: 1rem;
+            margin: 0;
+            text-align: center;
+        }
+        
+        /* Conceptos clave */
+        .concept-box {
+            background: linear-gradient(135deg, rgba(78, 144, 184, 0.2), rgba(30, 58, 95, 0.4));
+            border-left: 4px solid var(--azul-celeste);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .concept-box strong {
+            color: var(--oro-celestial);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Conclusión especial */
+        .conclusion-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(218, 165, 32, 0.1));
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        .conclusion-section h2 {
+            border: none;
+            justify-content: center;
+        }
+        
+        .conclusion-section h2::before {
+            content: '✦';
+        }
+        
+        .conclusion-section p {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            background: linear-gradient(0deg, rgba(15, 39, 68, 0.8), transparent);
+        }
+        
+        .footer-verse {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--oro-celestial);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        footer p {
+            color: var(--azul-claro);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        /* Galería de Infografías Adicionales */
+        .image-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .image-gallery-grid img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            cursor: zoom-in;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        .image-gallery-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        /* Modal de Imagen */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 39, 68, 0.95); /* --azul-profundo con opacidad */
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-content {
+            max-width: 95%;
+            max-height: 85vh;
+            border-radius: 16px;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+            object-fit: contain;
+            border: 2px solid var(--oro-celestial);
+            cursor: default;
+        }
+        .close-modal-btn {
+            margin-top: 20px;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            border: 1px solid var(--oro-celestial);
+            background: linear-gradient(135deg, var(--oro-celestial), var(--oro-antiguo));
+            color: var(--blanco-puro);
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .close-modal-btn:hover { transform: scale(1.05); }
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1.3rem; }
+            .executive-summary, .conclusion-section { padding: 2rem 1.5rem; }
+            .disciplines-table { font-size: 0.9rem; }
+            .disciplines-table th, .disciplines-table td { padding: 1rem; }
+            .container { padding: 1rem; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--azul-profundo);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--oro-celestial), var(--oro-antiguo));
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--oro-divino);
+        }
+        
+        /* Separador decorativo */
+        .section-divider {
+            text-align: center;
+            margin: 4rem 0;
+            color: var(--oro-celestial);
+            font-size: 1.5rem;
+            letter-spacing: 2rem;
+            opacity: 0.5;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Destellos -->
+    <div class="sparkle" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+    <div class="sparkle" style="top: 25%; left: 85%; animation-delay: 0.7s;"></div>
+    <div class="sparkle" style="top: 65%; left: 10%; animation-delay: 1.4s;"></div>
+    <div class="sparkle" style="top: 80%; left: 90%; animation-delay: 2.1s;"></div>
+    <div class="sparkle" style="top: 45%; left: 50%; animation-delay: 2.8s;"></div>
+    
+    <div class="container">
+        <header>
+            <span class="theology-icon">📖</span>
+            <h1>Alcance y Propósito de la Teología</h1>
+            <p class="subtitle">Fundamentos y Metodología</p>
+            <div class="author-badge">Basado en R.C. Sproul</div>
+        </header>
+        
+        <div class="executive-summary">
+            <h2>Resumen Ejecutivo</h2>
+            <p>La teología se define no como un ejercicio emocional o meramente especulativo, sino como una <strong>ciencia</strong> —entendida como la búsqueda de conocimiento coherente y consistente sobre Dios—. El análisis destaca que la teología es <strong>inevitable</strong> para cualquier creyente, por lo que el objetivo no es elegir si hacer teología o no, sino asegurar que esta sea <strong>sólida y bíblica</strong>.</p>
+            <p style="margin-top: 1.5rem; margin-bottom: 0;">Los pilares incluyen la dependencia absoluta de la Escritura, la integración de la historia de la iglesia y el rechazo a la "novedad" teológica impulsada por filosofías seculares. El propósito final trasciende el intelecto: busca la <strong>madurez, la corrección y la obediencia</strong> del individuo ante la revelación divina.</p>
+        </div>
+        
+        <section id="ciencia">
+            <h2>1. La Teología como Ciencia y el Rol de los Paradigmas</h2>
+            <p>Históricamente, la teología sistemática se ha considerado una ciencia en el sentido clásico de la palabra latina <em>scientia</em>, que significa conocimiento.</p>
+            
+            <h3>El Concepto de Ciencia en Teología</h3>
+            
+            <div class="concept-box">
+                <strong>🔍 Búsqueda de Conocimiento</strong>
+                Así como la biología busca el conocimiento de los seres vivos, la teología es el intento de obtener un conocimiento coherente de Dios a través de la revelación divina.
+            </div>
+            
+            <div class="concept-box">
+                <strong>📚 Negación de la Ciencia</strong>
+                La teología solo dejaría de ser una ciencia si se demostrara que el conocimiento de Dios es imposible.
+            </div>
+            
+            <div class="concept-box">
+                <strong>⚖️ Consistencia</strong>
+                El objetivo es construir un sistema que rinda cuentas de todos los datos disponibles de manera armoniosa.
+            </div>
+            
+            <h3>Paradigmas y Anomalías</h3>
+            <p>Al igual que las ciencias naturales (como la física), la teología maneja modelos o paradigmas:</p>
+            
+            <div class="info-card">
+                <ul>
+                    <li><strong>Anomalías:</strong> Son detalles o datos que no encajan en una teoría establecida</li>
+                    <li><strong>Cambio de Paradigma:</strong> Ocurre cuando las anomalías son tantas o tan urgentes que obligan a desafiar las suposiciones anteriores y construir un modelo nuevo</li>
+                    <li><strong>Diferencia Fundamental:</strong> Mientras que en la física los cambios de paradigma son constantes debido a nuevos descubrimientos, en la teología la fuente de información (la Biblia) es la misma desde hace 2000 años. Por ello, los cambios dramáticos en teología suelen ser sospechosos y a menudo derivan de influencias filosóficas externas más que de hallazgos textuales o arqueológicos.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="section-divider">✦ ✦ ✦</div>
+        
+        <section id="fuentes">
+            <h2>2. Fuentes y Disciplinas de la Teología Sistemática</h2>
+            <p>La teología sistemática no opera de forma aislada; es una <strong>síntesis de tres esferas disciplinares</strong> distintas pero interconectadas:</p>
+            
+            <table class="disciplines-table">
+                <thead>
+                    <tr>
+                        <th>Disciplina</th>
+                        <th>Enfoque Principal</th>
+                        <th>Función</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Teología Bíblica</strong></td>
+                        <td>El dato crudo de la Escritura</td>
+                        <td>Estudia conceptos (ej. "salvación") a través del desarrollo del Antiguo y Nuevo Testamento</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Teología Histórica</strong></td>
+                        <td>El desarrollo de la doctrina en la Iglesia</td>
+                        <td>Analiza cómo la iglesia resolvió disputas en concilios (Nicea, Calcedonia) y respondió a herejías</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Teología Sistemática</strong></td>
+                        <td>Síntesis y organización</td>
+                        <td>Reúne los datos bíblicos, los desarrollos históricos y las ideas de grandes maestros para crear un sistema coherente</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>La Importancia de los Maestros Históricos</h3>
+            <p>Aunque no son infalibles ni poseen autoridad apostólica, la teología sistemática valora a los <strong>"titanes"</strong> de la historia de la iglesia debido a la profundidad de su comprensión:</p>
+            
+            <div class="theologians-grid">
+                <div class="theologian-card">
+                    <span class="theologian-icon">👨‍🎓</span>
+                    <h4>San Agustín</h4>
+                    <p>Padre de la Iglesia</p>
+                </div>
+                <div class="theologian-card">
+                    <span class="theologian-icon">⛪</span>
+                    <h4>Martín Lutero</h4>
+                    <p>Reforma Protestante</p>
+                </div>
+                <div class="theologian-card">
+                    <span class="theologian-icon">📜</span>
+                    <h4>Juan Calvino</h4>
+                    <p>Institutas</p>
+                </div>
+                <div class="theologian-card">
+                    <span class="theologian-icon">🔥</span>
+                    <h4>Jonathan Edwards</h4>
+                    <p>Predicador y Filósofo</p>
+                </div>
+                <div class="theologian-card">
+                    <span class="theologian-icon">👼</span>
+                    <h4>Santo Tomás</h4>
+                    <p>Doctor Angélico</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="section-divider">✦ ✦ ✦</div>
+        
+        <section id="riesgos">
+            <h2>3. Riesgos y Errores en la Praxis Teológica</h2>
+            <p>El análisis advierte sobre varios peligros que pueden corromper el estudio teológico:</p>
+            
+            <div class="warning-box">
+                <h3>⚠️ Peligros a Evitar</h3>
+                <ul>
+                    <li><strong>Imposición de Sistemas:</strong> El error de tomar un sistema preconcebido (como la teología reformada o el dispensacionalismo) y forzarlo sobre la Escritura. La teología debe derivar de la Biblia, no ser independiente de ella.</li>
+                    <li><strong>El "Atomismo":</strong> Un método peligroso en la teología bíblica que trata cada parte de la Escritura como una unidad aislada, negando su unidad general y coherencia. Esto lleva a concluir erróneamente que existen teologías contradictorias entre los autores bíblicos (ej. una "teología de Pablo" contra una "teología de Pedro").</li>
+                    <li><strong>Fascinación por la Novedad:</strong> El deseo académico de crear teorías "nuevas y creativas" para obtener grados doctorales o relevancia. Se cita el caso extremo de una tesis que proponía a Jesús como fundador de una <em>"secta fálica del hongo"</em> como ejemplo de novedad absurda.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="section-divider">✦ ✦ ✦</div>
+        
+        <section id="inevitabilidad">
+            <h2>4. La Inevitabilidad y Utilidad de la Teología</h2>
+            
+            <div class="highlight-quote">
+                <p>"Tan pronto como te pregunte quién es Jesús y me digas una palabra sobre quién es Jesús, estás haciendo teología"</p>
+            </div>
+            
+            <p>La teología no es una opción para el cristiano; es una <strong>actividad inherente a la fe</strong>. Cada vez que formulamos una afirmación sobre Dios, estamos haciendo teología, por lo que lo importante no es evitarla, sino hacerla correctamente.</p>
+            
+            <h3>Propósito Basado en 2 Timoteo 3:16</h3>
+            <p>La utilidad de la teología se fundamenta en que toda la Escritura es inspirada por Dios y es útil para:</p>
+            
+            <div class="utility-grid">
+                <div class="utility-card">
+                    <div class="utility-number">1</div>
+                    <h4>Enseñar</h4>
+                    <p><em>(Doctrina)</em><br>Proporcionar un activo valioso para el entendimiento</p>
+                </div>
+                <div class="utility-card">
+                    <div class="utility-number">2</div>
+                    <h4>Reprender</h4>
+                    <p>La Biblia actúa como el sujeto crítico; el lector es el objeto criticado. Expone el pecado y la falsedad</p>
+                </div>
+                <div class="utility-card">
+                    <div class="utility-number">3</div>
+                    <h4>Corregir</h4>
+                    <p>Rectificar la vida y la enseñanza falsa (ej. la influencia de medios o doctrinas espirituales erróneas)</p>
+                </div>
+                <div class="utility-card">
+                    <div class="utility-number">4</div>
+                    <h4>Instruir</h4>
+                    <p><em>(En Justicia)</em><br>Dirigir al individuo hacia la madurez y la plenitud de la obediencia</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="conclusion-section">
+            <h2>Conclusión</h2>
+            <p>El fin primordial de la teología no es el simple estímulo intelectual, sino que el ser humano sea <strong>"perfecto" y "equipado"</strong> mediante la instrucción directa de Dios para crecer en madurez espiritual y obediencia.</p>
+            <p style="margin-top: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--oro-celestial); font-style: italic;">
+                "Toda la Escritura es inspirada por Dios y útil..."
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 1rem; color: var(--azul-claro);">— 2 Timoteo 3:16-17</p>
+        </div>
+
+        <div class="section-divider">✦ ✦ ✦</div>
+
+        <section id="infografias">
+            <h2>Infografías Adicionales</h2>
+            <div class="image-gallery-grid">
+                <img src="t221.png" alt="Infografía 221" onclick="openImageModal(this.src)">
+                <img src="t21.png" alt="Infografía 21" onclick="openImageModal(this.src)">
+                <img src="t22.png" alt="Infografía 22" onclick="openImageModal(this.src)">
+                <img src="t23.png" alt="Infografía 23" onclick="openImageModal(this.src)">
+                <img src="t24.png" alt="Infografía 24" onclick="openImageModal(this.src)">
+                <img src="t25.png" alt="Infografía 25" onclick="openImageModal(this.src)">
+                <img src="t27.png" alt="Infografía 27" onclick="openImageModal(this.src)">
+                <img src="t28.png" alt="Infografía 28" onclick="openImageModal(this.src)">
+                <img src="t29.png" alt="Infografía 29" onclick="openImageModal(this.src)">
+                <img src="t211.png" alt="Infografía 211" onclick="openImageModal(this.src)">
+                <img src="t213.png" alt="Infografía 213" onclick="openImageModal(this.src)">
+                <img src="t214.png" alt="Infografía 214" onclick="openImageModal(this.src)">
+                <img src="t215.png" alt="Infografía 215" onclick="openImageModal(this.src)">
+            </div>
+        </section>
+        
+        <footer>
+            <p class="footer-verse">"Conoceréis la verdad, y la verdad os hará libres"</p>
+            <p>Estudios Teológicos | Fundamentos de la Fe</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">Diseñado con la paleta del Árbol de la Vida</p>
+        </footer>
+    </div>
+
+    <!-- Modal para Imagen -->
+    <div id="imageModal" class="modal-overlay" onclick="closeImageModal(event)">
+        <img id="fullImage" class="modal-content" src="" alt="Imagen ampliada">
+        <button class="close-modal-btn" onclick="closeImageModal(event)">Volver al Estudio</button>
+    </div>
+
+    <script>
+        function openImageModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('fullImage');
+            if (modal && modalImg) {
+                modalImg.src = src;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeImageModal(event) {
+            const modal = document.getElementById('imageModal');
+            if (modal && (event.target.id === 'imageModal' || event.target.classList.contains('close-modal-btn'))) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && document.getElementById('imageModal').classList.contains('active')) {
+                closeImageModal({ target: document.getElementById('imageModal') });
+            }
+        });
+    </script>
+</body>
+</html>
