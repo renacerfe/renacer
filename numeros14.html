@@ -980,6 +980,25 @@
         </div>
     </section>
 
+    <section id="infografias-adicionales">
+        <h2>Infografías Adicionales</h2>
+        <div class="image-gallery-grid">
+            <img src="n1.png" alt="Infografía Números 1" onclick="openImageModal(this.src)">
+            <img src="n2.png" alt="Infografía Números 2" onclick="openImageModal(this.src)">
+            <img src="n3.png" alt="Infografía Números 3" onclick="openImageModal(this.src)">
+            <img src="n4.png" alt="Infografía Números 4" onclick="openImageModal(this.src)">
+            <img src="n5.png" alt="Infografía Números 5" onclick="openImageModal(this.src)">
+            <img src="n6.png" alt="Infografía Números 6" onclick="openImageModal(this.src)">
+            <img src="n7.png" alt="Infografía Números 7" onclick="openImageModal(this.src)">
+            <img src="n8.png" alt="Infografía Números 8" onclick="openImageModal(this.src)">
+            <img src="n9.png" alt="Infografía Números 9" onclick="openImageModal(this.src)">
+            <img src="n10.png" alt="Infografía Números 10" onclick="openImageModal(this.src)">
+            <img src="n11.png" alt="Infografía Números 11" onclick="openImageModal(this.src)">
+            <img src="n12.png" alt="Infografía Números 12" onclick="openImageModal(this.src)">
+            <img src="n13.png" alt="Infografía Números 13" onclick="openImageModal(this.src)">
+        </div>
+    </section>
+
     <section>
         <h2>Conclusión: Verdades Centrales</h2>
         
@@ -1080,6 +1099,91 @@
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+    </script>
+
+    <!-- Modal para Imagen -->
+    <div id="imageModal" class="modal-overlay" onclick="closeImageModal(event)">
+        <img id="fullImage" class="modal-content" src="" alt="Imagen ampliada">
+        <button class="close-modal-btn" onclick="closeImageModal(event)">Volver al Estudio</button>
+    </div>
+
+    <script>
+        // Existing smooth scrolling and scroll effect for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.05)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.context-card, .consequence-item, .truth-card, .scripture-quote, .image-gallery-grid img').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Modal Image Functions
+        function openImageModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('fullImage');
+            if (modal && modalImg) {
+                modalImg.src = src;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeImageModal(event) {
+            const modal = document.getElementById('imageModal');
+            if (modal && (event.target.id === 'imageModal' || event.target.classList.contains('close-modal-btn'))) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && document.getElementById('imageModal').classList.contains('active')) {
+                closeImageModal({ target: document.getElementById('imageModal') });
+            }
         });
     </script>
 
