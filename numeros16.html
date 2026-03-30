@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números 16: La Rebelión de Coré - Estudio Bíblico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1f2933;   /* Azul oscuro/Gris */
+            --color-secondary: #d4af37; /* Dorado principal */
+            --color-accent: #1e3a5f;    /* Azul fuerte */
+            --color-bg: #eef6fb;        /* Celeste claro */
+            --color-bg-alt: #ffffff;
+            --color-text: #323f4b;
+            --color-gold: #d4af37;
+            --color-gold-light: #f6e6a8;
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: linear-gradient(180deg, #eaf4fb, #cfe6f6);
+            color: var(--color-text);
+            line-height: 1.7;
+        }
+
+        header {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            padding: 2rem;
+            position: relative;
+            border-bottom: 1px solid var(--color-gold-light);
+        }
+
+        .subtitle-tag {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-gold);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        section.visible { opacity: 1; transform: translateY(0); }
+
+        .card-context {
+            background: var(--color-bg-alt);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            border-left: 5px solid var(--color-gold);
+        }
+
+        h2 { 
+            font-size: 2rem; 
+            color: var(--color-primary); 
+            margin-bottom: 1.5rem; 
+            font-family: 'Crimson Text', serif;
+        }
+
+        .step-badge {
+            background: var(--color-gold-light);
+            color: #5c470f;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .img-card {
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: zoom-in;
+            transition: transform 0.4s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .img-card:hover { transform: scale(1.03); }
+        .img-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Botón Volver similar al resto del proyecto */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            padding: 10px 20px;
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-gold);
+            border-radius: 50px;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s;
+        }
+        .back-btn:hover { background: var(--color-gold); color: white; }
+
+        /* Modal Zoom Estilizado */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(31, 41, 51, 0.95);
+            z-index: 1000;
+            justify-content: center; 
+            align-items: center;
+            cursor: zoom-out;
+            flex-direction: column;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content { 
+            max-width: 90%; 
+            max-height: 80vh; 
+            border-radius: 12px; 
+            border: 3px solid var(--color-gold);
+            box-shadow: 0 0 50px rgba(0,0,0,0.5); 
+        }
+        .close-modal {
+            margin-top: 20px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            background: var(--color-gold);
+            padding: 10px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        /* Flechas de navegación */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--color-gold);
+            font-size: 3.5rem;
+            cursor: pointer;
+            padding: 20px;
+            user-select: none;
+            transition: color 0.3s, transform 0.2s;
+            z-index: 1010;
+        }
+        .nav-arrow:hover { color: white; transform: translateY(-50%) scale(1.1); }
+        .nav-arrow.prev { left: 10px; }
+        .nav-arrow.next { right: 10px; }
+
+        @media (max-width: 600px) {
+            .nav-arrow { font-size: 2.5rem; padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="menu-clases.html" class="back-btn">← Volver al menú</a>
+
+    <header>
+        <div class="subtitle-tag">Estudio Creativo Bíblico • Números 16</div>
+        <h1>La Rebelión de Coré</h1>
+        <p style="margin-top: 1rem; font-style: italic; color: var(--color-accent); font-size: 1.2rem;">
+            Un análisis sobre la autoridad, la ambición y el juicio divino
+        </p>
+    </header>
+
+    <div class="container">
+        <section id="paso1">
+            <div class="card-context">
+                <span class="step-badge">Paso 01 / Origen</span>
+                <h2>El Levantamiento de los Príncipes</h2>
+                <p>Coré, junto a Datán y Abiram, lideraron a 250 hombres de renombre contra Moisés y Aarón, cuestionando la jerarquía espiritual establecida.</p>
+                <div class="gallery">
+                    <div class="img-card"><img src="n161.png" onclick="openZoom(this.src)"></div>
+                    <div class="img-card"><img src="n162.png" onclick="openZoom(this.src)"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="paso2">
+            <div class="card-context">
+                <span class="step-badge">Paso 02 / Ambición</span>
+                <h2>Motivaciones y Descontento</h2>
+                <p>El deseo por el sacerdocio y la nostalgia por Egipto nublaron el juicio de los rebeldes, ignorando el propósito divino en el desierto.</p>
+                <div class="gallery">
+                    <div class="img-card"><img src="n163.png" onclick="openZoom(this.src)"></div>
+                    <div class="img-card"><img src="n164.png" onclick="openZoom(this.src)"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="paso3">
+            <div class="card-context">
+                <span class="step-badge">Paso 03 / Veredicto</span>
+                <h2>La Prueba del Incienso</h2>
+                <p>Cada hombre tomó su incensario. La gloria de Jehová apareció para definir quién era verdaderamente santo ante Su presencia.</p>
+                <div class="gallery">
+                    <div class="img-card"><img src="n165.png" onclick="openZoom(this.src)"></div>
+                    <div class="img-card"><img src="n166.png" onclick="openZoom(this.src)"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="paso4">
+            <div class="card-context">
+                <span class="step-badge">Paso 04 / Consecuencia</span>
+                <h2>Un Juicio Sobrenatural</h2>
+                <p>La tierra se abrió y el fuego consumió a los rebeldes. Un recordatorio drástico de la santidad de Dios y Su orden.</p>
+                <div class="gallery">
+                    <div class="img-card"><img src="n167.png" onclick="openZoom(this.src)"></div>
+                    <div class="img-card"><img src="n168.png" onclick="openZoom(this.src)"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="paso5">
+            <div class="card-context">
+                <span class="step-badge">Paso 05 / Gracia</span>
+                <h2>Intercesión y Memorial</h2>
+                <p>Aarón se puso entre los muertos y los vivos. Los incensarios fueron transformados en planchas para el altar como señal perpetua.</p>
+                <div class="gallery">
+                    <div class="img-card"><img src="n169.png" onclick="openZoom(this.src)"></div>
+                    <div class="img-card"><img src="n1610.png" onclick="openZoom(this.src)"></div>
+                    <div class="img-card"><img src="n1611.png" onclick="openZoom(this.src)"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="imageModal" class="modal-overlay" onclick="closeZoom()">
+        <button class="nav-arrow prev" onclick="event.stopPropagation(); changeImage(-1)">❮</button>
+        <img id="modalImg" class="modal-content" onclick="event.stopPropagation()">
+        <button class="nav-arrow next" onclick="event.stopPropagation(); changeImage(1)">❯</button>
+        <div class="close-modal">Cerrar Vista</div>
+    </div>
+
+    <script>
+        // Lista de todas las imágenes de la galería para la navegación
+        const allImages = Array.from(document.querySelectorAll('.gallery img')).map(img => img.src);
+        let currentIndex = 0;
+
+        function openZoom(src) {
+            const m = document.getElementById('imageModal');
+            currentIndex = allImages.indexOf(src);
+            document.getElementById('modalImg').src = src;
+            m.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function changeImage(step) {
+            currentIndex = (currentIndex + step + allImages.length) % allImages.length;
+            document.getElementById('modalImg').src = allImages[currentIndex];
+        }
+
+        function closeZoom() {
+            document.getElementById('imageModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
