@@ -1,0 +1,2636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Sabías que? - Curiosidades Bíblicas</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Paleta principal — pergamino oscuro con acentos dorados */
+    --parch-900: #12100e;
+    --parch-800: #1c1815;
+    --parch-700: #2a231d;
+    --parch-600: #3b3028;
+    --parch-500: #5a4a3a;
+    --parch-400: #8b7355;
+    --parch-300: #c4a882;
+    --parch-200: #e8d5b0;
+    --parch-100: #f5edd8;
+    --parch-50:  #fdf8f0;
+
+    --gold-bright: #f0c040;
+    --gold-main:   #d4a017;
+    --gold-deep:   #a67c00;
+    --gold-glow:   rgba(212,160,23,0.18);
+
+    --azure-light: #7ab8d8;
+    --azure-mid:   #2e7eb8;
+    --azure-deep:  #1a4a70;
+
+    --crimson-light: #e07a7a;
+    --crimson-mid:   #c04040;
+    --crimson-deep:  #7a1f1f;
+
+    --teal-light:  #6dbfb8;
+    --teal-mid:    #2a9d8f;
+    --teal-deep:   #1a5f58;
+
+    --text-hero:   #fdf4e0;
+    --text-main:   #ede0c8;
+    --text-body:   #d4c4a8;
+    --text-soft:   #a89070;
+    --text-dim:    #6b5840;
+
+    --card-bg:     #1e1a14;
+    --card-border: rgba(196, 168, 130, 0.15);
+    --card-hover:  rgba(212,160,23,0.07);
+
+    --shadow-card: 0 8px 32px rgba(0,0,0,0.5);
+    --shadow-lg:   0 16px 48px rgba(0,0,0,0.6);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--parch-900);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,160,23,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(30,74,112,0.1) 0%, transparent 60%);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    color: var(--text-main);
+    min-height: 100vh;
+    line-height: 1.7;
+  }
+
+  /* ══════════════════════════════════
+     HERO
+  ══════════════════════════════════ */
+  .hero {
+    position: relative;
+    min-height: 68vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 70px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+  }
+
+  /* Textura de fondo tipo papiro */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(212,160,23,0.012) 3px,
+        rgba(212,160,23,0.012) 4px
+      );
+    pointer-events: none;
+  }
+
+  /* Ornamento de fondo grande */
+  .hero::after {
+    content: '✦';
+    position: absolute;
+    font-size: 40vw;
+    color: rgba(212,160,23,0.025);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .back-link {
+    position: absolute;
+    top: 28px; left: 32px;
+    color: var(--gold-main);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    z-index: 5;
+  }
+  .back-link:hover { opacity: 1; }
+
+  .hero-ornament {
+    font-size: 1.4rem;
+    color: var(--gold-main);
+    letter-spacing: 1.2em;
+    margin-bottom: 28px;
+    opacity: 0.7;
+    animation: fadeDown 1.2s ease both;
+    position: relative; z-index: 2;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    font-weight: 900;
+    color: var(--text-hero);
+    line-height: 1.1;
+    max-width: 880px;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.6);
+    animation: fadeDown 1.2s ease 0.15s both;
+    position: relative; z-index: 2;
+  }
+
+  .hero h1 .subtitle-line {
+    display: block;
+    font-size: 0.38em;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold-main);
+    letter-spacing: 0.08em;
+    margin-top: 14px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .hero-rule {
+    width: 340px;
+    max-width: 80vw;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-main), var(--gold-bright), var(--gold-main), transparent);
+    margin: 36px auto;
+    animation: fadeIn 1.5s ease 0.4s both;
+    position: relative; z-index: 2;
+  }
+  .hero-rule::before, .hero-rule::after {
+    content: '◆';
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    font-size: 0.55rem;
+    color: var(--gold-main);
+  }
+  .hero-rule::before { left: -10px; }
+  .hero-rule::after  { right: -10px; }
+
+  .hero-desc {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-body);
+    max-width: 680px;
+    line-height: 1.85;
+    font-style: italic;
+    animation: fadeIn 1.5s ease 0.55s both;
+    position: relative; z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 11px 36px;
+    border: 1px solid var(--gold-deep);
+    color: var(--gold-bright);
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    background: rgba(212,160,23,0.06);
+    animation: fadeIn 1.5s ease 0.7s both;
+    position: relative; z-index: 2;
+  }
+
+  /* ══════════════════════════════════
+     STICKY NAV
+  ══════════════════════════════════ */
+  .sticky-nav {
+    position: sticky;
+    top: 0; z-index: 100;
+    background: rgba(18,16,14,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,160,23,0.15);
+    padding: 10px 16px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-btn {
+    background: transparent;
+    border: 1px solid rgba(196,168,130,0.2);
+    color: var(--text-soft);
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  .nav-btn:hover {
+    background: rgba(212,160,23,0.1);
+    border-color: var(--gold-deep);
+    color: var(--gold-bright);
+  }
+
+  .nav-btn.active {
+    background: rgba(212,160,23,0.12);
+    border-color: var(--gold-main);
+    color: var(--gold-bright);
+  }
+
+  /* ══════════════════════════════════
+     MAIN CONTENT
+  ══════════════════════════════════ */
+  .main-content {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 64px 24px;
+  }
+
+  /* ══════════════════════════════════
+     STATS BAR
+  ══════════════════════════════════ */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2px;
+    margin-bottom: 56px;
+    border: 1px solid rgba(212,160,23,0.12);
+  }
+
+  .stat-item {
+    background: var(--card-bg);
+    padding: 28px 20px;
+    text-align: center;
+    border: 1px solid rgba(212,160,23,0.06);
+    transition: background 0.2s;
+  }
+  .stat-item:hover { background: rgba(212,160,23,0.06); }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold-bright);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-top: 8px;
+    display: block;
+  }
+
+  /* ══════════════════════════════════
+     SEARCH
+  ══════════════════════════════════ */
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 52px;
+  }
+
+  .search-input {
+    background: var(--card-bg);
+    border: 1px solid rgba(212,160,23,0.25);
+    border-right: none;
+    color: var(--text-main);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+    padding: 14px 22px;
+    width: 420px;
+    max-width: 72vw;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .search-input:focus { border-color: var(--gold-main); }
+  .search-input::placeholder { color: var(--text-dim); font-style: italic; }
+
+  .search-btn {
+    background: var(--azure-deep);
+    border: 1px solid var(--azure-deep);
+    color: var(--text-hero);
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    padding: 14px 22px;
+    cursor: pointer;
+    transition: background 0.25s;
+    white-space: nowrap;
+  }
+  .search-btn:hover { background: var(--azure-mid); border-color: var(--azure-mid); }
+
+  /* ══════════════════════════════════
+     SECTION HEADERS
+  ══════════════════════════════════ */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 36px;
+    padding: 28px 36px;
+    background: var(--parch-800);
+    border-left: 5px solid var(--gold-main);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .section-icon {
+    font-size: 2.6rem;
+    flex-shrink: 0;
+  }
+
+  .section-header-text h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.2rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    color: var(--text-hero);
+    line-height: 1.25;
+  }
+
+  .section-header-text p {
+    color: var(--text-soft);
+    font-style: italic;
+    font-size: 0.98rem;
+    margin-top: 5px;
+  }
+
+  .count-badge {
+    display: inline-block;
+    background: rgba(212,160,23,0.12);
+    border: 1px solid var(--gold-deep);
+    color: var(--gold-bright);
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    padding: 4px 12px;
+    letter-spacing: 0.12em;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+
+  /* ══════════════════════════════════
+     CARDS GRID
+  ══════════════════════════════════ */
+  .names-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
+    gap: 22px;
+    margin-bottom: 64px;
+  }
+
+  @media (max-width: 640px) {
+    .names-grid { grid-template-columns: 1fr; }
+  }
+
+  .name-card {
+    background: var(--card-bg);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--card-border);
+  }
+
+  .name-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(212,160,23,0.3);
+    background: #211d16;
+  }
+
+  /* Barra de color superior */
+  .name-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .gold-accent::before    { background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold-deep)); }
+  .crimson-accent::before { background: linear-gradient(90deg, var(--crimson-deep), var(--crimson-light), var(--crimson-deep)); }
+  .azure-accent::before   { background: linear-gradient(90deg, var(--azure-deep), var(--azure-light), var(--azure-deep)); }
+  .teal-accent::before    { background: linear-gradient(90deg, var(--teal-deep), var(--teal-light), var(--teal-deep)); }
+
+  /* ══════════════════════════════════
+     CARD HEADER
+  ══════════════════════════════════ */
+  .card-header {
+    padding: 22px 28px 18px;
+    border-bottom: 1px solid rgba(196,168,130,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .card-number {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    color: var(--gold-main);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .card-name-es {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1rem, 2.2vw, 1.35rem);
+    font-weight: 700;
+    color: var(--text-hero);
+    line-height: 1.25;
+  }
+
+  .card-name-original {
+    font-size: 2rem;
+    color: var(--azure-light);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-top: 6px;
+    letter-spacing: 0.05em;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .strong-badge {
+    background: rgba(26,74,112,0.3);
+    border: 1px solid rgba(122,184,216,0.2);
+    color: var(--azure-light);
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    padding: 5px 12px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-radius: 2px;
+  }
+
+  /* ══════════════════════════════════
+     CARD BODY
+  ══════════════════════════════════ */
+  .card-body {
+    padding: 22px 28px;
+  }
+
+  .card-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+
+  .card-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold-main);
+    min-width: 110px;
+    flex-shrink: 0;
+    padding-top: 3px;
+    line-height: 1.5;
+  }
+
+  .card-value {
+    font-size: 0.98rem;
+    color: var(--text-body);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .card-value.transliteration {
+    font-style: italic;
+    color: var(--crimson-light);
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  .card-value.meaning {
+    font-size: 1rem;
+    color: var(--text-main);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  /* ══════════════════════════════════
+     VERSE BLOCK
+  ══════════════════════════════════ */
+  .verse-block {
+    background: rgba(212,160,23,0.05);
+    border-left: 3px solid var(--gold-main);
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--parch-100);
+    font-size: 1.1rem;
+    line-height: 1.75;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .verse-ref {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-main);
+    margin-top: 8px;
+    font-style: normal;
+    text-transform: uppercase;
+  }
+
+  /* ══════════════════════════════════
+     TAGS
+  ══════════════════════════════════ */
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(196,168,130,0.08);
+  }
+
+  .tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border: 1px solid;
+    border-radius: 2px;
+  }
+
+  .tag.period { border-color: rgba(196,168,130,0.25); color: var(--text-soft); }
+  .tag.book   { border-color: rgba(212,160,23,0.3);   color: var(--gold-main); }
+  .tag.freq   { border-color: rgba(122,184,216,0.3);  color: var(--azure-light); }
+
+  /* ══════════════════════════════════
+     SECTION SEPARATOR
+  ══════════════════════════════════ */
+  .section-sep {
+    text-align: center;
+    color: var(--gold-deep);
+    font-size: 1.2rem;
+    letter-spacing: 1.2em;
+    margin: 10px 0 56px;
+    opacity: 0.5;
+  }
+
+  /* ══════════════════════════════════
+     TIMELINE TABLE
+  ══════════════════════════════════ */
+  .timeline-section {
+    background: var(--card-bg);
+    padding: 44px 40px;
+    margin-bottom: 64px;
+    box-shadow: var(--shadow-card);
+    border-radius: 6px;
+    border: 1px solid var(--card-border);
+  }
+
+  .timeline-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.1rem, 2.8vw, 1.7rem);
+    color: var(--text-hero);
+    text-align: center;
+    margin-bottom: 32px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+    letter-spacing: 0.04em;
+  }
+
+  .timeline-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .timeline-table thead tr {
+    background: var(--azure-deep);
+  }
+
+  .timeline-table thead th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 18px;
+    color: var(--text-hero);
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .timeline-table tbody tr {
+    border-bottom: 1px solid rgba(196,168,130,0.08);
+    transition: background 0.2s;
+  }
+
+  .timeline-table tbody tr:hover { background: rgba(212,160,23,0.04); }
+  .timeline-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+
+  .timeline-table td {
+    padding: 16px 18px;
+    vertical-align: top;
+    line-height: 1.65;
+    color: var(--text-body);
+  }
+
+  .timeline-table td:first-child {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--gold-bright);
+    font-size: 0.82rem;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+
+  .timeline-table td:nth-child(2) {
+    font-style: italic;
+    color: var(--azure-light);
+    font-weight: 400;
+    font-size: 0.93rem;
+  }
+
+  /* ══════════════════════════════════
+     NOTA TEOLÓGICA
+  ══════════════════════════════════ */
+  .theo-note {
+    background: linear-gradient(160deg, var(--parch-800), var(--parch-900));
+    border: 1px solid rgba(212,160,23,0.18);
+    border-radius: 8px;
+    padding: 56px 48px;
+    margin-bottom: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .theo-note::before {
+    content: '✦';
+    position: absolute;
+    top: -30px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: var(--gold-main);
+    background: var(--parch-900);
+    padding: 0 20px;
+    line-height: 1;
+  }
+
+  /* Ornamento decorativo de fondo */
+  .theo-note::after {
+    content: 'יהוה';
+    position: absolute;
+    bottom: -10px; right: 20px;
+    font-size: 8rem;
+    color: rgba(212,160,23,0.04);
+    font-family: 'Playfair Display', serif;
+    pointer-events: none;
+    line-height: 1;
+    letter-spacing: 0.1em;
+  }
+
+  .theo-note h3 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--gold-bright);
+    text-align: center;
+    margin-bottom: 28px;
+    letter-spacing: 0.08em;
+  }
+
+  .theo-note p {
+    color: var(--text-body);
+    font-size: 1.08rem;
+    line-height: 1.95;
+    text-align: justify;
+    max-width: 820px;
+    margin: 0 auto 20px;
+    position: relative;
+  }
+
+  .theo-note p:last-child { margin-bottom: 0; }
+
+  .theo-note strong {
+    color: var(--gold-bright);
+    font-style: normal;
+  }
+
+  .theo-note em {
+    color: var(--azure-light);
+  }
+
+  /* ══════════════════════════════════
+     FOOTER
+  ══════════════════════════════════ */
+  .footer {
+    border-top: 1px solid rgba(212,160,23,0.12);
+    color: var(--text-dim);
+    text-align: center;
+    padding: 48px 24px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+  }
+
+  .footer-ornament {
+    font-size: 1.6rem;
+    color: var(--gold-main);
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+
+  .footer p {
+    line-height: 2.2;
+    opacity: 0.65;
+  }
+
+  .footer .verse-footer {
+    margin-top: 20px;
+    font-size: 0.72rem;
+    opacity: 0.4;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ══════════════════════════════════
+     ANIMACIONES
+  ══════════════════════════════════ */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ══════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════ */
+  @media (max-width: 768px) {
+    .card-header { flex-direction: column; }
+    .card-label  { min-width: 80px; font-size: 0.63rem; }
+    .card-body   { padding: 18px 20px; }
+    .card-header { padding: 18px 20px 14px; }
+    .card-name-original { font-size: 1.6rem; }
+    .verse-block { font-size: 1rem; }
+    .theo-note   { padding: 40px 24px; }
+    .timeline-section { padding: 28px 16px; }
+    .section-header { padding: 22px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<section class="hero">
+  <a href="menu-index.html" class="back-link">← Volver al menú principal</a>
+
+  <div class="hero-ornament">✦ ✦ ✦</div>
+  <h1>
+    ¿Sabías que?
+    <span class="subtitle-line">Curiosidades Bíblicas y Datos Interesantes</span>
+  </h1>
+  <div class="hero-rule"></div>
+  <p class="hero-desc">
+    Un estudio exhaustivo y académico de todos los nombres y títulos divinos en el Antiguo y Nuevo Testamento,
+    con análisis hebreo, arameo y griego, concordancia Strong, períodos históricos y significados teológicos.
+  </p>
+  <div class="hero-badge">46 Nombres · 3 Idiomas · Toda la Escritura</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════════ -->
+<nav class="sticky-nav" id="mainNav">
+  <button class="nav-btn active" onclick="scrollTo('sec-hebrew')">I · Hebreo Primario</button>
+  <button class="nav-btn" onclick="scrollTo('sec-el')">II · Compuestos con El</button>
+  <button class="nav-btn" onclick="scrollTo('sec-yhwh')">III · Compuestos YHWH</button>
+  <button class="nav-btn" onclick="scrollTo('sec-desc')">IV · Títulos Descriptivos</button>
+  <button class="nav-btn" onclick="scrollTo('sec-greek')">V · Griego NT</button>
+  <button class="nav-btn" onclick="scrollTo('sec-timeline')">📊 Cronología</button>
+  <button class="nav-btn" onclick="scrollTo('sec-theo')">✦ Nota Teológica</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════════ -->
+<main class="main-content">
+
+  <!-- Stats -->
+  <div class="stats-bar fade-in">
+    <div class="stat-item"><span class="stat-number">46</span><span class="stat-label">Nombres Totales</span></div>
+    <div class="stat-item"><span class="stat-number">3</span><span class="stat-label">Idiomas Originales</span></div>
+    <div class="stat-item"><span class="stat-number">6.828</span><span class="stat-label">Veces aparece YHWH</span></div>
+    <div class="stat-item"><span class="stat-number">39</span><span class="stat-label">Libros del AT</span></div>
+    <div class="stat-item"><span class="stat-number">27</span><span class="stat-label">Libros del NT</span></div>
+    <div class="stat-item"><span class="stat-number">~3.800</span><span class="stat-label">Años de revelación</span></div>
+  </div>
+
+  <!-- Search -->
+  <div class="search-bar">
+    <input type="text" class="search-input" id="searchInput" placeholder="Buscar nombre (ej: Jehová, Shaddai, Logos...)">
+    <button class="search-btn" onclick="searchNames()">🔍 Buscar</button>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECTION I — NOMBRES PRIMARIOS HEBREOS
+  ═══════════════════════════════════════ -->
+  <div id="sec-hebrew" class="section-header hebrew fade-in">
+    <div class="section-icon">🔵</div>
+    <div class="section-header-text">
+      <h2>I. Nombres Primarios en Hebreo</h2>
+      <p>Antiguo Testamento — Idioma: Hebreo Bíblico</p>
+      <span class="count-badge">4 Nombres Fundamentales</span>
+    </div>
+  </div>
+
+  <div class="names-grid" id="grid-hebrew">
+
+    <!-- 1. YHWH -->
+    <div class="name-card gold-accent fade-in" data-name="yhwh jehová tetragrámaton">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 1</div>
+          <div class="card-name-es">YHWH — Jehová</div>
+          <div class="card-name-original">יְהוָה</div>
+        </div>
+        <span class="strong-badge">H3068</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Yahweh / Tetragrámmaton (יהוה)</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El que ES" — el Ser autoexistente y eterno. Del verbo <em>hayah</em> (ser/existir). Nombre del pacto por excelencia.</span>
+        </div>
+        <div class="verse-block">
+          "YO SOY EL QUE SOY... Así dirás a los hijos de Israel: YO SOY me envió a vosotros."
+          <span class="verse-ref">Éxodo 3:14–15</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Período</span>
+          <span class="card-value">Desde Génesis; revelado plenamente a Moisés en el Monte Horeb</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Nota RVR</span>
+          <span class="card-value">Traducido como <strong>"Jehová"</strong> o <strong>"SEÑOR"</strong> (en versalitas). Las consonantes YHWH + vocales de Adonai = Jehová.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag freq">6,828 apariciones</span>
+          <span class="tag book">Todo el AT</span>
+          <span class="tag period">Desde Génesis</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. ELOHIM -->
+    <div class="name-card gold-accent fade-in" data-name="elohim dios poderoso creador">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 2</div>
+          <div class="card-name-es">ELOHIM — Dios</div>
+          <div class="card-name-original">אֱלֹהִים</div>
+        </div>
+        <span class="strong-badge">H430</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Elohim</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El Poderoso", "Dios fuerte". Plural de majestad con verbos en singular. Implica poder absoluto y majestad plena sobre toda la creación.</span>
+        </div>
+        <div class="verse-block">
+          "En el principio creó <strong>Dios</strong> (Elohim) los cielos y la tierra."
+          <span class="verse-ref">Génesis 1:1 — primer versículo bíblico</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Nota gramatical</span>
+          <span class="card-value">Aunque es plural morfológico, cuando se refiere al Dios de Israel siempre toma verbo singular — plural de majestad o de plenitud.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag freq">~2,600 apariciones</span>
+          <span class="tag book">Todo el AT</span>
+          <span class="tag period">Desde el principio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. EL -->
+    <div class="name-card gold-accent fade-in" data-name="el dios fuerte poderoso">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 3</div>
+          <div class="card-name-es">EL — Dios (singular)</div>
+          <div class="card-name-original">אֵל</div>
+        </div>
+        <span class="strong-badge">H410</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">El</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Dios", "el Fuerte", "el Poderoso". Forma singular y raíz de Elohim. La palabra más corta y fundamental para Dios en hebreo.</span>
+        </div>
+        <div class="verse-block">
+          "Dios (El) no es hombre para que mienta, ni hijo de hombre para que se arrepienta."
+          <span class="verse-ref">Números 23:19</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Libros</span>
+          <span class="card-value">Muy frecuente en Salmos, Job, Isaías, Deuteronomio, Números.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Desde los patriarcas</span>
+          <span class="tag book">Salmos · Job · Isaías</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. ADONAI -->
+    <div class="name-card gold-accent fade-in" data-name="adonai señor soberano señorío">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 4</div>
+          <div class="card-name-es">ADONAI — Señor Soberano</div>
+          <div class="card-name-original">אֲדֹנָי</div>
+        </div>
+        <span class="strong-badge">H136</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Adonai</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Mi Señor", "Mi Soberano". Forma plural reverencial de <em>adon</em> (señor). Expresa autoridad suprema y señorío absoluto sobre todo.</span>
+        </div>
+        <div class="verse-block">
+          "Señor Jehová (Adonai YHWH), ¿qué me darás, siendo así que camino sin hijo?"
+          <span class="verse-ref">Génesis 15:2 — Abraham ante Dios</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Nota RVR</span>
+          <span class="card-value">Traducido como <strong>"Señor"</strong> (minúsculas cuando solo Adonai). Cuando aparece junto a YHWH: "Señor Jehová".</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Época patriarcal</span>
+          <span class="tag book">Isaías · Ezequiel · Salmos</span>
+          <span class="tag freq">~450 apariciones</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /grid-hebrew -->
+
+  <div class="section-sep">✦ ✦ ✦</div>
+
+  <!-- ══════════════════════════════════════
+       SECTION II — COMPUESTOS CON EL
+  ═══════════════════════════════════════ -->
+  <div id="sec-el" class="section-header compound-el fade-in">
+    <div class="section-icon">🔴</div>
+    <div class="section-header-text">
+      <h2>II. Nombres Compuestos con EL (אֵל)</h2>
+      <p>Revelación progresiva de los atributos divinos — Antiguo Testamento</p>
+      <span class="count-badge">8 Nombres Compuestos</span>
+    </div>
+  </div>
+
+  <div class="names-grid" id="grid-el">
+
+    <!-- 5. EL SHADDAI -->
+    <div class="name-card crimson-accent fade-in" data-name="el shaddai todopoderoso dios todo suficiente">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 5</div>
+          <div class="card-name-es">EL SHADDAI — Dios Todopoderoso</div>
+          <div class="card-name-original">אֵל שַׁדַּי</div>
+        </div>
+        <span class="strong-badge">H410 + H7706</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">El Shaddai</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Dios Todopoderoso" o "Dios de los pechos" (nutrición y sustento). El que es más que suficiente en sí mismo. Dios de la provisión total y la plenitud.</span>
+        </div>
+        <div class="verse-block">
+          "Cuando era Abram de noventa y nueve años, le apareció Jehová y le dijo: Yo soy el <strong>Dios Todopoderoso</strong> (El Shaddai); anda delante de mí y sé perfecto."
+          <span class="verse-ref">Génesis 17:1 — Pacto de la circuncisión</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Nota teológica</span>
+          <span class="card-value">Este nombre domina la época patriarcal. Éxodo 6:3 indica que Dios se dio a conocer a los patriarcas especialmente por este nombre, no por YHWH de la misma forma.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Época patriarcal</span>
+          <span class="tag book">Génesis · Éxodo 6:3 · Job (31×)</span>
+          <span class="tag book">Salmos · Isaías · Ezequiel</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. EL ELYON -->
+    <div class="name-card crimson-accent fade-in" data-name="el elyon altísimo dios más alto">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 6</div>
+          <div class="card-name-es">EL ELYON — Dios Altísimo</div>
+          <div class="card-name-original">אֵל עֶלְיֹון</div>
+        </div>
+        <span class="strong-badge">H410 + H5945</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">El Elyon</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Dios Altísimo", "El más alto de todos". Supremacía absoluta sobre toda creación, toda nación y todo poder angelical o humano.</span>
+        </div>
+        <div class="verse-block">
+          "Y Melquisedec, rey de Salem y sacerdote del <strong>Dios Altísimo</strong> (El Elyon), sacó pan y vino..."
+          <span class="verse-ref">Génesis 14:18 — Primera aparición; prefigura a Cristo</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Conexión NT</span>
+          <span class="card-value">Melquisedec como tipo de Cristo (Hebreos 7). El ángel dice a María: "Él será llamado Hijo del Altísimo" (Lucas 1:32).</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Desde Melquisedec</span>
+          <span class="tag book">Génesis · Números · Dt · Salmos · Daniel</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. EL OLAM -->
+    <div class="name-card crimson-accent fade-in" data-name="el olam dios eterno eternidad">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 7</div>
+          <div class="card-name-es">EL OLAM — Dios Eterno</div>
+          <div class="card-name-original">אֵל עֹולָם</div>
+        </div>
+        <span class="strong-badge">H410 + H5769</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">El Olam</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El Dios Eterno", "el Dios del siglo/del tiempo sin fin". La eternidad e inmutabilidad divinas. No tiene principio ni fin.</span>
+        </div>
+        <div class="verse-block">
+          "Y plantó Abraham un árbol en Beerseba, e invocó allí el nombre de Jehová, el <strong>Dios eterno</strong> (El Olam)."
+          <span class="verse-ref">Génesis 21:33</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Época de Abraham</span>
+          <span class="tag book">Génesis · Isaías 40:28</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. EL ROI -->
+    <div class="name-card crimson-accent fade-in" data-name="el roi dios que ve omnisciencia agar">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 8</div>
+          <div class="card-name-es">EL ROI — El Dios que Ve</div>
+          <div class="card-name-original">אֵל רֳאִי</div>
+        </div>
+        <span class="strong-badge">H410 + H7210</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">El Roi</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El Dios que ve", "el Dios de la visión". Omnisciencia y cuidado personal de Dios hacia los olvidados, los marginados y los que sufren en soledad.</span>
+        </div>
+        <div class="verse-block">
+          "Entonces llamó Agar el nombre de Jehová que le habló: <strong>Tú eres Dios que ve</strong> (El Roi); porque dijo: ¿No he visto también aquí al que me ve?"
+          <span class="verse-ref">Génesis 16:13 — Revelado a Agar, esclava egipcia</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado pastoral</span>
+          <span class="card-value">Notable: este nombre es revelado a una mujer esclava y extranjera. Dios ve a los que el mundo ignora. El pozo se llamó Beer-lahai-roi.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Época patriarcal</span>
+          <span class="tag book">Génesis 16:13 (única aparición)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. EL GIBBOR -->
+    <div class="name-card crimson-accent fade-in" data-name="el gibbor dios fuerte poderoso batalla mesiánico">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 9</div>
+          <div class="card-name-es">EL GIBBOR — Dios Fuerte / Héroe</div>
+          <div class="card-name-original">אֵל גִּבֹּור</div>
+        </div>
+        <span class="strong-badge">H410 + H1368</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">El Gibbor</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Dios Poderoso en batalla", "Dios Héroe / Campeón divino". Poder divino en la guerra espiritual y la victoria definitiva. Título mesiánico clave.</span>
+        </div>
+        <div class="verse-block">
+          "Porque un niño nos es nacido... y se llamará su nombre: Admirable, Consejero, <strong>Dios Fuerte</strong> (El Gibbor), Padre Eterno, Príncipe de Paz."
+          <span class="verse-ref">Isaías 9:6 — Profecía del nacimiento de Cristo</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Importancia</span>
+          <span class="card-value">Uno de los cinco títulos mesiánicos de Isaías 9:6. Aplicado directamente al Mesías venidero como Dios encarnado.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Profético pre-exílico</span>
+          <span class="tag book">Isaías 9:6; 10:21 · Jeremías 32:18</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. EL EMET -->
+    <div class="name-card crimson-accent fade-in" data-name="el emet dios verdad fidelidad">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 10</div>
+          <div class="card-name-es">EL EMET — Dios de Verdad</div>
+          <div class="card-name-original">אֵל אֱמֶת</div>
+        </div>
+        <span class="strong-badge">H410 + H571</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">El Emet</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Dios de verdad / de fidelidad absoluta". <em>Emet</em> (אֱמֶת) significa verdad, firmeza, constancia. Dios no puede mentir ni ser infiel.</span>
+        </div>
+        <div class="verse-block">
+          "En tu mano encomiendo mi espíritu; tú me has redimido, oh Jehová, <strong>Dios de verdad</strong> (El Emet)."
+          <span class="verse-ref">Salmo 31:5 — Palabras que Jesús cita en la cruz (Lucas 23:46)</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Período monárquico</span>
+          <span class="tag book">Salmos · Isaías</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. EL KANNO -->
+    <div class="name-card crimson-accent fade-in" data-name="el kanno dios celoso celo">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 11</div>
+          <div class="card-name-es">EL KANNO — Dios Celoso</div>
+          <div class="card-name-original">אֵל קַנָּא</div>
+        </div>
+        <span class="strong-badge">H410 + H7067</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">El Kanno</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Dios celoso". No es celos por inseguridad sino ardor del amor del pacto que no tolera la infidelidad espiritual (idolatría = adulterio espiritual).</span>
+        </div>
+        <div class="verse-block">
+          "No te inclinarás a ellas ni las honrarás; porque yo soy Jehová tu Dios, <strong>fuerte, celoso</strong> (El Kanno)..."
+          <span class="verse-ref">Éxodo 20:5 — Segundo mandamiento</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Mosaico · Éxodo</span>
+          <span class="tag book">Éxodo 20:5; 34:14 · Dt 4:24 · Josué · Nahum</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. EL HAYYIM -->
+    <div class="name-card crimson-accent fade-in" data-name="el hayyim dios viviente vida">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 12</div>
+          <div class="card-name-es">EL HAYYIM — Dios Viviente</div>
+          <div class="card-name-original">אֵל חַיִּים</div>
+        </div>
+        <span class="strong-badge">H410 + H2416</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">El Hayyim</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Dios viviente / Dios vivo". Dios como fuente y sustentador de toda vida, en contraste con los ídolos mudos e inertes que no tienen vida.</span>
+        </div>
+        <div class="verse-block">
+          "En esto conoceréis que el <strong>Dios viviente</strong> (El Hayyim) está en medio de vosotros..."
+          <span class="verse-ref">Josué 3:10 — Antes de cruzar el Jordán</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">En el NT</span>
+          <span class="card-value">Pedro en Mateo 16:16: "Tú eres el Cristo, el Hijo del <strong>Dios viviente</strong>." — Confirmación de la misma revelación.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Conquista · Monárquico · NT</span>
+          <span class="tag book">Josué · 1 Sam · Salmos · Daniel · Mateo</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /grid-el -->
+
+  <div class="section-sep">✦ ✦ ✦</div>
+
+  <!-- ══════════════════════════════════════
+       SECTION III — COMPUESTOS CON YHWH
+  ═══════════════════════════════════════ -->
+  <div id="sec-yhwh" class="section-header compound-yhwh fade-in">
+    <div class="section-icon">🔷</div>
+    <div class="section-header-text">
+      <h2>III. Nombres Compuestos con JEHOVÁ (YHWH)</h2>
+      <p>Revelaciones de los atributos de YHWH en momentos históricos clave</p>
+      <span class="count-badge">10 Nombres Compuestos</span>
+    </div>
+  </div>
+
+  <div class="names-grid" id="grid-yhwh">
+
+    <!-- 13. JEHOVÁ JIREH -->
+    <div class="name-card azure-accent fade-in" data-name="jehová jireh proveerá provisión abraham moriah">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 13</div>
+          <div class="card-name-es">JEHOVÁ JIREH — Jehová Proveerá</div>
+          <div class="card-name-original">יְהוָה יִרְאֶה</div>
+        </div>
+        <span class="strong-badge">H3068 + H7200</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Yahweh Yireh</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Jehová proveerá / verá". Dios que ve la necesidad con antelación y la suple en el momento preciso. El verbo <em>ra'ah</em> = ver, anticipar, proveer.</span>
+        </div>
+        <div class="verse-block">
+          "Y llamó Abraham el nombre de aquel lugar, <strong>Jehová proveerá</strong> (Yahweh Yireh). Por tanto se dice hoy: En el monte de Jehová será provisto."
+          <span class="verse-ref">Génesis 22:14 — Monte Moriah; el carnero sustituto de Isaac</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Tipo de Cristo</span>
+          <span class="card-value">El carnero provisto como sustituto de Isaac es un tipo del Cordero de Dios que carga el pecado del mundo (Juan 1:29). El Monte Moriah = el Monte del Templo = Gólgota.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Época de Abraham</span>
+          <span class="tag book">Génesis 22:14</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. JEHOVÁ RAFA -->
+    <div class="name-card azure-accent fade-in" data-name="jehová rafa sanador sanidad curación">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 14</div>
+          <div class="card-name-es">JEHOVÁ RAFA — Jehová tu Sanador</div>
+          <div class="card-name-original">יְהוָה רֹפְאֶךָ</div>
+        </div>
+        <span class="strong-badge">H3068 + H7495</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Yahweh Ropheka / Yahweh Rapha</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Jehová tu sanador". El verbo <em>rapha</em> = sanar, reparar, restaurar. Abarca sanidad física, emocional y espiritual.</span>
+        </div>
+        <div class="verse-block">
+          "Si oyeres atentamente la voz de Jehová tu Dios... ninguna enfermedad de las que envié a los egipcios te enviaré a ti; porque yo soy <strong>Jehová tu sanador</strong> (Yahweh Rapha)."
+          <span class="verse-ref">Éxodo 15:26 — Después del cruce del Mar Rojo</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Conexión NT</span>
+          <span class="card-value">Isaías 53:5: "...y por su llaga fuimos nosotros curados." Aplicado a Cristo en Mateo 8:17 y 1 Pedro 2:24.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Éxodo / Desierto</span>
+          <span class="tag book">Éxodo 15:26 · Salmo 103:3 · Isaías 53:5</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. JEHOVÁ NISI -->
+    <div class="name-card azure-accent fade-in" data-name="jehová nisi estandarte bandera victoria guerra">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 15</div>
+          <div class="card-name-es">JEHOVÁ NISI — Jehová mi Estandarte</div>
+          <div class="card-name-original">יְהוָה נִסִּי</div>
+        </div>
+        <span class="strong-badge">H3068 + H5251</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Yahweh Nissi</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Jehová es mi estandarte / bandera". El <em>nes</em> (nisi) era el estandarte militar que señalaba el punto de reunión y proclamaba la causa por la que se luchaba. Dios es la bandera de victoria.</span>
+        </div>
+        <div class="verse-block">
+          "Y Moisés edificó un altar, y llamó su nombre <strong>Jehová-Nisi</strong>; y dijo: Por cuanto la mano de Amalec se levantó contra el trono de Jehová..."
+          <span class="verse-ref">Éxodo 17:15–16 — Después de la victoria sobre Amalec</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Contexto</span>
+          <span class="card-value">Mientras Moisés tenía las manos levantadas, Israel prevalecía. Cuando las bajaba, Amalec prevalecía. Aarón y Hur lo sostuvieron. Tipo de la intercesión de Cristo.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Éxodo / Desierto</span>
+          <span class="tag book">Éxodo 17:15</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16. JEHOVÁ SHALOM -->
+    <div class="name-card azure-accent fade-in" data-name="jehová shalom paz plenitud bienestar gedeón">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 16</div>
+          <div class="card-name-es">JEHOVÁ SHALOM — Jehová es Paz</div>
+          <div class="card-name-original">יְהוָה שָׁלֹום</div>
+        </div>
+        <span class="strong-badge">H3068 + H7965</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Yahweh Shalom</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Jehová es paz". <em>Shalom</em> va mucho más allá de la ausencia de conflicto: incluye plenitud, prosperidad, bienestar, integridad total de la persona y la comunidad.</span>
+        </div>
+        <div class="verse-block">
+          "Y edificó Gedeón allí altar a Jehová, y lo llamó <strong>Jehová-Shalom</strong>; el cual permanece hasta hoy en Ofra de los abiezeritas."
+          <span class="verse-ref">Jueces 6:24 — Gedeón ante el ángel de Jehová</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Contexto</span>
+          <span class="card-value">Gedeón temía morir al haber visto a Dios cara a cara. El Señor le aseguró: "Paz a ti; no tengas temor, no morirás." Dios es la paz que supera todo entendimiento.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Época de los Jueces</span>
+          <span class="tag book">Jueces 6:24</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17. JEHOVÁ TSIDKENU -->
+    <div class="name-card azure-accent fade-in" data-name="jehová tsidkenu justicia nuestra mesiánico">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 17</div>
+          <div class="card-name-es">JEHOVÁ TSIDKENU — Nuestra Justicia</div>
+          <div class="card-name-original">יְהוָה צִדְקֵנוּ</div>
+        </div>
+        <span class="strong-badge">H3068 + H6664</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Yahweh Tsidqenu</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Jehová, justicia nuestra". <em>Tsedaqah</em> = rectitud, justicia imputada. Dios imputa su propia justicia perfecta al creyente. Anticipación de la justificación por fe.</span>
+        </div>
+        <div class="verse-block">
+          "Y este será su nombre con el cual le llamarán: <strong>Jehová, justicia nuestra</strong> (Yahweh Tsidqenu)."
+          <span class="verse-ref">Jeremías 23:6 — Título mesiánico del Rey justo del linaje de David</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Cumplimiento NT</span>
+          <span class="card-value">1 Corintios 1:30: "Cristo Jesús, el cual nos ha sido hecho por Dios sabiduría, justificación, santificación y redención."</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Profético pre-exílico</span>
+          <span class="tag book">Jeremías 23:6; 33:16</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18. JEHOVÁ MEKADIISCHEM -->
+    <div class="name-card azure-accent fade-in" data-name="jehová mekaddishkem santificador santidad">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 18</div>
+          <div class="card-name-es">JEHOVÁ MEKADDISHKEM — El que os Santifica</div>
+          <div class="card-name-original">יְהוָה מְקַדִּשְׁכֶם</div>
+        </div>
+        <span class="strong-badge">H3068 + H6942</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Yahweh Mekaddishkem</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Jehová el que os santifica". <em>Qadash</em> = apartar, consagrar, hacer santo. La santificación como obra de Dios mismo en su pueblo.</span>
+        </div>
+        <div class="verse-block">
+          "Vosotros guardaréis mis sábados... Yo Jehová que os santifico (Yahweh Mekaddishkem)."
+          <span class="verse-ref">Éxodo 31:13 — Señal del pacto del Sinaí</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Mosaico</span>
+          <span class="tag book">Éxodo 31:13 · Levítico 20:8; 21:8</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 19. JEHOVÁ TSVAOT -->
+    <div class="name-card azure-accent fade-in" data-name="jehová tsvaot sabaot ejércitos huestes celestiales">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 19</div>
+          <div class="card-name-es">JEHOVÁ TSVAOT — Señor de los Ejércitos</div>
+          <div class="card-name-original">יְהוָה צְבָאֹות</div>
+        </div>
+        <span class="strong-badge">H3068 + H6635</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Yahweh Tsvaot / Yahweh Sabaoth</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Jehová de los ejércitos/huestes". Dominio absoluto sobre los ejércitos celestiales (ángeles), estelares (astros como símbolo de poder) y terrestres (Israel).</span>
+        </div>
+        <div class="verse-block">
+          "Entonces David dijo al filisteo: Tú vienes a mí con espada y lanza y jabalina; mas yo vengo a ti en el nombre de <strong>Jehová de los ejércitos</strong>..."
+          <span class="verse-ref">1 Samuel 17:45 — David ante Goliat</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Frecuencia</span>
+          <span class="card-value">Aparece ~285 veces en el AT. Muy frecuente en los profetas (Isaías 62×, Jeremías 77×, Zacarías 53×, Malaquías 24×).</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Monárquico en adelante</span>
+          <span class="tag book">1 Samuel · Isaías · Jeremías · Zacarías · Malaquías</span>
+          <span class="tag freq">~285 apariciones</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 20. JEHOVÁ ROI (PASTOR) -->
+    <div class="name-card azure-accent fade-in" data-name="jehová roi pastor guía cuida ovejas">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 20</div>
+          <div class="card-name-es">JEHOVÁ ROI — Jehová es mi Pastor</div>
+          <div class="card-name-original">יְהוָה רֹעִי</div>
+        </div>
+        <span class="strong-badge">H3068 + H7462</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Yahweh Ro'i</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Jehová es mi pastor". Imagen del pastor que guía, protege, alimenta y cuida a su rebaño. Una de las metáforas más amadas de la Escritura.</span>
+        </div>
+        <div class="verse-block">
+          "Jehová es mi pastor; nada me faltará. En lugares de delicados pastos me hará descansar..."
+          <span class="verse-ref">Salmo 23:1 — David; el salmo más memorizado de la Biblia</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Conexión NT</span>
+          <span class="card-value">Juan 10:11: "Yo soy el buen pastor; el buen pastor su vida da por las ovejas." — Cristo asume este título de YHWH.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Monárquico · NT</span>
+          <span class="tag book">Salmo 23 · Ezequiel 34 · Juan 10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 21. JEHOVÁ SHAMMA -->
+    <div class="name-card azure-accent fade-in" data-name="jehová shamma presencia está allí Ezequiel">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 21</div>
+          <div class="card-name-es">JEHOVÁ SHAMMA — Jehová Está Allí</div>
+          <div class="card-name-original">יְהוָה שָׁמָּה</div>
+        </div>
+        <span class="strong-badge">H3068 + H8033</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Yahweh Shammah</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Jehová está allí". La promesa de la presencia permanente de Dios en la ciudad y el templo restaurados. El nombre de la Nueva Jerusalén escatológica.</span>
+        </div>
+        <div class="verse-block">
+          "...y el nombre de la ciudad desde ese día será: <strong>Jehová está allí</strong> (Yahweh Shammah)."
+          <span class="verse-ref">Ezequiel 48:35 — Último versículo de Ezequiel</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Cumplimiento</span>
+          <span class="card-value">Apocalipsis 21:3: "El tabernáculo de Dios con los hombres... él morará con ellos." La promesa de Ezequiel se cumple en la consumación del reino.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Exílico</span>
+          <span class="tag book">Ezequiel 48:35 (única aparición)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 22. JEHOVÁ MEKADDESH -->
+    <div class="name-card azure-accent fade-in" data-name="jehová nissi mekaddesh santifica">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 22</div>
+          <div class="card-name-es">QEDOSH YISRAEL — El Santo de Israel</div>
+          <div class="card-name-original">קְדֹושׁ יִשְׂרָאֵל</div>
+        </div>
+        <span class="strong-badge">H6918 + H3478</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Qedosh Yisrael</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El Santo de Israel". La trascendencia y pureza moral absolutas de Dios. El título preferido de Isaías: aparece 26 veces en su libro. La santidad como atributo fundante.</span>
+        </div>
+        <div class="verse-block">
+          "Santo, santo, santo, Jehová de los ejércitos; toda la tierra está llena de su gloria."
+          <span class="verse-ref">Isaías 6:3 — Visión inaugural de Isaías en el Templo</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Contexto</span>
+          <span class="card-value">La triple repetición (Santo, Santo, Santo) = superlativo absoluto en hebreo. No hay mayor énfasis posible. La santidad es el único atributo divino triplicado en la Escritura.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Profético</span>
+          <span class="tag book">Isaías (26×) · Salmos · Jeremías · Ezequiel</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /grid-yhwh -->
+
+  <div class="section-sep">✦ ✦ ✦</div>
+
+  <!-- ══════════════════════════════════════
+       SECTION IV — TÍTULOS DESCRIPTIVOS
+  ═══════════════════════════════════════ -->
+  <div id="sec-desc" class="section-header descriptive fade-in">
+    <div class="section-icon">🟡</div>
+    <div class="section-header-text">
+      <h2>IV. Títulos Descriptivos y Metafóricos</h2>
+      <p>Nombres que describen aspectos del carácter divino con imágenes concretas</p>
+      <span class="count-badge">14 Títulos Descriptivos</span>
+    </div>
+  </div>
+
+  <div class="names-grid" id="grid-desc">
+
+    <!-- 23. MELEK -->
+    <div class="name-card gold-accent fade-in" data-name="melek rey soberanía reino">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 23</div>
+          <div class="card-name-es">MELEK — Rey</div>
+          <div class="card-name-original">מֶלֶךְ</div>
+        </div>
+        <span class="strong-badge">H4428</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Melek</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Rey". YHWH como soberano absoluto sobre Israel y sobre toda la creación. La monarquía humana de Israel siempre fue subordinada al reinado divino.</span>
+        </div>
+        <div class="verse-block">
+          "Porque Jehová es el Rey grande sobre toda la tierra..."
+          <span class="verse-ref">Salmo 47:2</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Monárquico en adelante</span>
+          <span class="tag book">Salmos · Isaías · Jeremías · Zacarías</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 24. TSUR -->
+    <div class="name-card gold-accent fade-in" data-name="tsur roca fortaleza refugio">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 24</div>
+          <div class="card-name-es">TSUR — Roca</div>
+          <div class="card-name-original">צוּר</div>
+        </div>
+        <span class="strong-badge">H6697</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Tsur</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Roca, peñasco". La inmutabilidad, confiabilidad y fortaleza de Dios. Metáfora de refugio inquebrantable en tiempos de peligro. Lo que no se puede mover.</span>
+        </div>
+        <div class="verse-block">
+          "Jehová es mi roca y mi fortaleza y mi libertador; mi Dios, fortaleza mía, en él confiaré..."
+          <span class="verse-ref">Salmo 18:2 — David después de ser librado de Saúl</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Conexión NT</span>
+          <span class="card-value">1 Corintios 10:4: "...y la roca era Cristo." Pablo identifica la roca del desierto con Cristo preencarnado.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Todo el AT</span>
+          <span class="tag book">Deuteronomio · Salmos · Isaías</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 25. GO'EL -->
+    <div class="name-card gold-accent fade-in" data-name="goel redentor pariente redentor kinsman">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 25</div>
+          <div class="card-name-es">GO'EL — Redentor / Pariente Redentor</div>
+          <div class="card-name-original">גֹּאֵל</div>
+        </div>
+        <span class="strong-badge">H1350</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Go'el</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Redentor, pariente redentor". En la ley mosaica, el <em>go'el</em> era el familiar que rescataba al pariente en necesidad: redimía esclavos, vengaba la sangre, recuperaba propiedades. Dios como nuestro pariente redentor.</span>
+        </div>
+        <div class="verse-block">
+          "Yo sé que mi <strong>Redentor</strong> (Go'el) vive, y al fin se levantará sobre el polvo..."
+          <span class="verse-ref">Job 19:25 — La confesión más célebre de Job</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Tipo de Cristo</span>
+          <span class="card-value">Booz como go'el de Rut prefigura a Cristo. La Encarnación fue necesaria para que Dios fuera nuestro pariente redentor: tenía que hacerse carne para redimirnos (Hebreos 2:14–15).</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Todo el AT</span>
+          <span class="tag book">Job · Rut · Isaías 40–66 (múltiples)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 26. SHAPHAT -->
+    <div class="name-card gold-accent fade-in" data-name="shaphat juez justicia tribunal">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 26</div>
+          <div class="card-name-es">SHAPHAT — Juez</div>
+          <div class="card-name-original">שֹׁפֵט</div>
+        </div>
+        <span class="strong-badge">H8199</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Shaphat</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Juez". Dios como juez justo de toda la tierra. Su juicio es perfecto porque conoce todos los corazones y toda la historia.</span>
+        </div>
+        <div class="verse-block">
+          "El Juez de toda la tierra, ¿no ha de hacer lo que es justo?"
+          <span class="verse-ref">Génesis 18:25 — Abraham intercediendo por Sodoma</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Patriarcal en adelante</span>
+          <span class="tag book">Génesis · Salmos · Isaías</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 27. ABHIR YISRAEL -->
+    <div class="name-card gold-accent fade-in" data-name="abhir fuerte poderoso toro israel jacob">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 27</div>
+          <div class="card-name-es">ABHIR YISRAEL — El Fuerte de Israel</div>
+          <div class="card-name-original">אֲבִיר יִשְׂרָאֵל</div>
+        </div>
+        <span class="strong-badge">H46 + H3478</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Abhir Yisrael / Abhir Ya'aqov</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El Poderoso / El Toro de Israel". <em>Abhir</em> evoca la fuerza bruta del toro: poder irresistible e imparable. Fuerza divina que garantiza el cumplimiento de las promesas.</span>
+        </div>
+        <div class="verse-block">
+          "Allí está el pastor, la roca de Israel, por el Dios de tu padre, el cual te ayudará, y por el <strong>Omnipotente</strong> (Abhir)..."
+          <span class="verse-ref">Génesis 49:24–25 — Bendición de Jacob sobre José</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Patriarcal · Profético</span>
+          <span class="tag book">Génesis · Isaías 1:24; 49:26; 60:16</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 28. ISHI / BAALI -->
+    <div class="name-card gold-accent fade-in" data-name="ishi baali esposo marido intimidad oseas">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 28</div>
+          <div class="card-name-es">ISHI — Mi Esposo (nombre de intimidad)</div>
+          <div class="card-name-original">אִישִׁי</div>
+        </div>
+        <span class="strong-badge">H376</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Ishi / Baali</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Mi esposo / mi hombre". Dios como esposo de Israel. El cambio de <em>Baali</em> ("mi Baal / mi señor") a <em>Ishi</em> ("mi esposo / mi hombre") marca el paso de relación servil a íntima y amorosa.</span>
+        </div>
+        <div class="verse-block">
+          "Y en aquel día, dice Jehová, me llamarás <strong>Ishi</strong>, y nunca más me llamarás <strong>Baali</strong>."
+          <span class="verse-ref">Oseas 2:16 — Promesa de restauración de la relación de pacto</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Teología nupcial</span>
+          <span class="card-value">El matrimonio como imagen del pacto de Dios con su pueblo recorre toda la Biblia: Oseas, Isaías 54, Efesios 5:25–32, Apocalipsis 19:7–9.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Profético pre-exílico</span>
+          <span class="tag book">Oseas 2:16 · Isaías 54:5</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 29. ATTIQ YOMIN -->
+    <div class="name-card gold-accent fade-in" data-name="attiq yomin anciano días daniel visión">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 29</div>
+          <div class="card-name-es">ATTIQ YOMIN — Anciano de Días</div>
+          <div class="card-name-original">עַתִּיק יוֹמִין</div>
+        </div>
+        <span class="strong-badge">A6267 + A3118</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Attiq Yomin (arameo)</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El Anciano de Días". Arameo bíblico. Imagen de Dios como el ser de edad incalculable: eterno, sabiduría perfecta, experiencia sin límites. El juez supremo del tribunal celestial.</span>
+        </div>
+        <div class="verse-block">
+          "Estuve mirando hasta que fueron puestos tronos, y se sentó un <strong>Anciano de Días</strong>; su vestido era blanco como la nieve, y el pelo de su cabeza como lana limpia..."
+          <span class="verse-ref">Daniel 7:9 — Visión del tribunal celestial</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Conexión NT</span>
+          <span class="card-value">En Daniel 7:13, el "Hijo del Hombre" se acerca al Anciano de Días y recibe el reino eterno. Jesús usa este título "Hijo del Hombre" para sí mismo 88 veces en los evangelios.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Exílico · Babilónico</span>
+          <span class="tag book">Daniel 7:9,13,22 (arameo)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 30. ELAH (ARAMEO) -->
+    <div class="name-card gold-accent fade-in" data-name="elah dios arameo babilónico daniel esdras">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 30</div>
+          <div class="card-name-es">ELAH — Dios (arameo)</div>
+          <div class="card-name-original">אֱלָה</div>
+        </div>
+        <span class="strong-badge">A426</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Elah (arameo)</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Dios". Equivalente arameo de El/Elohim. Usado en las secciones arameas de Daniel y Esdras, escritas cuando Israel estaba en contexto babilónico-persa.</span>
+        </div>
+        <div class="verse-block">
+          "Nabucodonosor respondió y dijo: Bendito sea el <strong>Dios</strong> (Elah) de Sadrac, Mesac y Abed-nego..."
+          <span class="verse-ref">Daniel 3:28 — El rey pagano reconoce a Dios de Israel</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Nota lingüística</span>
+          <span class="card-value">Del mismo origen semítico que el árabe <em>Allah</em>. La raíz semítica común *ʾil- subyace a El, Elohim, Elah y Allah — todos significan "el Dios / lo divino".</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Exílico</span>
+          <span class="tag book">Daniel (arameo) · Esdras (arameo)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 31-36: Additional descriptive titles -->
+    <div class="name-card gold-accent fade-in" data-name="ab padre divino relación paternal">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 31</div>
+          <div class="card-name-es">AB — Padre (Título del AT)</div>
+          <div class="card-name-original">אָב</div>
+        </div>
+        <span class="strong-badge">H1</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Ab</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Padre". En el AT, Dios es llamado Padre de Israel en sentido nacional/corporativo: como origen, autoridad y proveedor de la nación. Mucho menos frecuente y personal que en el NT.</span>
+        </div>
+        <div class="verse-block">
+          "¿No tenemos todos un mismo Padre? ¿No nos ha creado un mismo Dios?"
+          <span class="verse-ref">Malaquías 2:10 — Contexto de fidelidad del pacto</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Contraste NT</span>
+          <span class="card-value">Jesús introduce una intimidad paternal nueva: llama a Dios <em>Abba</em> (papá) y enseña a los discípulos a hacerlo. La adopción por fe en Cristo habilita esta relación personal (Romanos 8:15–16).</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Post-exílico énfasis</span>
+          <span class="tag book">Isaías 63:16; 64:8 · Malaquías 1:6; 2:10</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-card gold-accent fade-in" data-name="aven iniquidad vanidad ídolos contraste">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 32</div>
+          <div class="card-name-es">OR — Luz</div>
+          <div class="card-name-original">אוֹר</div>
+        </div>
+        <span class="strong-badge">H216</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Or</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Luz". Dios como fuente de toda luz física y espiritual. La luz es el primer decreto de la creación. La oscuridad no puede coexistir con la presencia divina plena.</span>
+        </div>
+        <div class="verse-block">
+          "Jehová es mi luz y mi salvación; ¿a quién temeré? Jehová es la fortaleza de mi vida; ¿de quién me he de atemorizar?"
+          <span class="verse-ref">Salmo 27:1</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Conexión NT</span>
+          <span class="card-value">Juan 8:12: "Yo soy la luz del mundo." 1 Juan 1:5: "Dios es luz, y no hay ningunas tinieblas en él." La identificación es completa.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Todo el AT</span>
+          <span class="tag book">Salmos · Isaías 60:19–20 · Miqueas 7:8</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-card gold-accent fade-in" data-name="esh okalah fuego consumidor santidad juicio">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 33</div>
+          <div class="card-name-es">ESH OKALAH — Fuego Consumidor</div>
+          <div class="card-name-original">אֵשׁ אֹכְלָה</div>
+        </div>
+        <span class="strong-badge">H784 + H398</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Esh Okalah</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Fuego devorador / consumidor". Dios como fuego purificador y santo que no puede coexistir con la impureza y el pecado. Su santidad es activa, no pasiva.</span>
+        </div>
+        <div class="verse-block">
+          "Porque Jehová tu Dios es <strong>fuego consumidor</strong>, Dios celoso."
+          <span class="verse-ref">Deuteronomio 4:24 — Moisés al pueblo antes de entrar a Canaán</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Conexión NT</span>
+          <span class="card-value">Hebreos 12:29 cita directamente este versículo. El fuego del juicio y el fuego purificador son la misma santidad divina actuando sobre diferentes objetos.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Mosaico en adelante</span>
+          <span class="tag book">Deuteronomio · Isaías · Hebreos 12:29</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-card gold-accent fade-in" data-name="magen escudo protección defensa">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 34</div>
+          <div class="card-name-es">MAGEN — Escudo</div>
+          <div class="card-name-original">מָגֵן</div>
+        </div>
+        <span class="strong-badge">H4043</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Magen</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Escudo, protector". Dios como la defensa que intercepta todo ataque antes de que llegue al creyente. El escudo no solo desvía: absorbe.</span>
+        </div>
+        <div class="verse-block">
+          "No temas, Abram; yo soy tu <strong>escudo</strong> (Magen), y tu galardón será sobremanera grande."
+          <span class="verse-ref">Génesis 15:1 — Primera aparición; primera promesa directa a Abraham</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Patriarcal en adelante</span>
+          <span class="tag book">Génesis · Salmos (múltiples) · Proverbios</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-card gold-accent fade-in" data-name="migdal torre fuerte refugio">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 35</div>
+          <div class="card-name-es">MIGDAL OZ — Torre Fuerte</div>
+          <div class="card-name-original">מִגְדַּל עֹז</div>
+        </div>
+        <span class="strong-badge">H4026 + H5797</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Migdal Oz</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Torre de fortaleza / refugio inexpugnable". La imagen de una torre de vigilancia y defensa en tiempos de peligro. Dios como el lugar más seguro al que acudir.</span>
+        </div>
+        <div class="verse-block">
+          "<strong>Torre fuerte</strong> (Migdal Oz) es el nombre de Jehová; a él correrá el justo, y será levantado."
+          <span class="verse-ref">Proverbios 18:10</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Sapiencial</span>
+          <span class="tag book">Proverbios · Salmos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-card gold-accent fade-in" data-name="natzar guardián preservador vigila">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 36</div>
+          <div class="card-name-es">SHOMER YISRAEL — Guardián de Israel</div>
+          <div class="card-name-original">שֹׁמֵר יִשְׂרָאֵל</div>
+        </div>
+        <span class="strong-badge">H8104 + H3478</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Shomer Yisrael</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El que guarda / vigila a Israel". <em>Shamar</em> = guardar, velar, custodiar, proteger con atención permanente. Dios que nunca duerme ni se distrae.</span>
+        </div>
+        <div class="verse-block">
+          "He aquí, no se adormecerá ni dormirá el que guarda a Israel."
+          <span class="verse-ref">Salmo 121:4 — El Salmo del peregrino que sube a Jerusalén</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">Monárquico · Peregrinación</span>
+          <span class="tag book">Salmo 121 · Salmo 127:1</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /grid-desc -->
+
+  <div class="section-sep">✦ ✦ ✦</div>
+
+  <!-- ══════════════════════════════════════
+       SECTION V — NOMBRES GRIEGOS NT
+  ═══════════════════════════════════════ -->
+  <div id="sec-greek" class="section-header greek fade-in">
+    <div class="section-icon">🟢</div>
+    <div class="section-header-text">
+      <h2>V. Nombres y Títulos en Griego (Nuevo Testamento)</h2>
+      <p>Griego Koiné — La plena revelación trinitaria y mesiánica</p>
+      <span class="count-badge">10 Títulos del NT</span>
+    </div>
+  </div>
+
+  <div class="names-grid" id="grid-greek">
+
+    <!-- 37. THEOS -->
+    <div class="name-card teal-accent fade-in" data-name="theos dios griego NT poder">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 37</div>
+          <div class="card-name-es">THEOS — Dios</div>
+          <div class="card-name-original">Θεός</div>
+        </div>
+        <span class="strong-badge">G2316</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Theos</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Dios". El equivalente griego de Elohim. En el NT, el Padre es frecuentemente designado como <em>ho Theos</em> (el Dios), pero también se aplica a Cristo (Juan 1:1; 20:28; Tito 2:13).</span>
+        </div>
+        <div class="verse-block">
+          "En el principio era el Verbo, y el Verbo era con <strong>Dios</strong> (Theos), y el Verbo era <strong>Dios</strong> (Theos)."
+          <span class="verse-ref">Juan 1:1 — Prólogo del Evangelio de Juan</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Nota teológica</span>
+          <span class="card-value">En Juan 1:1c, "el Verbo era Theos" sin artículo define la naturaleza divina del Logos, no una deidad inferior. La Trinidad requiere esta distinción gramatical.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag freq">~1,317 veces en NT</span>
+          <span class="tag book">Todo el NT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 38. KYRIOS -->
+    <div class="name-card teal-accent fade-in" data-name="kyrios señor soberano autoridad">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 38</div>
+          <div class="card-name-es">KYRIOS — Señor</div>
+          <div class="card-name-original">Κύριος</div>
+        </div>
+        <span class="strong-badge">G2962</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Kyrios</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Señor, dueño, soberano". En la Septuaginta (LXX), Kyrios traduce el nombre YHWH. Al llamar "Señor" a Jesús, los apóstoles le atribuyen el nombre sagrado del AT.</span>
+        </div>
+        <div class="verse-block">
+          "...para que en el nombre de Jesús se doble toda rodilla... y toda lengua confiese que Jesucristo es el <strong>Señor</strong> (Kyrios), para gloria de Dios Padre."
+          <span class="verse-ref">Filipenses 2:10–11 — Himno cristológico de Pablo</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Importancia</span>
+          <span class="card-value">La confesión "Jesús es Kyrios" era la afirmación cristiana más básica y la más provocadora para el Imperio Romano, que exigía "César es Kyrios".</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag freq">~717 veces en NT</span>
+          <span class="tag book">Todo el NT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 39. PATÉR -->
+    <div class="name-card teal-accent fade-in" data-name="pater padre trinidad dios padre NT">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 39</div>
+          <div class="card-name-es">PATÉR — Padre</div>
+          <div class="card-name-original">Πατήρ</div>
+        </div>
+        <span class="strong-badge">G3962</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Patér / Abba (arameo)</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Padre". La revelación más íntima que Cristo trajo: Dios como Padre personal y relacional. Jesús llama a Dios "Abba" (término infantil arameo de intimidad familiar) y enseña a sus discípulos a hacer lo mismo.</span>
+        </div>
+        <div class="verse-block">
+          "Vosotros, pues, oraréis así: Padre nuestro que estás en los cielos, santificado sea tu nombre..."
+          <span class="verse-ref">Mateo 6:9 — El Padrenuestro</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Revolución teológica</span>
+          <span class="card-value">Ningún texto judío previo muestra a alguien llamando a Dios "Abba" individualmente. Jesús introduce una intimidad paternal sin precedentes que es la base de la oración cristiana.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag freq">~414 veces en NT</span>
+          <span class="tag book">Evangelios · Epístolas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 40. LOGOS -->
+    <div class="name-card teal-accent fade-in" data-name="logos palabra verbo razón encarnación">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 40</div>
+          <div class="card-name-es">LOGOS — El Verbo / La Palabra</div>
+          <div class="card-name-original">Λόγος</div>
+        </div>
+        <span class="strong-badge">G3056</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Logos</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Palabra, razón, discurso". Juan usa Logos para identificar a Cristo con la auto-expresión y razón de Dios mismo. El Logos no es solo lo que Dios dice, es quien Dios <em>es</em> al revelarse.</span>
+        </div>
+        <div class="verse-block">
+          "Y aquel Verbo fue hecho carne, y habitó entre nosotros (y vimos su gloria, gloria como del unigénito del Padre), lleno de gracia y de verdad."
+          <span class="verse-ref">Juan 1:14 — La Encarnación</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Trasfondo</span>
+          <span class="card-value">Juan conecta la tradición judía (la <em>dabar</em>/palabra creadora de Dios en el AT) con la filosofía griega del Logos como principio ordenador del cosmos — y declara que ese Logos se hizo persona.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">NT · Encarnación</span>
+          <span class="tag book">Juan 1:1,14 · 1 Juan 1:1 · Apocalipsis 19:13</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 41. SOTER -->
+    <div class="name-card teal-accent fade-in" data-name="soter salvador salvación rescatador">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 41</div>
+          <div class="card-name-es">SOTER — Salvador</div>
+          <div class="card-name-original">Σωτήρ</div>
+        </div>
+        <span class="strong-badge">G4990</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Soter</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Salvador, libertador, rescatador". Dios como el único que puede salvar al hombre de la muerte y del pecado. El AT lo usa del Padre (Is 43:3,11); el NT también de Cristo.</span>
+        </div>
+        <div class="verse-block">
+          "Ha nacido hoy, en la ciudad de David, un <strong>Salvador</strong> (Soter), que es Cristo el Señor."
+          <span class="verse-ref">Lucas 2:11 — Anuncio de los ángeles a los pastores</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Aplicación doble</span>
+          <span class="card-value">Tito 2:13: "...la manifestación gloriosa de nuestro gran Dios y Salvador Jesucristo." La misma persona recibe los títulos de Dios y Salvador.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">NT</span>
+          <span class="tag book">Lucas · Juan · 1 Timoteo · Tito · 2 Pedro · Judas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 42. PANTOKRATOR -->
+    <div class="name-card teal-accent fade-in" data-name="pantokrator todopoderoso omnipotente gobernador">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 42</div>
+          <div class="card-name-es">PANTOKRATOR — Todopoderoso</div>
+          <div class="card-name-original">Παντοκράτωρ</div>
+        </div>
+        <span class="strong-badge">G3841</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Pantokrator</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El que todo lo gobierna / el que tiene todo el poder". <em>Pas</em> (todo) + <em>kratos</em> (poder, dominio). Equivalente griego de YHWH Tsvaot (Señor de los ejércitos).</span>
+        </div>
+        <div class="verse-block">
+          "Yo soy el Alfa y la Omega, el principio y el fin, dice el Señor, el que es y que era y que ha de venir, el <strong>Todopoderoso</strong> (Pantokrator)."
+          <span class="verse-ref">Apocalipsis 1:8</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Distribución</span>
+          <span class="card-value">De sus 10 apariciones en el NT, 9 están en Apocalipsis. El libro del fin de los tiempos enfatiza la soberanía absoluta de Dios sobre toda la historia.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag freq">10 veces en NT</span>
+          <span class="tag book">Apocalipsis (9×) · 2 Corintios 6:18</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 43. DESPOTES -->
+    <div class="name-card teal-accent fade-in" data-name="despotes soberano amo señor absoluto">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 43</div>
+          <div class="card-name-es">DESPOTES — Soberano Absoluto</div>
+          <div class="card-name-original">Δεσπότης</div>
+        </div>
+        <span class="strong-badge">G1203</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Despotes</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"Amo absoluto, soberano, dueño". <em>Despotes</em> expresa la autoridad más total e irrestricta. En la koiné implicaba propiedad absoluta. Aplicado a Dios subraya la relación Creador-criatura.</span>
+        </div>
+        <div class="verse-block">
+          "Ahora, <strong>Señor soberano</strong> (Despota), miras a sus amenazas, y concede a tus siervos que con toda valentía hablen tu palabra..."
+          <span class="verse-ref">Hechos 4:29 — Oración de la iglesia primitiva perseguida</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">NT Apostólico</span>
+          <span class="tag book">Lucas 2:29 · Hechos 4:24 · Judas · Apocalipsis 6:10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 44. HYPSISTOS -->
+    <div class="name-card teal-accent fade-in" data-name="hypsistos altísimo griego supremo">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 44</div>
+          <div class="card-name-es">HYPSISTOS — El Altísimo</div>
+          <div class="card-name-original">Ὕψιστος</div>
+        </div>
+        <span class="strong-badge">G5310</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Hypsistos</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El Altísimo, el Supremo". Equivalente griego de El Elyon. La supremacía absoluta de Dios sobre todo poder en el cielo y en la tierra.</span>
+        </div>
+        <div class="verse-block">
+          "Éste será grande, y será llamado Hijo del <strong>Altísimo</strong> (Hypsistou); y el Señor Dios le dará el trono de David su padre..."
+          <span class="verse-ref">Lucas 1:32 — El ángel Gabriel a María</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag period">NT</span>
+          <span class="tag book">Evangelios · Hechos · Hebreos 7</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 45. ALFA Y OMEGA -->
+    <div class="name-card teal-accent fade-in" data-name="alfa omega principio fin eterno apocalipsis">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 45</div>
+          <div class="card-name-es">ALFA Y OMEGA — El Principio y el Fin</div>
+          <div class="card-name-original">Ἄλφα καὶ Ὠμέγα</div>
+        </div>
+        <span class="strong-badge">G1 + G5598</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Alpha kai Omega</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El Alfa y la Omega". Primera y última letra del alfabeto griego. Incluye todo lo que está entre ambas: Dios abarca y contiene toda la realidad, toda la historia, toda la existencia.</span>
+        </div>
+        <div class="verse-block">
+          "Yo soy el Alfa y la Omega, el primero y el último, el principio y el fin."
+          <span class="verse-ref">Apocalipsis 22:13 — Cristo resucitado a Juan en Patmos</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Raíz AT</span>
+          <span class="card-value">Isaías 44:6: "Yo soy el primero, y yo soy el postrero, y fuera de mí no hay Dios." El mismo concepto expresado en las letras del alfabeto.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag book">Apocalipsis 1:8; 21:6; 22:13</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 46. HO PROTOS KAI HO ESCHATOS -->
+    <div class="name-card teal-accent fade-in" data-name="primero último principio fin eterno apocalipsis">
+      <div class="card-header">
+        <div class="card-name-block">
+          <div class="card-number">Nombre N.° 46</div>
+          <div class="card-name-es">HO PRÔTOS KAI HO ESCHATOS — El Primero y el Último</div>
+          <div class="card-name-original">ὁ πρῶτος καὶ ὁ ἔσχατος</div>
+        </div>
+        <span class="strong-badge">G4413 + G2078</span>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="card-label">Transliteración</span>
+          <span class="card-value transliteration">Ho Prôtos kai ho Eschatos</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Significado</span>
+          <span class="card-value meaning">"El primero y el último". Equivalente griego de El Olam hebreo. Expresa la eternidad de Dios/Cristo: existía antes que todo y existirá después de todo.</span>
+        </div>
+        <div class="verse-block">
+          "No temas; yo soy el primero y el último; y el que vivo, y estuve muerto; mas he aquí que vivo por los siglos de los siglos..."
+          <span class="verse-ref">Apocalipsis 1:17–18 — Cristo resucitado a Juan en Patmos</span>
+        </div>
+        <div class="card-row">
+          <span class="card-label">Raíz AT</span>
+          <span class="card-value">Isaías 44:6; 48:12 — aplicado a YHWH; en Apocalipsis se aplica a Cristo, confirmando su igualdad con el Padre.</span>
+        </div>
+        <div class="tags-row">
+          <span class="tag book">Apocalipsis 1:17; 2:8; 22:13 · Isaías 44:6</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /grid-greek -->
+
+  <div class="section-sep">✦ ✦ ✦</div>
+
+  <!-- ══════════════════════════════════════
+       TIMELINE TABLE
+  ═══════════════════════════════════════ -->
+  <div id="sec-timeline" class="timeline-section fade-in">
+    <h2 class="timeline-title">📊 Tabla Cronológica de Revelación</h2>
+    <div style="overflow-x:auto;">
+    <table class="timeline-table">
+      <thead>
+        <tr>
+          <th>Período</th>
+          <th>Nombres Revelados</th>
+          <th>Contexto Histórico</th>
+          <th>Libros Clave</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Patriarcal<br>(c. 2000–1446 a.C.)</td>
+          <td>El Shaddai · El Elyon · El Roi · El Olam · Elohim · YHWH Jireh</td>
+          <td>Revelación progresiva a Abraham, Isaac, Jacob. Pactos iniciales. El nombre YHWH existe pero no se proclama con todo su significado de pacto.</td>
+          <td>Génesis 12–50</td>
+        </tr>
+        <tr>
+          <td>Mosaico<br>(c. 1446–1400 a.C.)</td>
+          <td>YHWH (plenamente) · Elohim · YHWH Rafa · YHWH Nissi · YHWH Mekaddishkem · El Kanno</td>
+          <td>Revelación del nombre YHWH en su plenitud (Éx 3 y 6). Pacto del Sinaí. La Ley. El Tabernáculo. Dios mora en medio de su pueblo.</td>
+          <td>Éxodo · Levítico · Números · Deuteronomio</td>
+        </tr>
+        <tr>
+          <td>Conquista y Jueces<br>(c. 1400–1050 a.C.)</td>
+          <td>El Hayyim · YHWH Shalom</td>
+          <td>Entrada a Canaán. Dios que guía la conquista. Ciclos de apostasía y restauración en el tiempo de los jueces.</td>
+          <td>Josué · Jueces</td>
+        </tr>
+        <tr>
+          <td>Monárquico<br>(c. 1050–586 a.C.)</td>
+          <td>YHWH Tsvaot · YHWH Roi · Melek · Tsur · Go'el · Shaphat</td>
+          <td>Establecimiento de la monarquía. El Templo de Salomón. Los Salmos de David. Dios revelado como Rey, Pastor y Redentor de Israel.</td>
+          <td>1–2 Samuel · 1–2 Reyes · Salmos · Proverbios</td>
+        </tr>
+        <tr>
+          <td>Profético pre-exílico<br>(c. 760–586 a.C.)</td>
+          <td>Qedosh Yisrael · El Gibbor · YHWH Tsidkenu · Abhir Yisrael · Ishi · Baali</td>
+          <td>Advertencia de juicio al reino norte (caída 722 a.C.) y sur. Profetas mayores y menores. Énfasis en la santidad de Dios y la promesa mesiánica.</td>
+          <td>Isaías · Jeremías · Oseas · Amós · Miqueas</td>
+        </tr>
+        <tr>
+          <td>Exílico<br>(c. 605–538 a.C.)</td>
+          <td>Attiq Yomin · Elah (arameo) · YHWH Shamma</td>
+          <td>Exilio en Babilonia. Dios revela su soberanía sobre los imperios paganos. Escritura en arameo (Daniel 2–7). Promesa de restauración (Ezequiel).</td>
+          <td>Daniel · Ezequiel · Lamentaciones</td>
+        </tr>
+        <tr>
+          <td>Post-exílico<br>(c. 538–400 a.C.)</td>
+          <td>El Olam (reforzado) · YHWH Tsvaot (énfasis en Malaquías)</td>
+          <td>Retorno del exilio. Reconstrucción del Templo. Promesa del Mesías venidero como mensajero preparador del camino.</td>
+          <td>Esdras · Nehemías · Hageo · Zacarías · Malaquías</td>
+        </tr>
+        <tr>
+          <td>NT — Evangélico<br>(c. 4 a.C. – 33 d.C.)</td>
+          <td>Theos · Kyrios · Patér · Abba · Hypsistos · Logos · Soter</td>
+          <td>Encarnación del Hijo. Jesús revela al Padre con una intimidad sin precedentes. El nombre Abba introduce una nueva dimensión de la paternidad divina.</td>
+          <td>Mateo · Marcos · Lucas · Juan</td>
+        </tr>
+        <tr>
+          <td>NT — Apostólico<br>(c. 33–100 d.C.)</td>
+          <td>Pantokrator · Despotes · Alfa y Omega · Ho Prôtos kai Eschatos · Ho Ôn</td>
+          <td>Pentecostés. Misión a los gentiles. Revelación final a Juan en Patmos. La Trinidad más claramente revelada. Cristo identificado con YHWH del AT.</td>
+          <td>Hechos · Cartas paulinas · Apocalipsis</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       NOTA TEOLÓGICA FINAL
+  ═══════════════════════════════════════ -->
+  <div id="sec-theo" class="theo-note fade-in">
+    <h3>✦ Nota Teológica Final ✦</h3>
+    <p>
+      La <strong>revelación progresiva de los nombres divinos</strong> en la Biblia no es una colección fragmentada de apelativos, sino un tapiz unificado que revela sistemáticamente el carácter infinito de Dios a lo largo de los siglos. Cada nombre no cancela al anterior, sino que <strong>amplía y profundiza</strong> el conocimiento del único Dios verdadero. Lo que en el Antiguo Testamento se revelaba en fragmentos — el Dios poderoso, el pastor, el sanador, el redentor, el juez — en Jesucristo converge en su plenitud absoluta (Hebreos 1:1-3).
+    </p>
+    <p>
+      La historia de los nombres comienza con la omnipotencia creadora (<em>Elohim</em>), progresa hacia la intimidad del pacto (<em>YHWH</em>), se expande en la provisión, sanidad y santificación (<em>YHWH Jireh, Rapha, Mekaddishkem</em>), se intensifica en la promesa mesiánica (<em>El Gibbor, YHWH Tsidkenu</em>), y culmina en la revelación trinitaria del Nuevo Testamento donde Dios se hace llamar <strong>"Padre"</strong> (Patér) por sus hijos adoptivos, y donde Cristo asume los títulos que solo pertenecían a YHWH.
+    </p>
+    <p>
+      El nombre más sagrado, <strong>YHWH (יהוה)</strong>, fue pronunciado tan raramente por los judíos del período del Segundo Templo, que su vocalización original se perdió casi completamente. La Reina Valera lo traduce como <em>"Jehová"</em>, combinando las consonantes del Tetragrámmaton (YHWH) con las vocales de <em>Adonai</em> — una convención masorética de siglos. Esta reverencia misma habla del peso teológico que el pueblo de Dios atribuía a este nombre: el nombre que no se podía pronunciar levianamente era precisamente el nombre que revelaba la esencia misma del Ser divino.
+    </p>
+    <p>
+      Al estudiar estos nombres, no estudiamos meros vocablos lingüísticos: estudiamos el <strong>carácter de Dios</strong> en su propia auto-revelación. Cada nombre es una ventana al corazón infinito del Creador del universo, que se digna hacerse conocer por sus criaturas.
+    </p>
+  </div>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-ornament">✦</div>
+  <p>Los Nombres de Dios en la Biblia Reina Valera</p>
+  <p>Estudio basado en Hebreo Bíblico · Arameo Bíblico · Griego Koiné</p>
+  <p>Concordancia Strong · BDB · BDAG · Teología Sistemática</p>
+  <p class="verse-footer">
+    "Engrandeced a Jehová conmigo, y exaltemos a una su nombre." — Salmo 34:3
+  </p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════ -->
+<script>
+  // Scroll to section
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.06 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Search functionality
+  function searchNames() {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    if (!query) {
+      document.querySelectorAll('.name-card').forEach(c => c.style.display = '');
+      document.querySelectorAll('.names-grid').forEach(g => g.style.display = '');
+      return;
+    }
+
+    let found = 0;
+    document.querySelectorAll('.name-card').forEach(card => {
+      const text = (card.textContent + (card.dataset.name || '')).toLowerCase();
+      if (text.includes(query)) {
+        card.style.display = '';
+        card.style.animation = 'fadeIn 0.4s ease';
+        found++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    document.querySelectorAll('.names-grid').forEach(g => g.style.display = '');
+
+    if (found === 0) {
+      alert('No se encontraron nombres con ese término. Intenta con: Jehová, Shaddai, Pastor, Logos, etc.');
+    }
+  }
+
+  document.getElementById('searchInput').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') searchNames();
+  });
+
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    if (e.target.value === '') {
+      document.querySelectorAll('.name-card').forEach(c => c.style.display = '');
+    }
+  });
+</script>
+
+</body>
+</html>
