@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Bíblico: El Milagro de la Vara de Aarón</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* VARIABLES DE DISEÑO */
+        :root {
+            --primary: #5d4037;
+            --secondary: #8e735b;
+            --accent: #a0522d;
+            --bg-page: #f4f1ea;
+            --bg-card: #ffffff;
+            --text-main: #2c3e50;
+            --border-color: #e0d7c6;
+        }
+
+        /* RESET Y BASE */
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.8;
+            color: var(--text-main);
+            background-color: var(--bg-page);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 50px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 4px;
+        }
+
+        /* HEADER */
+        .main-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 2.5em;
+            margin: 10px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9em;
+            color: var(--secondary);
+            font-weight: bold;
+            display: block;
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 20px auto;
+        }
+
+        /* SECCIONES */
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 1.5em;
+        }
+
+        .roman {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        .analysis-card {
+            padding: 15px 0;
+            transition: transform 0.3s ease;
+        }
+
+        /* ELEMENTOS ESPECIALES */
+        .scripture-callout {
+            border-left: 4px solid var(--accent);
+            padding: 15px 25px;
+            margin: 25px 0;
+            background: #fdfaf6;
+            font-style: italic;
+            color: #555;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: bold;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .highlight-alt {
+            background: #fff3e0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .miracle-list {
+            list-style: none;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        .miracle-list li {
+            margin-bottom: 10px;
+        }
+
+        .miracle-list li::before {
+            content: "◈";
+            color: var(--secondary);
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .quote-final {
+            display: block;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: var(--accent);
+            margin-top: 20px;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* FOOTER */
+        .main-footer {
+            margin-top: 60px;
+            text-align: center;
+            border-top: 2px double var(--border-color);
+            padding-top: 30px;
+        }
+
+        .copyright {
+            font-size: 0.75em;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        /* ESTILOS PARA IMÁGENES Y ZOOM */
+        .clickable-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            cursor: zoom-in;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease;
+        }
+        .clickable-image:hover {
+            transform: scale(1.02);
+        }
+        .image-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+        .image-overlay img { max-width: 95%; max-height: 95%; border-radius: 4px; }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .image-grid .clickable-image {
+            margin: 0;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="main-header">
+        <span class="subtitle">Libro de Números, Capítulo 17</span>
+        <h1>Estudio Bíblico Formal</h1>
+        <div class="divider"></div>
+    </header>
+
+    <main>
+        <section class="study-section">
+            <h2><span class="roman">I.</span> La Instrucción Divina para la Prueba</h2>
+            <div class="analysis-card">
+                <p>Jehová ordenó a Moisés realizar una prueba definitiva para confirmar el liderazgo espiritual de Israel. Se solicitó a los hijos de Israel que trajeran <span class="highlight">doce varas</span>, una por cada casa de los padres. Sobre cada vara se debía escribir el nombre del jefe correspondiente, colocando específicamente el nombre de <span class="highlight">Aarón</span> sobre la vara de la tribu de Leví.</p>
+                <img src="n1701.png" alt="Instrucción de las varas" class="clickable-image">
+                
+                <div class="scripture-callout">
+                    "Y las pondrás en el tabernáculo de reunión delante del testimonio, donde yo me manifestaré a vosotros."
+                </div>
+
+                <p>Estas varas fueron depositadas en el <strong>tabernáculo de reunión</strong>. El propósito era doble: identificar al escogido y erradicar las murmuraciones del pueblo.</p>
+            </div>
+        </section>
+
+        <section class="study-section">
+            <h2><span class="roman">II.</span> El Testimonio de la Vida: El Florecimiento</h2>
+            <div class="analysis-card">
+                <p>El cumplimiento de la promesa ocurrió al día siguiente. La vara de Aarón mostró una vitalidad sobrenatural, manifestando tres etapas de vida simultáneamente:</p>
+                <img src="n1702.png" alt="La vara florecida" class="clickable-image">
+                <ul class="miracle-list">
+                    <li>Había <strong>reverdecido</strong> (renovación).</li>
+                    <li>Había producido <strong>flores</strong> (potencial).</li>
+                    <li>Había dado <span class="highlight-alt">almendras</span> (fruto maduro).</li>
+                </ul>
+                <p>Moisés presentó los resultados ante todos los hijos de Israel, evidenciando la elección soberana sobre la casa de Leví.</p>
+            </div>
+        </section>
+
+        <section class="study-section">
+            <h2><span class="roman">III.</span> La Señal de Advertencia</h2>
+            <div class="analysis-card">
+                <p>Jehová instruyó que la vara fuera guardada como una <span class="badge">señal perpetua</span> para los rebeldes. Este objeto no era solo un recordatorio del milagro, sino una advertencia preventiva para proteger la vida del pueblo, evitando que su rebelión provocara un juicio mortal.</p>
+            </div>
+        </section>
+
+        <section class="study-section">
+            <h2><span class="roman">IV.</span> La Reacción y el Temor del Pueblo</h2>
+            <div class="analysis-card">
+                <p>Ante la santidad manifestada, los hijos de Israel reaccionaron con un profundo temor reverente, reconociendo su vulnerabilidad ante la presencia de lo divino. El estudio concluye con su exclamación de angustia:</p>
+                <span class="quote-final">"¿Acabaremos por perecer todos?"</span>
+            </div>
+        </section>
+
+        <section class="study-section">
+            <h2><span class="roman">V.</span> Galería de Apoyo Visual</h2>
+            <div class="analysis-card">
+                <p>Toque cualquier lámina para ampliarla y leer su contenido detalladamente:</p>
+                <div class="image-grid">
+                    <img src="n1701.png" alt="Lámina 1" class="clickable-image">
+                    <img src="n1702.png" alt="Lámina 2" class="clickable-image">
+                    <img src="n1703.png" alt="Lámina 3" class="clickable-image">
+                    <img src="n1704.png" alt="Lámina 4" class="clickable-image">
+                    <img src="n1705.png" alt="Lámina 5" class="clickable-image">
+                    <img src="n1706.png" alt="Lámina 6" class="clickable-image">
+                    <img src="n1707.png" alt="Lámina 7" class="clickable-image">
+                    <img src="n1708.png" alt="Lámina 8" class="clickable-image">
+                    <img src="n1709.png" alt="Lámina 9" class="clickable-image">
+                    <img src="n1710.png" alt="Lámina 10" class="clickable-image">
+                    <img src="n1711.png" alt="Lámina 11" class="clickable-image">
+                    <img src="n1712.png" alt="Lámina 12" class="clickable-image">
+                    <img src="n1713.png" alt="Lámina 13" class="clickable-image">
+                    <img src="n1714.png" alt="Lámina 14" class="clickable-image">
+                    <img src="n1715.png" alt="Lámina 15" class="clickable-image">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>Este estudio se basa estrictamente en las fuentes proporcionadas del texto bíblico.</p>
+        <p class="copyright">Estudios biblicos Jesus el arbol de la vida 2026</p>
+    </footer>
+</div>
+
+<div id="imageOverlay" class="image-overlay" onclick="this.style.display='none'">
+    <img id="overlayImg" src="" alt="Imagen ampliada">
+</div>
+
+<script>
+    document.querySelectorAll('.clickable-image').forEach(img => {
+        img.onclick = function() {
+            document.getElementById('imageOverlay').style.display = 'flex';
+            document.getElementById('overlayImg').src = this.src;
+        }
+    });
+</script>
+
+</body>
+</html>
