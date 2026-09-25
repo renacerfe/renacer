@@ -3,234 +3,244 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Menú principal del sitio de estudio bíblico.">
-  <title>Menú Principal - Renacer | Estudio Bíblico</title>
+  <meta name="theme-color" content="#d4af37">
+  <meta name="description" content="Menú principal de Renacer: estudio bíblico, lectura y juegos educativos.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="site.css">
+  <title>Menú principal | Renacer</title>
 
   <style>
     :root {
-      --bg-main: #f2f8fc;
+      --bg-main: #eaf4fb;
       --bg-soft: #ffffff;
       --gold-main: #d4af37;
       --gold-soft: #f6e6a8;
       --text-main: #1f2933;
       --text-soft: #4b5563;
+      --blue-deep: #244c6b;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       min-height: 100vh;
+      margin: 0;
+      padding: 1.25rem;
+      color: var(--text-main);
       font-family: "Segoe UI", system-ui, sans-serif;
-      background: linear-gradient(180deg, #eaf4fb, #cfe6f6);
-      padding: 24px;
+      background: linear-gradient(180deg, var(--bg-main), #cfe6f6);
     }
 
     .menu-wrapper {
-      max-width: 900px;
+      width: min(100%, 1000px);
       margin: 0 auto;
     }
 
-    .back-btn {
-      display: inline-block;
-      margin-bottom: 32px;
-      padding: 10px 22px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold-main), var(--gold-soft));
-      color: #1f2933;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    .menu-header {
+      margin: 1.5rem auto 2.25rem;
+      text-align: center;
     }
 
-    .menu-header {
-      text-align: center;
-      margin-bottom: 40px;
+    .menu-logo {
+      width: min(145px, 42vw);
+      margin-bottom: 0.75rem;
+      filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.3));
     }
 
     .menu-header h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
+      margin: 0 0 0.5rem;
       color: var(--text-main);
-      margin-bottom: 8px;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.1;
     }
 
     .menu-header p {
+      max-width: 38rem;
+      margin: 0 auto;
       color: var(--text-soft);
       font-size: 1.05rem;
     }
 
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
     }
 
     .menu-card {
+      display: flex;
+      min-height: 13rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.75rem 1.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 1.5rem;
       background: linear-gradient(135deg, var(--bg-soft), #f9fcff);
-      border-radius: 28px;
-      padding: 36px 28px;
+      color: inherit;
       text-align: center;
-      box-shadow: 0 18px 36px rgba(0,0,0,0.12);
-      cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
     .menu-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 28px 48px rgba(0,0,0,0.18);
+      transform: translateY(-5px);
+      border-color: rgba(212, 175, 55, 0.65);
+      box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.16);
+    }
+
+    .menu-card:focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 4px;
     }
 
     .menu-icon {
-      font-size: 3rem;
-      margin-bottom: 18px;
+      margin-bottom: 0.75rem;
+      font-size: 2.75rem;
+      line-height: 1;
     }
 
     .menu-title {
-      font-size: 1.5rem;
-      font-weight: 800;
+      margin-bottom: 0.4rem;
       color: var(--text-main);
-      margin-bottom: 8px;
+      font-size: 1.35rem;
+      font-weight: 800;
     }
 
     .menu-sub {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--gold-main);
-      margin-bottom: 10px;
+      margin-bottom: 0.5rem;
+      color: #9a7511;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
     .menu-desc {
-      font-size: 1rem;
+      max-width: 19rem;
       color: var(--text-soft);
+      font-size: 0.95rem;
       line-height: 1.5;
     }
 
     .menu-footer {
-      text-align: center;
-      margin-top: 48px;
-      font-size: 0.9rem;
+      margin: 2rem 0 0.5rem;
       color: var(--text-soft);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 0.85rem;
+      }
+
+      .menu-header {
+        margin-block: 1rem 1.5rem;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .menu-card {
+        min-height: 10rem;
+        padding: 1.35rem 1rem;
+      }
     }
   </style>
 </head>
 <body>
-
   <div class="menu-wrapper">
-
-    <a href="index.html" class="back-btn">← Volver al inicio</a>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="index.html">← Inicio</a>
+      <a href="reina.html">📖 Biblia</a>
+      <a href="menu-juegos.html">🎮 Juegos</a>
+    </nav>
 
     <header class="menu-header">
-      <h1>Menú Principal</h1>
-      <p>Selecciona el camino que deseas recorrer</p>
+      <img src="logo.svg" alt="Logo de Renacer" class="menu-logo">
+      <h1>Menú principal</h1>
+      <p>Selecciona un camino para estudiar, leer y aprender la Palabra de Dios.</p>
     </header>
 
-    <section class="menu-grid">
+    <main class="menu-grid" aria-label="Secciones del sitio">
+      <a href="menu-clases.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">📘</span>
+        <span class="menu-title">Clases</span>
+        <span class="menu-sub">Estudio bíblico</span>
+        <span class="menu-desc">Enseñanzas claras y progresivas para crecer en la fe.</span>
+      </a>
 
-      <!-- CLASES -->
-      <div class="menu-card" onclick="location.href='menu-clases.html'">
-        <div class="menu-icon">📘</div>
-        <div class="menu-title">Clases</div>
-        <div class="menu-desc">
-          Enseñanzas bíblicas claras, progresivas y
-          adaptadas a todos los niveles.
-        </div>
-      </div>
+      <a href="doctrina.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">📖</span>
+        <span class="menu-title">Cinco Solas</span>
+        <span class="menu-sub">Fundamentos</span>
+        <span class="menu-desc">Una introducción a los principios de la Reforma Protestante.</span>
+      </a>
 
-      <!-- DOCTRINA -->
-      <div class="menu-card" onclick="location.href='doctrina.html'">
-        <div class="menu-icon">📖</div>
-        <div class="menu-title">Cinco Solas</div>
-        <div class="menu-sub">Las Cinco Solas</div>
-        <div class="menu-desc">
-          Fundamentos firmes basados en la
-          Reforma Protestante.
-        </div>
-      </div>
+      <a href="bautismo1.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">🕊️</span>
+        <span class="menu-title">Doctrina</span>
+        <span class="menu-sub">Fundamentos de fe</span>
+        <span class="menu-desc">Material para conocer y afirmar las bases de la vida cristiana.</span>
+      </a>
 
-      <!-- DOCTRINA (General) - NUEVO BOTÓN -->
-      <div class="menu-card" onclick="location.href='bautismo1.html'">
-        <div class="menu-icon">🕊️</div>
-        <div class="menu-title">Doctrina</div>
-        <div class="menu-sub">Fundamentos de Fe</div>
-        <div class="menu-desc">
-          
-        </div>
-      </div>
+      <a href="teologia-menu.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">✝️</span>
+        <span class="menu-title">Teología</span>
+        <span class="menu-sub">Doctrina cristiana</span>
+        <span class="menu-desc">Un recorrido por doctrinas esenciales de la fe.</span>
+      </a>
 
-      <!-- TEOLOGÍA -->
-      <div class="menu-card" onclick="location.href='teologia-menu.html'">
-        <div class="menu-icon">✝️</div>
-        <div class="menu-title">Teología</div>
-        <div class="menu-sub">Doctrina Cristiana</div>
-        <div class="menu-desc">
-          Un análisis profundo de las doctrinas
-          esenciales de la fe.
-        </div>
-      </div>
+      <a href="metodo-estudio.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">📚</span>
+        <span class="menu-title">Método de estudio</span>
+        <span class="menu-sub">Cómo estudiar la Biblia</span>
+        <span class="menu-desc">Un método ordenado para observar, comprender y aplicar el texto bíblico.</span>
+      </a>
 
-      <!-- MÉTODO DE ESTUDIO -->
-      <div class="menu-card" onclick="location.href='metodo-estudio.html'">
-        <div class="menu-icon">📚</div>
-        <div class="menu-title">Método de Estudio</div>
-        <div class="menu-sub">Cómo estudiar la Biblia</div>
-        <div class="menu-desc">
-          Un método claro, bíblico y ordenado
-          para crecer en la Palabra de Dios.
-        </div>
-      </div>
+      <a href="reina.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">📜</span>
+        <span class="menu-title">Biblia</span>
+        <span class="menu-sub">Reina-Valera 1960</span>
+        <span class="menu-desc">Busca libros, capítulos y palabras en la Biblia completa.</span>
+      </a>
 
-      <!-- BIBLIA -->
-      <div class="menu-card" onclick="location.href='reina.html'">
-        <div class="menu-icon">📜</div>
-        <div class="menu-title">Biblia</div>
-        <div class="menu-sub">Reina-Valera 1960</div>
-        <div class="menu-desc">
-          Lectura completa de la Biblia con buscador,
-          capítulos y estudio personal.
-        </div>
-      </div>
+      <a href="historia-menu.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">🌍</span>
+        <span class="menu-title">Explorar la Biblia</span>
+        <span class="menu-sub">Historia y libros</span>
+        <span class="menu-desc">Navega por los libros bíblicos y abre cada uno en el lector.</span>
+      </a>
 
-      <!-- EXPLORANDO LA BIBLIA -->
-      <div class="menu-card" onclick="location.href='historia-menu.html'">
-        <div class="menu-icon">🌍</div>
-        <div class="menu-title">Explorando la Biblia</div>
-        <div class="menu-sub">Historia y Libros</div>
-        <div class="menu-desc">
-          Un recorrido por los libros de la Biblia,
-          su historia y propósito.
-        </div>
-      </div>
+      <a href="menu-juegos.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">🎮</span>
+        <span class="menu-title">Zona de juegos</span>
+        <span class="menu-sub">Aprender jugando</span>
+        <span class="menu-desc">Cuestionarios y juegos educativos para repasar la Biblia.</span>
+      </a>
 
-      <!-- BOLILLERO -->
-      <div class="menu-card" onclick="location.href='bolillero.html'">
-        <div class="menu-icon">🎲</div>
-        <div class="menu-title">Bolillero de Estudio</div>
-        <div class="menu-sub">Repaso interactivo</div>
-        <div class="menu-desc">
-          Pon a prueba tus conocimientos de forma
-          aleatoria y divertida.
-        </div>
-      </div>
+      <a href="bolillero.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">🎲</span>
+        <span class="menu-title">Bolillero de estudio</span>
+        <span class="menu-sub">Repaso interactivo</span>
+        <span class="menu-desc">Selecciona nombres al azar para dinamizar tus clases.</span>
+      </a>
 
-      <!-- SABIAS QUE -->
-      <div class="menu-card" onclick="location.href='sabias-que.html'">
-        <div class="menu-icon">💡</div>
-        <div class="menu-title">¿Sabías que?</div>
-        <div class="menu-sub">Datos Curiosos</div>
-        <div class="menu-desc">
-          Explora datos interesantes y curiosidades 
-          sobre la Biblia y su historia.
-        </div>
-      </div>
-
-    </section>
+      <a href="sabias-que.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">💡</span>
+        <span class="menu-title">¿Sabías que?</span>
+        <span class="menu-sub">Datos curiosos</span>
+        <span class="menu-desc">Descubre datos interesantes sobre la Biblia y su historia.</span>
+      </a>
+    </main>
 
     <footer class="menu-footer">
-      Renacer - Estudio Bíblico<br>
+      Renacer · Estudio bíblico<br>
       Creciendo en la Palabra
     </footer>
-
   </div>
-
 </body>
 </html>

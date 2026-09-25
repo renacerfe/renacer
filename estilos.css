@@ -1,0 +1,59 @@
+/* Hoja base para historia-menu.html */
+@import url("site.css");
+
+:root {
+  --page-bg: #fcfbf8;
+  --page-text: #2c241b;
+  --page-muted: #6b6257;
+  --page-gold: #b48a18;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0 1rem 3rem;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--page-bg);
+  color: var(--page-text);
+}
+
+.container {
+  width: min(100%, 1100px);
+  margin-inline: auto;
+}
+
+.content-area {
+  padding-block: 0.5rem 2rem;
+}
+
+.page-title {
+  margin: 0 0 2.5rem;
+  color: var(--page-text);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  text-align: center;
+}
+
+footer {
+  color: var(--page-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+footer p {
+  margin: 0.25rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding-inline: 0.75rem;
+  }
+
+  .content-area {
+    padding-bottom: 1rem;
+  }
+
+  .testament-title {
+    font-size: 1.45rem !important;
+  }
+}

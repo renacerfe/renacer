@@ -3,133 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juegos Bíblicos - Números 11</title>
+  <meta name="description" content="Cuestionario bíblico de verdadero o falso sobre Números 11.">
+  <link rel="stylesheet" href="site.css">
+  <title>Juego bíblico | Números 11</title>
   <style>
+    :root {
+      --quiz-blue: #1e3c72;
+      --quiz-blue-light: #2a5298;
+      --quiz-text: #243447;
+      --quiz-muted: #52606d;
+    }
+
     body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      color: #fff;
+      margin: 0;
+      padding: 1.25rem;
+      color: var(--quiz-text);
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, var(--quiz-blue) 0%, var(--quiz-blue-light) 100%);
     }
+
+    .quiz-shell {
+      width: min(100%, 650px);
+      margin: 0 auto;
+    }
+
+    .quiz-nav {
+      margin-bottom: 1rem;
+    }
+
+    .quiz-nav a {
+      border-color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
     .container {
-      background: rgba(255,255,255,0.95);
-      color: #333;
-      border-radius: 15px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-      padding: 30px;
-      max-width: 600px;
       width: 100%;
+      padding: clamp(1.25rem, 4vw, 2rem);
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.97);
       text-align: center;
+      box-shadow: 0 0.75rem 2.5rem rgba(0, 0, 0, 0.3);
     }
-    h1 { color: #1e3c72; margin-bottom: 20px; }
-    .question { font-size: 18px; margin-bottom: 20px; }
+
+    h1 {
+      margin: 0 0 1.25rem;
+      color: var(--quiz-blue);
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+    }
+
+    .question {
+      min-height: 4.5rem;
+      margin-bottom: 1.25rem;
+      font-size: clamp(1.05rem, 3vw, 1.2rem);
+      line-height: 1.55;
+    }
+
+    .answer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+    }
+
     .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
+      min-width: 8.5rem;
+      padding: 0.75rem 1.1rem;
+      border: 0;
+      border-radius: 0.5rem;
+      color: #fff;
       cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      transition: all 0.3s;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
-    .btn-true { background: #28a745; color: white; }
-    .btn-false { background: #dc3545; color: white; }
-    .btn-restart { background: #007BFF; color: white; }
-    .btn:hover { opacity: 0.85; }
-    .result { margin-top: 15px; font-weight: bold; }
-    .game-over { display: none; margin-top: 20px; }
+
+    .btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      opacity: 0.88;
+    }
+
+    .btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    .btn-true { background: #218838; }
+    .btn-false { background: #c82333; }
+    .btn-restart { background: #0069d9; }
+
+    .result {
+      min-height: 1.6rem;
+      margin-top: 1rem;
+      font-weight: 700;
+    }
+
+    .result-success { color: #176b35; }
+    .result-error { color: #a61b29; }
+
+    .game-over {
+      margin-top: 1rem;
+    }
+
+    .game-over[hidden],
+    #quiz[hidden] {
+      display: none;
+    }
+
+    .score-list {
+      margin: 1.25rem 0;
+      padding: 0;
+      color: var(--quiz-muted);
+      list-style: none;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 0.75rem;
+      }
+
+      .answer-actions,
+      .answer-actions .btn {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 id="quizTitle">Juegos Bíblicos</h1>
-    <div id="quiz">
-      <div class="question" id="questionText"></div>
-      <button class="btn btn-true" onclick="checkAnswer(true)">Verdadero</button>
-      <button class="btn btn-false" onclick="checkAnswer(false)">Falso</button>
-      <div class="result" id="result"></div>
-    </div>
-    <div class="game-over" id="gameOver">
-      <h2>🌟 ¡Juego Terminado!</h2>
-      <p>✅ Correctas: <span id="correctCount"></span></p>
-      <p>❌ Incorrectas: <span id="incorrectCount"></span></p>
-      <p>Total: <span id="total"></span> preguntas</p>
-      <button class="btn btn-restart" onclick="restartQuiz()">🔄 Volver a jugar</button>
-    </div>
+  <div class="quiz-shell">
+    <nav class="site-nav quiz-nav" aria-label="Navegación del juego">
+      <a href="menu-juegos.html">← Zona de juegos</a>
+      <a href="menu-index.html">Menú principal</a>
+    </nav>
+
+    <main class="container">
+      <h1 id="quizTitle">Cargando juego…</h1>
+      <section id="quiz" aria-live="polite">
+        <p class="question" id="questionText">Cargando pregunta…</p>
+        <div class="answer-actions" aria-label="Respuestas">
+          <button class="btn btn-true" type="button" data-answer="true">Verdadero</button>
+          <button class="btn btn-false" type="button" data-answer="false">Falso</button>
+        </div>
+        <p class="result" id="result" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="game-over" id="gameOver" hidden>
+        <h2>🌟 ¡Juego terminado!</h2>
+        <ul class="score-list">
+          <li>✅ Correctas: <strong id="correctCount">0</strong></li>
+          <li>❌ Incorrectas: <strong id="incorrectCount">0</strong></li>
+          <li>Total: <strong id="total">0</strong> preguntas</li>
+        </ul>
+        <button class="btn btn-restart" id="restartQuiz" type="button">🔄 Volver a jugar</button>
+      </section>
+    </main>
   </div>
 
-  <script>
-    let questions = [];
-    let currentQuestion = 0;
-    let correctCount = 0;
-    let incorrectCount = 0;
-
-    async function loadQuestions() {
-      // Como el JSON está en la misma carpeta que juego.html
-      const response = await fetch("numeros11.json");
-      const data = await response.json();
-
-      // Mostrar título del cuestionario
-      document.getElementById("quizTitle").textContent = data.titulo;
-
-      // Guardar preguntas
-      questions = data.preguntas;
-      loadQuestion();
-    }
-
-    function loadQuestion() {
-      if (currentQuestion >= questions.length) {
-        endGame();
-        return;
-      }
-      document.getElementById("questionText").textContent =
-        questions[currentQuestion].numero + ". " + questions[currentQuestion].pregunta;
-      document.getElementById("result").textContent = "";
-    }
-
-    function checkAnswer(userAnswer) {
-      const correctAnswer = questions[currentQuestion].respuesta;
-      const resultDiv = document.getElementById("result");
-
-      if (userAnswer === correctAnswer) {
-        correctCount++;
-        resultDiv.textContent = "✅ Correcto";
-      } else {
-        incorrectCount++;
-        resultDiv.textContent = "❌ Incorrecto. La respuesta correcta es: " +
-          (correctAnswer ? "Verdadero" : "Falso");
-      }
-
-      setTimeout(() => {
-        currentQuestion++;
-        loadQuestion();
-      }, 1500);
-    }
-
-    function endGame() {
-      document.getElementById("quiz").style.display = "none";
-      document.getElementById("gameOver").style.display = "block";
-      document.getElementById("correctCount").textContent = correctCount;
-      document.getElementById("incorrectCount").textContent = incorrectCount;
-      document.getElementById("total").textContent = questions.length;
-    }
-
-    function restartQuiz() {
-      currentQuestion = 0;
-      correctCount = 0;
-      incorrectCount = 0;
-      document.getElementById("quiz").style.display = "block";
-      document.getElementById("gameOver").style.display = "none";
-      loadQuestion();
-    }
-
-    window.onload = loadQuestions;
-  </script>
+  <script src="quiz.js" defer></script>
 </body>
 </html>
