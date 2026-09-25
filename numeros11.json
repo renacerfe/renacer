@@ -1,0 +1,55 @@
+{
+  "titulo": "Números 11 · Verdadero o falso",
+  "preguntas": [
+    {
+      "numero": 1,
+      "pregunta": "El pueblo se quejó delante de Jehová por sus dificultades.",
+      "respuesta": true
+    },
+    {
+      "numero": 2,
+      "pregunta": "La multitud extranjera que estaba entre el pueblo comenzó a tener un deseo intenso por otra comida.",
+      "respuesta": true
+    },
+    {
+      "numero": 3,
+      "pregunta": "El pueblo pidió más maná porque estaba completamente satisfecho con él.",
+      "respuesta": false
+    },
+    {
+      "numero": 4,
+      "pregunta": "Moisés llevó la carga del pueblo completamente solo y nunca pidió ayuda.",
+      "respuesta": false
+    },
+    {
+      "numero": 5,
+      "pregunta": "Jehová mandó reunir a setenta varones de los ancianos de Israel para ayudar a Moisés.",
+      "respuesta": true
+    },
+    {
+      "numero": 6,
+      "pregunta": "El Espíritu que estaba sobre Moisés fue puesto también sobre los setenta ancianos.",
+      "respuesta": true
+    },
+    {
+      "numero": 7,
+      "pregunta": "Eldad y Medad estaban en la tienda cuando profetizaron.",
+      "respuesta": false
+    },
+    {
+      "numero": 8,
+      "pregunta": "Josué pidió a Moisés que impidiera que Eldad y Medad profetizaran.",
+      "respuesta": true
+    },
+    {
+      "numero": 9,
+      "pregunta": "Jehová envió codornices para que el pueblo tuviera carne.",
+      "respuesta": true
+    },
+    {
+      "numero": 10,
+      "pregunta": "El lugar donde sepultaron al pueblo que tuvo deseo de carne fue llamado Kibrot-hataava.",
+      "respuesta": true
+    }
+  ]
+}

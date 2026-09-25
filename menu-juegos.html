@@ -3,148 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juegos – Zona Kids</title>
+  <meta name="description" content="Juegos bíblicos educativos de Renacer.">
+  <link rel="stylesheet" href="site.css">
+  <title>Zona de juegos | Renacer</title>
 
   <style>
     :root {
-      --bg-main: #f2f8fc;
-      --bg-soft: #ffffff;
-      --gold-main: #d4af37;
-      --gold-soft: #f6e6a8;
-      --text-main: #1f2933;
-      --text-soft: #4b5563;
-      --accent-game: #ff6b6b; /* Un color más vivo para juegos */
+      --game-bg: #fff0f0;
+      --game-card: #ffffff;
+      --game-accent: #e25555;
+      --game-text: #1f2933;
+      --game-muted: #4b5563;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       min-height: 100vh;
+      margin: 0;
+      padding: 1.25rem;
+      color: var(--game-text);
       font-family: "Segoe UI", system-ui, sans-serif;
-      background: linear-gradient(180deg, #fff0f0, #ffe6e6); /* Fondo ligeramente diferente */
-      padding: 24px;
+      background: linear-gradient(180deg, var(--game-bg), #ffe6e6);
     }
 
     .menu-wrapper {
-      max-width: 900px;
+      width: min(100%, 980px);
       margin: 0 auto;
     }
 
-    .back-btn {
-      display: inline-block;
-      margin-bottom: 32px;
-      padding: 10px 22px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold-main), var(--gold-soft));
-      color: #1f2933;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
     .menu-header {
+      margin: 1.5rem auto 2.25rem;
       text-align: center;
-      margin-bottom: 40px;
     }
 
     .menu-header h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--text-main);
-      margin-bottom: 8px;
+      margin: 0 0 0.5rem;
+      font-size: clamp(2rem, 5vw, 2.7rem);
     }
 
     .menu-header p {
-      color: var(--text-soft);
+      margin: 0;
+      color: var(--game-muted);
       font-size: 1.05rem;
     }
 
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
     }
 
     .menu-card {
-      background: linear-gradient(135deg, var(--bg-soft), #fff5f5);
-      border-radius: 28px;
-      padding: 36px 28px;
+      display: flex;
+      min-height: 14rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.75rem 1.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-bottom: 4px solid var(--game-accent);
+      border-radius: 1.5rem;
+      background: linear-gradient(135deg, var(--game-card), #fff8f8);
+      color: inherit;
       text-align: center;
-      box-shadow: 0 18px 36px rgba(0,0,0,0.12);
-      cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      border-bottom: 4px solid var(--accent-game);
+      text-decoration: none;
+      box-shadow: 0 1rem 2rem rgba(117, 40, 40, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .menu-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 28px 48px rgba(0,0,0,0.18);
+      transform: translateY(-5px);
+      box-shadow: 0 1.5rem 2.5rem rgba(117, 40, 40, 0.18);
+    }
+
+    .menu-card:focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 4px;
     }
 
     .menu-icon {
-      font-size: 3rem;
-      margin-bottom: 18px;
+      margin-bottom: 0.75rem;
+      font-size: 2.75rem;
+      line-height: 1;
     }
 
     .menu-title {
-      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 1.35rem;
       font-weight: 800;
-      color: var(--text-main);
-      margin-bottom: 8px;
     }
 
     .menu-sub {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--accent-game);
-      margin-bottom: 10px;
+      margin-bottom: 0.5rem;
+      color: var(--game-accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .menu-desc {
-      font-size: 1rem;
-      color: var(--text-soft);
+      color: var(--game-muted);
+      font-size: 0.95rem;
       line-height: 1.5;
     }
 
     .menu-footer {
-      text-align: center;
-      margin-top: 48px;
+      margin: 2rem 0 0.5rem;
+      color: var(--game-muted);
       font-size: 0.9rem;
-      color: var(--text-soft);
+      text-align: center;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 0.85rem;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .menu-card {
+        min-height: 10rem;
+        padding: 1.35rem 1rem;
+      }
     }
   </style>
 </head>
 <body>
-
   <div class="menu-wrapper">
-
-    <a href="menu-index.html" class="back-btn">← Volver al menú principal</a>
+    <nav class="site-nav" aria-label="Navegación de juegos">
+      <a href="menu-index.html">← Menú principal</a>
+      <a href="index.html">Inicio</a>
+    </nav>
 
     <header class="menu-header">
-      <h1>Zona de Juegos</h1>
-      <p>Selecciona un juego para comenzar la aventura</p>
+      <h1>Zona de juegos</h1>
+      <p>Aprende, repasa y diviértete con actividades bíblicas.</p>
     </header>
 
-    <section class="menu-grid">
+    <main class="menu-grid" aria-label="Juegos disponibles">
+      <a href="index-juego1.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">🧩</span>
+        <span class="menu-title">Valentía</span>
+        <span class="menu-sub">Aventura por capítulos</span>
+        <span class="menu-desc">Arma bloques, suma puntos y descubre mensajes bíblicos.</span>
+      </a>
 
-      <!-- JUEGO 1: TETRIS -->
-      <div class="menu-card" onclick="location.href='index-juego1.html'">
-        <div class="menu-icon">🧩</div>
-        <div class="menu-title">Tetris Valentía</div>
-        <div class="menu-sub">Capítulo 1</div>
-        <div class="menu-desc">
-          Arma bloques, suma puntos y descubre mensajes
-          mientras juegas.
-        </div>
-      </div>
+      <a href="juego.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">✅</span>
+        <span class="menu-title">Números 11</span>
+        <span class="menu-sub">Verdadero o falso</span>
+        <span class="menu-desc">Comprueba cuánto recuerdas del capítulo y recibe tu resultado.</span>
+      </a>
 
-    </section>
+      <a href="bolillero.html" class="menu-card">
+        <span class="menu-icon" aria-hidden="true">🎲</span>
+        <span class="menu-title">Bolillero</span>
+        <span class="menu-sub">Para la clase</span>
+        <span class="menu-desc">Elige nombres al azar y dinamiza el repaso grupal.</span>
+      </a>
+    </main>
 
     <footer class="menu-footer">
-      Estudios Bíblicos – Jesús, el Árbol de la Vida
+      Renacer · Jesús, el Árbol de la Vida
     </footer>
-
   </div>
-
 </body>
 </html>

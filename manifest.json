@@ -1,0 +1,19 @@
+{
+  "name": "Renacer | Estudio Bíblico",
+  "short_name": "Renacer",
+  "description": "Estudio bíblico, lectura de la Biblia y juegos educativos.",
+  "lang": "es",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eaf4fb",
+  "theme_color": "#d4af37",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

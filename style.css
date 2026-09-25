@@ -1,0 +1,3 @@
+/* Compatibilidad con la versión antigua index-juego1.htm.
+   La versión actual usa juego-style.css. */
+@import url("juego-style.css");

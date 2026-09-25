@@ -1,0 +1,179 @@
+/*
+ * Estilos compartidos de Renacer
+ * Reglas pequeñas y seguras para que las páginas funcionen mejor
+ * en teléfonos, tabletas y computadoras.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+img,
+svg,
+video {
+  height: auto;
+}
+
+pre,
+code {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin: 0 auto 1.5rem;
+}
+
+.site-nav a,
+.site-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(180, 138, 24, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #3b2f10;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-back:hover {
+  transform: translateY(-2px);
+  background: #fffaf0;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 720px) {
+  .site-nav {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .site-nav a,
+  .site-back {
+    min-height: 2.6rem;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.92rem;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .book-btn {
+    min-height: 3.25rem;
+    padding: 0.7rem 0.45rem;
+    font-size: 0.92rem;
+  }
+
+  #toolbar {
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  #contenedor {
+    display: block !important;
+    height: auto !important;
+    min-height: calc(100vh - 120px);
+  }
+
+  #libros,
+  #contenido {
+    width: 100% !important;
+  }
+
+  #libros {
+    max-height: 42vh;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #lista-libros {
+    max-height: 27vh;
+    min-height: 7rem;
+  }
+
+  #contenido {
+    min-height: 55vh;
+    overflow: visible !important;
+    padding: 1rem !important;
+  }
+
+  .reader-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
+  }
+
+  .reader-actions button {
+    margin: 0.2rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
