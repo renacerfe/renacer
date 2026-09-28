@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Instalar Atlas Bíblico en el escritorio
+Name[en]=Install Bible Atlas on the desktop
+Comment=Instala la aplicación y crea sus iconos en el escritorio
+Comment[en]=Installs the application and creates its desktop icons
+Exec=sh -c "cd $(dirname %k) && bash INSTALAR-EN-EL-ESCRITORIO.sh"
+Icon=utilities-terminal
+Terminal=true
+Categories=Education;Literature;
+StartupNotify=true

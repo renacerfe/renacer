@@ -1,0 +1,93 @@
+════════════════════════════════════════════════════════════════════════════
+  RENACER · ATLAS BÍBLICO Y BIBLIOTECA
+  Instalación en tu escritorio, en tres pasos
+════════════════════════════════════════════════════════════════════════════
+
+Este paquete contiene la aplicación completa:
+  · 71 mapas bíblicos y planos (con rutas, lugares y referencias)
+  · 1.309 lugares bíblicos con sus citas
+  · 5 diccionarios enciclopédicos completos (19.747 voces)
+  · 5.745 temas con 69.803 referencias
+  · La Biblia Reina-Valera 1960 (31.007 versículos)
+  · 241 grabados de Gustave Doré
+  · 29 artículos de enciclopedia con imágenes
+
+Todo en español y funcionando sin conexión a internet.
+
+
+PASO 1 · Descomprimir
+─────────────────────
+Haz clic derecho sobre el archivo «atlas-biblico.tar.gz» y elige
+«Extraer aquí» (o «Descomprimir»). Se creará una carpeta llamada
+«atlas-biblico».
+
+
+PASO 2 · Instalar (una sola vez)
+────────────────────────────────
+Entra en esa carpeta y haz DOBLE CLIC en el archivo:
+
+        INSTALAR-EN-EL-ESCRITORIO.sh
+
+Si el sistema te pregunta si quieres ejecutarlo o mostrarlo, elige
+«Ejecutar». Se abrirá una ventana de texto un momento y, al terminar,
+la aplicación se abrirá sola en tu navegador.
+
+  ¿No se ejecuta con doble clic? Abre una terminal en esa carpeta y escribe:
+
+        bash INSTALAR-EN-EL-ESCRITORIO.sh
+
+
+PASO 3 · Usarla siempre que quieras
+───────────────────────────────────
+Al terminar la instalación aparecerán TRES iconos en tu escritorio:
+
+        · Atlas Bíblico ......... la aplicación completa
+        · Mapas bíblicos ........ los 71 mapas y planos
+        · Galería de arte ....... los 241 grabados de Gustave Doré
+
+Haz doble clic en cualquiera de ellos y se abrirá en el navegador.
+La primera vez puede pedirte «Permitir lanzar»: acéptalo.
+
+También la tienes:
+  · en el menú de aplicaciones del sistema (sección «Educación»),
+  · y en la terminal, escribiendo:   renacer-atlas abrir
+
+
+QUÉ NECESITA
+────────────
+  · Un Linux con Python 3 (viene instalado en casi todas las distribuciones).
+  · Un navegador: Firefox, Chromium, Google Chrome, Brave, Edge o similar.
+No necesita permisos de administrador ni conexión a internet.
+
+
+CONSEJOS
+────────
+  · Dentro de la aplicación, arriba a la derecha está el buscador: escribe
+    «Éfeso», «diluvio» o «Getsemaní» y busca a la vez en todo el contenido.
+  · En «Mapas» puedes acercar con la rueda del ratón y arrastrar para moverte.
+  · En «Arte», pulsa una lámina para verla a pantalla completa.
+  · Si quieres el tema oscuro o la letra más grande: «Ayuda» → Ajustes.
+  · Las fotografías de lugares y los enlaces a colecciones externas son lo
+    único que necesita internet; todo lo demás funciona sin conexión.
+
+Para detener el servidor que trabaja en segundo plano:
+        python3 compositor.py detener
+
+Para desinstalarla (quita iconos y la copia instalada, no borra tu carpeta):
+        python3 compositor.py desinstalar
+
+
+¿PROBLEMAS?
+───────────
+  · «No se ha encontrado Python 3»
+        Ubuntu/Debian/Mint:  sudo apt install python3
+        Fedora:              sudo dnf install python3
+        Arch:                sudo pacman -S python
+
+  · Se instala pero el doble clic no abre nada
+        Abre una terminal y escribe:   renacer-atlas abrir
+        Si tampoco funciona, cuéntame el mensaje que aparezca.
+
+  · El navegador no se abre solo
+        La aplicación sigue funcionando: abre tu navegador y entra en
+        http://127.0.0.1:8790/index.html

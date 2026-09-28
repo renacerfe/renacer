@@ -1,0 +1,5 @@
+# Archivos que no se versionan
+descargas/           # paquetes ZIP generados con herramientas/empaquetar_zip.py
+__pycache__/
+*.pyc
+*.zip
