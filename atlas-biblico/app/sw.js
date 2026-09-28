@@ -2,7 +2,7 @@
    Guarda en caché todo lo que la aplicación carga desde el propio equipo:
    la interfaz, los mapas, los datos y las ilustraciones.                       */
 
-const CACHE = 'renacer-atlas-v1';
+const CACHE = 'renacer-atlas-v2';
 const ESENCIALES = [
   './',
   'index.html',
@@ -35,6 +35,8 @@ self.addEventListener('fetch', (evento) => {
   const url = new URL(peticion.url);
   // lo que no sea del propio equipo (fotografías y enlaces externos) no se guarda
   if (url.origin !== self.location.origin) return;
+  // el paquete de descarga se sirve directo, sin pasar por la caché
+  if (url.pathname.includes('/descargas/') || url.pathname.endsWith('.zip')) return;
 
   // datos y mapas: primero la copia guardada, para que abran al instante
   const esDato = /\/(datos|mapas|arte)\//.test(url.pathname);

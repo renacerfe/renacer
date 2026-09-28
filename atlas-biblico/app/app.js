@@ -118,6 +118,54 @@ const cargarBibliaLibros = () => cargar('biblia/libros.json');
 const cargarBibliaLibro = (osis) => cargar(`biblia/${osis}.json`);
 const cargarBibliaBusqueda = () => cargar('biblia_busqueda.json').catch(() => []);
 
+/** Ruta del paquete de descarga servido por la aplicación. */
+const PAQUETE = 'descargas/atlas-biblico.zip';
+let PAQUETE_DISPONIBLE = null;
+
+/** Comprueba (una sola vez) si el paquete de descarga está disponible. */
+async function hayPaquete() {
+  if (PAQUETE_DISPONIBLE !== null) return PAQUETE_DISPONIBLE;
+  try {
+    const respuesta = await fetch(PAQUETE, { method: 'HEAD' });
+    const tamano = Number(respuesta.headers.get('content-length') || 0);
+    PAQUETE_DISPONIBLE = respuesta.ok && tamano > 1024 * 1024;
+  } catch (_) {
+    PAQUETE_DISPONIBLE = false;
+  }
+  return PAQUETE_DISPONIBLE;
+}
+
+/** Recuadro con el botón para descargar el paquete completo. */
+function cajaDescarga(titulo, texto) {
+  const direccion = new URL(PAQUETE, location.href).href;
+  const enlace = crear('a', {
+    clase: 'boton primario', href: PAQUETE, download: 'atlas-biblico.zip',
+    style: 'font-size:1.02rem;padding:12px 22px;display:inline-block',
+    texto: '⬇  Descargar el paquete (ZIP, 43 MB)',
+  });
+  const nuevaPestana = crear('a', {
+    clase: 'boton', href: direccion, target: '_blank', rel: 'noopener',
+    style: 'font-size:1.02rem;padding:12px 18px;display:inline-block;margin-left:10px',
+    texto: '↗  Abrir en una pestaña nueva',
+  });
+  const copiable = crear('code', { style: 'display:block;margin-top:6px;padding:8px 10px;'
+    + 'background:var(--papel-3);border-radius:8px;font-size:.86rem;word-break:break-all;user-select:all',
+    texto: direccion });
+  return crear('div', { clase: 'panel', id: 'caja-descarga',
+    style: 'border:2px solid var(--oro);background:linear-gradient(135deg, rgba(185,138,43,.10), transparent 60%);margin-top:22px' }, [
+    crear('h3', { texto: titulo, style: 'margin-bottom:6px' }),
+    crear('p', { texto }),
+    crear('p', {}, [enlace, nuevaPestana]),
+    crear('p', { clase: 'leyenda-mapa', style: 'margin-top:14px',
+      texto: '¿No empieza la descarga? Haz clic derecho sobre el botón y elige «Guardar enlace como…», '
+        + 'o copia esta dirección y pégala en la barra de tu navegador:' }),
+    copiable,
+    crear('div', { clase: 'leyenda-mapa', style: 'margin-top:12px',
+      texto: 'Dentro del ZIP: la aplicación completa con los 71 mapas, los 241 grabados de Doré, '
+        + 'los diccionarios, la Biblia y el instalador para el escritorio.' }),
+  ]);
+}
+
 const NOMBRES_DICCIONARIO = {
   easton: ['Diccionario Bíblico de Easton', 'Matthew George Easton, 1897'],
   smith: ['Diccionario Bíblico de Smith', 'William Smith, 1863'],
@@ -229,6 +277,13 @@ VISTAS.inicio = async () => {
       ]),
     ]),
   ]));
+
+  if (await hayPaquete()) {
+    contenedor.append(cajaDescarga('Llevar la aplicación a tu equipo',
+      'Aquí tienes todo el contenido de esta vista. Descarga el paquete, descomprímelo y haz doble clic '
+      + 'en «INSTALAR-EN-EL-ESCRITORIO.sh»: quedarán tres iconos en tu escritorio (Atlas Bíblico, '
+      + 'Mapas bíblicos y Galería de arte), y funciona sin conexión en tu propio equipo.'));
+  }
 
   const accesos = crear('div', { clase: 'rejilla' });
   const TARJETAS = [
@@ -1280,6 +1335,14 @@ VISTAS.ayuda = async () => {
   }
   ayuda.append(lista);
   contenedor.append(ayuda);
+
+  if (await hayPaquete()) {
+    contenedor.append(cajaDescarga('Descargar la aplicación',
+      'Pulsa el botón para descargar el paquete completo (ZIP de 43 MB). Después, en tu Linux: '
+      + 'clic derecho → «Extraer aquí», entra en la carpeta y haz doble clic en '
+      + '«INSTALAR-EN-EL-ESCRITORIO.sh». La aplicación elegirá tu navegador, creará los tres iconos '
+      + 'del escritorio y quedará también en el menú de aplicaciones.'));
+  }
 
   const panelSistema = crear('div', { clase: 'panel', style: 'margin-top:22px' });
   panelSistema.append(crear('h3', { texto: 'Instalación en tu equipo' }));

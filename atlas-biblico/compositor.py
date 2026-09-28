@@ -224,14 +224,32 @@ def lanzar_navegador(url, perfil=None, esperar=False):
 # Servidor local
 # ---------------------------------------------------------------------------
 class Manejador(http.server.SimpleHTTPRequestHandler):
-    """Sirve la aplicación con los tipos MIME correctos y sin caché."""
+    """Sirve la aplicación con los tipos MIME correctos y sin caché.
+
+    Si hay una carpeta de descargas (junto al programa o en app/descargas), sus
+    archivos se ofrecen también en /descargas/<archivo>, para poder descargar el
+    paquete de la aplicación desde ella misma.
+    """
+
+    descargas = None
+
+    def translate_path(self, ruta):
+        limpia = urllib.parse.urlparse(ruta).path
+        if self.descargas and limpia.startswith("/descargas/"):
+            nombre = Path(urllib.parse.unquote(limpia[len("/descargas/"):])).name
+            if nombre:
+                archivo = Path(self.descargas) / nombre
+                if archivo.is_file():
+                    return str(archivo)
+        return super().translate_path(ruta)
 
     extensiones = {".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8",
                    ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml",
                    ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
                    ".webp": "image/webp", ".css": "text/css; charset=utf-8",
                    ".txt": "text/plain; charset=utf-8", ".md": "text/plain; charset=utf-8",
-                   ".ico": "image/x-icon", ".woff2": "font/woff2"}
+                   ".ico": "image/x-icon", ".woff2": "font/woff2",
+                   ".zip": "application/zip", ".gz": "application/gzip", ".xz": "application/x-xz"}
 
     def guess_type(self, ruta):
         ext = Path(urllib.parse.urlparse(ruta).path).suffix.lower()
@@ -264,9 +282,29 @@ def puerto_libre(preferido):
         return s.getsockname()[1]
 
 
+def carpeta_descargas():
+    """Carpeta desde la que se ofrecen los paquetes de descarga (puede no existir).
+
+    Se busca, en este orden, la carpeta indicada en la variable de entorno
+    RENACER_DESCARGAS, la que está junto a este programa (descargas/) y la de
+    dentro de la aplicación (app/descargas/).
+    """
+    candidatas = [Path(os.environ["RENACER_DESCARGAS"])] if os.environ.get("RENACER_DESCARGAS") else []
+    candidatas += [AQUI / "descargas", APP / "descargas"]
+    for ruta in candidatas:
+        if ruta.is_dir() and any(ruta.glob("*.zip")):
+            return ruta
+    return None
+
+
 def levantar_servidor(puerto, host="127.0.0.1", directorio=None):
     directorio = Path(directorio or ruta_datos())
-    manejador = lambda *a, **k: Manejador(*a, directory=str(directorio), **k)  # noqa: E731
+
+    class ManejadorLocal(Manejador):
+        pass
+
+    ManejadorLocal.descargas = carpeta_descargas()
+    manejador = lambda *a, **k: ManejadorLocal(*a, directory=str(directorio), **k)  # noqa: E731
     servidor = Servidor((host, puerto), manejador)
     hilo = threading.Thread(target=servidor.serve_forever, daemon=True)
     hilo.start()
@@ -666,6 +704,21 @@ def orden_accesos(directorio_destino=DESTINO):
     return 0
 
 
+def orden_paquete():
+    """Genera el paquete ZIP que el usuario descarga y descomprime."""
+    script = AQUI / "herramientas" / "empaquetar_zip.py"
+    if not script.exists():
+        error(f"No se encuentra {script}")
+        return 1
+    resultado = subprocess.call([sys.executable, str(script)])
+    if resultado == 0:
+        print(f"   Envíalo a donde quieras: se puede descargar desde {PAQUETE_URL}")
+    return resultado
+
+
+PAQUETE_URL = "la propia aplicación (pestaña «Ayuda») o el archivo descargas/atlas-biblico.zip"
+
+
 def orden_autoprueba():
     print(color(f"\n  Autoprueba de {NOMBRE} {VERSION}\n", "1"))
     fallos = 0
@@ -796,6 +849,8 @@ def main():
         return orden_desinstalar(args.conservar_datos)
     if orden == "accesos":
         return orden_accesos(args.dir)
+    if orden == "paquete":
+        return orden_paquete()
     if orden == "autoprueba":
         return orden_autoprueba()
     if orden == "version":

@@ -23,16 +23,27 @@ consola.on('jsdomError', (e) => errores.push('jsdomError: ' + (e && e.message)))
 consola.on('error', (...a) => errores.push('console.error: ' + a.map(String).join(' ')));
 consola.on('warn', (...a) => avisos.push('console.warn: ' + a.map(String).join(' ')));
 
-function respuestaLocal(ruta) {
-  const limpio = ruta.replace(/^\.\//, '').split('?')[0];
-  const archivo = path.join(APP, limpio);
-  if (!fs.existsSync(archivo) || fs.statSync(archivo).isDirectory()) {
+function respuestaLocal(ruta, opciones) {
+  const limpio = decodeURIComponent(ruta.replace(/^\.\//, '').split('?')[0]);
+  const metodo = (opciones && opciones.method) || 'GET';
+  // igual que el servidor real: además de la carpeta de la aplicación se mira la
+  // carpeta contigua, que es donde vive el paquete de descarga (descargas/)
+  const candidatos = [path.join(APP, limpio), path.join(APP, '..', limpio)];
+  const archivo = candidatos.find((r) => fs.existsSync(r) && !fs.statSync(r).isDirectory());
+  if (!archivo) {
     return Promise.resolve({ ok: false, status: 404, statusText: 'No encontrado',
+      headers: { get: () => null },
       json: async () => { throw new Error('404 ' + limpio); }, text: async () => '' });
+  }
+  const tamano = fs.statSync(archivo).size;
+  const cabeceras = { get: (n) => (String(n).toLowerCase() === 'content-length' ? String(tamano) : null) };
+  if (metodo === 'HEAD') {
+    return Promise.resolve({ ok: true, status: 200, statusText: 'OK', headers: cabeceras,
+      json: async () => ({}), text: async () => '' });
   }
   const texto = fs.readFileSync(archivo, 'utf8');
   return Promise.resolve({
-    ok: true, status: 200, statusText: 'OK',
+    ok: true, status: 200, statusText: 'OK', headers: cabeceras,
     json: async () => JSON.parse(texto),
     text: async () => texto,
   });
@@ -46,7 +57,7 @@ function respuestaLocal(ruta) {
     virtualConsole: consola,
     url: 'http://localhost:8765/index.html',
     beforeParse(ventana) {
-      ventana.fetch = (url) => respuestaLocal(String(url).replace(/^https?:\/\/[^/]+\//, ''));
+      ventana.fetch = (url, opciones) => respuestaLocal(String(url).replace(/^https?:\/\/[^/]+\//, ''), opciones);
       ventana.requestAnimationFrame = (fn) => setTimeout(fn, 0);
       ventana.HTMLElement.prototype.scrollIntoView = () => {};
       ventana.scrollTo = () => {};
@@ -85,6 +96,22 @@ function respuestaLocal(ruta) {
     console.log(`${estado} ${ruta.padEnd(32)} ${String(longitud).padStart(6)} caracteres  |  ${texto.slice(0, 78)}`);
     if (longitud <= 120) errores.push(`contenido escaso en ${ruta}: «${texto}»`);
     if (/Cargando…$/.test(texto)) errores.push(`no terminó de cargar ${ruta}`);
+  }
+
+  // la caja de descarga del paquete debe aparecer en la portada y en la ayuda
+  ventana.location.hash = '#/inicio';
+  await esperar(900);
+  const cajaInicio = document.querySelector('#caja-descarga');
+  ventana.location.hash = '#/ayuda';
+  await esperar(900);
+  const cajaAyuda = document.querySelector('#caja-descarga');
+  console.log(`     caja de descarga: portada ${cajaInicio ? 'sí' : 'NO'} · ayuda ${cajaAyuda ? 'sí' : 'NO'}`);
+  if (!cajaInicio || !cajaAyuda) {
+    errores.push('no aparece el botón de descarga del paquete');
+  } else {
+    const enlace = cajaInicio.querySelector('a[download]');
+    console.log(`     enlace de descarga: ${enlace ? enlace.getAttribute('href') : 'ausente'}`);
+    if (!enlace) errores.push('la caja de descarga no tiene enlace');
   }
 
   // la enciclopedia y el arte deben traer contenido real

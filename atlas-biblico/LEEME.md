@@ -84,6 +84,20 @@ crea el lanzador `~/.local/bin/renacer-atlas`, los accesos del menú y del escri
 deja el servidor local funcionando en segundo plano para que el navegador abra al
 instante. Con `python3 compositor.py detener` se apaga ese servidor.
 
+### Descargarlo desde la propia aplicación
+
+Cuando la aplicación se sirve con `compositor.py servir` y existe el archivo
+`descargas/atlas-biblico.zip`, la portada y la sección «Ayuda» muestran un recuadro
+dorado con el botón **«⬇ Descargar el paquete (ZIP, 43 MB)»**, otro para abrirlo en
+una pestaña nueva y la dirección copiable por si el navegador bloquea la descarga.
+Para volver a generar ese paquete:
+
+```bash
+python3 compositor.py paquete                 # crea descargas/atlas-biblico.zip
+python3 herramientas/empaquetar_zip.py        # lo mismo, directamente
+python3 compositor.py servir --host=0.0.0.0   # sirve la aplicación y el paquete
+```
+
 ### Órdenes disponibles (para quien prefiera la terminal)
 
 ```bash
@@ -151,6 +165,7 @@ atlas-biblico/
     ├── planos.py              planos del tabernáculo, el templo y Jerusalén
     ├── construir_arte.py      extrae y reduce la galería de Doré
     ├── construir_indices.py   índices ligeros para el buscador
+    ├── empaquetar_zip.py      crea el paquete ZIP descargable
     ├── escribir_enciclopedia.py  redacta la enciclopedia propia
     ├── prueba_interfaz.js     prueba automática de la interfaz (necesita Node y jsdom)
     ├── ampliar_vocabulario.py vocabulario español del índice temático
