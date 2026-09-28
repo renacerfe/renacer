@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro" data-texto="normal">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renacer · Atlas Bíblico y Biblioteca de estudio</title>
+<meta name="description" content="Atlas con todos los mapas bíblicos, lugares, diccionarios enciclopédicos de dominio público, temas, la Biblia Reina-Valera 1960 y galería de arte. Todo en español y sin conexión.">
+<meta name="theme-color" content="#b98a2b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="imagenes/icono.png">
+<link rel="apple-touch-icon" href="imagenes/icono.png">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera">
+  <div class="cabecera-inner">
+    <button class="marca" id="marca" title="Ir al inicio">
+      <img src="imagenes/icono.png" alt="">
+      <span class="marca-texto">
+        <strong>Renacer · Atlas Bíblico</strong>
+        <span>Mapas · Diccionarios · Biblia · Arte</span>
+      </span>
+    </button>
+
+    <nav class="principal" id="nav-principal" aria-label="Secciones"></nav>
+
+    <div class="buscador-cabecera">
+      <input type="search" id="buscador" placeholder="Buscar en toda la biblioteca…" aria-label="Buscar">
+    </div>
+  </div>
+</header>
+
+<main id="contenido" tabindex="-1"></main>
+
+<footer class="pie-pagina">
+  <div class="inner">
+    <div>
+      <strong>Renacer · Atlas Bíblico y Biblioteca</strong>
+      <div id="pie-version">Versión 1.0.0</div>
+      <div id="pie-fecha"></div>
+    </div>
+    <div>
+      <strong>Fuentes de los datos</strong>
+      <div id="pie-fuentes">Cargando…</div>
+    </div>
+    <div>
+      <strong>Licencias</strong>
+      <div>Textos de referencia en dominio público (Easton 1897, Smith 1863, Hastings 1898, Hitchcock 1869, Nave 1896, Torrey 1897, Doré 1866). Datos geográficos de openbible.info (CC BY 4.0) y Natural Earth (dominio público). Biblia Reina-Valera 1960 aportada por el usuario.</div>
+    </div>
+    <div>
+      <strong>Sin conexión</strong>
+      <div>La aplicación funciona por completo sin internet: los mapas, los diccionarios, los temas, la Biblia y las ilustraciones están instalados en tu equipo. Solo las fotografías de lugares y la cartografía histórica se consultan en línea.</div>
+      <div style="margin-top:8px"><a href="#ayuda">Ayuda y ajustes</a> · <a href="#acerca">Acerca de</a> · <a href="#creditos">Créditos</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+{
+ "aplicacion": "Renacer · Atlas Bíblico y Biblioteca",
+ "version": "1.0.0",
+ "construido": "2026-09-28",
+ "lugares": 1309,
+ "lugares_con_foto": 297,
+ "regiones": 68,
+ "temas": 5745,
+ "referencias_tematicas": 69803,
+ "diccionarios": [
+  {
+   "codigo": "easton",
+   "titulo": "Diccionario Bíblico de Easton",
+   "autor": "M. G. Easton",
+   "anio": 1897,
+   "descripcion": "Voz enciclopédica clásica sobre personas, lugares, objetos y doctrinas.",
+   "entradas": 3940,
+   "refs": 25784
+  },
+  {
+   "codigo": "smith",
+   "titulo": "Diccionario Bíblico de Smith",
+   "autor": "William Smith",
+   "anio": 1863,
+   "descripcion": "Diccionario histórico-geográfico con descripciones detalladas de lugares.",
+   "entradas": 4025,
+   "refs": 19943
+  },
+  {
+   "codigo": "hastings",
+   "titulo": "Diccionario de la Biblia de Hastings",
+   "autor": "James Hastings",
+   "anio": 1898,
+   "descripcion": "Artículo extenso de erudición bíblica de finales del siglo XIX.",
+   "entradas": 5030,
+   "refs": 19256
+  },
+  {
+   "codigo": "hitchcock",
+   "titulo": "Nombres Bíblicos de Hitchcock",
+   "autor": "Roswell D. Hitchcock",
+   "anio": 1869,
+   "descripcion": "Significado de los nombres propios hebreos y griegos de la Biblia.",
+   "entradas": 2030,
+   "refs": 0
+  },
+  {
+   "codigo": "schaff",
+   "titulo": "Diccionario de Schaff",
+   "autor": "Philip Schaff",
+   "anio": 1880,
+   "descripcion": "Voces y artículos de la enciclopedia bíblica de Schaff (dominio público).",
+   "entradas": 4722,
+   "refs": 17605
+  }
+ ],
+ "libros_biblia": 64,
+ "versiculos_biblia": 31007,
+ "libros_faltantes": [
+  "Joel",
+  "Obadías"
+ ],
+ "entradas_enciclopedia": 29,
+ "fotos": 290,
+ "obras_arte": 241,
+ "fuentes": [
+  {
+   "nombre": "Bible-Geocoding-Data",
+   "autor": "openbible.info (Stephen Smith)",
+   "licencia": "CC BY 4.0",
+   "url": "https://github.com/openbibleinfo/Bible-Geocoding-Data",
+   "uso": "Lugares, coordenadas, referencias, geometrías y catálogo de fotografías de Wikimedia Commons"
+  },
+  {
+   "nombre": "bible-dictionary-dataset",
+   "autor": "NEUU",
+   "licencia": "CC BY 4.0 (textos de dominio público)",
+   "url": "https://github.com/neuu-org/bible-dictionary-dataset",
+   "uso": "Voces de Easton (1897), Smith (1863), Hastings (1898), Hitchcock (1869) y Schaff"
+  },
+  {
+   "nombre": "bible-topics-dataset",
+   "autor": "NEUU",
+   "licencia": "CC BY 4.0 (textos de dominio público)",
+   "url": "https://github.com/neuu-org/bible-topics-dataset",
+   "uso": "Índice temático de Nave (1896) y Torrey (1897) con sus referencias"
+  },
+  {
+   "nombre": "Biblia Reina-Valera 1960 (JSON del repositorio del usuario)",
+   "autor": "—",
+   "licencia": "Texto aportado por el usuario",
+   "url": "—",
+   "uso": "Lectura de la Biblia y concordancias"
+  },
+  {
+   "nombre": "Natural Earth",
+   "autor": "Natural Earth",
+   "licencia": "Dominio público",
+   "url": "https://www.naturalearthdata.com",
+   "uso": "Costas, ríos, lagos y fronteras modernas para el fondo de los mapas"
+  },
+  {
+   "nombre": "La Grande Bible de Tours (grabados de Gustave Doré, 1866)",
+   "autor": "Gustave Doré",
+   "licencia": "Dominio público",
+   "url": "https://github.com/Nainoia-Inc/AionianBible_GustaveDore_LaGrandeBibledeTours",
+   "uso": "Galería de arte bíblico"
+  }
+ ],
+ "mapas": 71
+}

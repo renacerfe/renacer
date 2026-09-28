@@ -1,0 +1,456 @@
+[
+ {
+  "id": "jerusalen",
+  "titulo": "Jerusalén",
+  "resumen": "La ciudad santa: capital de David, sede del templo y centro de la pasión de Jesús.",
+  "texto": "Jerusalén se levanta sobre una meseta de los montes de Judá, a unos 800 metros sobre el nivel del mar. En la Biblia aparece por primera vez con el nombre de Salem, y más tarde como la fortaleza jebusea que David conquistó y convirtió en capital de Israel.\n\nSalomón edificó allí el templo, y desde entonces la ciudad fue el corazón religioso del pueblo: subían a ella tres veces al año para las fiestas de peregrinación. Fue destruida por Nabucodonosor en el año 586 a. C. y reconstruida tras el destierro; Herodes el Grande la engrandeció con obras como el templo que conocieron Jesús y los apóstoles.\n\nLa ciudad aparece en más de novecientas referencias bíblicas. En ella murió y resucitó Jesús, y en ella nació la primera comunidad cristiana.",
+  "refs": [
+   "2 Samuel 5:6-10",
+   "1 Reyes 6:1-38",
+   "2 Reyes 25:8-10",
+   "Salmo 122:1-9",
+   "Lucas 19:28-44"
+  ],
+  "imagen": "arte/dore-198-jesus-entra-en-jerusalen.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 198 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "el-templo-de-jerusalen",
+  "titulo": "El templo de Jerusalén",
+  "resumen": "La casa de Dios: del templo de Salomón al templo de Herodes.",
+  "texto": "El primer templo lo edificó Salomón en el monte Moriah hacia el año 960 a. C. Constaba del atrio, el lugar santo y el lugar santísimo, donde se guardaba el arca del pacto. Babilonia lo incendió en 586 a. C. y las obras de reconstrucción se hicieron en tiempos de Zorobabel y de Esdras y Nehemías.\n\nHerodes el Grande comenzó hacia el año 20 a. C. una ampliación colosal: plataformas, pórticos, patios y el santuario mismo. Ese es el templo en cuyas puertas predicaron Pedro y Juan, y el que Jesús anunció que sería destruido. Los romanos lo arrasaron en el año 70 d. C.\n\nDel conjunto se conserva hoy el muro occidental, llamado también muro de las Lamentaciones, y el plano que acompaña a esta explicación reconstruye su planta en tiempos de Jesús.",
+  "refs": [
+   "1 Reyes 6:1-38",
+   "Esdras 3:10-13",
+   "Marcos 13:1-2",
+   "Hechos 3:1-10"
+  ],
+  "imagen": "arte/dore-199-los-vendedores-son-expulsados-del-templo.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 199 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "el-tabernaculo-del-desierto",
+  "titulo": "El tabernáculo del desierto",
+  "resumen": "La tienda de reunión, el santuario portátil que acompañó a Israel por el desierto.",
+  "texto": "Mientras el pueblo caminaba cuarenta años por el desierto, no tenía templo: tenía una tienda. Dios dio a Moisés las medidas exactas del tabernáculo, y los artesanos Bezaleel y Aholiab lo construyeron con los materiales que el pueblo ofrendó.\n\nEl tabernáculo se dividía en el atrio, el lugar santo —con el candelabro, la mesa de los panes y el altar del incienso— y el lugar santísimo, separado por un velo, donde estaba el arca del pacto con los querubines. Todo el conjunto se desmontaba y se transportaba sobre carros y varas.\n\nEl Apocalipsis y la carta a los Hebreos leen el tabernáculo como figura de Cristo y de la presencia de Dios en medio de su pueblo.",
+  "refs": [
+   "Éxodo 25:1-9",
+   "Éxodo 40:34-38",
+   "Hebreos 9:1-12",
+   "Apocalipsis 21:3"
+  ],
+  "imagen": "arte/dore-118-la-vision-de-ezequiel-del-valle-de-los-huesos-secos.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 118 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "belen",
+  "titulo": "Belén",
+  "resumen": "Ciudad de David y lugar del nacimiento de Jesús.",
+  "texto": "Belén de Judá, también llamada Efrata, se encuentra a unos diez kilómetros al sur de Jerusalén. En sus campos pastoreaba Rut cuando conoció a Booz, y en ella nació David, el pastor que llegó a ser rey.\n\nEl evangelio de Lucas sitúa allí el nacimiento de Jesús, porque José y María subieron a empadronarse en la ciudad de la familia de David. Los magos de oriente llegaron guiados por una estrella, y Herodes ordenó la matanza de los niños de la comarca.\n\nConstantino mandó edificar sobre la gruta de la natividad la basílica que todavía hoy se conserva.",
+  "refs": [
+   "Rut 4:11-17",
+   "1 Samuel 16:1-13",
+   "Lucas 2:1-20",
+   "Mateo 2:1-18"
+  ],
+  "imagen": "arte/dore-162-el-nacimiento-de-jesus.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 162 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "nazaret-y-galilea",
+  "titulo": "Nazaret y Galilea",
+  "resumen": "La comarca donde Jesús creció y comenzó su ministerio.",
+  "texto": "Galilea es la región montañosa y fértil del norte de Israel, en torno al lago de Genesaret. Nazaret, un pueblo pequeño de la baja Galilea, fue el hogar de José y María y el lugar donde Jesús creció.\n\nEn Cafarnaúm, junto al lago, estuvo su casa durante el ministerio: allí sanó a la suegra de Pedro, llamó a los pescadores y enseñó en la sinagoga. Desde Caná hasta el monte de las Bienaventuranzas, casi todos los episodios de la vida pública suceden en esta comarca.\n\nEl mar de Galilea, de unos veinte kilómetros de largo, aparece en los evangelios con sus tormentas repentinas, sus barcas de pesca y la pesca milagrosa.",
+  "refs": [
+   "Mateo 2:19-23",
+   "Mateo 4:12-25",
+   "Marcos 4:35-41",
+   "Juan 21:1-14"
+  ],
+  "imagen": "arte/dore-174-jesus-predica-junto-al-mar-de-galilea.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 174 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "el-rio-jordan",
+  "titulo": "El río Jordán",
+  "resumen": "La frontera de la tierra prometida y las aguas del bautismo.",
+  "texto": "El Jordán nace al pie del monte Hermón y desciende por el valle del Rift hasta el mar Muerto, en el punto más bajo de la tierra firme. Sus aguas separan la tierra de Canaán de los desiertos del este.\n\nIsrael lo cruzó en seco con Josué, y en sus aguas se bañó Naamán el sirio, que quedó limpio de su lepra. Elías y Eliseo lo atravesaron; Eliseo hizo flotar el hacha de hierro.\n\nJuan el Bautista predicó junto a sus orillas, en Betábara, y allí bautizó a Jesús.",
+  "refs": [
+   "Josué 3:14-17",
+   "2 Reyes 5:1-14",
+   "2 Reyes 2:8-14",
+   "Marcos 1:9-11"
+  ],
+  "imagen": "arte/dore-168-el-bautismo-de-jesus.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 168 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "el-monte-sinai",
+  "titulo": "El monte Sinaí",
+  "resumen": "El monte donde Dios entregó la ley a Moisés.",
+  "texto": "El Sinaí —también llamado Horeb— es la montaña del desierto donde Moisés vio la zarza que ardía sin consumirse y donde el pueblo acampó al salir de Egipto.\n\nAllí, entre truenos y fuego, Dios entregó los diez mandamientos y concertó su pacto con Israel. Moisés subió al monte y permaneció cuarenta días; el pueblo, mientras tanto, fabricó el becerro de oro.\n\nLa tradición identifica el lugar con el monte de Santa Catalina, en la península del Sinaí, donde se levanta un monasterio con la biblioteca más antigua del mundo cristiano.",
+  "refs": [
+   "Éxodo 3:1-12",
+   "Éxodo 19:16-25",
+   "Éxodo 20:1-17",
+   "Deuteronomio 5:1-22"
+  ],
+  "imagen": "arte/dore-039-la-entrega-de-la-ley-en-el-monte-sinai.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 39 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "el-exodo-de-egipto",
+  "titulo": "El éxodo de Egipto",
+  "resumen": "La salida de Israel de la esclavitud y los cuarenta años por el desierto.",
+  "texto": "Después de siglos en Egipto, el pueblo de Israel fue liberado bajo la guía de Moisés. Las diez plagas, la noche de la pascua y el paso del mar Rojo son los hitos de la salida.\n\nEl itinerario tradicional lleva desde Ramesés hasta Succot, el mar Rojo, Mara, el Sinaí y Cades-barnea, en el borde del desierto de Parán. Desde allí los espías entraron en la tierra prometida y volvieron con un racimo gigantesco de uvas.\n\nPor la falta de fe de aquella generación, el pueblo caminó cuarenta años por el desierto hasta que Josué lo condujo a cruzar el Jordán.",
+  "refs": [
+   "Éxodo 12:29-42",
+   "Éxodo 14:21-31",
+   "Números 13:1-33",
+   "Números 14:26-35",
+   "Deuteronomio 8:1-10"
+  ],
+  "imagen": "arte/dore-037-los-egipcios-se-ahogan-en-el-mar.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 37 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "canaan-y-la-tierra-prometida",
+  "titulo": "Canaán y la tierra prometida",
+  "resumen": "La tierra que mana leche y miel, repartida entre las doce tribus.",
+  "texto": "Canaán es la franja de tierra entre el mar Mediterráneo y el desierto, atravesada de norte a sur por el Jordán. Al norte está Galilea, en el centro Samaria, al sur Judea y más allá el Neguev.\n\nJosué dirigió la conquista y el reparto del territorio entre las doce tribus, con las ciudades de refugio y las ciudades levíticas. La agricultura mediterránea —trigo, olivo, vid, higuera y granado— da color a las parábolas de Jesús.\n\nEl mapa físico que acompaña a esta entrada muestra el relieve: el monte Hermón al norte, el valle del Jordán, la llanura costera de Sarón y las alturas de Judá.",
+  "refs": [
+   "Josué 1:1-9",
+   "Josué 15:1-12",
+   "Deuteronomio 8:7-10",
+   "Ezequiel 34:13-14"
+  ],
+  "imagen": "arte/dore-046-los-israelitas-cruzan-el-jordan.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 46 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "jerico",
+  "titulo": "Jericó",
+  "resumen": "La primera ciudad conquistada por Israel y escenario de dos milagros del evangelio.",
+  "texto": "Jericó, en el valle del Jordán, es una de las ciudades habitadas más antiguas del mundo. Sus murallas cayeron ante el pueblo de Israel después de siete días de marcha y de trompetas, y la casa de Rahab la ramera fue salvada.\n\nMilenios después, Jesús pasó por allí: devolvió la vista a Bartimeo y se hospedó en casa de Zaqueo, el cobrador de impuestos.",
+  "refs": [
+   "Josué 6:1-25",
+   "Marcos 10:46-52",
+   "Lucas 19:1-10"
+  ],
+  "imagen": "arte/dore-048-caen-las-murallas-de-jerico.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 48 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "samaria",
+  "titulo": "Samaria",
+  "resumen": "La capital del reino del norte y la región de los samaritanos.",
+  "texto": "Tras el cisma de los diez tribus, Omri compró el monte de Samaria y edificó allí la capital del reino del norte. En sus palacios predicaron Elías, Eliseo y Amós, y junto a sus puertas se produjo el sitio que dejó hambre en la ciudad.\n\nEn tiempos de Jesús, samaritanos y judíos no se trataban; precisamente por eso sus parábolas del buen samaritano y su encuentro con la mujer junto al pozo de Sicar resultan tan llamativos.",
+  "refs": [
+   "1 Reyes 16:23-24",
+   "2 Reyes 6:24-33",
+   "Lucas 10:25-37",
+   "Juan 4:1-42"
+  ],
+  "imagen": "arte/dore-171-jesus-y-la-mujer-samaritana.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 171 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "efeso",
+  "titulo": "Éfeso",
+  "resumen": "La ciudad del templo de Diana y una de las iglesias del Apocalipsis.",
+  "texto": "Éfeso fue la ciudad más importante de Asia Menor: puerto, centro comercial y sede del templo de Artemisa (Diana), una de las siete maravillas del mundo antiguo.\n\nPablo permaneció allí más de dos años y la predicación del evangelio provocó el motín de los plateros, que veían peligrar su negocio de imágenes de la diosa. Allí vivió también la comunidad a la que Juan dirigió su carta primera.\n\nEn el Apocalipsis, Éfeso recibe el primero de los mensajes a las siete iglesias: elogio por su trabajo y su paciencia, y llamada a recuperar el primer amor.",
+  "refs": [
+   "Hechos 19:1-41",
+   "Efesios 1:1-2",
+   "Apocalipsis 2:1-7"
+  ],
+  "imagen": "arte/dore-233-pablo-predica-en-efeso.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 233 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "antioquia-de-siria",
+  "titulo": "Antioquía de Siria",
+  "resumen": "La ciudad donde los discípulos fueron llamados cristianos por primera vez.",
+  "texto": "Antioquía, sobre el río Orontes, era la tercera ciudad del imperio romano después de Roma y Alejandría. Allí se refugiaron algunos discípulos tras la muerte de Esteban y allí nació la primera iglesia formada por judíos y griegos.\n\nDe Antioquía salieron Bernabé y Pablo en sus viajes misioneros, y a ella volvieron para contar lo que Dios había hecho entre los gentiles. La ciudad fue también el lugar donde empezó a utilizarse el nombre de «cristianos».",
+  "refs": [
+   "Hechos 11:19-26",
+   "Hechos 13:1-3",
+   "Hechos 15:1-35"
+  ],
+  "imagen": "arte/dore-229-la-conversion-de-saulo.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 229 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "corinto",
+  "titulo": "Corinto",
+  "resumen": "La ciudad de los dos puertos y las dos cartas de Pablo.",
+  "texto": "Corinto estaba en el istmo que une el Peloponeso con el resto de Grecia, y tenía dos puertos: uno hacia el mar Egeo y otro hacia el Jónico. Su riqueza y su vida comercial hicieron de ella una ciudad famosa y también famosa por su vida licenciosa.\n\nPablo llegó en su segundo viaje misionero y se quedó año y medio, trabajando como tejedor de tiendas junto a Aquila y Priscila. De allí salieron las dos cartas a los corintios, que tratan de la unidad de la iglesia, de la resurrección y del amor.",
+  "refs": [
+   "Hechos 18:1-18",
+   "1 Corintios 13:1-13",
+   "2 Corintios 1:1-11"
+  ],
+  "imagen": "arte/dore-232-pablo-predica-a-los-tesalonicenses.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 232 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "roma",
+  "titulo": "Roma",
+  "resumen": "La capital del imperio donde Pablo anunció el evangelio y murió.",
+  "texto": "Roma era el centro del mundo de entonces: un millón de habitantes, el foro, el circo y las legiones que llevaban el orden romano de un extremo al otro del Mediterráneo.\n\nPablo llegó a ella como prisionero, tras el naufragio narrado en los Hechos, y pudo predicar libremente durante dos años. A la comunidad de Roma dirigió la carta más extensa y sistemática de todas las suyas.\n\nLa tradición sitúa en las afueras de la ciudad, junto a la vía Ostiense, el lugar de su martirio, durante la persecución de Nerón.",
+  "refs": [
+   "Hechos 28:11-31",
+   "Romanos 1:1-17",
+   "2 Timoteo 4:6-8"
+  ],
+  "imagen": "arte/dore-225-los-apostoles-predican-el-evangelio.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 225 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "babilonia",
+  "titulo": "Babilonia",
+  "resumen": "La ciudad del destierro y símbolo del poder contrario a Dios.",
+  "texto": "Babilonia, sobre el Éufrates, fue la capital del imperio de Nabucodonosor. En el año 586 a. C. sus ejércitos tomaron Jerusalén, incendiaron el templo y llevaron al pueblo al destierro.\n\nJunto a los ríos de Babilonia, como canta el salmo 137, los desterrados lloraron recordando Sion. Allí predicaron Ezequiel y Daniel; allí se escribieron buena parte de los salmos y las profecías de la esperanza.\n\nCiro el persa conquistó la ciudad en el año 539 a. C. y permitió el regreso de los judíos a Jerusalén.",
+  "refs": [
+   "2 Reyes 25:1-11",
+   "Salmo 137:1-9",
+   "Daniel 1:1-21",
+   "Esdras 1:1-11"
+  ],
+  "imagen": "arte/dore-127-la-vision-de-isaias-de-la-destruccion-de-babilonia.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 127 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "egipto-y-el-nilo",
+  "titulo": "Egipto y el Nilo",
+  "resumen": "La tierra de la esclavitud y el lugar donde se refugió el niño Jesús.",
+  "texto": "Egipto, regado por el Nilo, era el granero del mundo antiguo. Allí encontró refugio Abraham en tiempos de hambre, y allí fue vendido José, que llegó a ser gobernador del país.\n\nSiglos después, el pueblo de Israel fue esclavizado en las obras de Ramesés y Pitón, hasta que Moisés lo sacó con mano poderosa.\n\nEl evangelio de Mateo cuenta que José, avisado en sueños, huyó con María y el niño a Egipto para escapar de la matanza ordenada por Herodes.",
+  "refs": [
+   "Génesis 41:39-57",
+   "Éxodo 1:8-14",
+   "Mateo 2:13-15"
+  ],
+  "imagen": "arte/dore-030-el-nino-moises-sobre-el-nilo.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 30 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "ninive",
+  "titulo": "Nínive",
+  "resumen": "La capital de Asiria y la ciudad que se arrepintió con Jonás.",
+  "texto": "Nínive estaba a orillas del Tigris y fue la capital del imperio asirio, famoso por su poder y su crueldad. Sus murallas y sus palacios son hoy un yacimiento arqueológico en las cercanías de Mosul.\n\nEl profeta Jonás fue enviado a anunciar su destrucción, y toda la ciudad —desde el rey hasta el ganado— se arrepintió y se vistió de cilicio. Este es uno de los pocos episodios bíblicos en que una ciudad gentil se vuelve a Dios.",
+  "refs": [
+   "Jonás 1:1-2",
+   "Jonás 3:1-10",
+   "Nahúm 1:1-15"
+  ],
+  "imagen": "arte/dore-139-jonas-predica-a-los-ninivitas.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 139 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "patmos-y-las-siete-iglesias",
+  "titulo": "Patmos y las siete iglesias",
+  "resumen": "La isla del destierro de Juan y las siete comunidades del Apocalipsis.",
+  "texto": "Patmos es una isla pequeña y rocosa del mar Egeo, donde la tradición sitúa el destierro del apóstol Juan durante la persecución de Domiciano. Allí escribió el Apocalipsis.\n\nEl libro comienza con siete cartas dirigidas a siete iglesias de Asia Menor: Éfeso, Esmirna, Pérgamo, Tiatira, Sardis, Filadelfia y Laodicea. Cada carta elogia, corrige y promete, y todas terminan con la misma llamada: «el que tiene oído, oiga».\n\nEl mapa de las siete iglesias permite recorrer en orden las ciudades a las que fueron enviadas.",
+  "refs": [
+   "Apocalipsis 1:9-20",
+   "Apocalipsis 2:1-29",
+   "Apocalipsis 3:1-22"
+  ],
+  "imagen": "arte/dore-236-juan-en-patmos.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 236 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "los-viajes-misioneros-de-pablo",
+  "titulo": "Los viajes misioneros de Pablo",
+  "resumen": "Del camino de Damasco a la prisión en Roma: el evangelio cruza el Mediterráneo.",
+  "texto": "Saulo de Tarso perseguía a los cristianos cuando, camino de Damasco, una luz lo derribó y oyó la voz de Jesús. A partir de entonces se llamó Pablo y dedicó su vida a anunciar el evangelio.\n\nLos Hechos describen tres grandes viajes: el primero por Chipre y el sur de Asia Menor; el segundo por Galacia, Macedonia y Grecia, hasta Atenas y Corinto; y el tercero de nuevo por Éfeso, donde se produjo el motín de los plateros.\n\nDetenido en Jerusalén, apeló al César y viajó a Roma como prisionero, tras el naufragio en la isla de Malta. Los mapas de esta sección siguen cada etapa con las escalas que mencionan los Hechos.",
+  "refs": [
+   "Hechos 9:1-19",
+   "Hechos 13:1-14:28",
+   "Hechos 15:36-18:22",
+   "Hechos 18:23-21:17",
+   "Hechos 27:1-28:31"
+  ],
+  "imagen": "arte/dore-235-pablo-naufraga.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 235 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "el-camino-del-calvario",
+  "titulo": "El caminó del Calvario",
+  "resumen": "Las últimas horas de Jesús, desde el huerto hasta el sepulcro.",
+  "texto": "La noche del jueves, después de la última cena, Jesús oró en Getsemaní, al pie del monte de los Olivos, mientras los discípulos dormían. Allí fue arrestado.\n\nEl viernes fue juzgado ante el sanedrín y ante Pilato, azotado y coronado de espinas. Cargó con la cruz por la vía Dolorosa hasta el Gólgota, fuera de las murallas, y fue crucificado entre dos ladrones.\n\nEl sepulcro estaba en un huerto cercano, y el domingo muy temprano las mujeres lo encontraron vacío. El plano de Jerusalén en tiempos de Jesús permite seguir todo el recorrido.",
+  "refs": [
+   "Mateo 26:36-46",
+   "Juan 19:1-22",
+   "Lucas 23:26-49",
+   "Mateo 28:1-10"
+  ],
+  "imagen": "arte/dore-214-la-cruz-es-levantada.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 214 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "el-monte-de-los-olivos-y-getsemani",
+  "titulo": "El monte de los Olivos y Getsemaní",
+  "resumen": "El huerto de la oración, frente a las murallas de Jerusalén.",
+  "texto": "El monte de los Olivos se alza al este de Jerusalén, separado de la ciudad por el valle de Cedrón. Sus laderas estaban cubiertas de olivares y desde su cumbre se contempla todo el recinto del templo.\n\nJesús subía con frecuencia a Betania, en la vertiente oriental, y se reunía con sus discípulos en el huerto de Getsemaní. Desde allí ascendió a los cielos, según los Hechos, y allí volverá, según la profecía de Zacarías.",
+  "refs": [
+   "Zacarías 14:1-4",
+   "Lucas 22:39-46",
+   "Hechos 1:9-12"
+  ],
+  "imagen": "arte/dore-203-jesus-ora-en-el-huerto.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 203 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "ur,-haran-y-el-camino-de-abraham",
+  "titulo": "Ur, Harán y el camino de Abraham",
+  "resumen": "La ruta que siguió Abraham desde Mesopotamia hasta la tierra de Canaán.",
+  "texto": "Abraham salió de Ur de los caldeos, en el sur de Mesopotamia, y se detuvo en Harán, en el norte, antes de entrar en Canaán. Con él iban Sarai, su esposa, y Lot, su sobrino.\n\nEl mapa del viaje sigue la gran curva del Éufrates, la entrada por Siquem, Betel y el Neguev, y el descenso a Egipto durante el hambre. La promesa que lo acompañó fue la de una descendencia tan numerosa como las estrellas.",
+  "refs": [
+   "Génesis 11:31-32",
+   "Génesis 12:1-9",
+   "Hechos 7:2-5"
+  ],
+  "imagen": "arte/dore-011-abraham-va-a-la-tierra-de-canaan.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 11 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "jose-en-egipto",
+  "titulo": "José en Egipto",
+  "resumen": "El hijo de Jacob vendido por sus hermanos llega a ser gobernador de Egipto.",
+  "texto": "José era el hijo predilecto de Jacob, y sus hermanos, celosos, lo vendieron a unos mercaderes que iban a Egipto. Allí sirvió en casa de Potifar, fue encarcelado injustamente y salió de la cárcel al interpretar los sueños del faraón.\n\nSiete años de abundancia y siete de hambre: su administración salvó a Egipto y llevó a su padre y a sus hermanos a establecerse en la tierra de Gosén. El perdón que concede a sus hermanos es una de las páginas más hermosas del Génesis.",
+  "refs": [
+   "Génesis 37:12-36",
+   "Génesis 41:1-57",
+   "Génesis 45:1-15",
+   "Génesis 50:15-21"
+  ],
+  "imagen": "arte/dore-027-jose-interpreta-el-sueno-del-faraon.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 27 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "los-reinos-de-israel-y-juda",
+  "titulo": "Los reinos de Israel y Judá",
+  "resumen": "La división del reino después de Salomón y los profetas que la anunciaron.",
+  "texto": "A la muerte de Salomón, en el año 931 a. C., el reino se partió: al norte, Israel, con capital en Samaria y diez tribus; al sur, Judá, con capital en Jerusalén y las tribus de Judá y Benjamín.\n\nIsrael cayó ante Asiria en 722 a. C. y sus habitantes fueron deportados; Judá resistió hasta 586 a. C., cuando Babilonia destruyó el templo. Los profetas —Amós, Oseas, Isaías, Jeremías, Ezequiel— interpretaron estos acontecimientos como llamadas al arrepentimiento y anuncios de restauración.",
+  "refs": [
+   "1 Reyes 12:1-24",
+   "2 Reyes 17:1-23",
+   "2 Reyes 25:1-21",
+   "Jeremías 31:31-34"
+  ],
+  "imagen": "arte/dore-112-el-ejercito-de-senaquerib-es-destruido.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 112 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "damasco",
+  "titulo": "Damasco",
+  "resumen": "La ciudad más antigua habitada y el escenario de la conversión de Pablo.",
+  "texto": "Damasco, al pie del monte Hermón, es una de las ciudades habitadas más antiguas del mundo. Abraham la persiguió cuando rescató a Lot, y Eliseo fue enviado a ungir a Hazael como rey de Siria en ella.\n\nCamino de Damasco, Saulo de Tarso fue derribado por una luz y oyó la voz de Jesús. Cegado, entró en la ciudad, fue bautizado por Ananías y comenzó a predicar en las sinagogas que Jesús era el Cristo. Desde una ventana de la muralla escapó en un cesto, cuando los judíos querían matarlo.",
+  "refs": [
+   "Génesis 14:14-16",
+   "Hechos 9:1-25",
+   "2 Corintios 11:32-33"
+  ],
+  "imagen": "arte/dore-229-la-conversion-de-saulo.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 229 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "el-mar-muerto-y-el-desierto-de-juda",
+  "titulo": "El mar Muerto y el desierto de Judá",
+  "resumen": "El punto más bajo de la tierra y los refugios de David y de los esenios.",
+  "texto": "El mar Muerto recibe las aguas del Jordán y no tiene salida al mar: la evaporación concentra tal cantidad de sales que ningún pez puede vivir en él. Sus orillas están a unos 430 metros bajo el nivel del mar.\n\nJunto a sus cuevas se refugiaron David y sus hombres cuando huían de Saúl, y allí, en Qumrán, vivió la comunidad que escondió los rollos del mar Muerto, descubiertos en 1947.\n\nLas ciudades de Sodoma y Gomorra, en la llanura que hoy cubre el sur del mar, son el fondo de una de las historias más conocidas del Génesis.",
+  "refs": [
+   "Génesis 19:15-29",
+   "1 Samuel 24:1-22",
+   "Salmo 63:1-11"
+  ],
+  "imagen": "arte/dore-013-lot-huye-mientras-sodoma-y-gomorra-arden.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 13 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "los-imperios-de-daniel",
+  "titulo": "Los imperios de Daniel",
+  "resumen": "Las cuatro bestias, los imperios sucesivos y la esperanza de un reino que no acaba.",
+  "texto": "El libro de Daniel presenta la historia de los imperios mediante sueños y visiones: la estatua de los cuatro metales, las cuatro bestias que salen del mar y el carnero y el macho cabrío.\n\nBabilonia, Media y Persia, Grecia y Roma se suceden en los mapas de esta sección. Daniel sirvió en las cortes de Babilonia y de Persia, y fue librado del foso de los leones.\n\nEn medio de los imperios, la visión del Hijo del hombre que recibe el dominio eterno sostiene la esperanza del pueblo.",
+  "refs": [
+   "Daniel 2:31-45",
+   "Daniel 7:1-14",
+   "Daniel 8:1-27",
+   "Daniel 6:16-24"
+  ],
+  "imagen": "arte/dore-126-la-vision-de-daniel-de-las-cuatro-bestias.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 126 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ },
+ {
+  "id": "el-mundo-del-nuevo-testamento",
+  "titulo": "El mundo del Nuevo Testamento",
+  "resumen": "La tierra de Israel bajo Roma y las rutas del evangelio por el Mediterráneo.",
+  "texto": "En tiempos de Jesús, la tierra de Israel formaba parte del imperio romano: Galilea y Judea eran reinos y provincias bajo la autoridad de Herodes y de los procuradores, y las calzadas romanas recorrían el país.\n\nEl griego era la lengua común del comercio y de la cultura, y el Mediterráneo, «nuestro mar», unía las ciudades donde se establecieron las primeras comunidades cristianas: Antioquía, Éfeso, Corinto, Tesalónica, Filipos y Roma.\n\nLos mapas de esta sección muestran esa red de ciudades y caminos que hizo posibles los viajes de Pablo y la difusión del evangelio.",
+  "refs": [
+   "Lucas 2:1-2",
+   "Hechos 13:1-3",
+   "Romanos 15:23-29"
+  ],
+  "imagen": "arte/dore-012-abraham-y-los-tres-angeles.jpg",
+  "leyenda_imagen": "Grabado de Gustave Doré, lámina 12 (1866, dominio público)",
+  "fuente": "Enciclopedia del Atlas Bíblico (redactada para esta aplicación)",
+  "licencia": "Texto propio, de libre uso; ilustraciones en dominio público"
+ }
+]
